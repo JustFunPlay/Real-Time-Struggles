@@ -31,7 +31,7 @@ public class PlayerCam : MonoBehaviour
     /// <summary>
     /// The minimum and maximum distance from origin;
     /// </summary>
-    Transform cam;
+    Camera cam;
     Vector3 camDir;
     float currentCamDistance;
     float zoomValue;
@@ -40,15 +40,19 @@ public class PlayerCam : MonoBehaviour
     bool holdLeftClick;
     bool holdRightClick;
     Vector2 mouseValue;
+    float holdDuration;
 
     [Header("Player")]
     public Army playerArmy;
+    public UnitBase selectedUnit;
+    public LayerMask selectionLayer;
+    public LayerMask moveLayer;
 
     private void Start()
     {
-        cam = GetComponentInChildren<Camera>().transform;
-        currentCamDistance = Vector3.Distance(transform.position, cam.position);
-        camDir = (cam.position - transform.position).normalized;
+        cam = GetComponentInChildren<Camera>();
+        currentCamDistance = Vector3.Distance(transform.position, cam.transform.position);
+        camDir = (cam.transform.position - transform.position).normalized;
     }
 
     public void RotateCamInput(InputAction.CallbackContext callbackContext)
@@ -64,13 +68,25 @@ public class PlayerCam : MonoBehaviour
         if (!holdRightClick && callbackContext.started)
         {
             holdLeftClick = true;
+            holdDuration = 0;
         }
-        else if (holdLeftClick && callbackContext.canceled && callbackContext.duration >= 0.5f)
+        else if (holdLeftClick && callbackContext.canceled && holdDuration >= 0.2f)
         {
             holdLeftClick = false;
         }
         else if (holdLeftClick && callbackContext.canceled)
         {
+            Ray clickRay = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
+            RaycastHit hit;
+            if (Physics.Raycast(clickRay, out hit, 100f, selectionLayer))
+            {
+                if (hit.collider.GetComponent<UnitBase>()?.army == playerArmy)
+                    selectedUnit = hit.collider.GetComponent<UnitBase>();
+            }
+            else if (selectedUnit?.GetComponent<TroopMovement>() && Physics.Raycast(clickRay, out hit, 100f, moveLayer))
+            {
+                selectedUnit.GetComponent<TroopMovement>().moveToPosition(hit.point);
+            }
             holdLeftClick = false;
         }
     }
@@ -80,13 +96,16 @@ public class PlayerCam : MonoBehaviour
         {
             holdRightClick = true;
             mouseValue = new Vector2();
+            holdDuration = 0;
         }
-        else if (holdRightClick && callbackContext.canceled && callbackContext.duration >=0.5f)
+        else if (holdRightClick && callbackContext.canceled && holdDuration >=0.2f)
         {
             holdRightClick = false;
         }
         else if (holdRightClick && callbackContext.canceled)
         {
+            if (selectedUnit)
+                selectedUnit = null;
             holdRightClick = false;
         }
     }
@@ -101,6 +120,8 @@ public class PlayerCam : MonoBehaviour
         MoveCam();
         ZoomCam();
         transform.Rotate(0, -rotateValue * rotateSpeed * Time.deltaTime, 0);
+        if (holdLeftClick || holdRightClick)
+            holdDuration += Time.deltaTime;
     }
 
     void MoveCam()
@@ -108,7 +129,7 @@ public class PlayerCam : MonoBehaviour
         Vector3 moveDir = new Vector3();
         if (holdRightClick)
         {
-            if (mouseValue.magnitude >= 1)
+            if (holdDuration > 0.2f)
             {
                 moveDir.x = mouseValue.x * mouseMoveSpeed * Time.deltaTime;
                 moveDir.z = mouseValue.y * mouseMoveSpeed * Time.deltaTime;
@@ -148,7 +169,7 @@ public class PlayerCam : MonoBehaviour
     void ZoomCam()
     {
         currentCamDistance = Mathf.Clamp(currentCamDistance += zoomValue * zoomSpeed * Time.deltaTime, zoomBoundary.x, zoomBoundary.y);
-        cam.localPosition = currentCamDistance * camDir;
+        cam.transform.localPosition = currentCamDistance * camDir;
     }
 }
 
