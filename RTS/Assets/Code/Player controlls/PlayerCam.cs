@@ -1,0 +1,160 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class PlayerCam : MonoBehaviour
+{
+    [Header("Camera Movement")]
+    public float edgeMoveSpeed;
+    /// <summary>
+    /// The maximum speed at which the camera moves in units per second while the cursor is near the edge of the window
+    /// </summary>
+    public float mouseMoveSpeed;
+    /// <summary>
+    /// The avarage speed at which the camera moves in units per second while holding the right mouse button
+    /// </summary>
+    public float moveMargin;
+    /// <summary>
+    /// The area of the window in which the camera will move
+    /// </summary>
+    public float rotateSpeed;
+    /// <summary>
+    /// The speed at which the camera rotates in degrees per second
+    /// </summary>
+    public float zoomSpeed;
+    /// <summary>
+    /// The speed at which the camera zooms in or out
+    /// </summary>
+    public Maplimiter camBoundary;
+    public Vector2 zoomBoundary;
+    /// <summary>
+    /// The minimum and maximum distance from origin;
+    /// </summary>
+    Transform cam;
+    Vector3 camDir;
+    float currentCamDistance;
+    float zoomValue;
+    float rotateValue;
+
+    bool holdLeftClick;
+    bool holdRightClick;
+    Vector2 mouseValue;
+
+    [Header("Player")]
+    public Army playerArmy;
+
+    private void Start()
+    {
+        cam = GetComponentInChildren<Camera>().transform;
+        currentCamDistance = Vector3.Distance(transform.position, cam.position);
+        camDir = (cam.position - transform.position).normalized;
+    }
+
+    public void RotateCamInput(InputAction.CallbackContext callbackContext)
+    {
+        rotateValue = callbackContext.ReadValue<float>();
+    }
+    public void ZoomCamInput(InputAction.CallbackContext callbackContext)
+    {
+        zoomValue = callbackContext.ReadValue<float>();
+    }
+    public void LeftClick(InputAction.CallbackContext callbackContext)
+    {
+        if (!holdRightClick && callbackContext.started)
+        {
+            holdLeftClick = true;
+        }
+        else if (holdLeftClick && callbackContext.canceled && callbackContext.duration >= 0.5f)
+        {
+            holdLeftClick = false;
+        }
+        else if (holdLeftClick && callbackContext.canceled)
+        {
+            holdLeftClick = false;
+        }
+    }
+    public void RightClick(InputAction.CallbackContext callbackContext)
+    {
+        if (!holdLeftClick && callbackContext.started)
+        {
+            holdRightClick = true;
+            mouseValue = new Vector2();
+        }
+        else if (holdRightClick && callbackContext.canceled && callbackContext.duration >=0.5f)
+        {
+            holdRightClick = false;
+        }
+        else if (holdRightClick && callbackContext.canceled)
+        {
+            holdRightClick = false;
+        }
+    }
+    public void MoveMouse(InputAction.CallbackContext callbackContext)
+    {
+        if (holdRightClick)
+            mouseValue += callbackContext.ReadValue<Vector2>();
+    }
+
+    private void Update()
+    {
+        MoveCam();
+        ZoomCam();
+        transform.Rotate(0, -rotateValue * rotateSpeed * Time.deltaTime, 0);
+    }
+
+    void MoveCam()
+    {
+        Vector3 moveDir = new Vector3();
+        if (holdRightClick)
+        {
+            if (mouseValue.magnitude >= 1)
+            {
+                moveDir.x = mouseValue.x * mouseMoveSpeed * Time.deltaTime;
+                moveDir.z = mouseValue.y * mouseMoveSpeed * Time.deltaTime;
+            }
+        }
+        else
+        {
+            Vector2 resolution = new Vector2(Screen.currentResolution.width, Screen.currentResolution.height);
+            Vector2 actualMargin = new Vector2(resolution.x * moveMargin, resolution.y * moveMargin);
+            if (Application.isFocused)
+            {
+                if (Mouse.current.position.x.ReadValue() <= actualMargin.x && Mouse.current.position.x.ReadValue() >= 0)
+                {
+                    float perc = 1 - (Mouse.current.position.x.ReadValue() / actualMargin.x);
+                    moveDir.x = -edgeMoveSpeed * Time.deltaTime * perc;
+                }
+                else if (Mouse.current.position.x.ReadValue() >= resolution.x - actualMargin.x && Mouse.current.position.x.ReadValue() <= resolution.x)
+                {
+                    float perc = 1 - ((resolution.x - Mouse.current.position.x.ReadValue()) / actualMargin.x);
+                    moveDir.x = edgeMoveSpeed * Time.deltaTime * perc;
+                }
+                if (Mouse.current.position.y.ReadValue() <= actualMargin.y && Mouse.current.position.y.ReadValue() >= 0)
+                {
+                    float perc = 1 - (Mouse.current.position.y.ReadValue() / actualMargin.y);
+                    moveDir.z = -edgeMoveSpeed * Time.deltaTime * perc;
+                }
+                else if (Mouse.current.position.y.ReadValue() >= resolution.y - actualMargin.y && Mouse.current.position.y.ReadValue() <= resolution.y)
+                {
+                    float perc = 1 - ((resolution.y - Mouse.current.position.y.ReadValue()) / actualMargin.y);
+                    moveDir.z = edgeMoveSpeed * Time.deltaTime * perc;
+                }
+            }
+        }
+        transform.Translate(moveDir);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, camBoundary.xLimit.x, camBoundary.xLimit.y), transform.position.y, Mathf.Clamp(transform.position.z, camBoundary.zLimit.x, camBoundary.zLimit.y));
+    }
+    void ZoomCam()
+    {
+        currentCamDistance = Mathf.Clamp(currentCamDistance += zoomValue * zoomSpeed * Time.deltaTime, zoomBoundary.x, zoomBoundary.y);
+        cam.localPosition = currentCamDistance * camDir;
+    }
+}
+
+[System.Serializable]
+public class Maplimiter
+{
+    public Vector2 xLimit;
+    public Vector2 zLimit;
+}
