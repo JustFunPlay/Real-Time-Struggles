@@ -58,6 +58,96 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "GroupSelect 1",
+                    "type": "Button",
+                    "id": "3bac1fa2-d1dd-4737-b029-44b12c8c3a1c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GroupSelect 2",
+                    "type": "Button",
+                    "id": "2baf4a23-2786-442f-94b2-90bca19a1c58",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GroupSelect 3",
+                    "type": "Button",
+                    "id": "35be85b8-e2cd-4acf-8d42-7a33cb250c87",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GroupSelect 4",
+                    "type": "Button",
+                    "id": "8eaf9500-27cc-4507-bf3d-b19bbcfbd407",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GroupSelect 5",
+                    "type": "Button",
+                    "id": "4c1b65ce-b599-4264-9941-26f8a743c47e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GroupSelect 6",
+                    "type": "Button",
+                    "id": "b085229e-04a6-4688-aa74-7e01f7f16ae2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GroupSelect 7",
+                    "type": "Button",
+                    "id": "279807d6-49d4-4388-a27d-d899b5eb0279",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GroupSelect 8",
+                    "type": "Button",
+                    "id": "ac4b654b-ebf5-4808-adcc-3361fee49688",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GroupSelect 9",
+                    "type": "Button",
+                    "id": "caa4747c-b70c-42be-b77b-575291a5d25b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GroupSelect 0",
+                    "type": "Button",
+                    "id": "d5fd71f2-fcac-4081-9b17-f1f34fa14f69",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -201,6 +291,116 @@
                     "processors": "",
                     "groups": "",
                     "action": "AdditiveSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ad3b6ff4-0b7c-4363-9d7e-5d97b51412c5",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GroupSelect 1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "43cc2db1-9f0e-4180-ab3c-9ca42a636a37",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GroupSelect 2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d90259a-ad54-4ed2-8f35-dc8eeb8c095e",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GroupSelect 3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4a54baf8-f513-4ec0-b74f-20a26f8a3b12",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GroupSelect 4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0e6e37a2-94f9-4f59-b6a0-9352d98b8dba",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GroupSelect 5",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "21ec23ca-af50-4de5-b4ae-58d399bbba84",
+                    "path": "<Keyboard>/6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GroupSelect 6",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de51d1aa-5afd-4878-98cb-8284f83bf4d5",
+                    "path": "<Keyboard>/7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GroupSelect 7",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "71ed8172-5eae-4df6-8289-6aeeb1c3a6f2",
+                    "path": "<Keyboard>/8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GroupSelect 8",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5671d569-b3a5-4992-b96e-37be09ff226f",
+                    "path": "<Keyboard>/9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GroupSelect 9",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5e378e25-8770-4c3a-979d-69b37871e839",
+                    "path": "<Keyboard>/0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GroupSelect 0",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

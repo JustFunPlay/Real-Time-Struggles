@@ -45,9 +45,11 @@ public class PlayerCam : MonoBehaviour
     [Header("Player")]
     public Army playerArmy;
     public List<UnitBase> selectedUnits = new List<UnitBase>();
+    public List<GroupedUnits> groups;
     public LayerMask selectionLayer;
     public LayerMask groundLayer;
 
+    // selection stuff
     Vector3 selectStartPos;
     bool addSelect;
 
@@ -56,6 +58,10 @@ public class PlayerCam : MonoBehaviour
         cam = GetComponentInChildren<Camera>();
         currentCamDistance = Vector3.Distance(transform.position, cam.transform.position);
         camDir = (cam.transform.position - transform.position).normalized;
+        for (int i = 0; i < 10; i++)
+        {
+            groups.Add(new GroupedUnits());
+        }
     }
 
     public void RotateCamInput(InputAction.CallbackContext callbackContext)
@@ -74,15 +80,12 @@ public class PlayerCam : MonoBehaviour
         {
             holdLeftClick = true;
             holdDuration = 0;
-            if (Physics.Raycast(clickRay, out hit, 100f, groundLayer))
-            {
-                selectStartPos = hit.point;
-            }
+            selectStartPos = Mouse.current.position.ReadValue();
         }
         else if (holdLeftClick && callbackContext.canceled && holdDuration >= 0.2f)
         {
             holdLeftClick = false;
-            
+
         }
         else if (holdLeftClick && callbackContext.canceled)
         {
@@ -91,18 +94,23 @@ public class PlayerCam : MonoBehaviour
             {
                 if (hit.collider.GetComponent<UnitBase>()?.army == playerArmy)
                 {
-                    if (addSelect == false)
-                        selectedUnits.Clear();
+                    if (!addSelect)
+                    {
+                        for (int i = selectedUnits.Count -1; i >= 0; i--)
+                        {
+                            selectedUnits[i].OnDeselected(this);
+                        }
+                    }
                     if (!selectedUnits.Contains(hit.collider.GetComponent<UnitBase>()))
-                        selectedUnits.Add(hit.collider.GetComponent<UnitBase>());
+                        hit.collider.GetComponent<UnitBase>().OnSelected(this);
+                    else if (addSelect)
+                        hit.collider.GetComponent<UnitBase>().OnDeselected(this);
                 }
             }
             else if (selectedUnits.Count > 0 && Physics.Raycast(clickRay, out hit, 100f, groundLayer))
             {
                 foreach (TroopMovement troop in selectedUnits)
-                {
                     troop.moveToPosition(hit.point);
-                }
             }
             holdLeftClick = false;
         }
@@ -121,7 +129,10 @@ public class PlayerCam : MonoBehaviour
         }
         else if (holdRightClick && callbackContext.canceled)
         {
-            selectedUnits.Clear();
+            for (int i = selectedUnits.Count - 1; i >= 0; i--)
+            {
+                selectedUnits[i].OnDeselected(this);
+            }
             holdRightClick = false;
         }
     }
@@ -139,9 +150,77 @@ public class PlayerCam : MonoBehaviour
             addSelect = false;
     }
 
+    public void GroupSelect1(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.started)
+            GroupSelection(1);
+    }
+    public void GroupSelect2(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.started)
+            GroupSelection(2);
+    }
+    public void GroupSelect3(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.started)
+            GroupSelection(3);
+    }
+    public void GroupSelect4(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.started)
+            GroupSelection(4);
+    }
+    public void GroupSelect5(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.started)
+            GroupSelection(5);
+    }
+    public void GroupSelect6(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.started)
+            GroupSelection(6);
+    }
+    public void GroupSelect7(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.started)
+            GroupSelection(7);
+    }
+    public void GroupSelect8(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.started)
+            GroupSelection(8);
+    }
+    public void GroupSelect9(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.started)
+            GroupSelection(9);
+    }
+    public void GroupSelect0(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.started)
+            GroupSelection(0);
+    }
+    void GroupSelection(int group)
+    {
+        if (addSelect)
+            groups[group] = new GroupedUnits(selectedUnits);
+        else
+        {
+            for (int i = selectedUnits.Count - 1; i >= 0; i--)
+            {
+                selectedUnits[i].OnDeselected(this);
+            }
+            foreach (TroopMovement troop in groups[group].groupedUnits)
+            {
+                troop.OnSelected(this);
+            }
+        }
+    }
+
     private void Update()
     {
-        MoveCam();
+        if (!holdLeftClick)
+            MoveCam();
         ZoomCam();
         transform.Rotate(0, -rotateValue * rotateSpeed * Time.deltaTime, 0);
         if (holdLeftClick || holdRightClick)
@@ -202,4 +281,21 @@ public class Maplimiter
 {
     public Vector2 xLimit;
     public Vector2 zLimit;
+}
+[System.Serializable]
+public class GroupedUnits
+{
+    public List<UnitBase> groupedUnits;
+    public GroupedUnits(List<UnitBase> newUnits)
+    {
+        foreach (UnitBase unit in newUnits)
+        {
+            groupedUnits.Add(unit);
+        }
+    }
+    public GroupedUnits()
+    {
+        groupedUnits = new List<UnitBase>();
+    }
+
 }
