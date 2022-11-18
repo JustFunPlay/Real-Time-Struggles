@@ -44,9 +44,12 @@ public class PlayerCam : MonoBehaviour
 
     [Header("Player")]
     public Army playerArmy;
-    public UnitBase selectedUnit;
+    public List<UnitBase> selectedUnits = new List<UnitBase>();
     public LayerMask selectionLayer;
-    public LayerMask moveLayer;
+    public LayerMask groundLayer;
+
+    Vector3 selectStartPos;
+    bool addSelect;
 
     private void Start()
     {
@@ -65,27 +68,41 @@ public class PlayerCam : MonoBehaviour
     }
     public void LeftClick(InputAction.CallbackContext callbackContext)
     {
+        Ray clickRay = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
+        RaycastHit hit;
         if (!holdRightClick && callbackContext.started)
         {
             holdLeftClick = true;
             holdDuration = 0;
+            if (Physics.Raycast(clickRay, out hit, 100f, groundLayer))
+            {
+                selectStartPos = hit.point;
+            }
         }
         else if (holdLeftClick && callbackContext.canceled && holdDuration >= 0.2f)
         {
             holdLeftClick = false;
+            
         }
         else if (holdLeftClick && callbackContext.canceled)
         {
-            Ray clickRay = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
-            RaycastHit hit;
+            
             if (Physics.Raycast(clickRay, out hit, 100f, selectionLayer))
             {
                 if (hit.collider.GetComponent<UnitBase>()?.army == playerArmy)
-                    selectedUnit = hit.collider.GetComponent<UnitBase>();
+                {
+                    if (addSelect == false)
+                        selectedUnits.Clear();
+                    if (!selectedUnits.Contains(hit.collider.GetComponent<UnitBase>()))
+                        selectedUnits.Add(hit.collider.GetComponent<UnitBase>());
+                }
             }
-            else if (selectedUnit?.GetComponent<TroopMovement>() && Physics.Raycast(clickRay, out hit, 100f, moveLayer))
+            else if (selectedUnits.Count > 0 && Physics.Raycast(clickRay, out hit, 100f, groundLayer))
             {
-                selectedUnit.GetComponent<TroopMovement>().moveToPosition(hit.point);
+                foreach (TroopMovement troop in selectedUnits)
+                {
+                    troop.moveToPosition(hit.point);
+                }
             }
             holdLeftClick = false;
         }
@@ -104,8 +121,7 @@ public class PlayerCam : MonoBehaviour
         }
         else if (holdRightClick && callbackContext.canceled)
         {
-            if (selectedUnit)
-                selectedUnit = null;
+            selectedUnits.Clear();
             holdRightClick = false;
         }
     }
@@ -113,6 +129,14 @@ public class PlayerCam : MonoBehaviour
     {
         if (holdRightClick)
             mouseValue += callbackContext.ReadValue<Vector2>();
+    }
+
+    public void AdditiveSelect(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.started)
+            addSelect = true;
+        else if (callbackContext.canceled)
+            addSelect = false;
     }
 
     private void Update()
