@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerCam : MonoBehaviour
 {
+    public static PlayerCam instance;
     [Header("Camera Movement")]
     public float edgeMoveSpeed;
     /// <summary>
@@ -43,18 +44,21 @@ public class PlayerCam : MonoBehaviour
     float holdDuration;
 
     [Header("Player")]
-    public Army playerArmy;
+    public static Army playerArmy;
     public List<UnitBase> selectedUnits = new List<UnitBase>();
     public List<GroupedUnits> groups;
     public LayerMask selectionLayer;
     public LayerMask groundLayer;
 
-    // selection stuff
+    [Header("Selection")]
+    public RectTransform multiSelectTransform;
     Vector3 selectStartPos;
     bool addSelect;
+    
 
     private void Start()
     {
+        instance = this;
         cam = GetComponentInChildren<Camera>();
         currentCamDistance = Vector3.Distance(transform.position, cam.transform.position);
         camDir = (cam.transform.position - transform.position).normalized;
@@ -62,6 +66,7 @@ public class PlayerCam : MonoBehaviour
         {
             groups.Add(new GroupedUnits());
         }
+        multiSelectTransform.gameObject.SetActive(false);
     }
 
     public void RotateCamInput(InputAction.CallbackContext callbackContext)
@@ -81,15 +86,31 @@ public class PlayerCam : MonoBehaviour
             holdLeftClick = true;
             holdDuration = 0;
             selectStartPos = Mouse.current.position.ReadValue();
+            multiSelectTransform.gameObject.SetActive(true);
+            multiSelectTransform.anchoredPosition = new Vector3();
+            multiSelectTransform.sizeDelta = new Vector2();
         }
         else if (holdLeftClick && callbackContext.canceled && holdDuration >= 0.2f)
         {
+            multiSelectTransform.gameObject.SetActive(false);
             holdLeftClick = false;
-
+            if (!addSelect)
+            {
+                for (int i = selectedUnits.Count - 1; i >= 0; i--)
+                {
+                    selectedUnits[i].OnDeselected();
+                }
+            }
+            Bounds bounds = GetViewportBounds(selectStartPos, Mouse.current.position.ReadValue());
+            foreach (TroopMovement troop in PlayerTroopManager.instance.playerUnits)
+            {
+                if (bounds.Contains(troop.ToViewportSpace(cam)))
+                    troop.OnSelected();
+            }
         }
         else if (holdLeftClick && callbackContext.canceled)
         {
-            
+            multiSelectTransform.gameObject.SetActive(false);
             if (Physics.Raycast(clickRay, out hit, 100f, selectionLayer))
             {
                 if (hit.collider.GetComponent<UnitBase>()?.army == playerArmy)
@@ -98,19 +119,24 @@ public class PlayerCam : MonoBehaviour
                     {
                         for (int i = selectedUnits.Count -1; i >= 0; i--)
                         {
-                            selectedUnits[i].OnDeselected(this);
+                            selectedUnits[i].OnDeselected();
                         }
                     }
                     if (!selectedUnits.Contains(hit.collider.GetComponent<UnitBase>()))
-                        hit.collider.GetComponent<UnitBase>().OnSelected(this);
+                        hit.collider.GetComponent<UnitBase>().OnSelected();
                     else if (addSelect)
-                        hit.collider.GetComponent<UnitBase>().OnDeselected(this);
+                        hit.collider.GetComponent<UnitBase>().OnDeselected();
                 }
             }
             else if (selectedUnits.Count > 0 && Physics.Raycast(clickRay, out hit, 100f, groundLayer))
             {
-                foreach (TroopMovement troop in selectedUnits)
-                    troop.moveToPosition(hit.point);
+                for (int i = selectedUnits.Count - 1; i >= 0; i--)
+                {
+                    if (selectedUnits[i].GetComponent<TroopMovement>())
+                        selectedUnits[i].GetComponent<TroopMovement>().moveToPosition(hit.point);
+                    else
+                        selectedUnits[i].OnDeselected();
+                }
             }
             holdLeftClick = false;
         }
@@ -131,7 +157,7 @@ public class PlayerCam : MonoBehaviour
         {
             for (int i = selectedUnits.Count - 1; i >= 0; i--)
             {
-                selectedUnits[i].OnDeselected(this);
+                selectedUnits[i].OnDeselected();
             }
             holdRightClick = false;
         }
@@ -208,11 +234,14 @@ public class PlayerCam : MonoBehaviour
         {
             for (int i = selectedUnits.Count - 1; i >= 0; i--)
             {
-                selectedUnits[i].OnDeselected(this);
+                selectedUnits[i].OnDeselected();
             }
-            foreach (TroopMovement troop in groups[group].groupedUnits)
+            for (int t = groups[group].groupedUnits.Count - 1; t >= 0; t--)
             {
-                troop.OnSelected(this);
+                if (groups[group].groupedUnits[t])
+                    groups[group].groupedUnits[t].OnSelected();
+                else
+                    groups[group].groupedUnits.RemoveAt(t);
             }
         }
     }
@@ -221,6 +250,8 @@ public class PlayerCam : MonoBehaviour
     {
         if (!holdLeftClick)
             MoveCam();
+        else
+            MultiSelect();
         ZoomCam();
         transform.Rotate(0, -rotateValue * rotateSpeed * Time.deltaTime, 0);
         if (holdLeftClick || holdRightClick)
@@ -240,7 +271,7 @@ public class PlayerCam : MonoBehaviour
         }
         else
         {
-            Vector2 resolution = new Vector2(Screen.currentResolution.width, Screen.currentResolution.height);
+            Vector2 resolution = new Vector2(Screen.width, Screen.height);
             Vector2 actualMargin = new Vector2(resolution.x * moveMargin, resolution.y * moveMargin);
             if (Application.isFocused)
             {
@@ -274,6 +305,48 @@ public class PlayerCam : MonoBehaviour
         currentCamDistance = Mathf.Clamp(currentCamDistance += zoomValue * zoomSpeed * Time.deltaTime, zoomBoundary.x, zoomBoundary.y);
         cam.transform.localPosition = currentCamDistance * camDir;
     }
+
+    void MultiSelect()
+    {
+        Vector3[] newCanvasRect = RectSelect(selectStartPos, Mouse.current.position.ReadValue());
+        multiSelectTransform.anchoredPosition = newCanvasRect[0];
+        multiSelectTransform.sizeDelta = new Vector2(newCanvasRect[1].x, newCanvasRect[1].y);
+    }
+
+    Bounds GetViewportBounds(Vector3 anchor, Vector3 cursor)
+    {
+        Vector3 anchorViewport = cam.ScreenToViewportPoint(anchor);
+        Vector3 cursorViewport = cam.ScreenToViewportPoint(cursor);
+        Vector3 min = Vector3.Min(anchorViewport, cursorViewport);
+        Vector3 max = Vector3.Max(anchorViewport, cursorViewport);
+
+        min.z = cam.nearClipPlane;
+        max.z = cam.farClipPlane;
+        Bounds bounds = new Bounds();
+        bounds.SetMinMax(min, max);
+        return bounds;
+    }
+
+    Vector3[] RectSelect(Vector3 anchor, Vector3 cursor)
+    {
+        Vector2 scaleMod = new Vector2(Screen.width, Screen.height);
+        scaleMod.x /= 1920;
+        scaleMod.y /= 1080;
+        Vector3[] selectBounds = new Vector3[2];
+
+        Vector3 min = Vector3.Min(anchor, cursor);
+        Vector3 max = Vector3.Max(anchor, cursor);
+
+        min.x /= scaleMod.x;
+        min.y /= scaleMod.y;
+        max.x /= scaleMod.x;
+        max.y /= scaleMod.y;
+
+        selectBounds[0] = (max - min) / 2 + min;
+        selectBounds[1] = (max - min);
+
+        return selectBounds;
+    }
 }
 
 [System.Serializable]
@@ -288,9 +361,10 @@ public class GroupedUnits
     public List<UnitBase> groupedUnits;
     public GroupedUnits(List<UnitBase> newUnits)
     {
-        foreach (UnitBase unit in newUnits)
+        groupedUnits = new List<UnitBase>();
+        for (int i = 0; i < newUnits.Count; i++)
         {
-            groupedUnits.Add(unit);
+            groupedUnits.Add(newUnits[i]);
         }
     }
     public GroupedUnits()

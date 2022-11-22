@@ -10,7 +10,7 @@ public class UnitBase : MonoBehaviour
     bool isSelected;
     public MeshRenderer showSelected;
 
-    private void Start()
+    protected virtual void Start()
     {
         if (army == Army.Blue)
             GetComponent<MeshRenderer>().material.color = Color.blue;
@@ -24,18 +24,48 @@ public class UnitBase : MonoBehaviour
             GetComponent<MeshRenderer>().material.color = Color.red;
         else if (army == Army.Yellow)
             GetComponent<MeshRenderer>().material.color = Color.yellow;
+        currentHP = maxHP;
+
+        if (army == PlayerCam.playerArmy)
+            PlayerTroopManager.instance.playerUnits.Add(this);
     }
 
-    public void OnSelected(PlayerCam cam)
+    public virtual void OnTakeDamage(int damage)
     {
-        cam.selectedUnits.Add(this);
+        currentHP -= damage;
+        if (currentHP <= 0)
+            OnDeath();
+    }
+    protected virtual void OnDeath()
+    {
+        Destroy(gameObject);
+    }
+
+    public virtual void OnHeal(int healAmmount)
+    {
+        currentHP += healAmmount;
+    }
+
+    public void OnSelected()
+    {
+        if (!PlayerCam.instance.selectedUnits.Contains(this))
+            PlayerCam.instance.selectedUnits.Add(this);
         isSelected = true;
         showSelected.material.color = Color.green;
     }
-    public void OnDeselected(PlayerCam cam)
+    public void OnDeselected()
     {
-        cam.selectedUnits.Remove(this);
+        PlayerCam.instance.selectedUnits.Remove(this);
         isSelected = false;
         showSelected.material.color = Color.white;
+    }
+
+    private void OnDestroy()
+    {
+        if (army == PlayerCam.playerArmy)
+        {
+            PlayerTroopManager.instance.playerUnits.Remove(this);
+            OnDeselected();
+        }
     }
 }

@@ -6,8 +6,9 @@ using UnityEngine.AI;
 public class TroopMovement : UnitBase
 {
     NavMeshAgent agent;
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         agent = GetComponent<NavMeshAgent>();
         
     }
@@ -19,5 +20,10 @@ public class TroopMovement : UnitBase
     public void moveToPosition(Vector3 position)
     {
         agent.SetDestination(position);
+    }
+    public Vector3 ToViewportSpace(Camera camera)
+    {
+        Vector3 viewportPoint = camera.WorldToViewportPoint(transform.position);
+        return viewportPoint;
     }
 }
