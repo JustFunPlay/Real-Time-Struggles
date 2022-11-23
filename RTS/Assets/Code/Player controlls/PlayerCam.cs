@@ -102,10 +102,10 @@ public class PlayerCam : MonoBehaviour
                 }
             }
             Bounds bounds = GetViewportBounds(selectStartPos, Mouse.current.position.ReadValue());
-            foreach (TroopMovement troop in PlayerTroopManager.instance.playerUnits)
+            foreach (UnitBase Unit in PlayerTroopManager.instance.playerUnits)
             {
-                if (bounds.Contains(troop.ToViewportSpace(cam)))
-                    troop.OnSelected();
+                if (Unit.GetComponent<TroopMovement>() && bounds.Contains(Unit.GetComponent<TroopMovement>().ToViewportSpace(cam)))
+                    Unit.OnSelected();
             }
         }
         else if (holdLeftClick && callbackContext.canceled)
@@ -115,21 +115,27 @@ public class PlayerCam : MonoBehaviour
             {
                 if (hit.collider.GetComponent<SupplyYard>())
                 {
-                    foreach (SupplyTruck truck in selectedUnits)
+                    foreach (UnitBase unit in selectedUnits)
                     {
-                        truck.assignedYard = hit.collider.GetComponent<SupplyYard>();
-                        truck.MoveToPosition(hit.collider.GetComponent<SupplyYard>().entranceLocation.position);
-                        truck.CheckToAutomate();
+                        if (unit.GetComponent<SupplyTruck>())
+                        {
+                            unit.GetComponent<SupplyTruck>().assignedYard = hit.collider.GetComponent<SupplyYard>();
+                            unit.GetComponent<SupplyTruck>().MoveToPosition(hit.collider.GetComponent<SupplyYard>().entranceLocation.position);
+                            unit.GetComponent<SupplyTruck>().CheckToAutomate();
+                        }
                     }
                 }
                 else if (hit.collider.GetComponent<UnitBase>()?.army == playerArmy)
                 {
                     if (hit.collider.GetComponent<SupplyDepot>() && selectedUnits.Count > 0)
                     {
-                        foreach (SupplyTruck truck in selectedUnits)
+                        foreach (UnitBase unit in selectedUnits)
                         {
-                            truck.assignedDepot = hit.collider.GetComponent<SupplyDepot>();
-                            truck.CheckToAutomate();
+                            if (unit.GetComponent<SupplyTruck>())
+                            {
+                                unit.GetComponent<SupplyTruck>().assignedDepot = hit.collider.GetComponent<SupplyDepot>();
+                                unit.GetComponent<SupplyTruck>().CheckToAutomate();
+                            }
                         }
                     }
                     else

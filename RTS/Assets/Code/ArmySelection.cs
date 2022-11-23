@@ -5,10 +5,6 @@ using UnityEngine;
 public class ArmySelection : MonoBehaviour
 {
     public Army army;
-    private void Start()
-    {
-
-    }
 }
 
 [System.Serializable]

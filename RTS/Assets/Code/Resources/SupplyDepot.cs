@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SupplyDepot : UnitBase
+public class SupplyDepot : Building
 {
     [Header("Resource Aquisition")]
     public float truckFindRadius;
