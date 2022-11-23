@@ -113,19 +113,39 @@ public class PlayerCam : MonoBehaviour
             multiSelectTransform.gameObject.SetActive(false);
             if (Physics.Raycast(clickRay, out hit, 100f, selectionLayer))
             {
-                if (hit.collider.GetComponent<UnitBase>()?.army == playerArmy)
+                if (hit.collider.GetComponent<SupplyYard>())
                 {
-                    if (!addSelect)
+                    foreach (SupplyTruck truck in selectedUnits)
                     {
-                        for (int i = selectedUnits.Count -1; i >= 0; i--)
+                        truck.assignedYard = hit.collider.GetComponent<SupplyYard>();
+                        truck.MoveToPosition(hit.collider.GetComponent<SupplyYard>().entranceLocation.position);
+                        truck.CheckToAutomate();
+                    }
+                }
+                else if (hit.collider.GetComponent<UnitBase>()?.army == playerArmy)
+                {
+                    if (hit.collider.GetComponent<SupplyDepot>() && selectedUnits.Count > 0)
+                    {
+                        foreach (SupplyTruck truck in selectedUnits)
                         {
-                            selectedUnits[i].OnDeselected();
+                            truck.assignedDepot = hit.collider.GetComponent<SupplyDepot>();
+                            truck.CheckToAutomate();
                         }
                     }
-                    if (!selectedUnits.Contains(hit.collider.GetComponent<UnitBase>()))
-                        hit.collider.GetComponent<UnitBase>().OnSelected();
-                    else if (addSelect)
-                        hit.collider.GetComponent<UnitBase>().OnDeselected();
+                    else
+                    {
+                        if (!addSelect)
+                        {
+                            for (int i = selectedUnits.Count - 1; i >= 0; i--)
+                            {
+                                selectedUnits[i].OnDeselected();
+                            }
+                        }
+                        if (!selectedUnits.Contains(hit.collider.GetComponent<UnitBase>()))
+                            hit.collider.GetComponent<UnitBase>().OnSelected();
+                        else if (addSelect)
+                            hit.collider.GetComponent<UnitBase>().OnDeselected();
+                    }
                 }
             }
             else if (selectedUnits.Count > 0 && Physics.Raycast(clickRay, out hit, 100f, groundLayer))
@@ -133,7 +153,7 @@ public class PlayerCam : MonoBehaviour
                 for (int i = selectedUnits.Count - 1; i >= 0; i--)
                 {
                     if (selectedUnits[i].GetComponent<TroopMovement>())
-                        selectedUnits[i].GetComponent<TroopMovement>().moveToPosition(hit.point);
+                        selectedUnits[i].GetComponent<TroopMovement>().MoveToPosition(hit.point);
                     else
                         selectedUnits[i].OnDeselected();
                 }

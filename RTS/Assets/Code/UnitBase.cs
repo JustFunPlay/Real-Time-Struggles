@@ -9,25 +9,31 @@ public class UnitBase : MonoBehaviour
     public Army army;
     bool isSelected;
     public MeshRenderer showSelected;
+    public UnitType type;
+    public int colorMatIndex;
 
     protected virtual void Start()
     {
-        if (army == Army.Blue)
-            GetComponent<MeshRenderer>().material.color = Color.blue;
-        else if (army == Army.Cyan)
-            GetComponent<MeshRenderer>().material.color = Color.cyan;
-        else if (army == Army.Green)
-            GetComponent<MeshRenderer>().material.color = Color.green;
-        else if (army == Army.Magenta)
-            GetComponent<MeshRenderer>().material.color = Color.magenta;
-        else if (army == Army.Red)
-            GetComponent<MeshRenderer>().material.color = Color.red;
-        else if (army == Army.Yellow)
-            GetComponent<MeshRenderer>().material.color = Color.yellow;
+        if (GetComponentInChildren<SkinnedMeshRenderer>())
+        {
+            if (army == Army.Blue)
+                GetComponentInChildren<SkinnedMeshRenderer>().materials[colorMatIndex].color = Color.blue;
+            else if (army == Army.Cyan)
+                GetComponentInChildren<SkinnedMeshRenderer>().materials[colorMatIndex].color = Color.cyan;
+            else if (army == Army.Green)
+                GetComponentInChildren<SkinnedMeshRenderer>().materials[colorMatIndex].color = Color.green;
+            else if (army == Army.Magenta)
+                GetComponentInChildren<SkinnedMeshRenderer>().materials[colorMatIndex].color = Color.magenta;
+            else if (army == Army.Red)
+                GetComponentInChildren<SkinnedMeshRenderer>().materials[colorMatIndex].color = Color.red;
+            else if (army == Army.Yellow)
+                GetComponentInChildren<SkinnedMeshRenderer>().materials[colorMatIndex].color = Color.yellow;
+        }
         currentHP = maxHP;
 
         if (army == PlayerCam.playerArmy)
             PlayerTroopManager.instance.playerUnits.Add(this);
+        PlayerTroopManager.instance.allUnits.Add(this);
     }
 
     public virtual void OnTakeDamage(int damage)
@@ -67,5 +73,15 @@ public class UnitBase : MonoBehaviour
             PlayerTroopManager.instance.playerUnits.Remove(this);
             OnDeselected();
         }
+        PlayerTroopManager.instance.allUnits.Remove(this);
     }
+}
+
+[System.Serializable]
+public enum UnitType
+{
+    HeadQuaters,
+    ResourceTruck,
+    ResourceDepot,
+    Troop
 }

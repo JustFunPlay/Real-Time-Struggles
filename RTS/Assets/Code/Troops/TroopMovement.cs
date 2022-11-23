@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class TroopMovement : UnitBase
 {
     NavMeshAgent agent;
@@ -13,11 +14,11 @@ public class TroopMovement : UnitBase
         
     }
 
-    void Update()
-    {
+    //void Update()
+    //{
         
-    }
-    public void moveToPosition(Vector3 position)
+    //}
+    public void MoveToPosition(Vector3 position)
     {
         agent.SetDestination(position);
     }
