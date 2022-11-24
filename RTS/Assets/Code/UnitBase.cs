@@ -11,23 +11,40 @@ public class UnitBase : MonoBehaviour
     public MeshRenderer showSelected;
     public UnitType type;
     public int colorMatIndex;
+    public MeshRenderer[] renderers;
+    public SkinnedMeshRenderer[] skinnedRenderers;
 
     protected virtual void Start()
     {
-        if (GetComponentInChildren<SkinnedMeshRenderer>())
+        for (int i = 0; i < renderers.Length; i++)
         {
             if (army == Army.Blue)
-                GetComponentInChildren<SkinnedMeshRenderer>().materials[colorMatIndex].color = Color.blue;
+                renderers[i].materials[colorMatIndex].color = Color.blue;
             else if (army == Army.Cyan)
-                GetComponentInChildren<SkinnedMeshRenderer>().materials[colorMatIndex].color = Color.cyan;
+                renderers[i].materials[colorMatIndex].color = Color.cyan;
             else if (army == Army.Green)
-                GetComponentInChildren<SkinnedMeshRenderer>().materials[colorMatIndex].color = Color.green;
+                renderers[i].materials[colorMatIndex].color = Color.green;
             else if (army == Army.Magenta)
-                GetComponentInChildren<SkinnedMeshRenderer>().materials[colorMatIndex].color = Color.magenta;
+                renderers[i].materials[colorMatIndex].color = Color.magenta;
             else if (army == Army.Red)
-                GetComponentInChildren<SkinnedMeshRenderer>().materials[colorMatIndex].color = Color.red;
+                renderers[i].materials[colorMatIndex].color = Color.red;
             else if (army == Army.Yellow)
-                GetComponentInChildren<SkinnedMeshRenderer>().materials[colorMatIndex].color = Color.yellow;
+                renderers[i].materials[colorMatIndex].color = Color.yellow;
+        }
+        for (int i = 0; i < skinnedRenderers.Length; i++)
+        {
+            if (army == Army.Blue)
+                skinnedRenderers[i].materials[colorMatIndex].color = Color.blue;
+            else if (army == Army.Cyan)
+                skinnedRenderers[i].materials[colorMatIndex].color = Color.cyan;
+            else if (army == Army.Green)
+                skinnedRenderers[i].materials[colorMatIndex].color = Color.green;
+            else if (army == Army.Magenta)
+                skinnedRenderers[i].materials[colorMatIndex].color = Color.magenta;
+            else if (army == Army.Red)
+                skinnedRenderers[i].materials[colorMatIndex].color = Color.red;
+            else if (army == Army.Yellow)
+                skinnedRenderers[i].materials[colorMatIndex].color = Color.yellow;
         }
         currentHP = maxHP;
 

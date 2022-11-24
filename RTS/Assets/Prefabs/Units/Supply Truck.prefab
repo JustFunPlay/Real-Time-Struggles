@@ -240,6 +240,9 @@ MonoBehaviour:
   showSelected: {fileID: 0}
   type: 1
   colorMatIndex: 1
+  renderers: []
+  skinnedRenderers:
+  - {fileID: 4911226162328580504}
   assignedYard: {fileID: 0}
   assignedDepot: {fileID: 0}
   heldResources: 0
