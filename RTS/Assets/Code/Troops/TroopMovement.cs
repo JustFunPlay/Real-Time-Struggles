@@ -7,6 +7,9 @@ using UnityEngine.AI;
 public class TroopMovement : UnitBase
 {
     NavMeshAgent agent;
+
+    public TroopMovement leader;
+    public List<TroopMovement> squadMembers;
     protected override void Start()
     {
         base.Start();

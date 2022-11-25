@@ -13,6 +13,10 @@ public class UnitBase : MonoBehaviour
     public int colorMatIndex;
     public MeshRenderer[] renderers;
     public SkinnedMeshRenderer[] skinnedRenderers;
+    public Transform[] targetingPoints;
+    /// <summary>
+    /// corners, halfwaypoints and centre-of-mass for the purpose of targeting distance, [0] is allways centre-of-mass
+    /// </summary>
 
     protected virtual void Start()
     {
@@ -92,13 +96,27 @@ public class UnitBase : MonoBehaviour
         }
         PlayerTroopManager.instance.allUnits.Remove(this);
     }
+
+    public Vector3 GetClosestTargetingPoint(Vector3 origin)
+    {
+        Vector3 closestPos = transform.position;
+        float closestDst = Vector3.Distance(transform.position, origin);
+        foreach (Transform pos in targetingPoints)
+        {
+            if (Vector3.Distance(pos.position, origin) < closestDst)
+                closestPos = pos.position;
+        }
+
+        return closestPos;
+    }
 }
 
 [System.Serializable]
 public enum UnitType
 {
-    HeadQuaters,
+    HeadQuarters,
     ResourceTruck,
     ResourceDepot,
-    Troop
+    Troop,
+    DefenseBuilding
 }

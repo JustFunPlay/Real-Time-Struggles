@@ -28,7 +28,7 @@ public class Missile : MonoBehaviour
         while (Vector3.Distance(targetPos, transform.position) > 1f)
         {
             if (target)
-                targetPos = target.transform.position;
+                targetPos = target.targetingPoints[0].position;
             transform.LookAt(targetPos, Vector3.up);
             rb.MovePosition(transform.position + transform.forward * flySpeed * Time.fixedDeltaTime);
             yield return new WaitForFixedUpdate();
@@ -39,7 +39,7 @@ public class Missile : MonoBehaviour
     {
         foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
         {
-            if (unit.army != army && Vector3.Distance(transform.position, unit.transform.position) <= blastRadius)
+            if (unit.army != army && Vector3.Distance(transform.position, unit.GetClosestTargetingPoint(transform.position)) <= blastRadius)
                 unit.OnTakeDamage(damage);
         }
         Destroy(gameObject);

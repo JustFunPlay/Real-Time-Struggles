@@ -24,13 +24,13 @@ public class MissileArray : Building
     {
         if (!target)
             FindTarget();
-        else
+        else if (canFire)
         {
-            aimAssist.LookAt(target.transform.position, Vector3.up);
+            aimAssist.LookAt(target.targetingPoints[0].position, Vector3.up);
             Vector3 newLookAt = Vector3.Lerp(horizontalTurn.forward, aimAssist.forward, turnSpeed * Time.fixedDeltaTime);
             horizontalTurn.LookAt(horizontalTurn.position + new Vector3(newLookAt.x, 0, newLookAt.z));
             //verticalTurn.rotation = new Quaternion(0, aimAssist.rotation.y, 0, 0);
-            if (canFire && Vector3.Dot(horizontalTurn.forward, target.transform.position - horizontalTurn.position) > 0.9f)
+            if (Vector3.Dot(horizontalTurn.forward, (target.targetingPoints[0].position - horizontalTurn.position).normalized) > 0.95f)
                 StartCoroutine(MissileBurst());
         }
     }
@@ -39,7 +39,7 @@ public class MissileArray : Building
     {
         foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
         {
-            if (unit.army != army && Vector3.Distance(transform.position, unit.transform.position) <= range)
+            if (unit.army != army && Vector3.Distance(aimAssist.position, unit.GetClosestTargetingPoint(transform.position)) <= range)
             {
                 target = unit;
                 break;
@@ -62,5 +62,9 @@ public class MissileArray : Building
     {
         Missile missileToLaunch = Instantiate(missile, launchPoint.position, launchPoint.rotation);
         missileToLaunch.Launch(army, target, damage, splashRadius);
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(aimAssist.position, range);
     }
 }
