@@ -24,13 +24,13 @@ public class MissileArray : Building
     {
         if (!target)
             FindTarget();
-        else if (canFire)
+        else
         {
             aimAssist.LookAt(target.targetingPoints[0].position, Vector3.up);
             Vector3 newLookAt = Vector3.Lerp(horizontalTurn.forward, aimAssist.forward, turnSpeed * Time.fixedDeltaTime);
             horizontalTurn.LookAt(horizontalTurn.position + new Vector3(newLookAt.x, 0, newLookAt.z));
             //verticalTurn.rotation = new Quaternion(0, aimAssist.rotation.y, 0, 0);
-            if (Vector3.Dot(horizontalTurn.forward, (target.targetingPoints[0].position - horizontalTurn.position).normalized) > 0.95f)
+            if (canFire && Vector3.Dot(horizontalTurn.forward, (target.targetingPoints[0].position - horizontalTurn.position).normalized) > 0.95f)
                 StartCoroutine(MissileBurst());
         }
     }

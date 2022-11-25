@@ -228,7 +228,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 3
-  m_BaseOffset: 0
+  m_BaseOffset: -0.6
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &3657626251561247390
@@ -262,6 +262,8 @@ MonoBehaviour:
   - {fileID: 1242326640857532960}
   - {fileID: 2123859136081967012}
   - {fileID: 4387406732549340162}
+  leader: {fileID: 0}
+  squadMembers: []
   assignedYard: {fileID: 0}
   assignedDepot: {fileID: 0}
   heldResources: 0

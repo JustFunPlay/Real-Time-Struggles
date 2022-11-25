@@ -16,18 +16,18 @@ public class Tank : TroopMovement
     public float turretRotSpeed;
 
     UnitBase target;
-    bool canfire = true;
+    bool canFire = true;
 
     private void FixedUpdate()
     {
         if (!target)
             FindTarget();
-        else if (canfire)
+        else
         {
             aimAssist.LookAt(target.targetingPoints[0].position, Vector3.up);
             Vector3 newLookAt = Vector3.Lerp(turretRotate.forward, aimAssist.forward, turretRotSpeed * Time.fixedDeltaTime);
-            transform.LookAt(transform.position + new Vector3(newLookAt.x, 0, newLookAt.z));
-            if (Vector3.Dot(turretRotate.forward, (target.targetingPoints[0].position - turretRotate.position).normalized) > 0.95f)
+            turretRotate.LookAt(turretRotate.position + new Vector3(newLookAt.x, 0, newLookAt.z));
+            if (canFire && Vector3.Dot(turretRotate.forward, (target.targetingPoints[0].position - turretRotate.position).normalized) > 0.99f)
                 StartCoroutine(Fire());
         }
     }
@@ -45,10 +45,10 @@ public class Tank : TroopMovement
 
     IEnumerator Fire()
     {
-        canfire = false;
+        canFire = false;
         TankShell firedShell = Instantiate(shell, FirePoint.position, FirePoint.rotation);
         firedShell.Launch(army, damage);
         yield return new WaitForSeconds(attackSpeed);
-        canfire = true;
+        canFire = true;
     }
 }
