@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class PlayerCam : MonoBehaviour
 {
@@ -54,7 +55,10 @@ public class PlayerCam : MonoBehaviour
     public RectTransform multiSelectTransform;
     Vector3 selectStartPos;
     bool addSelect;
-    
+    bool hoverUI;
+
+    [Header("Interaction")]
+    public GameObject[] contextMenus;
 
     private void Start()
     {
@@ -86,7 +90,6 @@ public class PlayerCam : MonoBehaviour
             holdLeftClick = true;
             holdDuration = 0;
             selectStartPos = Mouse.current.position.ReadValue();
-            multiSelectTransform.gameObject.SetActive(true);
             multiSelectTransform.anchoredPosition = new Vector3();
             multiSelectTransform.sizeDelta = new Vector2();
         }
@@ -107,11 +110,16 @@ public class PlayerCam : MonoBehaviour
                 if (Unit.GetComponent<TroopMovement>() && bounds.Contains(Unit.GetComponent<TroopMovement>().ToViewportSpace(cam)))
                     Unit.OnSelected();
             }
+            SelectCheck();
         }
         else if (holdLeftClick && callbackContext.canceled)
         {
             multiSelectTransform.gameObject.SetActive(false);
-            if (Physics.Raycast(clickRay, out hit, 100f, selectionLayer))
+            if (IsHoveringOverUI())
+            {
+
+            }
+            else if (Physics.Raycast(clickRay, out hit, 100f, selectionLayer))
             {
                 if (hit.collider.GetComponent<SupplyYard>())
                 {
@@ -140,7 +148,7 @@ public class PlayerCam : MonoBehaviour
                     }
                     else
                     {
-                        if (!addSelect)
+                        if (!addSelect || hit.collider.GetComponent<Building>())
                         {
                             for (int i = selectedUnits.Count - 1; i >= 0; i--)
                             {
@@ -165,6 +173,7 @@ public class PlayerCam : MonoBehaviour
                 }
             }
             holdLeftClick = false;
+            SelectCheck();
         }
     }
     public void RightClick(InputAction.CallbackContext callbackContext)
@@ -186,6 +195,7 @@ public class PlayerCam : MonoBehaviour
                 selectedUnits[i].OnDeselected();
             }
             holdRightClick = false;
+            SelectCheck();
         }
     }
     public void MoveMouse(InputAction.CallbackContext callbackContext)
@@ -269,15 +279,35 @@ public class PlayerCam : MonoBehaviour
                 else
                     groups[group].groupedUnits.RemoveAt(t);
             }
+            SelectCheck();
         }
     }
+
+    void SelectCheck()
+    {
+        foreach (GameObject menu in contextMenus)
+        {
+            menu.SetActive(false);
+        }
+        if (selectedUnits.Count > 0)
+        {
+            if (selectedUnits[0].GetComponent<HQBuilding>())
+            {
+                contextMenus[0].SetActive(true);
+            }
+        }
+    }
+
 
     private void Update()
     {
         if (!holdLeftClick)
             MoveCam();
-        else
+        else if (holdDuration >= 0.2f)
+        {
+            multiSelectTransform.gameObject.SetActive(true);
             MultiSelect();
+        }
         ZoomCam();
         transform.Rotate(0, -rotateValue * rotateSpeed * Time.deltaTime, 0);
         if (holdLeftClick || holdRightClick)
@@ -372,6 +402,11 @@ public class PlayerCam : MonoBehaviour
         selectBounds[1] = (max - min);
 
         return selectBounds;
+    }
+
+    bool IsHoveringOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
     }
 }
 

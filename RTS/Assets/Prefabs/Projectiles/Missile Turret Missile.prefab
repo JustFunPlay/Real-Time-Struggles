@@ -128,3 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flySpeed: 50
+  explosionLayer:
+    serializedVersion: 2
+    m_Bits: 64

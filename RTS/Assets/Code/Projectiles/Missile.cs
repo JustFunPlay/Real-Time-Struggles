@@ -12,6 +12,7 @@ public class Missile : MonoBehaviour
     float blastRadius;
     Rigidbody rb;
     public float flySpeed;
+    public LayerMask explosionLayer;
 
     public void Launch(Army army_, UnitBase target_, int damage_, float radius_)
     {
@@ -37,10 +38,21 @@ public class Missile : MonoBehaviour
     }
     void Explode()
     {
-        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+        //foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+        //{
+        //    if (unit.army != army && Vector3.Distance(transform.position, unit.GetClosestTargetingPoint(transform.position)) <= blastRadius)
+        //        unit.OnTakeDamage(damage);
+        //}
+
+        Collider[] colliders = Physics.OverlapSphere(transform.position, blastRadius, explosionLayer);
+        List<UnitBase> units = new List<UnitBase>();
+        foreach (Collider collider in colliders)
         {
-            if (unit.army != army && Vector3.Distance(transform.position, unit.GetClosestTargetingPoint(transform.position)) <= blastRadius)
-                unit.OnTakeDamage(damage);
+            if (collider.GetComponent<UnitBase>() && !units.Contains(collider.GetComponent<UnitBase>()))
+            {
+                units.Add(collider.GetComponent<UnitBase>());
+                collider.GetComponent<UnitBase>().OnTakeDamage(damage);
+            }
         }
         Destroy(gameObject);
     }

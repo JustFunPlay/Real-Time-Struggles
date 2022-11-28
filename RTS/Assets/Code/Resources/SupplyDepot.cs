@@ -11,14 +11,12 @@ public class SupplyDepot : Building
 
     [Header("Navigation")]
     public Transform entranceLocation;
+    public Transform loadPoint;
     public Transform exitLocation;
-    public GameObject entranceGate;
-    public GameObject exitGate;
+    public Animator entranceGate;
+    public Animator exitGate;
 
     SupplyTruck truckInAction;
-
-    [Header("Resources")]
-    public int totalSupplies;
     protected override void Start()
     {
         base.Start();
@@ -37,42 +35,35 @@ public class SupplyDepot : Building
 
     IEnumerator LoadUpTruck()
     {
-        truckInAction.MoveToPosition(transform.position);
-        for (int i = 0; i < 10; i++)
+        truckInAction.MoveToPosition(loadPoint.position);
+        entranceGate.SetTrigger("open");
+        while (Vector3.Distance(truckInAction.transform.position, loadPoint.position) > 5f)
         {
-            entranceGate.transform.Translate(1, 0, 0);
-            yield return new WaitForSeconds(0.075f);
-        }
-        while (Vector3.Distance(truckInAction.transform.position, transform.position) > 5f)
-        {
+            //truckInAction.MoveToPosition(loadPoint.position);
+
             yield return new WaitForSeconds(0.1f);
         }
-        for (int i = 0; i < 10; i++)
-        {
-            entranceGate.transform.Translate(-1, 0, 0);
-            yield return new WaitForSeconds(0.075f);
-        }
-
+        entranceGate.SetTrigger("close");
 
         yield return new WaitForSeconds(collectionDuration);
-        totalSupplies += truckInAction.heldResources;
+        foreach (HQBuilding hq in PlayerTroopManager.instance.HQs)
+        {
+            if (hq.army == army)
+            {
+                hq.supplies += truckInAction.heldResources;
+                break;
+            }
+        }
         truckInAction.heldResources = 0;
 
         truckInAction.MoveToPosition(exitLocation.position);
-        for (int i = 0; i < 10; i++)
-        {
-            exitGate.transform.Translate(1, 0, 0);
-            yield return new WaitForSeconds(0.075f);
-        }
+        exitGate.SetTrigger("open");
         while (Vector3.Distance(truckInAction.transform.position, exitLocation.position) > 5f)
         {
+            truckInAction.MoveToPosition(exitLocation.position);
             yield return new WaitForSeconds(0.1f);
         }
-        for (int i = 0; i < 10; i++)
-        {
-            exitGate.transform.Translate(-1, 0, 0);
-            yield return new WaitForSeconds(0.075f);
-        }
+        exitGate.SetTrigger("close");
         truckInAction.CheckToAutomate();
         truckInAction = null;
         yield return new WaitForSeconds(collectionLockout);

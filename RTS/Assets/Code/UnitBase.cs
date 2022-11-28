@@ -18,8 +18,9 @@ public class UnitBase : MonoBehaviour
     /// corners, halfwaypoints and centre-of-mass for the purpose of targeting distance, [0] is allways centre-of-mass
     /// </summary>
 
-    protected virtual void Start()
+    public void AddedUnit(Army army_)
     {
+        army = army_;
         for (int i = 0; i < renderers.Length; i++)
         {
             if (army == Army.Blue)
@@ -50,10 +51,14 @@ public class UnitBase : MonoBehaviour
             else if (army == Army.Yellow)
                 skinnedRenderers[i].materials[colorMatIndex].color = Color.yellow;
         }
-        currentHP = maxHP;
-
         if (army == PlayerCam.playerArmy)
             PlayerTroopManager.instance.playerUnits.Add(this);
+    }
+    protected virtual void Start()
+    {
+        
+        currentHP = maxHP;
+
         PlayerTroopManager.instance.allUnits.Add(this);
     }
 

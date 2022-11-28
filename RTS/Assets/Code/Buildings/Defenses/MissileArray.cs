@@ -24,6 +24,8 @@ public class MissileArray : Building
     {
         if (!target)
             FindTarget();
+        else if (Vector3.Distance(target.GetClosestTargetingPoint(transform.position), aimAssist.position) > range)
+            target = null;
         else
         {
             aimAssist.LookAt(target.targetingPoints[0].position, Vector3.up);
