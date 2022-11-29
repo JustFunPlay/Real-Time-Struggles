@@ -2,57 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HQBuilding : Building
+public class HQBuilding : Factory
 {
     [Header("Resources")]
     public int supplies;
 
-    [Header("Resource Truck Spawning")]
-    public SupplyTruck truck;
-    public int truckCost;
-    public float truckBuildTime;
-    public Transform buildPoint;
-    public Transform exitPoint;
-
-    public int buildQueue;
-    bool isBuilding;
-
-    protected override void Start()
+    public override void AddedUnit(Army army_)
     {
-        base.Start();
+        base.AddedUnit(army_);
         PlayerTroopManager.instance.HQs.Add(this);
     }
 
-    public void StartBuilding()
+    public static void ChangeSupplies(int supplies, Army army)
     {
-        supplies -= truckCost;
-        if (!isBuilding)
-            StartCoroutine(BuildingNewTruck());
-        else
-            buildQueue++;
-    }
-    public void RemoveBuilding()
-    {
-        if (buildQueue > 0)
-            buildQueue--;
-        else
-            StopCoroutine(BuildingNewTruck());
-        supplies += truckCost;
-    }
-
-    IEnumerator BuildingNewTruck()
-    {
-        isBuilding = true;
-        yield return new WaitForSeconds(truckBuildTime);
-        SupplyTruck newTruck = Instantiate(truck, buildPoint.position, buildPoint.rotation);
-        newTruck.AddedUnit(army);
-        newTruck.MoveToPosition(exitPoint.position);
-        isBuilding = false;
-        if (buildQueue > 0)
+        foreach (HQBuilding hq in PlayerTroopManager.instance.HQs)
         {
-            buildQueue--;
-            StartCoroutine(BuildingNewTruck());
+            if (hq.army == army)
+                hq.supplies += supplies;
         }
-
     }
 }

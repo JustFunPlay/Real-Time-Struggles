@@ -17,9 +17,9 @@ public class SupplyDepot : Building
     public Animator exitGate;
 
     SupplyTruck truckInAction;
-    protected override void Start()
+    public override void AddedUnit(Army army_)
     {
-        base.Start();
+        base.AddedUnit(army_);
         StartCoroutine(CheckForTruck());
     }
     IEnumerator CheckForTruck()

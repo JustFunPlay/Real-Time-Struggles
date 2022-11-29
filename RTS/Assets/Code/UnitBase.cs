@@ -18,7 +18,7 @@ public class UnitBase : MonoBehaviour
     /// corners, halfwaypoints and centre-of-mass for the purpose of targeting distance, [0] is allways centre-of-mass
     /// </summary>
 
-    public void AddedUnit(Army army_)
+    public virtual void AddedUnit(Army army_)
     {
         army = army_;
         for (int i = 0; i < renderers.Length; i++)
@@ -53,12 +53,7 @@ public class UnitBase : MonoBehaviour
         }
         if (army == PlayerCam.playerArmy)
             PlayerTroopManager.instance.playerUnits.Add(this);
-    }
-    protected virtual void Start()
-    {
-        
         currentHP = maxHP;
-
         PlayerTroopManager.instance.allUnits.Add(this);
     }
 

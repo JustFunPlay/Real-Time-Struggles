@@ -10,9 +10,9 @@ public class TroopMovement : UnitBase
 
     public TroopMovement leader;
     public List<TroopMovement> squadMembers;
-    protected override void Start()
+    public override void AddedUnit(Army army_)
     {
-        base.Start();
+        base.AddedUnit(army_);
         agent = GetComponent<NavMeshAgent>();
         
     }
