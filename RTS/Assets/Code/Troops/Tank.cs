@@ -24,10 +24,10 @@ public class Tank : TroopMovement
             FindTarget();
         else
         {
-            aimAssist.LookAt(target.targetingPoints[0].position, Vector3.up);
+            aimAssist.LookAt(target.targetingPoints[0], Vector3.up);
             Vector3 newLookAt = Vector3.Lerp(turretRotate.forward, aimAssist.forward, turretRotSpeed * Time.fixedDeltaTime);
             turretRotate.LookAt(turretRotate.position + new Vector3(newLookAt.x, 0, newLookAt.z));
-            if (canFire && Vector3.Dot(turretRotate.forward, (target.targetingPoints[0].position - turretRotate.position).normalized) > 0.99f)
+            if (canFire && Vector3.Dot(turretRotate.forward, (target.targetingPoints[0] - turretRotate.position).normalized) > 0.99f)
                 StartCoroutine(Fire());
         }
     }

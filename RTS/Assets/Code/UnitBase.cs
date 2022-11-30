@@ -13,7 +13,7 @@ public class UnitBase : MonoBehaviour
     public int colorMatIndex;
     public MeshRenderer[] renderers;
     public SkinnedMeshRenderer[] skinnedRenderers;
-    public Transform[] targetingPoints;
+    public Vector3[] targetingPoints;
     /// <summary>
     /// corners, halfwaypoints and centre-of-mass for the purpose of targeting distance, [0] is allways centre-of-mass
     /// </summary>
@@ -101,10 +101,13 @@ public class UnitBase : MonoBehaviour
     {
         Vector3 closestPos = transform.position;
         float closestDst = Vector3.Distance(transform.position, origin);
-        foreach (Transform pos in targetingPoints)
+        foreach (Vector3 pos in targetingPoints)
         {
-            if (Vector3.Distance(pos.position, origin) < closestDst)
-                closestPos = pos.position;
+            if (Vector3.Distance(transform.position + transform.InverseTransformDirection(pos), origin) < closestDst)
+            {
+                closestPos = transform.position + transform.InverseTransformDirection(pos);
+                closestDst = Vector3.Distance(transform.position + transform.InverseTransformDirection(pos), origin);
+            }
         }
 
         return closestPos;
