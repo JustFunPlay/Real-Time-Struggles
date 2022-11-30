@@ -103,10 +103,10 @@ public class UnitBase : MonoBehaviour
         float closestDst = Vector3.Distance(transform.position, origin);
         foreach (Vector3 pos in targetingPoints)
         {
-            if (Vector3.Distance(transform.position + transform.InverseTransformDirection(pos), origin) < closestDst)
+            if (Vector3.Distance(transform.position + transform.TransformDirection(pos), origin) < closestDst)
             {
-                closestPos = transform.position + transform.InverseTransformDirection(pos);
-                closestDst = Vector3.Distance(transform.position + transform.InverseTransformDirection(pos), origin);
+                closestPos = transform.position + transform.TransformDirection(pos);
+                closestDst = Vector3.Distance(transform.position + transform.TransformDirection(pos), origin);
             }
         }
 
@@ -121,5 +121,6 @@ public enum UnitType
     ResourceTruck,
     ResourceDepot,
     Troop,
-    DefenseBuilding
+    DefenseBuilding,
+    Factory
 }

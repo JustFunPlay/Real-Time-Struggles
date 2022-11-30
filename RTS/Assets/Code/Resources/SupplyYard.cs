@@ -59,6 +59,7 @@ public class SupplyYard : MonoBehaviour
 
         yield return new WaitForSeconds(collectionDuration);
         truckInAction.heldResources = resourcesPerTrip;
+        truckInAction.CheckSupplies();
 
         truckInAction.MoveToPosition(exitLocation.position);
         for (int i = 0; i < 10; i++)

@@ -7,6 +7,7 @@ public class SupplyTruck : TroopMovement
     public SupplyYard assignedYard;
     public SupplyDepot assignedDepot;
     public int heldResources;
+    public GameObject supplyVisualizer;
 
     public void CheckToAutomate()
     {
@@ -22,5 +23,12 @@ public class SupplyTruck : TroopMovement
             }
             Invoke("OnDeselected", 0.1f);
         }
+    }
+    public void CheckSupplies()
+    {
+        if (heldResources > 0)
+            supplyVisualizer.SetActive(true);
+        else
+            supplyVisualizer.SetActive(false);
     }
 }

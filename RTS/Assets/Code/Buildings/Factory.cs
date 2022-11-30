@@ -11,26 +11,17 @@ public class Factory : Building
 
     List<Troop> queue = new List<Troop>();
     bool isBuilding;
-    HQBuilding hq;
     public override void AddedUnit(Army army_)
     {
         base.AddedUnit(army_);
-        foreach (HQBuilding hq_ in PlayerTroopManager.instance.HQs)
-        {
-            if (hq_.army == army)
-            {
-                hq = hq_;
-                break;
-            }
-        }
     }
 
 
     public void BuildNewTroop(int troopIndex)
     {
-        if (hq.supplies >= troops[troopIndex].cost)
+        if (HQBuilding.GetSupplies(troops[troopIndex].cost, army))
         {
-            HQBuilding.ChangeSupplies(troops[troopIndex].cost, army);
+            HQBuilding.ChangeSupplies(-troops[troopIndex].cost, army);
             if (!isBuilding)
                 StartCoroutine(BuildingTroop(troops[troopIndex]));
             else

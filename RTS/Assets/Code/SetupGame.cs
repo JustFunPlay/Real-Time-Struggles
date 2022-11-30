@@ -13,29 +13,29 @@ public class SetupGame : MonoBehaviour
 
     void Start()
     {
-        foreach (UnitBase unit in playerUnits)
+        for (int i = 0; i < playerUnits.Length; i++)
         {
-            unit.AddedUnit(Army.Blue);
+            playerUnits[i].AddedUnit(Army.Blue);
         }
-        foreach (UnitBase unit in armyOne)
+        for (int i = 0; i < armyOne.Length; i++)
         {
-            unit.AddedUnit(Army.Red);
+            armyOne[i].AddedUnit(Army.Red);
         }
-        foreach (UnitBase unit in armyTwo)
+        for (int i = 0; i < armyTwo.Length; i++)
         {
-            unit.AddedUnit(Army.Green);
+            armyTwo[i].AddedUnit(Army.Green);
         }
-        foreach (UnitBase unit in armyThree)
+        for (int i = 0; i < armyThree.Length; i++)
         {
-            unit.AddedUnit(Army.Magenta);
+            armyThree[i].AddedUnit(Army.Magenta);
         }
-        foreach (UnitBase unit in armyFour)
+        for (int i = 0; i < armyFour.Length; i++)
         {
-            unit.AddedUnit(Army.Yellow);
+            armyFour[i].AddedUnit(Army.Yellow);
         }
-        foreach (UnitBase unit in armyFive)
+        for (int i = 0; i < armyFive.Length; i++)
         {
-            unit.AddedUnit(Army.Cyan);
+            armyFive[i].AddedUnit(Army.Cyan);
         }
     }
 }

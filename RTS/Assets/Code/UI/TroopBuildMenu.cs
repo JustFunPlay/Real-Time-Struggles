@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HQMenu : MonoBehaviour
+public class TroopBuildMenu : MonoBehaviour
 {
     //HQBuilding hq;
 
@@ -18,8 +18,8 @@ public class HQMenu : MonoBehaviour
     //    }
     //}
 
-    public void BuildNewTruck(int index)
+    public void BuildNewTroop(int index)
     {
-        PlayerCam.instance.selectedUnits[0].GetComponent<Factory>().BuildNewTroop(index);
+        PlayerCam.instance.selectedUnits[0].GetComponent<Factory>()?.BuildNewTroop(index);
     }
 }

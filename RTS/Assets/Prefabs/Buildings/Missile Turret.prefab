@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 3114658669206006618}
   - component: {fileID: 2008558465948947753}
   - component: {fileID: 267133110712172591}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Missile Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ MonoBehaviour:
   currentHP: 0
   army: 0
   showSelected: {fileID: 3677933913331265289}
-  type: 0
+  type: 4
   colorMatIndex: 1
   renderers:
   - {fileID: 753217155891593169}
@@ -308,6 +308,9 @@ MonoBehaviour:
   - {x: -1.3, y: 2, z: -1.3}
   - {x: 1.3, y: 2, z: -1.3}
   - {x: -1.3, y: 2, z: 1.3}
+  buildCost: 1000
+  requiredTrips: 0
+  RequiresBuilding: 1
   range: 25
   burstCount: 4
   burstDelay: 0.3

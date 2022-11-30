@@ -267,7 +267,7 @@ MonoBehaviour:
   currentHP: 0
   army: 0
   showSelected: {fileID: 4903139117134336692}
-  type: 0
+  type: 5
   colorMatIndex: 1
   renderers:
   - {fileID: 2812190046864440730}
@@ -286,12 +286,15 @@ MonoBehaviour:
   - {x: 4, y: 2, z: -8}
   - {x: -4, y: 2, z: 8}
   - {x: -4, y: 2, z: -8}
+  buildCost: 0
+  requiredTrips: 0
+  RequiresBuilding: 1
   troops:
   - troop: {fileID: 5307946441034799246, guid: 8921f9cd5ff0dfa4590749377a8dadee, type: 3}
     cost: 2000
     buildTime: 15
-  spawnpoint: {fileID: 0}
-  exitPoint: {fileID: 0}
+  spawnpoint: {fileID: 2237626554538344449}
+  exitPoint: {fileID: 5392831034952926928}
 --- !u!65 &8316949176423185554
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -55,6 +55,7 @@ public class SupplyDepot : Building
             }
         }
         truckInAction.heldResources = 0;
+        truckInAction.CheckSupplies();
 
         truckInAction.MoveToPosition(exitLocation.position);
         exitGate.SetTrigger("open");

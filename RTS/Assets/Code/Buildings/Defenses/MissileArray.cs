@@ -28,11 +28,11 @@ public class MissileArray : Building
             target = null;
         else
         {
-            aimAssist.LookAt(target.targetingPoints[0], Vector3.up);
+            aimAssist.LookAt(target.transform.position + target.transform.TransformDirection(target.targetingPoints[0]), Vector3.up);
             Vector3 newLookAt = Vector3.Lerp(horizontalTurn.forward, aimAssist.forward, turnSpeed * Time.fixedDeltaTime);
             horizontalTurn.LookAt(horizontalTurn.position + new Vector3(newLookAt.x, 0, newLookAt.z));
-            //verticalTurn.rotation = new Quaternion(0, aimAssist.rotation.y, 0, 0);
-            if (canFire && Vector3.Dot(horizontalTurn.forward, (target.targetingPoints[0] - horizontalTurn.position).normalized) > 0.95f)
+            verticalTurn.LookAt(verticalTurn.position + horizontalTurn.forward + new Vector3(0, newLookAt.y, 0), Vector3.up);
+            if (canFire && Vector3.Dot(horizontalTurn.forward, ((target.transform.position + target.transform.TransformDirection(target.targetingPoints[0])) - horizontalTurn.position).normalized) > 0.95f)
                 StartCoroutine(MissileBurst());
         }
     }

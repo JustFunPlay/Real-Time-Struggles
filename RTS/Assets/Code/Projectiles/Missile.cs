@@ -29,7 +29,7 @@ public class Missile : MonoBehaviour
         while (Vector3.Distance(targetPos, transform.position) > 1f)
         {
             if (target)
-                targetPos = target.targetingPoints[0];
+                targetPos = target.transform.position + target.transform.TransformDirection(target.targetingPoints[0]);
             transform.LookAt(targetPos, Vector3.up);
             rb.MovePosition(transform.position + transform.forward * flySpeed * Time.fixedDeltaTime);
             yield return new WaitForFixedUpdate();

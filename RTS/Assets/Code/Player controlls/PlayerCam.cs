@@ -33,7 +33,7 @@ public class PlayerCam : MonoBehaviour
     /// <summary>
     /// The minimum and maximum distance from origin;
     /// </summary>
-    Camera cam;
+    public Camera cam;
     Vector3 camDir;
     float currentCamDistance;
     float zoomValue;
@@ -55,10 +55,12 @@ public class PlayerCam : MonoBehaviour
     public RectTransform multiSelectTransform;
     Vector3 selectStartPos;
     bool addSelect;
-    bool hoverUI;
+    public bool inBuildMode;
 
-    [Header("Interaction")]
+    [Header("Menus")]
     public GameObject[] contextMenus;
+    public GameObject baseMenu;
+    public HolographicBuilding newBuilding;
 
     private void Start()
     {
@@ -85,7 +87,13 @@ public class PlayerCam : MonoBehaviour
     {
         Ray clickRay = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;
-        if (!holdRightClick && callbackContext.started)
+        if (inBuildMode && callbackContext.started)
+        {
+            newBuilding.SpawnBuilding(out bool isPlaced);
+            if (isPlaced)
+                inBuildMode = false;
+        }
+        else if (!holdRightClick && callbackContext.started)
         {
             holdLeftClick = true;
             holdDuration = 0;
@@ -119,7 +127,7 @@ public class PlayerCam : MonoBehaviour
             {
 
             }
-            else if (Physics.Raycast(clickRay, out hit, 100f, selectionLayer))
+            else if (Physics.Raycast(clickRay, out hit, 500f, selectionLayer))
             {
                 if (hit.collider.GetComponent<SupplyYard>())
                 {
@@ -162,7 +170,7 @@ public class PlayerCam : MonoBehaviour
                     }
                 }
             }
-            else if (selectedUnits.Count > 0 && Physics.Raycast(clickRay, out hit, 100f, groundLayer))
+            else if (selectedUnits.Count > 0 && Physics.Raycast(clickRay, out hit, 500f, groundLayer))
             {
                 for (int i = selectedUnits.Count - 1; i >= 0; i--)
                 {
@@ -188,6 +196,12 @@ public class PlayerCam : MonoBehaviour
         {
             holdRightClick = false;
         }
+        else if (holdRightClick && inBuildMode && callbackContext.canceled)
+        {
+            Destroy(newBuilding.gameObject);
+            inBuildMode = false;
+            holdRightClick = false;
+        }
         else if (holdRightClick && callbackContext.canceled)
         {
             for (int i = selectedUnits.Count - 1; i >= 0; i--)
@@ -203,7 +217,11 @@ public class PlayerCam : MonoBehaviour
         if (holdRightClick)
             mouseValue += callbackContext.ReadValue<Vector2>();
     }
-
+    public void RotateBuilding(InputAction.CallbackContext callbackContext)
+    {
+        if (inBuildMode && newBuilding && callbackContext.started)
+            newBuilding.RotateBuilding();
+    }
     public void AdditiveSelect(InputAction.CallbackContext callbackContext)
     {
         if (callbackContext.started)
@@ -291,10 +309,15 @@ public class PlayerCam : MonoBehaviour
         }
         if (selectedUnits.Count > 0)
         {
-            if (selectedUnits[0].GetComponent<HQBuilding>())
-            {
+            baseMenu.SetActive(false);
+            if (selectedUnits[0].type == UnitType.HeadQuarters)
                 contextMenus[0].SetActive(true);
-            }
+            else if (selectedUnits[0].type == UnitType.Factory)
+                contextMenus[1].SetActive(true);
+        }
+        else
+        {
+            baseMenu.SetActive(true);
         }
     }
 
