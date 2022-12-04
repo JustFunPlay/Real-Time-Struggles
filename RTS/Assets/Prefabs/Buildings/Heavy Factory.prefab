@@ -286,7 +286,7 @@ MonoBehaviour:
   - {x: 4, y: 2, z: -8}
   - {x: -4, y: 2, z: 8}
   - {x: -4, y: 2, z: -8}
-  buildCost: 0
+  buildCost: 3000
   requiredTrips: 0
   RequiresBuilding: 1
   troops:

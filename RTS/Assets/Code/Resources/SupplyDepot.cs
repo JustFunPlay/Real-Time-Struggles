@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SupplyDepot : Building
 {
@@ -13,8 +14,8 @@ public class SupplyDepot : Building
     public Transform entranceLocation;
     public Transform loadPoint;
     public Transform exitLocation;
-    public Animator entranceGate;
-    public Animator exitGate;
+    public Transform entranceGate;
+    public Transform exitGate;
 
     SupplyTruck truckInAction;
     public override void AddedUnit(Army army_)
@@ -36,14 +37,26 @@ public class SupplyDepot : Building
     IEnumerator LoadUpTruck()
     {
         truckInAction.MoveToPosition(loadPoint.position);
-        entranceGate.SetTrigger("open");
+        for (int i = 0; i < 10; i++)
+        {
+            entranceGate.transform.Rotate(0, 0, 9);
+            if (i == 3)
+                entranceGate.GetComponent<NavMeshObstacle>().enabled = false;
+            yield return new WaitForSeconds(0.075f);
+        }
         while (Vector3.Distance(truckInAction.transform.position, loadPoint.position) > 5f)
         {
             //truckInAction.MoveToPosition(loadPoint.position);
 
             yield return new WaitForSeconds(0.1f);
         }
-        entranceGate.SetTrigger("close");
+        for (int i = 0; i < 10; i++)
+        {
+            entranceGate.transform.Rotate(0, 0, -9);
+            if (i == 6)
+                entranceGate.GetComponent<NavMeshObstacle>().enabled = true;
+            yield return new WaitForSeconds(0.075f);
+        }
 
         yield return new WaitForSeconds(collectionDuration);
         foreach (HQBuilding hq in PlayerTroopManager.instance.HQs)
@@ -58,13 +71,25 @@ public class SupplyDepot : Building
         truckInAction.CheckSupplies();
 
         truckInAction.MoveToPosition(exitLocation.position);
-        exitGate.SetTrigger("open");
+        for (int i = 0; i < 10; i++)
+        {
+            exitGate.transform.Rotate(0, 0, 9);
+            if (i == 3)
+                exitGate.GetComponent<NavMeshObstacle>().enabled = false;
+            yield return new WaitForSeconds(0.075f);
+        }
         while (Vector3.Distance(truckInAction.transform.position, exitLocation.position) > 5f)
         {
             truckInAction.MoveToPosition(exitLocation.position);
             yield return new WaitForSeconds(0.1f);
         }
-        exitGate.SetTrigger("close");
+        for (int i = 0; i < 10; i++)
+        {
+            exitGate.transform.Rotate(0, 0, -9);
+            if (i == 6)
+                exitGate.GetComponent<NavMeshObstacle>().enabled = true;
+            yield return new WaitForSeconds(0.075f);
+        }
         truckInAction.CheckToAutomate();
         truckInAction = null;
         yield return new WaitForSeconds(collectionLockout);

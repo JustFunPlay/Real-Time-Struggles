@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5561451451507625857
+--- !u!1 &303588561653065325
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5072722297052271931}
-  - component: {fileID: 8199425001855523486}
-  - component: {fileID: 6210115139834670676}
-  - component: {fileID: 7180990243424407356}
-  - component: {fileID: 5839428470618168462}
+  - component: {fileID: 1116119324327918807}
+  - component: {fileID: 4094505478142079858}
+  - component: {fileID: 2249104086078867384}
+  - component: {fileID: 6072205710916889077}
   m_Layer: 0
-  m_Name: Scaffolding Supply Depot
+  m_Name: Supply Depot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5072722297052271931
+--- !u!4 &1116119324327918807
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5561451451507625857}
+  m_GameObject: {fileID: 303588561653065325}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -10.819, y: 0, z: 93.93016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8199425001855523486
+--- !u!33 &4094505478142079858
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5561451451507625857}
-  m_Mesh: {fileID: -468311772070679465, guid: 58681fdc502718040b923cb68c2a435f, type: 3}
---- !u!23 &6210115139834670676
+  m_GameObject: {fileID: 303588561653065325}
+  m_Mesh: {fileID: -8631473376393999068, guid: 5611b8cddc0e87545b3780fcdcce0e25, type: 3}
+--- !u!23 &2249104086078867384
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5561451451507625857}
+  m_GameObject: {fileID: 303588561653065325}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -63,7 +62,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 22c34e0d9d1e6bb4fb9b6d68151e98bf, type: 2}
+  - {fileID: 2100000, guid: 140ffd0cefbdc934cac1a808d893ed9f, type: 2}
+  - {fileID: 2100000, guid: 140ffd0cefbdc934cac1a808d893ed9f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,29 +85,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7180990243424407356
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5561451451507625857}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 25.154598, y: 5.437161, z: 23.309605}
-  m_Center: {x: -0.00000047683716, y: 2.7185805, z: -0.59477234}
---- !u!114 &5839428470618168462
+--- !u!114 &6072205710916889077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5561451451507625857}
+  m_GameObject: {fileID: 303588561653065325}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f3e508a4111f5545b08bb93d0bd7986, type: 3}
+  m_Script: {fileID: 11500000, guid: 04382023b0a02d646a9a0ae7ed26768b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  building: {fileID: 6047755861406075881, guid: 05d277c826114f4429034004e8216cdb, type: 3}
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  halfExtends: {x: 10, y: 0, z: 15}
+  extendsOffset: {x: 0, y: 0, z: 0}
+  meshes:
+  - {fileID: 2249104086078867384}
+  skinnedMeshes: []
+  buildingToSpawn: {fileID: 5839428470618168462, guid: ea780b3c82321ee43b524662aed628bb, type: 3}

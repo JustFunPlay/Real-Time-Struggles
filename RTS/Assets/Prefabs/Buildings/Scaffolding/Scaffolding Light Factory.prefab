@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4981967854901991514}
   - component: {fileID: 7117787580389256336}
   - component: {fileID: 3947847027121216049}
+  - component: {fileID: 5732955853389134653}
   m_Layer: 0
   m_Name: Scaffolding Light Factory
   m_TagString: Untagged
@@ -97,3 +98,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 21.462925, y: 5.437161, z: 19.859005}
   m_Center: {x: -0.1726737, y: 2.7185805, z: -0.4948039}
+--- !u!114 &5732955853389134653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8775134576313257285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f3e508a4111f5545b08bb93d0bd7986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 0}

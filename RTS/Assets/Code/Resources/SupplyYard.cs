@@ -43,7 +43,9 @@ public class SupplyYard : MonoBehaviour
         truckInAction.MoveToPosition(transform.position);
         for (int i = 0; i < 10; i++)
         {
-            entranceGate.transform.Translate(1, 0, 0);
+            entranceGate.transform.Rotate(0, 0, 9);
+            if (i == 3)
+                entranceGate.GetComponent<NavMeshObstacle>().enabled = false;
             yield return new WaitForSeconds(0.075f);
         }
         while (Vector3.Distance(truckInAction.transform.position, transform.position) > 5f)
@@ -52,7 +54,9 @@ public class SupplyYard : MonoBehaviour
         }
         for (int i = 0; i < 10; i++)
         {
-            entranceGate.transform.Translate(-1, 0, 0);
+            entranceGate.transform.Rotate(0, 0, -9);
+            if (i == 6)
+                entranceGate.GetComponent<NavMeshObstacle>().enabled = true;
             yield return new WaitForSeconds(0.075f);
         }
 
@@ -64,7 +68,9 @@ public class SupplyYard : MonoBehaviour
         truckInAction.MoveToPosition(exitLocation.position);
         for (int i = 0; i < 10; i++)
         {
-            exitGate.transform.Translate(1, 0, 0);
+            exitGate.transform.Rotate(0, 0, 9);
+            if (i == 3)
+                exitGate.GetComponent<NavMeshObstacle>().enabled = false;
             yield return new WaitForSeconds(0.075f);
         }
         while (Vector3.Distance(truckInAction.transform.position, exitLocation.position) > 5f)
@@ -73,7 +79,9 @@ public class SupplyYard : MonoBehaviour
         }
         for (int i = 0; i < 10; i++)
         {
-            exitGate.transform.Translate(-1, 0, 0);
+            exitGate.transform.Rotate(0, 0, -9);
+            if (i == 6)
+                exitGate.GetComponent<NavMeshObstacle>().enabled = true;
             yield return new WaitForSeconds(0.075f);
         }
         truckInAction.CheckToAutomate();

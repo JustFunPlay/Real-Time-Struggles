@@ -12,7 +12,7 @@ public class HolographicBuilding : MonoBehaviour
     public Vector3 extendsOffset;
     public MeshRenderer[] meshes;
     public SkinnedMeshRenderer[] skinnedMeshes;
-    public Building buildingToSpawn;
+    public ConstructionSite buildingToSpawn;
     bool canPlace;
     
     void Update()
@@ -66,9 +66,8 @@ public class HolographicBuilding : MonoBehaviour
     {
         if (canPlace)
         {
-            HQBuilding.ChangeSupplies(-buildingToSpawn.buildCost, PlayerCam.playerArmy);
-            Building newBuilding = Instantiate(buildingToSpawn, transform.position, transform.rotation);
-            newBuilding.AddedUnit(PlayerCam.playerArmy);
+            HQBuilding.ChangeSupplies(-buildingToSpawn.building.buildCost, PlayerCam.playerArmy);
+            Instantiate(buildingToSpawn, transform.position, transform.rotation);
             isPlaced = true;
             DestroyThis();
         }

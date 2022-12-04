@@ -204,7 +204,6 @@ GameObject:
   - component: {fileID: 3979251939512916291}
   - component: {fileID: 42501738212398822}
   - component: {fileID: 2842343467305951788}
-  - component: {fileID: 8648552877384632880}
   - component: {fileID: 235363390337226572}
   m_Layer: 0
   m_Name: Entry Barrier
@@ -278,26 +277,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &8648552877384632880
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4355812219922138105}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 459561e6a2d5ff24bb127ef992f2dca8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!208 &235363390337226572
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -459,7 +438,7 @@ MonoBehaviour:
   - {x: -3.5, y: 2, z: -9}
   - {x: 3.4, y: 2, z: 8}
   - {x: 3.4, y: 2, z: -9}
-  buildCost: 0
+  buildCost: 600
   requiredTrips: 0
   RequiresBuilding: 1
   truckFindRadius: 5
@@ -468,8 +447,8 @@ MonoBehaviour:
   entranceLocation: {fileID: 1303602527946134577}
   loadPoint: {fileID: 2367022751272744133}
   exitLocation: {fileID: 6190888552927408000}
-  entranceGate: {fileID: 8648552877384632880}
-  exitGate: {fileID: 3527294342407160583}
+  entranceGate: {fileID: 3979251939512916291}
+  exitGate: {fileID: 7954132071448293857}
 --- !u!65 &1927081543889705691
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -507,7 +486,6 @@ GameObject:
   - component: {fileID: 7954132071448293857}
   - component: {fileID: 6470858392976539204}
   - component: {fileID: 9091056967742933646}
-  - component: {fileID: 3527294342407160583}
   - component: {fileID: 3817436130854060792}
   m_Layer: 0
   m_Name: Exit Barrier
@@ -581,26 +559,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &3527294342407160583
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7289375431240182619}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a42cd5765c2ffd94fb4acfb2e787ee75, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!208 &3817436130854060792
 NavMeshObstacle:
   m_ObjectHideFlags: 0

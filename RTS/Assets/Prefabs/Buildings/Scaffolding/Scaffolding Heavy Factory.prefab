@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4983077671041490776}
   - component: {fileID: 7116679121015090066}
   - component: {fileID: 8941736560082019548}
+  - component: {fileID: 5963520237571204247}
   m_Layer: 0
   m_Name: Scaffolding Heavy Factory
   m_TagString: Untagged
@@ -97,3 +98,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 26.440321, y: 5.437161, z: 22.74136}
   m_Center: {x: -0.37882996, y: 2.7185805, z: -0.39674902}
+--- !u!114 &5963520237571204247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8773990108402846279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f3e508a4111f5545b08bb93d0bd7986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 8177080761264665656, guid: f40b3136daaa55e40a9cbdc3825c13e7, type: 3}

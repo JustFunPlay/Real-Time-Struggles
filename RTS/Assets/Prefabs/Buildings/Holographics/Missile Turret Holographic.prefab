@@ -60,7 +60,7 @@ MonoBehaviour:
   - {fileID: 7207277748919792406}
   - {fileID: 4424754828708908035}
   skinnedMeshes: []
-  buildingToSpawn: {fileID: 2008558465948947753, guid: ce3603d8ce8e09043b40524f54cd71e2, type: 3}
+  buildingToSpawn: {fileID: 8657636590261620849, guid: 3104246d9834a804caf49e4661de1a9e, type: 3}
 --- !u!1 &3822785663185496189
 GameObject:
   m_ObjectHideFlags: 0
