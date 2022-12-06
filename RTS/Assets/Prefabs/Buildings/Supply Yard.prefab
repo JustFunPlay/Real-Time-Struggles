@@ -155,6 +155,8 @@ MonoBehaviour:
   exitLocation: {fileID: 5429287112438417490}
   entranceGate: {fileID: 4049691108663979912}
   exitGate: {fileID: 4681690983643856977}
+  queueDistance: 10
+  trucksInQueue: []
 --- !u!208 &480987147191180741
 NavMeshObstacle:
   m_ObjectHideFlags: 0

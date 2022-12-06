@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 18fcb14820865ce41b99a2d0947c0c2b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -324,7 +324,6 @@ MonoBehaviour:
   army: 0
   showSelected: {fileID: 8218070659300024880}
   type: 1
-  colorMatIndex: 1
   renderers: []
   skinnedRenderers:
   - {fileID: 4911226162328580504}
@@ -344,6 +343,8 @@ MonoBehaviour:
   assignedDepot: {fileID: 0}
   heldResources: 0
   supplyVisualizer: {fileID: 3625038833707216246}
+  constructionSite: {fileID: 0}
+  supplying: 0
 --- !u!1 &7747123445931420560
 GameObject:
   m_ObjectHideFlags: 0

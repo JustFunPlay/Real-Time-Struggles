@@ -10,7 +10,7 @@ public class Factory : Building
     public Transform exitPoint;
 
     public List<Troop> queue = new List<Troop>();
-    bool isBuilding;
+    public bool isBuilding;
     public override void AddedUnit(Army army_)
     {
         base.AddedUnit(army_);

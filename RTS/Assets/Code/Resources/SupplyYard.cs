@@ -18,6 +18,10 @@ public class SupplyYard : MonoBehaviour
     public GameObject entranceGate;
     public GameObject exitGate;
 
+    [Header("Queue")]
+    public float queueDistance;
+    public List<SupplyTruck> trucksInQueue = new List<SupplyTruck>();
+
     SupplyTruck truckInAction;
 
 
@@ -41,6 +45,8 @@ public class SupplyYard : MonoBehaviour
     IEnumerator LoadUpTruck()
     {
         truckInAction.supplying = true;
+        truckInAction.inQueue = false;
+        trucksInQueue.Remove(truckInAction);
         truckInAction.MoveToPosition(transform.position);
         for (int i = 0; i < 10; i++)
         {
@@ -92,17 +98,42 @@ public class SupplyYard : MonoBehaviour
         StartCoroutine(CheckForTruck());
     }
 
+    void FixedUpdate()
+    {
+        for (int i = trucksInQueue.Count - 1; i >= 0; i--)
+        {
+            if (trucksInQueue[i])
+                trucksInQueue[i].MoveToPosition(entranceLocation.position + (i * queueDistance * (trucksInQueue[i].transform.position - entranceLocation.position).normalized));
+            else
+                trucksInQueue.RemoveAt(i);
+        }
+
+        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+        {
+            if (unit.GetComponent<SupplyTruck>() && !unit.GetComponent<SupplyTruck>().supplying)
+            {
+                if (Vector3.Distance(unit.transform.position, entranceLocation.position) < queueDistance * (trucksInQueue.Count + 1) && !unit.GetComponent<SupplyTruck>().inQueue && unit.GetComponent<SupplyTruck>().heldResources == 0)
+                {
+                    trucksInQueue.Add(unit.GetComponent<SupplyTruck>());
+                    unit.GetComponent<SupplyTruck>().inQueue = true;
+                }
+            }
+        }
+    }
+
     SupplyTruck FindTruckToLoad()
     {
         SupplyTruck truckToLoad = null;
-        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
-        {
-            if (unit.GetComponent<SupplyTruck>() && Vector3.Distance(unit.transform.position, entranceLocation.position) <= truckFindRadius)
-            {
-                if (!truckToLoad || Vector3.Distance(unit.transform.position, entranceLocation.position) < Vector3.Distance(truckToLoad.transform.position, entranceLocation.position))
-                    truckToLoad = unit.GetComponent<SupplyTruck>();
-            }
-        }
+        //foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+        //{
+        //    if (unit.GetComponent<SupplyTruck>() && Vector3.Distance(unit.transform.position, entranceLocation.position) <= truckFindRadius)
+        //    {
+        //        if (!truckToLoad || Vector3.Distance(unit.transform.position, entranceLocation.position) < Vector3.Distance(truckToLoad.transform.position, entranceLocation.position))
+        //            truckToLoad = unit.GetComponent<SupplyTruck>();
+        //    }
+        //}
+        if (trucksInQueue.Count > 0)
+            truckToLoad = trucksInQueue[0];
         return truckToLoad;
     }
 
@@ -110,5 +141,9 @@ public class SupplyYard : MonoBehaviour
     void OnDestroy()
     {
         PlayerTroopManager.instance.supplyYards.Remove(this);
+        foreach (SupplyTruck truck in trucksInQueue)
+        {
+            truck.inQueue = false;
+        }
     }
 }

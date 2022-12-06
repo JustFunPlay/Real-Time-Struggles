@@ -10,7 +10,6 @@ public class UnitBase : MonoBehaviour
     bool isSelected;
     public MeshRenderer showSelected;
     public UnitType type;
-    public int colorMatIndex;
     public MeshRenderer[] renderers;
     public SkinnedMeshRenderer[] skinnedRenderers;
     public Vector3[] targetingPoints;
@@ -23,33 +22,58 @@ public class UnitBase : MonoBehaviour
         army = army_;
         for (int i = 0; i < renderers.Length; i++)
         {
-            if (army == Army.Blue)
-                renderers[i].materials[colorMatIndex].color = Color.blue;
-            else if (army == Army.Cyan)
-                renderers[i].materials[colorMatIndex].color = Color.cyan;
-            else if (army == Army.Green)
-                renderers[i].materials[colorMatIndex].color = Color.green;
-            else if (army == Army.Magenta)
-                renderers[i].materials[colorMatIndex].color = Color.magenta;
-            else if (army == Army.Red)
-                renderers[i].materials[colorMatIndex].color = Color.red;
-            else if (army == Army.Yellow)
-                renderers[i].materials[colorMatIndex].color = Color.yellow;
+            switch (army)
+            {
+                case Army.Blue:
+                    renderers[i].material.SetColor("_Color", Color.blue);
+                    break;
+                case Army.Cyan:
+                    renderers[i].material.SetColor("_Color", Color.cyan);
+                    break;
+                case Army.Green:
+                    renderers[i].material.SetColor("_Color", Color.green);
+                    break;
+                case Army.Magenta:
+                    renderers[i].material.SetColor("_Color", Color.magenta);
+                    break;
+                case Army.Red:
+                    renderers[i].material.SetColor("_Color", Color.red);
+                    break;
+                case Army.Yellow:
+                    renderers[i].material.SetColor("_Color", Color.yellow);
+                    break;
+                default:
+                    Debug.LogError("you somohow managed to fail at assigning an army color, how did you even do that?");
+                    break;
+            }
+
         }
         for (int i = 0; i < skinnedRenderers.Length; i++)
         {
-            if (army == Army.Blue)
-                skinnedRenderers[i].materials[colorMatIndex].color = Color.blue;
-            else if (army == Army.Cyan)
-                skinnedRenderers[i].materials[colorMatIndex].color = Color.cyan;
-            else if (army == Army.Green)
-                skinnedRenderers[i].materials[colorMatIndex].color = Color.green;
-            else if (army == Army.Magenta)
-                skinnedRenderers[i].materials[colorMatIndex].color = Color.magenta;
-            else if (army == Army.Red)
-                skinnedRenderers[i].materials[colorMatIndex].color = Color.red;
-            else if (army == Army.Yellow)
-                skinnedRenderers[i].materials[colorMatIndex].color = Color.yellow;
+            switch (army)
+            {
+                case Army.Blue:
+                    skinnedRenderers[i].material.SetColor("_Color", Color.blue);
+                    break;
+                case Army.Cyan:
+                    skinnedRenderers[i].material.SetColor("_Color", Color.cyan);
+                    break;
+                case Army.Green:
+                    skinnedRenderers[i].material.SetColor("_Color", Color.green);
+                    break;
+                case Army.Magenta:
+                    skinnedRenderers[i].material.SetColor("_Color", Color.magenta);
+                    break;
+                case Army.Red:
+                    skinnedRenderers[i].material.SetColor("_Color", Color.red);
+                    break;
+                case Army.Yellow:
+                    skinnedRenderers[i].material.SetColor("_Color", Color.yellow);
+                    break;
+                default:
+                    Debug.LogError("you somohow managed to fail at assigning an army color, how did you even do that?");
+                    break;
+            }
         }
         if (army == PlayerCam.playerArmy)
             PlayerTroopManager.instance.playerUnits.Add(this);

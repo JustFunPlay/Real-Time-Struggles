@@ -165,7 +165,6 @@ MonoBehaviour:
   army: 0
   showSelected: {fileID: 5655510468578575548}
   type: 0
-  colorMatIndex: 1
   renderers:
   - {fileID: 95087332255305860}
   skinnedRenderers: []
@@ -185,13 +184,14 @@ MonoBehaviour:
   - {x: 10, y: 1, z: -4.8}
   buildCost: 0
   requiredTrips: 0
-  RequiresBuilding: 1
   troops:
   - troop: {fileID: 3657626251561247390, guid: 88b403b0692765740b76249634ee62fb, type: 3}
     cost: 400
     buildTime: 5
   spawnpoint: {fileID: 2865281267434942201}
   exitPoint: {fileID: 906655697614220010}
+  queue: []
+  isBuilding: 0
   supplies: 0
 --- !u!1 &2312971651317749342
 GameObject:
@@ -350,7 +350,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 18fcb14820865ce41b99a2d0947c0c2b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
