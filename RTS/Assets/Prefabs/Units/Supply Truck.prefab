@@ -166,8 +166,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a42d20487907d9647ab299d6b2ca228f, type: 2}
-  - {fileID: 2100000, guid: 294a36566d2f0e241a89283306f2c335, type: 2}
+  - {fileID: 2100000, guid: 62c8455ff7027574a85386b31ae6eebe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -345,6 +344,7 @@ MonoBehaviour:
   supplyVisualizer: {fileID: 3625038833707216246}
   constructionSite: {fileID: 0}
   supplying: 0
+  inQueue: 0
 --- !u!1 &7747123445931420560
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +464,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 5d58457658dea9c499f95eeb24c71bea, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cfc43dcaa127653408de3122907f0f39, type: 2}
+      objectReference: {fileID: 2100000, guid: 3b7b12a6625ae0744b8cb504f4c15c6a, type: 2}
     - target: {fileID: 919132149155446097, guid: 5d58457658dea9c499f95eeb24c71bea, type: 3}
       propertyPath: m_Name
       value: Supply Truck Load

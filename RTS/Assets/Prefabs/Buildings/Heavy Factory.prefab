@@ -110,7 +110,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 18fcb14820865ce41b99a2d0947c0c2b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -215,8 +215,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bfcc4af18374d3f48ab97f96987ce5da, type: 2}
-  - {fileID: 2100000, guid: 294a36566d2f0e241a89283306f2c335, type: 2}
+  - {fileID: 2100000, guid: aea069c7f2e64b04da386c79de41f341, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -268,7 +267,6 @@ MonoBehaviour:
   army: 0
   showSelected: {fileID: 4903139117134336692}
   type: 5
-  colorMatIndex: 1
   renderers:
   - {fileID: 2812190046864440730}
   skinnedRenderers: []
@@ -294,6 +292,8 @@ MonoBehaviour:
     buildTime: 15
   spawnpoint: {fileID: 2237626554538344449}
   exitPoint: {fileID: 5392831034952926928}
+  queue: []
+  isBuilding: 0
 --- !u!65 &8316949176423185554
 BoxCollider:
   m_ObjectHideFlags: 0

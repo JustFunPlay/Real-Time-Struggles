@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 22c34e0d9d1e6bb4fb9b6d68151e98bf, type: 2}
+  - {fileID: 2100000, guid: adc488d356f316945a9723e921cb6d7c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,6 +114,7 @@ MonoBehaviour:
   building: {fileID: 8177080761264665656, guid: f40b3136daaa55e40a9cbdc3825c13e7, type: 3}
   investedResources: 0
   collectionRadius: 1.5
+  truck: {fileID: 0}
 --- !u!114 &-306339267394452816
 MonoBehaviour:
   m_ObjectHideFlags: 0
