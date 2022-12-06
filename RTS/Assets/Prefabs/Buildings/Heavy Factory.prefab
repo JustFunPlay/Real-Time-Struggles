@@ -287,8 +287,7 @@ MonoBehaviour:
   - {x: -4, y: 2, z: 8}
   - {x: -4, y: 2, z: -8}
   buildCost: 3000
-  requiredTrips: 0
-  RequiresBuilding: 1
+  requiredTrips: 6
   troops:
   - troop: {fileID: 5307946441034799246, guid: 8921f9cd5ff0dfa4590749377a8dadee, type: 3}
     cost: 2000

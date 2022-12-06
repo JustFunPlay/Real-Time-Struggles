@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 6280180055531476189}
   - component: {fileID: 140199417569977668}
   - component: {fileID: 8657636590261620849}
-  m_Layer: 0
+  - component: {fileID: 3303649798649137032}
+  m_Layer: 6
   m_Name: Scaffolding Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,8 +97,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.4157047, y: 5.437161, z: 5.498562}
-  m_Center: {x: 0.03313124, y: 2.7185805, z: -0.046738982}
+  m_Size: {x: 5.4157047, y: 1.197021, z: 5.498562}
+  m_Center: {x: 0.033131123, y: 0.5985105, z: -0.0467391}
 --- !u!114 &8657636590261620849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,3 +112,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   building: {fileID: 2008558465948947753, guid: ce3603d8ce8e09043b40524f54cd71e2, type: 3}
+  investedResources: 0
+  collectionRadius: 1.5
+--- !u!114 &3303649798649137032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487444885183001864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: a98c17ec

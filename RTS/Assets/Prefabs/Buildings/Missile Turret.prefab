@@ -309,8 +309,7 @@ MonoBehaviour:
   - {x: 1.3, y: 2, z: -1.3}
   - {x: -1.3, y: 2, z: 1.3}
   buildCost: 1000
-  requiredTrips: 0
-  RequiresBuilding: 1
+  requiredTrips: 2
   range: 25
   burstCount: 4
   burstDelay: 0.3

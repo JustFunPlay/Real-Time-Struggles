@@ -40,6 +40,7 @@ public class SupplyYard : MonoBehaviour
 
     IEnumerator LoadUpTruck()
     {
+        truckInAction.supplying = true;
         truckInAction.MoveToPosition(transform.position);
         for (int i = 0; i < 10; i++)
         {
@@ -85,6 +86,7 @@ public class SupplyYard : MonoBehaviour
             yield return new WaitForSeconds(0.075f);
         }
         truckInAction.CheckToAutomate();
+        truckInAction.supplying = false;
         truckInAction = null;
         yield return new WaitForSeconds(collectionLockout);
         StartCoroutine(CheckForTruck());

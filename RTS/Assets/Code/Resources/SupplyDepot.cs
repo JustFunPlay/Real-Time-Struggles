@@ -36,6 +36,7 @@ public class SupplyDepot : Building
 
     IEnumerator LoadUpTruck()
     {
+        truckInAction.supplying = true;
         truckInAction.MoveToPosition(loadPoint.position);
         for (int i = 0; i < 10; i++)
         {
@@ -59,15 +60,17 @@ public class SupplyDepot : Building
         }
 
         yield return new WaitForSeconds(collectionDuration);
-        foreach (HQBuilding hq in PlayerTroopManager.instance.HQs)
+        
+        if (truckInAction.constructionSite)
         {
-            if (hq.army == army)
-            {
-                hq.supplies += truckInAction.heldResources;
-                break;
-            }
+            HQBuilding.ChangeSupplies(-((truckInAction.constructionSite.building.buildCost / truckInAction.constructionSite.building.requiredTrips) - truckInAction.heldResources), army);
+            truckInAction.heldResources = (truckInAction.constructionSite.building.buildCost / truckInAction.constructionSite.building.requiredTrips);
         }
-        truckInAction.heldResources = 0;
+        else
+        {
+            HQBuilding.ChangeSupplies(truckInAction.heldResources, army);
+            truckInAction.heldResources = 0;
+        }
         truckInAction.CheckSupplies();
 
         truckInAction.MoveToPosition(exitLocation.position);
@@ -91,6 +94,7 @@ public class SupplyDepot : Building
             yield return new WaitForSeconds(0.075f);
         }
         truckInAction.CheckToAutomate();
+        truckInAction.supplying = false;
         truckInAction = null;
         yield return new WaitForSeconds(collectionLockout);
         StartCoroutine(CheckForTruck());
@@ -103,7 +107,7 @@ public class SupplyDepot : Building
         {
             if (unit.GetComponent<SupplyTruck>() && Vector3.Distance(unit.transform.position, entranceLocation.position) <= truckFindRadius)
             {
-                if ((!truckToLoad || Vector3.Distance(unit.transform.position, entranceLocation.position) < Vector3.Distance(truckToLoad.transform.position, entranceLocation.position)) && unit.GetComponent<SupplyTruck>().heldResources > 0)
+                if ((!truckToLoad || Vector3.Distance(unit.transform.position, entranceLocation.position) < Vector3.Distance(truckToLoad.transform.position, entranceLocation.position)) && (unit.GetComponent<SupplyTruck>().heldResources > 0 || unit.GetComponent<SupplyTruck>().constructionSite))
                     truckToLoad = unit.GetComponent<SupplyTruck>();
             }
         }

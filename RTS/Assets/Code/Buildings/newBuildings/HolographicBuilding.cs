@@ -29,7 +29,7 @@ public class HolographicBuilding : MonoBehaviour
         Collider[] colliders = Physics.OverlapBox(transform.position + transform.TransformDirection(extendsOffset), halfExtends, transform.rotation, obstacleLayer);
         foreach (Collider collider in colliders)
         {
-            if (collider.GetComponent<Building>())
+            if (collider.GetComponent<Building>() || collider.GetComponent<ConstructionSite>() || collider.GetComponent<SupplyYard>())
                 buildings++;
         }
         if (buildings > 0)
@@ -66,7 +66,6 @@ public class HolographicBuilding : MonoBehaviour
     {
         if (canPlace)
         {
-            HQBuilding.ChangeSupplies(-buildingToSpawn.building.buildCost, PlayerCam.playerArmy);
             Instantiate(buildingToSpawn, transform.position, transform.rotation);
             isPlaced = true;
             DestroyThis();

@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 7117787580389256336}
   - component: {fileID: 3947847027121216049}
   - component: {fileID: 5732955853389134653}
-  m_Layer: 0
+  - component: {fileID: 4426269728486750841}
+  m_Layer: 6
   m_Name: Scaffolding Light Factory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,8 +97,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 21.462925, y: 5.437161, z: 19.859005}
-  m_Center: {x: -0.1726737, y: 2.7185805, z: -0.4948039}
+  m_Size: {x: 21.462925, y: 2.4597197, z: 19.859005}
+  m_Center: {x: -0.17267418, y: 1.2298598, z: -0.49480438}
 --- !u!114 &5732955853389134653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,3 +112,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   building: {fileID: 0}
+  investedResources: 0
+  collectionRadius: 1.5
+--- !u!114 &4426269728486750841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8775134576313257285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: a98c17ec

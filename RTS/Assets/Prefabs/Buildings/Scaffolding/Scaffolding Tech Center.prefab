@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 2201386252880830769}
   - component: {fileID: 4136576512175576571}
   - component: {fileID: 6175696400017970111}
-  m_Layer: 0
+  - component: {fileID: 2450621365887991734}
+  - component: {fileID: 7841871642541536139}
+  m_Layer: 6
   m_Name: Scaffolding Tech Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,5 +97,36 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 24.164497, y: 5.437161, z: 27.143818}
-  m_Center: {x: -0.10189581, y: 2.7185805, z: -0.43405724}
+  m_Size: {x: 24.164497, y: 2.3551052, z: 27.143818}
+  m_Center: {x: -0.101896286, y: 1.1775526, z: -0.43405724}
+--- !u!114 &2450621365887991734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2479493398572872750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f3e508a4111f5545b08bb93d0bd7986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 0}
+  investedResources: 0
+  collectionRadius: 1.5
+--- !u!114 &7841871642541536139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2479493398572872750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: a98c17ec

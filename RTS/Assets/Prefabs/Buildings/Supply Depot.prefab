@@ -439,8 +439,7 @@ MonoBehaviour:
   - {x: 3.4, y: 2, z: 8}
   - {x: 3.4, y: 2, z: -9}
   buildCost: 600
-  requiredTrips: 0
-  RequiresBuilding: 1
+  requiredTrips: 1
   truckFindRadius: 5
   collectionDuration: 3
   collectionLockout: 1

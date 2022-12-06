@@ -22,6 +22,8 @@ public class Tank : TroopMovement
     {
         if (!target)
             FindTarget();
+        else if (Vector3.Distance(target.GetClosestTargetingPoint(transform.position), aimAssist.position) > range)
+            target = null;
         else
         {
             aimAssist.LookAt(target.transform.position + target.transform.TransformDirection(target.targetingPoints[0]), Vector3.up);

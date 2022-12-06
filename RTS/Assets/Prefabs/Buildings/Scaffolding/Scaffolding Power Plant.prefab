@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 3179351001954697823}
   - component: {fileID: 863465919338919573}
   - component: {fileID: 5366487632862091040}
-  m_Layer: 0
+  - component: {fileID: 8937928989758391812}
+  - component: {fileID: -6449575457037592863}
+  m_Layer: 6
   m_Name: Scaffolding Power Plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,5 +97,36 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15.103502, y: 5.437161, z: 18.328384}
-  m_Center: {x: -0.38584542, y: 2.7185805, z: -0.094768524}
+  m_Size: {x: 15.103502, y: 1.3501139, z: 18.328384}
+  m_Center: {x: -0.38584518, y: 0.67505693, z: -0.094768524}
+--- !u!114 &8937928989758391812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223670533568436032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f3e508a4111f5545b08bb93d0bd7986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 0}
+  investedResources: 0
+  collectionRadius: 1.5
+--- !u!114 &-6449575457037592863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223670533568436032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: a98c17ec

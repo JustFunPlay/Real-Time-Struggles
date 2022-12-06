@@ -6,6 +6,5 @@ public class Building : UnitBase
 {
     [Header("Building")]
     public int buildCost;
-    public int requiredTrips;
-    public bool RequiresBuilding = true;
+    [Range(1, 10)] public int requiredTrips;
 }

@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 7116679121015090066}
   - component: {fileID: 8941736560082019548}
   - component: {fileID: 5963520237571204247}
-  m_Layer: 0
+  - component: {fileID: -306339267394452816}
+  m_Layer: 6
   m_Name: Scaffolding Heavy Factory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,8 +97,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 26.440321, y: 5.437161, z: 22.74136}
-  m_Center: {x: -0.37882996, y: 2.7185805, z: -0.39674902}
+  m_Size: {x: 26.440321, y: 2.3812118, z: 22.74136}
+  m_Center: {x: -0.37882996, y: 1.1906059, z: -0.3967495}
 --- !u!114 &5963520237571204247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,3 +112,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   building: {fileID: 8177080761264665656, guid: f40b3136daaa55e40a9cbdc3825c13e7, type: 3}
+  investedResources: 0
+  collectionRadius: 1.5
+--- !u!114 &-306339267394452816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8773990108402846279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: a98c17ec
