@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef9281fdd5d9cf4fbbfc21e9e7597d0, type: 3}
+  m_Name: Army Squads
+  m_EditorClassIdentifier: 
+  squads:
+  - name: Scout party (light)
+    humvees: 2
+    apcs: 0
+    tanks: 0
+    howitzers: 0
+    snipers: 0
+  - name: Scout party (medium)
+    humvees: 3
+    apcs: 0
+    tanks: 0
+    howitzers: 0
+    snipers: 0
+  - name: Scout party (large)
+    humvees: 4
+    apcs: 0
+    tanks: 0
+    howitzers: 0
+    snipers: 0
+  - name: Humvee Squad
+    humvees: 6
+    apcs: 0
+    tanks: 0
+    howitzers: 0
+    snipers: 0
+  - name: Outrider squad
+    humvees: 4
+    apcs: 1
+    tanks: 0
+    howitzers: 0
+    snipers: 0
+  - name: APC squad
+    humvees: 0
+    apcs: 4
+    tanks: 0
+    howitzers: 0
+    snipers: 0
+  - name: Assault squad
+    humvees: 0
+    apcs: 2
+    tanks: 2
+    howitzers: 0
+    snipers: 0
+  - name: Tank squad
+    humvees: 0
+    apcs: 0
+    tanks: 4
+    howitzers: 0
+    snipers: 0
+  - name: Howitzer squad
+    humvees: 0
+    apcs: 0
+    tanks: 0
+    howitzers: 2
+    snipers: 0
+  - name: Sniper squad
+    humvees: 0
+    apcs: 0
+    tanks: 0
+    howitzers: 0
+    snipers: 2
+  - name: Hunter squad
+    humvees: 0
+    apcs: 2
+    tanks: 0
+    howitzers: 0
+    snipers: 1
+  - name: Demolisher squad
+    humvees: 0
+    apcs: 0
+    tanks: 2
+    howitzers: 1
+    snipers: 0
+  - name: Destroyer squad
+    humvees: 0
+    apcs: 0
+    tanks: 1
+    howitzers: 1
+    snipers: 1
+  - name: Artillery squad
+    humvees: 4
+    apcs: 0
+    tanks: 0
+    howitzers: 2
+    snipers: 0
+  - name: Striker squad
+    humvees: 4
+    apcs: 0
+    tanks: 0
+    howitzers: 0
+    snipers: 2
+  - name: Escort Squad
+    humvees: 4
+    apcs: 0
+    tanks: 2
+    howitzers: 0
+    snipers: 0
+  - name: Company
+    humvees: 0
+    apcs: 2
+    tanks: 2
+    howitzers: 1
+    snipers: 1
+  - name: Warband
+    humvees: 2
+    apcs: 3
+    tanks: 3
+    howitzers: 0
+    snipers: 0
+  - name: Termination squad
+    humvees: 0
+    apcs: 0
+    tanks: 3
+    howitzers: 3
+    snipers: 3
+  - name: Legion
+    humvees: 4
+    apcs: 3
+    tanks: 3
+    howitzers: 1
+    snipers: 1

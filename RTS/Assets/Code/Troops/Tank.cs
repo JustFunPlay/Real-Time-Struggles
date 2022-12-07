@@ -21,18 +21,21 @@ public class Tank : TroopMovement
     private void FixedUpdate()
     {
         if (!target)
+        {
             FindTarget();
+            aimAssist.LookAt(aimAssist.position + transform.forward, Vector3.up);
+        }
         else if (Vector3.Distance(target.GetClosestTargetingPoint(transform.position), aimAssist.position) > range)
             target = null;
         else
         {
             aimAssist.LookAt(target.transform.position + target.transform.TransformDirection(target.targetingPoints[0]), Vector3.up);
-            Vector3 newLookAt = Vector3.Lerp(turretRotate.forward, aimAssist.forward, turretRotSpeed * Time.fixedDeltaTime);
-            turretRotate.LookAt(turretRotate.position + new Vector3(newLookAt.x, 0, newLookAt.z));
-            barrelAngle.LookAt(barrelAngle.position + turretRotate.forward + new Vector3(0, newLookAt.y, 0), Vector3.up);
             if (canFire && Vector3.Dot(turretRotate.forward, ((target.transform.position + target.transform.TransformDirection(target.targetingPoints[0])) - turretRotate.position).normalized) > 0.99f)
                 StartCoroutine(Fire());
         }
+        Vector3 newLookAt = Vector3.Lerp(turretRotate.forward, aimAssist.forward, turretRotSpeed * Time.fixedDeltaTime);
+        turretRotate.LookAt(turretRotate.position + new Vector3(newLookAt.x, 0, newLookAt.z));
+        barrelAngle.LookAt(barrelAngle.position + turretRotate.forward + new Vector3(0, newLookAt.y, 0), Vector3.up);
     }
     void FindTarget()
     {

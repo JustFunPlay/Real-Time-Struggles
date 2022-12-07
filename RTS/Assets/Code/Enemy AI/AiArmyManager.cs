@@ -20,18 +20,24 @@ public class AiArmyManager : MonoBehaviour
     /// Modifies the amount of resources neccesary for the army to build more troops
     /// </summary>
 
+    [Header("Units")]
     public HQBuilding hq;
     public List<SupplySet> supplySets = new List<SupplySet>();
     public List<SupplyTruck> supplyTrucks = new List<SupplyTruck>();
+    public List<Factory> lFactories = new List<Factory>();
+    public List<Factory> hFactories = new List<Factory>();
 
+    [Header("Army production")]
+    public ArmySquads squads;
+    public int squadCap;
+    public Squad squadToBuild;
+    public bool isBuilding;
 
     private void Start()
     {
-        //foreach (HQBuilding hq_ in PlayerTroopManager.instance.HQs)
-        //{
-        //    if (hq_.army == army)
-        //        hq = hq_;
-        //}
+        ecoRating = Mathf.Clamp(ecoRating + Random.Range(-1f, 1f), 1, 10);
+        agroRating = Mathf.Clamp(agroRating + Random.Range(-1f, 1f), 1, 10);
+        costMod = Mathf.Clamp(costMod + Random.Range(-0.5f, 0.5f), 0.5f, 5);
         for (int i = 0; i < supplySets.Count; i++)
         {
             supplySets[i].optimalEco += Mathf.RoundToInt((16 + 2 * (Vector3.Distance(supplySets[i].depot.transform.position, supplySets[i].yard.transform.position) / 15f)) / 7.5f);
@@ -40,6 +46,41 @@ public class AiArmyManager : MonoBehaviour
         {
             hq.troops[i].cost = (int)(hq.troops[i].cost * costMod);
         }
+        for (int f = 0; f < lFactories.Count; f++)
+        {
+            for (int t = 0; t < lFactories[f].troops.Length; t++)
+            {
+                lFactories[f].troops[t].cost = (int)(lFactories[f].troops[t].cost * costMod);
+            }
+        }
+        for (int f = 0; f < hFactories.Count; f++)
+        {
+            for (int t = 0; t < hFactories[f].troops.Length; t++)
+            {
+                hFactories[f].troops[t].cost = (int)(hFactories[f].troops[t].cost * costMod);
+            }
+        }
+        StartCoroutine(ProgressDifficulty());
+    }
+
+    IEnumerator ProgressDifficulty()
+    {
+        squadCap = 3;
+        for (int i = squadCap; i < squads.squads.Length; i++)
+        {
+            yield return new WaitForSeconds((11f - agroRating) * 90f);
+            ecoRating = Mathf.Clamp(ecoRating + Random.Range(0.1f, 0.75f), 1, 10);
+            squadCap++;
+            isBuilding = false;
+        }
+        Debug.Log("Max difficulty");
+    }
+
+    void SetNewSquad()
+    {
+        int i = Random.Range(0, squadCap);
+        squadToBuild = new Squad(squads.squads[i]);
+        isBuilding = true;
     }
 
     private void FixedUpdate()
@@ -47,12 +88,12 @@ public class AiArmyManager : MonoBehaviour
         CheckCurrentEco();
         if (CurrentEcoScore() < ecoRating / 10)
         {
-            if (HQBuilding.GetSupplies((int)(hq.troops[0].cost * costMod), army))
+            if (HQBuilding.GetSupplies(hq.troops[0].cost, army))
                 hq.BuildNewTroop(0);
         }
-        else
+        else if (!isBuilding)
         {
-
+            SetNewSquad();
         }
     }
     void CheckCurrentEco()
@@ -83,11 +124,16 @@ public class AiArmyManager : MonoBehaviour
             {
                 if (t == supplyTrucks.Count)
                     break;
-                supplyTrucks[t].assignedYard = supplySets[set].yard;
-                supplyTrucks[t].assignedDepot = supplySets[set].depot;
-                if (!supplyTrucks[t].supplying && !supplyTrucks[t].inQueue)
-                    supplyTrucks[t].CheckToAutomate();
-                t++;
+                if (supplyTrucks[t])
+                {
+                    supplyTrucks[t].assignedYard = supplySets[set].yard;
+                    supplyTrucks[t].assignedDepot = supplySets[set].depot;
+                    if (!supplyTrucks[t].supplying && !supplyTrucks[t].inQueue)
+                        supplyTrucks[t].CheckToAutomate();
+                    t++;
+                }
+                else
+                    supplyTrucks.RemoveAt(t);
 
             }
         }
@@ -115,7 +161,7 @@ public class AiArmyManager : MonoBehaviour
             optimalEco += supplySets[i].optimalEco;
         }
         float ecoScore = (float)eco / (float)optimalEco;
-        //Debug.Log(eco + ", " + optimalEco + ", " + ecoScore.ToString());
+        Debug.Log(eco + ", " + optimalEco + ", " + ecoScore.ToString());
         return ecoScore;
     }
 }

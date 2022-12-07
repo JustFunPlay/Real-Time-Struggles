@@ -35,6 +35,7 @@ public class ConstructionSite : MonoBehaviour
     {
         while (investedResources < building.buildCost)
         {
+            yield return new WaitForSeconds(1.5f);
             while (Vector3.Distance(transform.position, truck.transform.position) >= collectionRadius)
             {
                 yield return new WaitForFixedUpdate();
@@ -43,7 +44,6 @@ public class ConstructionSite : MonoBehaviour
             investedResources += (building.buildCost / building.requiredTrips);
             truck.CheckSupplies();
             truck.CheckToAutomate();
-            yield return new WaitForSeconds(1.5f);
 
         }
         truck.constructionSite = null;
@@ -53,7 +53,7 @@ public class ConstructionSite : MonoBehaviour
             truck.CheckSupplies();
         }
         truck.CheckToAutomate();
-        Invoke("FinishConstruction", 3f);
+        Invoke("FinishConstruction", 5f);
     }
     public void FinishConstruction()
     {

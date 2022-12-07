@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95432aa9ad42ed14fb8dea6e534086f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 500
+  maxHP: 1000
   currentHP: 0
   army: 0
   showSelected: {fileID: 4245321098181742904}
@@ -446,7 +446,7 @@ MonoBehaviour:
   exitLocation: {fileID: 6190888552927408000}
   entranceGate: {fileID: 3979251939512916291}
   exitGate: {fileID: 7954132071448293857}
-  queueDistance: 6
+  queueDistance: 10
 --- !u!65 &1927081543889705691
 BoxCollider:
   m_ObjectHideFlags: 0

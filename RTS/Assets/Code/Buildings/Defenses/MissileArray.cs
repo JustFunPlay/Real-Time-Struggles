@@ -23,18 +23,21 @@ public class MissileArray : Building
     private void FixedUpdate()
     {
         if (!target)
+        {
             FindTarget();
+            aimAssist.LookAt(aimAssist.position + transform.forward, Vector3.up);
+        }
         else if (Vector3.Distance(target.GetClosestTargetingPoint(transform.position), aimAssist.position) > range)
             target = null;
         else
         {
             aimAssist.LookAt(target.transform.position + target.transform.TransformDirection(target.targetingPoints[0]), Vector3.up);
-            Vector3 newLookAt = Vector3.Lerp(horizontalTurn.forward, aimAssist.forward, turnSpeed * Time.fixedDeltaTime);
-            horizontalTurn.LookAt(horizontalTurn.position + new Vector3(newLookAt.x, 0, newLookAt.z));
-            verticalTurn.LookAt(verticalTurn.position + horizontalTurn.forward + new Vector3(0, newLookAt.y, 0), Vector3.up);
             if (canFire && Vector3.Dot(horizontalTurn.forward, ((target.transform.position + target.transform.TransformDirection(target.targetingPoints[0])) - horizontalTurn.position).normalized) > 0.95f)
                 StartCoroutine(MissileBurst());
         }
+        Vector3 newLookAt = Vector3.Lerp(horizontalTurn.forward, aimAssist.forward, turnSpeed * Time.fixedDeltaTime);
+        horizontalTurn.LookAt(horizontalTurn.position + new Vector3(newLookAt.x, 0, newLookAt.z));
+        verticalTurn.LookAt(verticalTurn.position + horizontalTurn.forward + new Vector3(0, newLookAt.y, 0), Vector3.up);
     }
 
     void FindTarget()
@@ -64,9 +67,5 @@ public class MissileArray : Building
     {
         Missile missileToLaunch = Instantiate(missile, launchPoint.position, launchPoint.rotation);
         missileToLaunch.Launch(army, target, damage, splashRadius);
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(aimAssist.position, range);
     }
 }

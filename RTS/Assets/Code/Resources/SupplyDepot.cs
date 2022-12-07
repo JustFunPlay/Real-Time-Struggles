@@ -118,12 +118,14 @@ public class SupplyDepot : Building
 
         foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
         {
-            if (unit.GetComponent<SupplyTruck>() && !unit.GetComponent<SupplyTruck>().supplying)
+            if (unit.GetComponent<SupplyTruck>())
             {
-                if (Vector3.Distance(unit.transform.position, entranceLocation.position) < queueDistance * (trucksInQueue.Count + 1) && !unit.GetComponent<SupplyTruck>().inQueue && (unit.GetComponent<SupplyTruck>().heldResources > 0 || unit.GetComponent<SupplyTruck>().constructionSite))
+                SupplyTruck truck = unit.GetComponent<SupplyTruck>();
+
+                if (Vector3.Distance(truck.transform.position, entranceLocation.position) < queueDistance * (trucksInQueue.Count + 1) && !truck.supplying && !truck.inQueue && ((truck.heldResources > 0 && !truck.constructionSite)|| (truck.constructionSite && truck.heldResources < (truck.constructionSite.building.buildCost / truck.constructionSite.building.requiredTrips))))
                 {
-                    trucksInQueue.Add(unit.GetComponent<SupplyTruck>());
-                    unit.GetComponent<SupplyTruck>().inQueue = true;
+                    trucksInQueue.Add(truck);
+                    truck.inQueue = true;
                 }
             }
         }
