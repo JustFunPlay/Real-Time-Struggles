@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 535425934945787536}
   - component: {fileID: 5532594187364314666}
   - component: {fileID: 8715237465107319411}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light Factory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,10 @@ MonoBehaviour:
   - {x: 8, y: 3, z: 3}
   buildCost: 1200
   requiredTrips: 3
-  troops: []
+  troops:
+  - troop: {fileID: 6354865785086424278, guid: 844aa0fd7957913468c65a2b460e82c3, type: 3}
+    cost: 800
+    buildTime: 10
   spawnpoint: {fileID: 2158818936820380140}
   exitPoint: {fileID: 4784024454310729017}
   queue: []
