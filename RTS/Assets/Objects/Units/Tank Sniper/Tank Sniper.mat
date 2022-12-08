@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tech Center
+  m_Name: Tank Sniper
   m_Shader: {fileID: -6465566751694194690, guid: dd97363236253ee409f0ced24b5e0a73, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -34,7 +34,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: ca4dad661fa1ec446bd959d968eaff37, type: 3}
+        m_Texture: {fileID: 2800000, guid: 130a1c41b9d99b14eb16c9472c396d48, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -62,7 +62,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ca4dad661fa1ec446bd959d968eaff37, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -74,7 +74,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Occlusion:
-        m_Texture: {fileID: 2800000, guid: 304d95a6e3c985f49a315aae0430a1b0, type: 3}
+        m_Texture: {fileID: 2800000, guid: a8af5a5ec7436f34aa097b7d607f5264, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -121,7 +121,7 @@ Material:
     - _Metallic: 0
     - _Normal_Intensity: 1
     - _OcclusionStrength: 1
-    - _Occlusion_Intensity: 0.6
+    - _Occlusion_Intensity: 0.8
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
