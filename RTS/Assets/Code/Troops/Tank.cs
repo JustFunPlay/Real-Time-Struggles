@@ -36,6 +36,7 @@ public class Tank : TroopMovement
         Vector3 newLookAt = Vector3.Lerp(turretRotate.forward, aimAssist.forward, turretRotSpeed * Time.fixedDeltaTime);
         turretRotate.LookAt(turretRotate.position + new Vector3(newLookAt.x, 0, newLookAt.z));
         barrelAngle.LookAt(barrelAngle.position + turretRotate.forward + new Vector3(0, newLookAt.y, 0), Vector3.up);
+        Debug.Log(barrelAngle.rotation);
     }
     void FindTarget()
     {
