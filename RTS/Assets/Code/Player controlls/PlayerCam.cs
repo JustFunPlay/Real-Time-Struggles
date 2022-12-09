@@ -56,6 +56,7 @@ public class PlayerCam : MonoBehaviour
     Vector3 selectStartPos;
     bool addSelect;
     public bool inBuildMode;
+    public Formations formations;
 
     [Header("Menus")]
     public GameObject[] contextMenus;
@@ -172,13 +173,15 @@ public class PlayerCam : MonoBehaviour
             }
             else if (selectedUnits.Count > 0 && Physics.Raycast(clickRay, out hit, 500f, groundLayer))
             {
+                List<TroopMovement> troops = new List<TroopMovement>();
                 for (int i = selectedUnits.Count - 1; i >= 0; i--)
                 {
                     if (selectedUnits[i].GetComponent<TroopMovement>())
-                        selectedUnits[i].GetComponent<TroopMovement>().MoveToPosition(hit.point);
+                        troops.Add(selectedUnits[i].GetComponent<TroopMovement>());
                     else
                         selectedUnits[i].OnDeselected();
                 }
+                formations.SetFormation(troops.ToArray(), hit.point);
             }
             holdLeftClick = false;
             SelectCheck();
