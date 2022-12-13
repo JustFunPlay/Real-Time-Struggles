@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 535425934945787536}
   - component: {fileID: 5532594187364314666}
   - component: {fileID: 8715237465107319411}
+  - component: {fileID: 1610190182026572371}
   m_Layer: 6
   m_Name: Light Factory
   m_TagString: Untagged
@@ -145,8 +146,11 @@ MonoBehaviour:
   requiredTrips: 3
   troops:
   - troop: {fileID: 6354865785086424278, guid: 844aa0fd7957913468c65a2b460e82c3, type: 3}
-    cost: 800
+    cost: 650
     buildTime: 10
+  - troop: {fileID: 2393294946828026418, guid: f767a939f65e58b46a54f50d61ede704, type: 3}
+    cost: 800
+    buildTime: 12
   spawnpoint: {fileID: 2158818936820380140}
   exitPoint: {fileID: 4784024454310729017}
   queue: []
@@ -177,6 +181,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.8995914, y: 6.2464714, z: 11.539846}
   m_Center: {x: 3.6999173, y: 3.1232357, z: -0.47017384}
+--- !u!208 &1610190182026572371
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141778523545850290}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 4, y: 4.9690003, z: 7.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -4, y: 4.9690003, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &2295459643895252988
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2158818936820380140}
+  - component: {fileID: 4341701466811863147}
   m_Layer: 0
   m_Name: Spawnpoint
   m_TagString: Untagged
@@ -298,13 +319,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5464629385083838153}
   m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.9, y: 0, z: 0.03}
+  m_LocalPosition: {x: 3.9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 329810779558546184}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &4341701466811863147
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464629385083838153}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 4.5, y: 1, z: 3}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.6, y: 1, z: -4.5}
+  m_TimeToStationary: 0.5
 --- !u!1 &5884314536910612365
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,6 +351,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4784024454310729017}
+  - component: {fileID: 6294716268538402441}
   m_Layer: 0
   m_Name: exitPoint
   m_TagString: Untagged
@@ -329,10 +367,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5884314536910612365}
   m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.06, y: 0, z: 11.67}
+  m_LocalPosition: {x: 4, y: 0, z: 12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 329810779558546184}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &6294716268538402441
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5884314536910612365}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 1, z: 4.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 4.5, y: 1, z: -9}
+  m_TimeToStationary: 0.5
