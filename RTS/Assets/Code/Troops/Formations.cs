@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Formations", menuName = "ScriptableObjects/Formations")]
-public class Formations : ScriptableObject
+public class Formations : MonoBehaviour
 {
+    public static Formations instance;
     public Formation[] formations;
 
+    private void Start()
+    {
+        instance = this;
+    }
     public void SetFormation(TroopMovement[] troops, Vector3 Targetpoint)
     {
         int set = troops.Length - 1;
@@ -21,9 +25,10 @@ public class Formations : ScriptableObject
         }
         midPoint /= troops.Length;
         Vector3 dir = (Targetpoint - midPoint).normalized;
+        transform.LookAt(transform.position + dir);
         for (int i = 0; i < troops.Length; i++)
         {
-            troops[i].MoveToPosition(Targetpoint + new Vector3(formations[set].positions[i].x * dir.x, 0, formations[set].positions[i].z * dir.z));
+            troops[i].MoveToPosition(Targetpoint + transform.TransformDirection(formations[set].positions[i]));
         }
     }
 }

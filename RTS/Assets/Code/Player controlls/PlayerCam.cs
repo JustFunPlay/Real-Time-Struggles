@@ -56,7 +56,6 @@ public class PlayerCam : MonoBehaviour
     Vector3 selectStartPos;
     bool addSelect;
     public bool inBuildMode;
-    public Formations formations;
 
     [Header("Menus")]
     public GameObject[] contextMenus;
@@ -181,7 +180,7 @@ public class PlayerCam : MonoBehaviour
                     else
                         selectedUnits[i].OnDeselected();
                 }
-                formations.SetFormation(troops.ToArray(), hit.point);
+                Formations.instance.SetFormation(troops.ToArray(), hit.point);
             }
             holdLeftClick = false;
             SelectCheck();
