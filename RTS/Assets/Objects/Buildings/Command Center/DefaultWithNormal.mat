@@ -24,7 +24,7 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: f63f10b0595af3c47a8ce842b4deadfb, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -120,7 +120,7 @@ Material:
     - _Metallic: 0
     - _Normal_Intensity: 1
     - _OcclusionStrength: 1
-    - _Occlusion_Intensity: 0.6
+    - _Occlusion_Intensity: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
