@@ -147,10 +147,10 @@ MonoBehaviour:
   troops:
   - troop: {fileID: 6354865785086424278, guid: 844aa0fd7957913468c65a2b460e82c3, type: 3}
     cost: 650
-    buildTime: 10
+    buildTime: 8
   - troop: {fileID: 2393294946828026418, guid: f767a939f65e58b46a54f50d61ede704, type: 3}
     cost: 800
-    buildTime: 12
+    buildTime: 10
   spawnpoint: {fileID: 2158818936820380140}
   exitPoint: {fileID: 4784024454310729017}
   queue: []

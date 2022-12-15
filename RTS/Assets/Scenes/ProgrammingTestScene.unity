@@ -2649,7 +2649,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2393294946828026418, guid: f767a939f65e58b46a54f50d61ede704, type: 3}
       propertyPath: maxHP
-      value: 5000
+      value: 50000
       objectReference: {fileID: 0}
     - target: {fileID: 4002152542394907782, guid: f767a939f65e58b46a54f50d61ede704, type: 3}
       propertyPath: m_RootOrder
@@ -2843,7 +2843,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2008558465948947753, guid: ce3603d8ce8e09043b40524f54cd71e2, type: 3}
       propertyPath: maxHP
-      value: 5000
+      value: 50000
       objectReference: {fileID: 0}
     - target: {fileID: 3778005739828255796, guid: ce3603d8ce8e09043b40524f54cd71e2, type: 3}
       propertyPath: m_RootOrder
@@ -3847,7 +3847,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4191470481974863284, guid: c70e86c79ce3f3d4bb7d6e04ab15758f, type: 3}
       propertyPath: maxHP
-      value: 4500
+      value: 45000
       objectReference: {fileID: 0}
     - target: {fileID: 5086228015552872540, guid: c70e86c79ce3f3d4bb7d6e04ab15758f, type: 3}
       propertyPath: m_Name
@@ -4150,7 +4150,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2008558465948947753, guid: ce3603d8ce8e09043b40524f54cd71e2, type: 3}
       propertyPath: maxHP
-      value: 5000
+      value: 50000
       objectReference: {fileID: 0}
     - target: {fileID: 3778005739828255796, guid: ce3603d8ce8e09043b40524f54cd71e2, type: 3}
       propertyPath: m_RootOrder
@@ -5450,7 +5450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8215957366303315736, guid: 36e62f5b2004cff4781a3eec59419587, type: 3}
       propertyPath: maxHP
-      value: 4500
+      value: 45000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36e62f5b2004cff4781a3eec59419587, type: 3}
