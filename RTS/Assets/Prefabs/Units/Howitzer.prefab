@@ -372,7 +372,7 @@ MonoBehaviour:
   FirePoint: {fileID: 8913292096742113623}
   aimAssist: {fileID: 9075162071948432860}
   shell: {fileID: 2492753540185204850, guid: a998db17654bf3c4eb289c52eee279df, type: 3}
-  damage: 150
+  damage: 120
   splashRadius: 10
   range: 100
   minimumRange: 20

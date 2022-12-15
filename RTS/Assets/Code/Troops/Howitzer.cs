@@ -18,7 +18,7 @@ public class Howitzer : TroopMovement
     public float turretRotSpeed;
 
     Vector3 lookAt = Vector3.forward;
-    UnitBase target;
+    public UnitBase target;
     bool canFire = true;
 
     private void FixedUpdate()

@@ -33,6 +33,7 @@ public class AiArmyManager : MonoBehaviour
     [Header("Army production")]
     public ArmySquads squads;
     public int squadCap;
+    public int minSquad;
     public Squad squadToBuild;
     public bool isBuilding;
     public Transform gatheringPoint;
@@ -70,12 +71,18 @@ public class AiArmyManager : MonoBehaviour
     IEnumerator ProgressDifficulty()
     {
         squadCap = 3;
-        for (int i = squadCap; i < squads.squads.Length; i++)
+        minSquad = 0;
+        yield return new WaitForSeconds(120f);
+        while (squadCap < squads.squads.Length)
         {
             yield return new WaitForSeconds((11f - agroRating) * 30f + 60f);
             ecoRating = Mathf.Clamp(ecoRating + Random.Range(0.1f, 0.75f), 1, 10);
             squadCap++;
-            isBuilding = false;
+        }
+        while (minSquad < squads.squads.Length / 2)
+        {
+            yield return new WaitForSeconds((11f - agroRating) * 30f + 60f);
+            minSquad++;
         }
         Debug.Log("Max difficulty");
     }
@@ -83,7 +90,7 @@ public class AiArmyManager : MonoBehaviour
     void SetNewSquad()
     {
         isBuilding = true;
-        int i = Random.Range(0, squadCap);
+        int i = Random.Range(minSquad, squadCap);
         squadToBuild = new Squad(squads.squads[i]);
         StartCoroutine(BuildNewSquad());
     }
@@ -159,7 +166,53 @@ public class AiArmyManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.1f);
         }
+        StartCoroutine(ManageSquad(activeSquads[activeSquads.Count-1]));
+        yield return new WaitForSeconds(3f);
         isBuilding = false;
+    }
+
+    IEnumerator ManageSquad(ActiveSquad squad)
+    {
+        yield return new WaitForSeconds(15f);
+        while (squad.squadMemebers.Count > 0)
+        {
+            squad = CheckSquadAliveness(squad);
+            if (!SquadInCombat(squad.squadMemebers.ToArray()))
+            {
+                Vector3 squadOrigin = SquadOrigin(squad.squadMemebers.ToArray());
+                UnitBase[] closestUnits = ClosestTargets(squadOrigin);
+                int[] weights = CalculateTargetWeight(squadOrigin, closestUnits);
+                int r = 0;
+                for (int i = 0; i < weights.Length; i++)
+                {
+                    r += weights[i];
+                }
+                int w = Random.Range(0, r);
+                int t = 0;
+                for (int i = 0; i < weights.Length; i++)
+                {
+                    if (w < weights[i])
+                    {
+                        t = i;
+                        break;
+                    }
+                    else
+                        w -= weights[i];
+                }
+                UnitBase target = closestUnits[t];
+                float tInCombat = 0;
+                while (target && squad.squadMemebers.Count > 0 && tInCombat < 1.5f && Vector3.Distance(SquadOrigin(squad.squadMemebers.ToArray()), target.GetClosestTargetingPoint(SquadOrigin(squad.squadMemebers.ToArray()))) > SquadRange(squad.squadMemebers.ToArray()))
+                {
+                    squad = CheckSquadAliveness(squad);
+                    Vector3 targetPoint = target.transform.position + ((SquadOrigin(squad.squadMemebers.ToArray()) - target.transform.position).normalized * (SquadRange(squad.squadMemebers.ToArray()) - 5f));
+                    Formations.instance.SetFormation(squad.squadMemebers.ToArray(), targetPoint);
+                    if (SquadInCombat(squad.squadMemebers.ToArray()))
+                        tInCombat += 0.1f;
+                    yield return new WaitForSeconds(0.1f);
+                }
+            }
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     private void FixedUpdate()
@@ -243,6 +296,18 @@ public class AiArmyManager : MonoBehaviour
                 activeSquads.RemoveAt(i);
         }
     }
+    ActiveSquad CheckSquadAliveness(ActiveSquad squad)
+    {
+        for (int i = 0; i < squad.squadMemebers.Count; i++)
+        {
+            if (squad.squadMemebers[i] == null)
+            {
+                squad.squadMemebers.RemoveAt(i);
+                i--;
+            }
+        }
+        return squad;
+    }
     float CurrentEcoScore()
     {
         int eco = 0;
@@ -298,7 +363,76 @@ public class AiArmyManager : MonoBehaviour
             }
         }
         return false;
-    }    
+    }
+    
+    Vector3 SquadOrigin(TroopMovement[] troops)
+    {
+        Vector3 origin = new Vector3();
+        for (int i = 0; i < troops.Length; i++)
+        {
+            origin += troops[i].transform.position;
+        }
+        origin /= troops.Length;
+        return origin;
+    }
+    bool SquadInCombat(TroopMovement[] troops)
+    {
+        for (int i = 0; i < troops.Length; i++)
+        {
+            if (troops[i].GetComponent<Tank>() && troops[i].GetComponent<Tank>().target)
+                return true;
+            else if (troops[i].GetComponent<Howitzer>() && troops[i].GetComponent<Howitzer>().target)
+                return true;
+        }
+        return false;
+    }
+    UnitBase[] ClosestTargets(Vector3 origin)
+    {
+        List<UnitBase> closestUnits = new List<UnitBase>();
+        for (int i = 0; i < 5; i++)
+        {
+            UnitBase closestUnit = null;
+            foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+            {
+                if (unit.army != army && !closestUnits.Contains(unit) && (closestUnit == null || Vector3.Distance(origin, unit.GetClosestTargetingPoint(origin)) < Vector3.Distance(origin, closestUnit.GetClosestTargetingPoint(origin))))
+                {
+                    closestUnit = unit;
+                }
+            }
+            if (closestUnit)
+                closestUnits.Add(closestUnit);
+        }
+        return closestUnits.ToArray();
+    }
+    float SquadRange(TroopMovement[] troops)
+    {
+        float avarageRange = 0;
+        for (int i = 0; i < troops.Length; i++)
+        {
+            if (troops[i].GetComponent<Tank>())
+                avarageRange += troops[i].GetComponent<Tank>().range;
+            else if (troops[i].GetComponent<Howitzer>())
+                avarageRange += troops[i].GetComponent<Howitzer>().range;
+        }
+        avarageRange /= troops.Length;
+        return avarageRange;
+    }
+    int[] CalculateTargetWeight(Vector3 origin, UnitBase[] targets)
+    {
+        int[] weights = new int[targets.Length];
+        for (int i = 0; i < targets.Length; i++)
+        {
+            if (Vector3.Distance(origin, targets[i].GetClosestTargetingPoint(origin)) <= 30f)
+                weights[i] = 10;
+            else if (Vector3.Distance(origin, targets[i].GetClosestTargetingPoint(origin)) <= 60f)
+                weights[i] = 5;
+            else if (Vector3.Distance(origin, targets[i].GetClosestTargetingPoint(origin)) <= 90f)
+                weights[i] = 2;
+            else
+                weights[i] = 1;
+        }
+        return weights;
+    }
 }
 
 [System.Serializable]

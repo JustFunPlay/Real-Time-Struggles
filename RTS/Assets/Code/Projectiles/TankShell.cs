@@ -5,9 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class TankShell : MonoBehaviour
 {
-    Army army;
-    int damage;
-    Rigidbody rb;
+    protected Army army;
+    protected int damage;
+    protected Rigidbody rb;
     public float flySpeed;
 
     public void Launch(Army army_, int damage_)
@@ -28,7 +28,7 @@ public class TankShell : MonoBehaviour
         }
         
     }
-    private void OnCollisionEnter(Collision collision)
+    protected virtual void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.GetComponent<UnitBase>())
         {

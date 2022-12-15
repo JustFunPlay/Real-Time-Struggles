@@ -312,7 +312,7 @@ MonoBehaviour:
   burstCount: 4
   burstDelay: 0.3
   timeBetweenBursts: 3
-  damage: 40
+  damage: 70
   splashRadius: 4
   missile: {fileID: 6622610664595185698, guid: 3139c33cc7121834a8fd40c56dc1de63, type: 3}
   launchPoint: {fileID: 8033535974270271155}

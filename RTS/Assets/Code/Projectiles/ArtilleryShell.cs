@@ -77,7 +77,7 @@ public class ArtilleryShell : MonoBehaviour
             if (unit.army != army && Vector3.Distance(transform.position, unit.GetClosestTargetingPoint(transform.position)) <= radius)
             {
                 if (unit.GetComponent<Building>())
-                    unit.OnTakeDamage(damage * 2);
+                    unit.OnTakeDamage(damage * 3);
                 else
                     unit.OnTakeDamage(damage);
             }

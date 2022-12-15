@@ -120,6 +120,37 @@ Transform:
   m_Father: {fileID: 8016182464542514767}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1539933610438223056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5289445346426418627}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5289445346426418627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539933610438223056}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.2, z: -0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8083182561876852039}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1585870386792343443
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,6 +674,7 @@ Transform:
   - {fileID: 2676813184360089860}
   - {fileID: 9113067028823701027}
   - {fileID: 7333043756042921462}
+  - {fileID: 5289445346426418627}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -711,8 +743,6 @@ MonoBehaviour:
   - {x: 1, y: 1.2, z: -2.3}
   - {x: 1, y: 1.2, z: 0}
   - {x: -1, y: 1.2, z: 0}
-  leader: {fileID: 0}
-  squadMembers: []
   turretRotate: {fileID: 9218562885375902244}
   barrelAngle: {fileID: 145791311892154975}
   FirePoint: {fileID: 8973335083469405966}
@@ -722,6 +752,7 @@ MonoBehaviour:
   range: 30
   attackSpeed: 0.3
   turretRotSpeed: 7
+  target: {fileID: 0}
 --- !u!1 &8970725743394388121
 GameObject:
   m_ObjectHideFlags: 0

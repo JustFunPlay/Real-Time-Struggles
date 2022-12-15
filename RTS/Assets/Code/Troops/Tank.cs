@@ -15,7 +15,8 @@ public class Tank : TroopMovement
     public float attackSpeed;
     public float turretRotSpeed;
 
-    UnitBase target;
+    Vector3 lookAt;
+    public UnitBase target;
     bool canFire = true;
 
     private void FixedUpdate()
@@ -33,9 +34,9 @@ public class Tank : TroopMovement
             if (canFire && Vector3.Dot(turretRotate.forward, ((target.transform.position + target.transform.TransformDirection(target.targetingPoints[0])) - turretRotate.position).normalized) > 0.99f)
                 StartCoroutine(Fire());
         }
-        Vector3 newLookAt = Vector3.Lerp(turretRotate.forward, aimAssist.forward, turretRotSpeed * Time.fixedDeltaTime);
-        turretRotate.LookAt(turretRotate.position + new Vector3(newLookAt.x, 0, newLookAt.z));
-        barrelAngle.LookAt(barrelAngle.position + turretRotate.forward + new Vector3(0, newLookAt.y, 0), Vector3.up);
+        lookAt = Vector3.Lerp(lookAt, aimAssist.forward, turretRotSpeed * Time.fixedDeltaTime);
+        turretRotate.LookAt(turretRotate.position + new Vector3(lookAt.x, 0, lookAt.z));
+        barrelAngle.LookAt(barrelAngle.position + turretRotate.forward + new Vector3(0, lookAt.y, 0), Vector3.up);
         //Debug.Log(barrelAngle.rotation);
     }
     void FindTarget()
