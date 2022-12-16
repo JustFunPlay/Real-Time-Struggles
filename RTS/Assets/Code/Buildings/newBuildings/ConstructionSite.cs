@@ -7,6 +7,7 @@ public class ConstructionSite : MonoBehaviour
     public Building building;
     public int investedResources;
     public float collectionRadius;
+    public Transform finalPoint;
 
     public SupplyTruck truck;
     private void Start()
@@ -35,10 +36,17 @@ public class ConstructionSite : MonoBehaviour
     {
         while (investedResources < building.buildCost)
         {
-            yield return new WaitForSeconds(1.5f);
-            while (Vector3.Distance(transform.position, truck.transform.position) >= collectionRadius)
+            yield return new WaitForFixedUpdate();
+            while (truck && truck.heldResources < building.buildCost / building.requiredTrips)
+                yield return new WaitForFixedUpdate();
+            while (truck && Vector3.Distance(transform.position, truck.transform.position) >= collectionRadius )
             {
                 yield return new WaitForFixedUpdate();
+            }
+            if (!truck)
+            {
+                StartCoroutine(GetBuildingTruck());
+                StopCoroutine(ConstructionInProgress());
             }
             truck.heldResources -= (building.buildCost / building.requiredTrips);
             investedResources += (building.buildCost / building.requiredTrips);

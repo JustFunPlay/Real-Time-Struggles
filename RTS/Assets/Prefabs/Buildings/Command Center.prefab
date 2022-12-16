@@ -182,6 +182,7 @@ MonoBehaviour:
   - {x: 10, y: 1, z: 3.8}
   - {x: 10, y: 1, z: -4.8}
   buildCost: 0
+  powerCost: -10
   requiredTrips: 0
   troops:
   - troop: {fileID: 3657626251561247390, guid: 88b403b0692765740b76249634ee62fb, type: 3}
@@ -192,6 +193,7 @@ MonoBehaviour:
   queue: []
   isBuilding: 0
   supplies: 0
+  totalPower: 0
 --- !u!1 &2312971651317749342
 GameObject:
   m_ObjectHideFlags: 0

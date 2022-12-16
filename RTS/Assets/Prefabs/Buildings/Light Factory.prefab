@@ -142,7 +142,8 @@ MonoBehaviour:
   - {x: 8, y: 3, z: -3}
   - {x: 8, y: 3, z: 0}
   - {x: 8, y: 3, z: 3}
-  buildCost: 1200
+  buildCost: 1500
+  powerCost: 2
   requiredTrips: 3
   troops:
   - troop: {fileID: 6354865785086424278, guid: 844aa0fd7957913468c65a2b460e82c3, type: 3}

@@ -6,6 +6,7 @@ public class HQBuilding : Factory
 {
     [Header("Resources")]
     public int supplies;
+    public int totalPower;
 
     public override void AddedUnit(Army army_)
     {

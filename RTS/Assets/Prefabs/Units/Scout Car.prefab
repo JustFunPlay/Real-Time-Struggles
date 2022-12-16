@@ -748,9 +748,9 @@ MonoBehaviour:
   FirePoint: {fileID: 8973335083469405966}
   aimAssist: {fileID: 9113067028823701027}
   shell: {fileID: 3205067672977718175, guid: cf3287909ca913b45993c5100b47189e, type: 3}
-  damage: 30
+  damage: 4
   range: 30
-  attackSpeed: 0.3
+  attackSpeed: 0.15
   turretRotSpeed: 7
   target: {fileID: 0}
 --- !u!1 &8970725743394388121

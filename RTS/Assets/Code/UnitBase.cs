@@ -111,7 +111,7 @@ public class UnitBase : MonoBehaviour
         showSelected.material.color = Color.white;
     }
 
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
         if (army == PlayerCam.playerArmy)
         {
@@ -144,7 +144,9 @@ public enum UnitType
     HeadQuarters,
     ResourceTruck,
     ResourceDepot,
-    Troop,
+    LightTroop,
+    HeavyTroop,
     DefenseBuilding,
-    Factory
+    Factory,
+    PowerPlant
 }
