@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 4002152542394907782}
   - component: {fileID: 6797252976337545253}
   - component: {fileID: 5269037102744601192}
-  - component: {fileID: 2393294946828026418}
+  - component: {fileID: 6522806097590864267}
   m_Layer: 6
   m_Name: Light Tank
   m_TagString: Untagged
@@ -490,7 +490,7 @@ NavMeshAgent:
   m_BaseOffset: -0.4
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2393294946828026418
+--- !u!114 &6522806097590864267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -499,17 +499,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4377868432237897276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b713e6fc0405a74384bfa92058b98df, type: 3}
+  m_Script: {fileID: 11500000, guid: fedee81c77e41094dae4348681a722d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 600
   currentHP: 0
   army: 0
   showSelected: {fileID: 4589910837671951923}
-  type: 3
+  type: 4
   renderers:
-  - {fileID: 2583219500117696392}
   - {fileID: 6388052859407978410}
+  - {fileID: 2583219500117696392}
   skinnedRenderers:
   - {fileID: 4158411731086616893}
   targetingPoints:
@@ -524,11 +524,14 @@ MonoBehaviour:
   barrelAngle: {fileID: 8577381052905905446}
   FirePoint: {fileID: 6695519875946169051}
   aimAssist: {fileID: 1132512910532311121}
-  shell: {fileID: 3205067672977718175, guid: cf3287909ca913b45993c5100b47189e, type: 3}
-  damage: 20
+  hitlayer:
+    serializedVersion: 2
+    m_Bits: 64
+  damage: 12
   range: 30
   attackSpeed: 0.3
   turretRotSpeed: 5.5
+  line: {fileID: 7342916204927228877, guid: d757efed51ca31d4a83858336894e167, type: 3}
   target: {fileID: 0}
 --- !u!1 &5333726405243046605
 GameObject:

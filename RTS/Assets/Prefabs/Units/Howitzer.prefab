@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5ecb38bd1dde742bafadc109fbf7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 450
+  maxHP: 500
   currentHP: 0
   army: 0
   showSelected: {fileID: 4359031642260144076}
@@ -365,19 +365,18 @@ MonoBehaviour:
   - {x: 1.3, y: 2, z: 0}
   - {x: 1.3, y: 2, z: 4.5}
   - {x: -1.3, y: 2, z: 4.5}
-  leader: {fileID: 0}
-  squadMembers: []
   turretRotate: {fileID: 4413816848079903776}
   barrelAngle: {fileID: 5757974654451398950}
   FirePoint: {fileID: 8913292096742113623}
   aimAssist: {fileID: 9075162071948432860}
   shell: {fileID: 2492753540185204850, guid: a998db17654bf3c4eb289c52eee279df, type: 3}
-  damage: 120
+  damage: 150
   splashRadius: 10
   range: 100
   minimumRange: 20
-  attackSpeed: 3
+  attackSpeed: 5
   turretRotSpeed: 2
+  target: {fileID: 0}
 --- !u!1 &4602625362487417243
 GameObject:
   m_ObjectHideFlags: 0

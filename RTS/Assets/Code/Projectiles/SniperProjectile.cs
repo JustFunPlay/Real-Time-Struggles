@@ -8,12 +8,13 @@ public class SniperProjectile : TankShell
     {
         if (collision.collider.GetComponent<UnitBase>())
         {
-            if (collision.collider.GetComponent<UnitBase>().army != army)
+            UnitBase unit = collision.collider.GetComponent<UnitBase>();
+            if (unit.army != army)
             {
-                if (collision.collider.GetComponent<UnitBase>().type == UnitType.Troop)
-                    collision.collider.GetComponent<UnitBase>().OnTakeDamage(damage * 4);
+                if (unit.type == UnitType.LightTroop || unit.type == UnitType.HeavyTroop)
+                    unit.OnTakeDamage(damage * 4);
                 else
-                    collision.collider.GetComponent<UnitBase>().OnTakeDamage(damage);
+                    unit.OnTakeDamage(damage);
             }
         }
         Destroy(gameObject);

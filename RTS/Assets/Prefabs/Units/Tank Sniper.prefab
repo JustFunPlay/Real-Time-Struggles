@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b713e6fc0405a74384bfa92058b98df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 450
+  maxHP: 500
   currentHP: 0
   army: 0
   showSelected: {fileID: 6232087001815720304}
@@ -667,8 +667,9 @@ MonoBehaviour:
   shell: {fileID: 5665651644835124929, guid: 0137566568fbdbc4ab8c31468d52f71d, type: 3}
   damage: 150
   range: 80
-  attackSpeed: 4
+  attackSpeed: 6
   turretRotSpeed: 1
+  target: {fileID: 0}
 --- !u!1 &6205424289527021936
 GameObject:
   m_ObjectHideFlags: 0

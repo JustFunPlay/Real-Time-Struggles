@@ -650,7 +650,7 @@ GameObject:
   - component: {fileID: 8083182561876852039}
   - component: {fileID: 3294853774994649569}
   - component: {fileID: 5433771354358286347}
-  - component: {fileID: 6354865785086424278}
+  - component: {fileID: 2521364222511403506}
   m_Layer: 6
   m_Name: Scout Car
   m_TagString: Untagged
@@ -713,7 +713,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6354865785086424278
+--- !u!114 &2521364222511403506
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -722,7 +722,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8892053012231317501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b713e6fc0405a74384bfa92058b98df, type: 3}
+  m_Script: {fileID: 11500000, guid: fedee81c77e41094dae4348681a722d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 400
@@ -747,11 +747,14 @@ MonoBehaviour:
   barrelAngle: {fileID: 145791311892154975}
   FirePoint: {fileID: 8973335083469405966}
   aimAssist: {fileID: 9113067028823701027}
-  shell: {fileID: 3205067672977718175, guid: cf3287909ca913b45993c5100b47189e, type: 3}
+  hitlayer:
+    serializedVersion: 2
+    m_Bits: 64
   damage: 4
   range: 30
   attackSpeed: 0.15
   turretRotSpeed: 7
+  line: {fileID: 7342916204927228877, guid: d757efed51ca31d4a83858336894e167, type: 3}
   target: {fileID: 0}
 --- !u!1 &8970725743394388121
 GameObject:
