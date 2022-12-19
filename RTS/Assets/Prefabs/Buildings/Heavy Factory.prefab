@@ -266,7 +266,7 @@ MonoBehaviour:
   currentHP: 0
   army: 0
   showSelected: {fileID: 4903139117134336692}
-  type: 5
+  type: 7
   renderers:
   - {fileID: 2812190046864440730}
   skinnedRenderers: []

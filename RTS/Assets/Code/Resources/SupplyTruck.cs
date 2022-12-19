@@ -17,14 +17,14 @@ public class SupplyTruck : TroopMovement
         if (constructionSite && assignedDepot)
         {
             if (heldResources >= (constructionSite.building.buildCost / constructionSite.building.requiredTrips))
-                MoveToPosition(constructionSite.transform.position);
+                MoveToPosition(constructionSite.GetClosestTargetingPoint(transform.position));
             else if (!HQBuilding.GetSupplies(constructionSite.building.buildCost / constructionSite.building.requiredTrips, army) && assignedYard)
                 MoveToPosition(assignedYard.entranceLocation.position);
             else
                 MoveToPosition(assignedDepot.entranceLocation.position);
             Invoke("OnDeselected", 0.1f);
         }
-        else if (constructionSite && heldResources == (constructionSite.building.buildCost / constructionSite.building.requiredTrips))
+        else if (constructionSite && heldResources >= (constructionSite.building.buildCost / constructionSite.building.requiredTrips))
         {
             MoveToPosition(constructionSite.transform.position);
             Invoke("OnDeselected", 0.1f);

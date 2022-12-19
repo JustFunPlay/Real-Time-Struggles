@@ -312,10 +312,14 @@ public class PlayerCam : MonoBehaviour
         if (selectedUnits.Count > 0)
         {
             baseMenu.SetActive(false);
-            if (selectedUnits[0].type == UnitType.HeadQuarters)
+            if (selectedUnits[0].type == UnitType.HeavyTroop || selectedUnits[0].type == UnitType.LightTroop)
+                baseMenu.SetActive(true);
+            else if (selectedUnits[0].type == UnitType.HeadQuarters)
                 contextMenus[0].SetActive(true);
-            else if (selectedUnits[0].type == UnitType.Factory)
+            else if (selectedUnits[0].type == UnitType.LightFactory)
                 contextMenus[1].SetActive(true);
+            else if (selectedUnits[0].type == UnitType.HeavyFactory)
+                contextMenus[2].SetActive(true);
         }
         else
         {

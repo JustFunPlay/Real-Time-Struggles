@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5385174807621447331}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -36.808266, y: 0, z: 94.62961}
+  m_LocalPosition: {x: 0, y: -100, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -103,8 +103,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
-  halfExtends: {x: 11, y: 0.5, z: 9}
-  extendsOffset: {x: 0, y: 0, z: 0}
+  halfExtends: {x: 11, y: 0.5, z: 14}
+  extendsOffset: {x: 0, y: 0, z: 5}
   meshes:
   - {fileID: 5889309203700846454}
   skinnedMeshes: []

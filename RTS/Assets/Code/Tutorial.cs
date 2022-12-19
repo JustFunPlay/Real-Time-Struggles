@@ -5,6 +5,9 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
     public int tutorialStage;
+    public TutorialStage[] tutorialStages;
+    public TroopMovement[] tutorialEnemies;
+    public UnitBase[] outpostUnits;
 
     private void FixedUpdate()
     {
@@ -13,26 +16,124 @@ public class Tutorial : MonoBehaviour
             case 0:
                 if (PlayerTroopManager.instance.playerUnits.Count == 3)
                 {
-                    //
+                    ProgressTutorial();
                 }
                 break;
             case 1:
-                int t = 0;
+                int trucks = 0;
                 foreach (UnitBase unit in PlayerTroopManager.instance.playerUnits)
                 {
                     if (unit.GetComponent<SupplyTruck>())
-                        t++;
+                        trucks++;
                 }
-                if (t >= 3)
+                if (trucks >= 3)
                 {
-
+                    ProgressTutorial();
                 }
                 break;
             case 2:
+                if (HQBuilding.HasPower(1, PlayerCam.playerArmy))
+                {
+                    ProgressTutorial();
+                }
+                break;
+            case 3:
+                foreach (UnitBase unit in PlayerTroopManager.instance.playerUnits)
+                {
+                    if (unit.type == UnitType.DefenseBuilding)
+                    {
+                        ProgressTutorial();
+                        Vector3 targetPoint = new Vector3();
+                        Vector3 dir = new Vector3();
+                        for (int i = 0; i < tutorialEnemies.Length; i++)
+                        {
+                            dir += tutorialEnemies[i].transform.position;
+                        }
+                        dir /= tutorialEnemies.Length;
+                        dir = (dir - unit.transform.position).normalized;
+                        targetPoint = unit.transform.position + dir * 25;
+                        Formations.instance.SetFormation(tutorialEnemies, targetPoint);
+                    }
+                }
+                break;
+            case 4:
+                int enemies = 0;
+                for (int i = 0; i < tutorialEnemies.Length; i++)
+                {
+                    if (tutorialEnemies[i])
+                        enemies++;
+                }
+                if (enemies == 0)
+                {
+                    ProgressTutorial();
+                }
+                break;
+            case 5:
+                foreach (HQBuilding hq in PlayerTroopManager.instance.HQs)
+                {
+                    if (hq.army == PlayerCam.playerArmy && hq.canHeal == false)
+                    {
+                        ProgressTutorial();
+                    }
+                }
+                break;
+            case 6:
+                foreach (UnitBase unit in PlayerTroopManager.instance.playerUnits)
+                {
+                    if (unit.type == UnitType.HeavyFactory)
+                    {
+                        ProgressTutorial();
+                    }
+                }
+                break;
+            case 7:
+                int tanks = 0;
+                foreach (UnitBase unit in PlayerTroopManager.instance.playerUnits)
+                {
+                    if (unit.type == UnitType.HeavyTroop)
+                        tanks++;
+                }
+                if (tanks >= 3)
+                {
+                    ProgressTutorial();
+                }
+                break;
+            case 8:
+                int units = 0;
+                for (int i = 0; i < outpostUnits.Length; i++)
+                {
+                    if (outpostUnits[i])
+                        units++;
+                }
+                if (units == 0)
+                {
+                    ProgressTutorial();
+                }
+                break;
+            case 9:
 
                 break;
-
         }
         
     }
+
+    void ProgressTutorial()
+    {
+        for (int i = 0; i < tutorialStages[tutorialStage].objects.Length; i++)
+        {
+            if (tutorialStages[tutorialStage].objects[i])
+                tutorialStages[tutorialStage].objects[i].SetActive(false);
+        }
+        tutorialStage++;
+        for (int i = 0; i < tutorialStages[tutorialStage].objects.Length; i++)
+        {
+            tutorialStages[tutorialStage].objects[i].SetActive(true);
+        }
+    }
+}
+
+[System.Serializable]
+public class TutorialStage
+{
+    public GameObject[] objects;
 }

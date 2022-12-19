@@ -423,10 +423,14 @@ public class AiArmyManager : MonoBehaviour
         for (int i = 0; i < targets.Length; i++)
         {
             if (Vector3.Distance(origin, targets[i].GetClosestTargetingPoint(origin)) <= 30f)
-                weights[i] = 10;
+                weights[i] = 50;
             else if (Vector3.Distance(origin, targets[i].GetClosestTargetingPoint(origin)) <= 60f)
-                weights[i] = 5;
+                weights[i] = 20;
             else if (Vector3.Distance(origin, targets[i].GetClosestTargetingPoint(origin)) <= 90f)
+                weights[i] = 10;
+            else if (Vector3.Distance(origin, targets[i].GetClosestTargetingPoint(origin)) <= 120f)
+                weights[i] = 5;
+            else if (Vector3.Distance(origin, targets[i].GetClosestTargetingPoint(origin)) <= 150f)
                 weights[i] = 2;
             else
                 weights[i] = 1;

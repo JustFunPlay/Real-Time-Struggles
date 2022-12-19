@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4136576512175576571}
   - component: {fileID: 6175696400017970111}
   - component: {fileID: 2450621365887991734}
-  - component: {fileID: 7841871642541536139}
   m_Layer: 6
   m_Name: Scaffolding Tech Center
   m_TagString: Untagged
@@ -111,23 +110,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3e508a4111f5545b08bb93d0bd7986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHP: 0
+  currentHP: 0
+  army: 0
+  showSelected: {fileID: 0}
+  type: 9
+  renderers: []
+  skinnedRenderers: []
+  targetingPoints: []
+  buildCost: 0
+  powerCost: 0
+  requiredTrips: 0
   building: {fileID: 0}
   investedResources: 0
   collectionRadius: 1.5
   truck: {fileID: 0}
---- !u!114 &7841871642541536139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2479493398572872750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: a98c17ec

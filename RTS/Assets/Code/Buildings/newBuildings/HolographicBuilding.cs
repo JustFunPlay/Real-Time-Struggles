@@ -66,7 +66,8 @@ public class HolographicBuilding : MonoBehaviour
     {
         if (canPlace)
         {
-            Instantiate(buildingToSpawn, transform.position, transform.rotation);
+            ConstructionSite newConstructionSite = Instantiate(buildingToSpawn, transform.position, transform.rotation);
+            newConstructionSite.AddedUnit(PlayerCam.playerArmy);
             isPlaced = true;
             DestroyThis();
         }

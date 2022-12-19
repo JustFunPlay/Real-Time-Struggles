@@ -28,4 +28,13 @@ public class Building : UnitBase
         }
         base.OnDestroy();
     }
+    public IEnumerator EmergencyRepair(int heal, int cost)
+    {
+        while (currentHP < maxHP && HQBuilding.GetSupplies(10, army))
+        {
+            currentHP = Mathf.Min(currentHP + heal, maxHP);
+            HQBuilding.ChangeSupplies(-cost, army);
+            yield return new WaitForFixedUpdate();
+        }
+    }
 }

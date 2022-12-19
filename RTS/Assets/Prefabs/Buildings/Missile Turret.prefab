@@ -295,7 +295,7 @@ MonoBehaviour:
   currentHP: 0
   army: 0
   showSelected: {fileID: 3677933913331265289}
-  type: 4
+  type: 5
   renderers:
   - {fileID: 753217155891593169}
   - {fileID: 5985689610426417348}

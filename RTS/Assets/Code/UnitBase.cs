@@ -147,6 +147,8 @@ public enum UnitType
     LightTroop,
     HeavyTroop,
     DefenseBuilding,
-    Factory,
-    PowerPlant
+    LightFactory,
+    HeavyFactory,
+    PowerPlant,
+    ConstructionSite
 }

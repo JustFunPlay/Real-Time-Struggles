@@ -8,10 +8,36 @@ public class HQBuilding : Factory
     public int supplies;
     public int totalPower;
 
+    [Header("Healing")]
+    public bool canHeal;
+    public float healCooldown;
+    public int healPerTick;
+    public int costPerHeal;
+
     public override void AddedUnit(Army army_)
     {
         PlayerTroopManager.instance.HQs.Add(this);
         base.AddedUnit(army_);
+    }
+    public void HealAllBuildings()
+    {
+        if (canHeal)
+        {
+            canHeal = false;
+            foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+            {
+                if (unit.army == army && unit.GetComponent<Building>())
+                {
+                    StartCoroutine(unit.GetComponent<Building>().EmergencyRepair(healPerTick, costPerHeal));
+                }
+            }
+            StartCoroutine(WaitForHeal());
+        }
+    }
+    IEnumerator WaitForHeal()
+    {
+        yield return new WaitForSeconds(healCooldown);
+        canHeal = true;
     }
 
     public static bool GetSupplies(int requiredAmount, Army army)
@@ -21,6 +47,18 @@ public class HQBuilding : Factory
             if (hq.army == army)
             {
                 if (hq.supplies >= requiredAmount)
+                    return true;
+            }
+        }
+        return false;
+    }
+    public static bool HasPower(int newPower, Army army)
+    {
+        foreach (HQBuilding hq in PlayerTroopManager.instance.HQs)
+        {
+            if (hq.army == army)
+            {
+                if (hq.totalPower + newPower <= 0)
                     return true;
             }
         }

@@ -2,25 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConstructionSite : MonoBehaviour
+public class ConstructionSite : Building
 {
     public Building building;
     public int investedResources;
     public float collectionRadius;
-    public Transform finalPoint;
 
     public SupplyTruck truck;
-    private void Start()
+    public override void AddedUnit(Army army_)
     {
+        maxHP = building.maxHP / 2;
+        powerCost = building.powerCost > 0 ? building.powerCost : 0;
+        base.AddedUnit(army_);
         StartCoroutine(GetBuildingTruck());
     }
     IEnumerator GetBuildingTruck()
     {
         while (!truck)
         {
-            foreach (UnitBase unit in PlayerTroopManager.instance.playerUnits)
+            foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
             {
-                if (unit.GetComponent<SupplyTruck>() && unit.GetComponent<SupplyTruck>().constructionSite == null && unit.GetComponent<SupplyTruck>().supplying == false)
+                if (unit.army == army && unit.GetComponent<SupplyTruck>() && unit.GetComponent<SupplyTruck>().constructionSite == null && unit.GetComponent<SupplyTruck>().supplying == false)
                 {
                     if (!truck || Vector3.Distance(transform.position, unit.transform.position) < Vector3.Distance(transform.position, truck.transform.position))
                         truck = unit.GetComponent<SupplyTruck>();
@@ -39,7 +41,7 @@ public class ConstructionSite : MonoBehaviour
             yield return new WaitForFixedUpdate();
             while (truck && truck.heldResources < building.buildCost / building.requiredTrips)
                 yield return new WaitForFixedUpdate();
-            while (truck && Vector3.Distance(transform.position, truck.transform.position) >= collectionRadius )
+            while (truck && Vector3.Distance(truck.transform.position, GetClosestTargetingPoint(truck.transform.position)) >= collectionRadius)
             {
                 yield return new WaitForFixedUpdate();
             }
@@ -66,7 +68,7 @@ public class ConstructionSite : MonoBehaviour
     public void FinishConstruction()
     {
         Building newBuilding = Instantiate(building, transform.position, transform.rotation);
-        newBuilding.AddedUnit(PlayerCam.playerArmy);
+        newBuilding.AddedUnit(army);
         Destroy(gameObject);
     }
 }
