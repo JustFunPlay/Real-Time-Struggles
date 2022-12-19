@@ -311,7 +311,7 @@ MonoBehaviour:
   requiredTrips: 2
   range: 25
   burstCount: 4
-  burstDelay: 0.3
+  burstDelay: 0.15
   timeBetweenBursts: 3
   damage: 70
   splashRadius: 4

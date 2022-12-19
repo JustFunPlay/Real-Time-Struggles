@@ -102,8 +102,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
-  halfExtends: {x: 9, y: 1.5, z: 11.5}
-  extendsOffset: {x: 0.2, y: 0, z: 4}
+  halfExtends: {x: 9, y: 3, z: 11.5}
+  extendsOffset: {x: 0.2, y: -1, z: 4}
   meshes:
   - {fileID: 1639218030899394802}
   skinnedMeshes: []

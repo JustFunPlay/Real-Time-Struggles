@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Humvee : TroopMovement
+public class AutoTurret : Building
 {
     public Transform turretRotate;
     public Transform barrelAngle;
@@ -58,12 +58,7 @@ public class Humvee : TroopMovement
         {
             UnitBase victim = hit.collider.GetComponent<UnitBase>();
             if (victim.army != army)
-            {
-                if (victim.type == UnitType.LightTroop)
-                    victim.OnTakeDamage(damage * 2);
-                else
-                    victim.OnTakeDamage(damage);
-            }
+                victim.OnTakeDamage(damage);
             LineRenderer newLine = Instantiate(line);
             newLine.SetPosition(0, FirePoint.position);
             newLine.SetPosition(1, hit.point);
@@ -72,7 +67,7 @@ public class Humvee : TroopMovement
         {
             LineRenderer newLine = Instantiate(line);
             newLine.SetPosition(0, FirePoint.position);
-            newLine.SetPosition(1, FirePoint.position + FirePoint.forward * (range + 10));
+            newLine.SetPosition(1, FirePoint.position + FirePoint.forward * (10 +range));
         }
         yield return new WaitForSeconds(attackSpeed);
         canFire = true;

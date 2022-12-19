@@ -150,5 +150,6 @@ public enum UnitType
     LightFactory,
     HeavyFactory,
     PowerPlant,
-    ConstructionSite
+    ConstructionSite,
+    TechCenter
 }
