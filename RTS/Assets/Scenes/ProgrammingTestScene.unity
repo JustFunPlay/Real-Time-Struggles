@@ -2805,37 +2805,45 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
+      propertyPath: armyOne.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
+      propertyPath: armyTwo.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
       propertyPath: armyOne.Array.data[0]
-      value: 
-      objectReference: {fileID: 832919999}
-    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
-      propertyPath: armyOne.Array.data[1]
-      value: 
-      objectReference: {fileID: 1159259030}
-    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
-      propertyPath: armyOne.Array.data[2]
-      value: 
-      objectReference: {fileID: 212188289}
-    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
-      propertyPath: armyOne.Array.data[3]
-      value: 
-      objectReference: {fileID: 1106144907}
-    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
-      propertyPath: armyOne.Array.data[4]
-      value: 
-      objectReference: {fileID: 399771429}
-    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
-      propertyPath: armyOne.Array.data[5]
-      value: 
-      objectReference: {fileID: 1949411937}
-    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
-      propertyPath: armyOne.Array.data[6]
       value: 
       objectReference: {fileID: 637778402}
     - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
-      propertyPath: armyOne.Array.data[7]
+      propertyPath: armyOne.Array.data[1]
+      value: 
+      objectReference: {fileID: 399771429}
+    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
+      propertyPath: armyOne.Array.data[2]
+      value: 
+      objectReference: {fileID: 1949411937}
+    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
+      propertyPath: armyOne.Array.data[3]
       value: 
       objectReference: {fileID: 1880409073}
+    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
+      propertyPath: armyOne.Array.data[4]
+      value: 
+      objectReference: {fileID: 1106144907}
+    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
+      propertyPath: armyOne.Array.data[5]
+      value: 
+      objectReference: {fileID: 1159259030}
+    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
+      propertyPath: armyOne.Array.data[6]
+      value: 
+      objectReference: {fileID: 212188289}
+    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
+      propertyPath: armyOne.Array.data[7]
+      value: 
+      objectReference: {fileID: 832919999}
     - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
       propertyPath: armyTwo.Array.data[0]
       value: 
@@ -2864,6 +2872,10 @@ PrefabInstance:
       propertyPath: armyFour.Array.data[1]
       value: 
       objectReference: {fileID: 1378251011}
+    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
+      propertyPath: playerUnits.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
       propertyPath: armyThree.Array.data[0]
       value: 
