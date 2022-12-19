@@ -11,7 +11,7 @@ public class SniperProjectile : TankShell
             UnitBase unit = collision.collider.GetComponent<UnitBase>();
             if (unit.army != army)
             {
-                if (unit.type == UnitType.LightTroop || unit.type == UnitType.HeavyTroop)
+                if (unit.type == UnitType.LightTroop || unit.type == UnitType.HeavyTroop || unit.type == UnitType.ResourceTruck)
                     unit.OnTakeDamage(damage * 4);
                 else
                     unit.OnTakeDamage(damage);

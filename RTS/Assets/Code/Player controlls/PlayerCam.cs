@@ -214,6 +214,25 @@ public class PlayerCam : MonoBehaviour
             SelectCheck();
         }
     }
+
+    public void ResetCamRotation(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.started)
+        {
+            transform.rotation = new Quaternion();
+        }
+    }
+    public void ResetCamPosition(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.started)
+        {
+            foreach (HQBuilding hq in PlayerTroopManager.instance.HQs)
+            {
+                if (hq.army == playerArmy)
+                    transform.position = new Vector3(hq.transform.position.x, transform.position.y, hq.transform.position.z);
+            }
+        }
+    }
     public void MoveMouse(InputAction.CallbackContext callbackContext)
     {
         if (holdRightClick)

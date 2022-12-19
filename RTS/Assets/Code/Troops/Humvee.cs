@@ -59,7 +59,7 @@ public class Humvee : TroopMovement
             UnitBase victim = hit.collider.GetComponent<UnitBase>();
             if (victim.army != army)
             {
-                if (victim.type == UnitType.LightTroop)
+                if (victim.type == UnitType.LightTroop || victim.type == UnitType.ResourceTruck)
                     victim.OnTakeDamage(damage * 2);
                 else
                     victim.OnTakeDamage(damage);
