@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 1400187521681719808}
   - component: {fileID: 3785979620970919626}
   - component: {fileID: 7715636905044772624}
+  - component: {fileID: 3501082757275795820}
   m_Layer: 0
   m_Name: Sandbag 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2648587947897064869
 Transform:
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3425686909970110239}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,3 +98,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.6685448, y: 0.9990846, z: 2.4757924}
   m_Center: {x: 0.20455986, y: 0.4995423, z: -0.18528622}
+--- !u!208 &3501082757275795820
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3425686909970110239}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.3340001, y: 0.5, z: 1.238}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.20500001, y: 0.5, z: -0.185}
+  m_TimeToStationary: 0.5

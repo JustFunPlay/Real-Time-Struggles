@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 5657560721163578607}
   - component: {fileID: 7595117129212925989}
   - component: {fileID: 2167925271465091449}
+  - component: {fileID: -4940679917272128845}
   m_Layer: 0
   m_Name: Hesco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8731470418107917130
 Transform:
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8243762950491814384}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,3 +98,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1573217, y: 1.3685583, z: 1.1573218}
   m_Center: {x: 0.00000032782555, y: 0.68427914, z: 0}
+--- !u!208 &-4940679917272128845
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8243762950491814384}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.57900006, y: 0.684, z: 0.57900006}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.684, z: 0}
+  m_TimeToStationary: 0.5

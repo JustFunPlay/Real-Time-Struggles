@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 3306428509633784039}
   - component: {fileID: 722331310657559597}
   - component: {fileID: 117154809374241293}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bridge Mid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1895189311834105666
 Transform:

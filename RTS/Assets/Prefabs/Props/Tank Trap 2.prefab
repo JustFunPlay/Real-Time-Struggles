@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 2690923914402295093}
   - component: {fileID: 197281260712598015}
   - component: {fileID: 6139234198856632198}
+  - component: {fileID: -8167243579483538838}
   m_Layer: 0
   m_Name: Tank Trap 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1366788191096562320
 Transform:
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1854390350411610154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,3 +98,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1910996, y: 1.1910998, z: 1.0912619}
   m_Center: {x: -0.018863529, y: 0.48236856, z: -0.00000008940697}
+--- !u!208 &-8167243579483538838
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854390350411610154}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.596, y: 0.596, z: 0.546}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.019000001, y: 0.48200002, z: 0}
+  m_TimeToStationary: 0.5
