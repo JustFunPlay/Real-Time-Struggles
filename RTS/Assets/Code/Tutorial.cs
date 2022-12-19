@@ -80,7 +80,7 @@ public class Tutorial : MonoBehaviour
             case 6:
                 foreach (UnitBase unit in PlayerTroopManager.instance.playerUnits)
                 {
-                    if (unit.type == UnitType.HeavyFactory)
+                    if (unit.type == UnitType.LightFactory)
                     {
                         ProgressTutorial();
                     }
@@ -90,7 +90,7 @@ public class Tutorial : MonoBehaviour
                 int tanks = 0;
                 foreach (UnitBase unit in PlayerTroopManager.instance.playerUnits)
                 {
-                    if (unit.type == UnitType.HeavyTroop)
+                    if (unit.type == UnitType.LightTroop)
                         tanks++;
                 }
                 if (tanks >= 3)

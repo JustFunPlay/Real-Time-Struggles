@@ -1639,6 +1639,7 @@ GameObject:
   - component: {fileID: 1590729490}
   - component: {fileID: 1590729489}
   - component: {fileID: 1590729488}
+  - component: {fileID: 1590729491}
   m_Layer: 5
   m_Name: TutorialButton
   m_TagString: Untagged
@@ -1710,7 +1711,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1590729489}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1590729491}
+        m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
+        m_MethodName: GoToGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1590729489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1749,6 +1762,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590729486}
   m_CullTransparentMesh: 1
+--- !u!114 &1590729491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590729486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2341c7014b2e3614e8eada5e36688953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1611406000
 GameObject:
   m_ObjectHideFlags: 0
