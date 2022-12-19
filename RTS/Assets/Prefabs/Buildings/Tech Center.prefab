@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 2304514279930391704}
   - component: {fileID: 6724429189213002582}
   - component: {fileID: 804303573124551128}
+  - component: {fileID: 6214024862356001373}
   m_Layer: 0
   m_Name: Tech Center
   m_TagString: Untagged
@@ -364,3 +365,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.6476917, y: 6.51206, z: 5.4057455}
   m_Center: {x: -5.540984, y: 3.25603, z: -6.5685105}
+--- !u!208 &6214024862356001373
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8821117011329056665}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 9.817, y: 4.059, z: 11.033001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 4.059, z: 0.081}
+  m_TimeToStationary: 0.5
