@@ -148,8 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourcesPerTrip: 250
-  collectionDuration: 3
-  collectionLockout: 1
+  collectionDuration: 1
+  collectionLockout: 0
   truckFindRadius: 5
   entranceLocation: {fileID: 5160618375888938371}
   exitLocation: {fileID: 5429287112438417490}

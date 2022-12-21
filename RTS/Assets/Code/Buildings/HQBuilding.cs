@@ -18,6 +18,7 @@ public class HQBuilding : Factory
     {
         PlayerTroopManager.instance.HQs.Add(this);
         base.AddedUnit(army_);
+        canHeal = true;
     }
     public void HealAllBuildings()
     {

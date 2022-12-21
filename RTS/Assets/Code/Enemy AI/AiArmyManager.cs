@@ -45,7 +45,7 @@ public class AiArmyManager : MonoBehaviour
         costMod = Mathf.Clamp(costMod + Random.Range(-0.5f, 0.5f), 0.5f, 5);
         for (int i = 0; i < supplySets.Count; i++)
         {
-            supplySets[i].optimalEco += Mathf.RoundToInt((16 + 2 * (Vector3.Distance(supplySets[i].depot.transform.position, supplySets[i].yard.transform.position) / 15f)) / 7.5f);
+            supplySets[i].optimalEco += Mathf.CeilToInt(12/(60/(12 + 2 * (Vector3.Distance(supplySets[i].depot.transform.position, supplySets[i].yard.transform.position) / 16f))));
         }
         for (int i = 0; i < hq.troops.Length; i++)
         {

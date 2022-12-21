@@ -440,8 +440,8 @@ MonoBehaviour:
   powerCost: 1
   requiredTrips: 3
   truckFindRadius: 5
-  collectionDuration: 3
-  collectionLockout: 1
+  collectionDuration: 1
+  collectionLockout: 0
   entranceLocation: {fileID: 1303602527946134577}
   loadPoint: {fileID: 2367022751272744133}
   exitLocation: {fileID: 6190888552927408000}
