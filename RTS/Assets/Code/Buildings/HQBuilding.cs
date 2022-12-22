@@ -73,4 +73,15 @@ public class HQBuilding : Factory
                 hq.supplies += supplies;
         }
     }
+    protected override void OnDeath()
+    {
+        PlayerTroopManager.instance.HQs.Remove(this);
+        GameEnd.instance.CheckGameEnd();
+        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+        {
+            if (unit.army == army && unit != this)
+                unit.OnTakeDamage(10000);
+        }
+        base.OnDeath();
+    }
 }

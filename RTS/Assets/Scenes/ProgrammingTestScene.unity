@@ -2756,6 +2756,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6110579598999668056, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110579598999668056, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110579598999668056, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6110579599164313980, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
       propertyPath: m_RootOrder
       value: 31
@@ -2874,7 +2886,7 @@ PrefabInstance:
       objectReference: {fileID: 1378251011}
     - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
       propertyPath: playerUnits.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
       propertyPath: armyThree.Array.data[0]
