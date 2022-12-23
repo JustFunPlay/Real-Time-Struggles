@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 34326
+  controlID: 35395
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 34327
+  controlID: 35396
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 34328
+  controlID: 35397
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -226,7 +226,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: aa17fcff0c42fcff844bfcff1655fdff6e7efdff3289fdfff6afffff08e1fffffeecffff22edffff40edffffd2faffffb0810000e8830000ec8300005c8400006885000086d400005ed50000b0d60000ec770100187a0100d67b01006c7c0100
+      m_ExpandedIDs: aa17fcff0c42fcff844bfcff1655fdff6e7efdff3289fdfff6afffff08e1fffffeecffff22edffff40edffffd2faffffb0810000e8830000ec8300005c8400006885000086d400005ed50000b0d60000ec770100027a0100187a01004a7a0100d67b01006c7c0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -571,9 +571,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 50.839127, y: 0.3969779, z: 29.59377}
+    m_Target: {x: 51.30626, y: -1.853899, z: 552.821}
     speed: 2
-    m_Value: {x: 50.839127, y: 0.3969779, z: 29.59377}
+    m_Value: {x: 51.30626, y: -1.853899, z: 552.821}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -620,13 +620,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.042479567, y: 0.9388792, z: -0.12551667, w: -0.3178064}
+    m_Target: {x: -0.14759204, y: 0.8390848, z: -0.27983984, w: -0.44260556}
     speed: 2
-    m_Value: {x: -0.042478416, y: 0.9388538, z: -0.12551327, w: -0.31779778}
+    m_Value: {x: -0.14758785, y: 0.839061, z: -0.27983192, w: -0.442593}
   m_Size:
-    m_Target: 18.50874
+    m_Target: 32.82009
     speed: 2
-    m_Value: 18.50874
+    m_Value: 32.82009
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -2556,8 +2556,8 @@ MonoBehaviour:
     y: 504.8
     width: 1215.2
     height: 226
-  m_MinSize: {x: 230, y: 250}
-  m_MaxSize: {x: 10000, y: 10000}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -2605,22 +2605,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes/Tutorial Level
+    - Assets/Prefabs/Buildings/Holographics
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 57
   m_LastFolders:
-  - Assets/Scenes/Tutorial Level
+  - Assets/Prefabs/Buildings/Holographics
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\dinan\Documents\GitHub\Real-Time-Struggles\RTS
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 135}
-    m_SelectedIDs: bcd10000
-    m_LastClickedID: 53692
-    m_ExpandedIDs: 000000007c8c00007e8c0000808c0000be8c000000ca9a3b
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: b48c0000
+    m_LastClickedID: 36020
+    m_ExpandedIDs: 000000007c8c00007e8c0000808c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2673,9 +2673,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 600ffcff
-    m_LastClickedInstanceID: -258208
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000925e000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -2795,7 +2795,7 @@ MonoBehaviour:
     m_CachedPref: 158
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -258208
+  m_LastInspectedObjectInstanceID: -1
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
