@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 3749858912169618452}
   - component: {fileID: 3018599773635169456}
   - component: {fileID: 4191470481974863284}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tank Sniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 6724429189213002582}
   - component: {fileID: 804303573124551128}
   - component: {fileID: 6214024862356001373}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tech Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
