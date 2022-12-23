@@ -1081,6 +1081,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holoBuilding: {fileID: 7472564252469092203, guid: 4d6e8fb5e62a8fd4b865553f7e715e41, type: 3}
+  button: {fileID: 2303539526266217510}
+  requiredBuildingType: 7
 --- !u!1 &3456238182726846583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1552,6 +1554,7 @@ GameObject:
   - component: {fileID: 6398833056305966879}
   - component: {fileID: 6237699733103613924}
   - component: {fileID: 8505792136599564584}
+  - component: {fileID: 8579097139271422311}
   m_Layer: 5
   m_Name: sniper
   m_TagString: Untagged
@@ -1662,7 +1665,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6110579599250220601}
+      - m_Target: {fileID: 8579097139271422311}
         m_TargetAssemblyTypeName: TroopBuildMenu, Assembly-CSharp
         m_MethodName: BuildNewTroop
         m_Mode: 3
@@ -1674,6 +1677,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8579097139271422311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922658499855327114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab0e293211f4904393665885c0f0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiresTechCenter: 1
+  button: {fileID: 8505792136599564584}
 --- !u!1 &5955057221091877348
 GameObject:
   m_ObjectHideFlags: 0
@@ -3130,6 +3147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holoBuilding: {fileID: -7576369430038573033, guid: befb57e7f7a5c66438cb5252cac00040, type: 3}
+  button: {fileID: 6110579599115793440}
+  requiredBuildingType: 6
 --- !u!1 &6110579599136964778
 GameObject:
   m_ObjectHideFlags: 0
@@ -3278,6 +3297,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holoBuilding: {fileID: 7567814791572077520, guid: 12d44869e49080f43adc6857325e5e4a, type: 3}
+  button: {fileID: 6110579599136964780}
+  requiredBuildingType: 10
 --- !u!1 &6110579599164313981
 GameObject:
   m_ObjectHideFlags: 0
@@ -3405,6 +3426,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ab0e293211f4904393665885c0f0db9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiresTechCenter: 0
+  button: {fileID: 0}
 --- !u!1 &6110579599264788348
 GameObject:
   m_ObjectHideFlags: 0
@@ -4781,6 +4804,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ab0e293211f4904393665885c0f0db9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiresTechCenter: 0
+  button: {fileID: 0}
 --- !u!1 &6110579599689297010
 GameObject:
   m_ObjectHideFlags: 0
@@ -5063,6 +5088,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holoBuilding: {fileID: 6237364634966832850, guid: 00159f3f59bc0d9489c0a39d8996c7b9, type: 3}
+  button: {fileID: 6110579599746129582}
+  requiredBuildingType: 0
 --- !u!1 &6110579599767417023
 GameObject:
   m_ObjectHideFlags: 0
@@ -5311,6 +5338,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holoBuilding: {fileID: 381362817881994466, guid: cae83fab27cc21e46bbf1b2d1c12fb91, type: 3}
+  button: {fileID: 6110579599771456912}
+  requiredBuildingType: 0
 --- !u!1 &6110579599803039208
 GameObject:
   m_ObjectHideFlags: 0
@@ -5459,6 +5488,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holoBuilding: {fileID: 6072205710916889077, guid: db089f4c3d09def40bae6f3e5c4af08b, type: 3}
+  button: {fileID: 6110579599803039210}
+  requiredBuildingType: 0
 --- !u!1 &6110579599834129444
 GameObject:
   m_ObjectHideFlags: 0
@@ -6279,6 +6310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ab0e293211f4904393665885c0f0db9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiresTechCenter: 0
+  button: {fileID: 0}
 --- !u!1 &6110579600463806254
 GameObject:
   m_ObjectHideFlags: 0
@@ -7129,6 +7162,7 @@ GameObject:
   - component: {fileID: 8326398659579302459}
   - component: {fileID: 7127129061496189400}
   - component: {fileID: 5996799102720568276}
+  - component: {fileID: 3261817497692273463}
   m_Layer: 5
   m_Name: howitzer
   m_TagString: Untagged
@@ -7239,7 +7273,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6110579599250220601}
+      - m_Target: {fileID: 3261817497692273463}
         m_TargetAssemblyTypeName: TroopBuildMenu, Assembly-CSharp
         m_MethodName: BuildNewTroop
         m_Mode: 3
@@ -7251,6 +7285,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3261817497692273463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6491195272644009065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab0e293211f4904393665885c0f0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiresTechCenter: 1
+  button: {fileID: 5996799102720568276}
 --- !u!1 &6748001614933449938
 GameObject:
   m_ObjectHideFlags: 0
@@ -7681,6 +7729,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holoBuilding: {fileID: 3652997980646322621, guid: 12aeed025b02b2c4ba206b9b07bf0190, type: 3}
+  button: {fileID: 6057746920522644332}
+  requiredBuildingType: 0
 --- !u!1 &8033778200857835215
 GameObject:
   m_ObjectHideFlags: 0

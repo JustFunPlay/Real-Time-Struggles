@@ -15,11 +15,11 @@ public class GameEnd : MonoBehaviour
     }
     public void CheckGameEnd()
     {
-        bool playerDefeat = false;
+        bool playerDefeat = true;
         foreach (HQBuilding hq in PlayerTroopManager.instance.HQs)
         {
             if (hq.army == PlayerCam.playerArmy)
-                playerDefeat = true;
+                playerDefeat = false;
         }
         if (playerDefeat)
         {

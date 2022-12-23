@@ -3373,6 +3373,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Command Center (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8904017810093800595, guid: 4691d2b14dd76214c8f8aea8fcbb17da, type: 3}
+      propertyPath: supplies
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4691d2b14dd76214c8f8aea8fcbb17da, type: 3}
 --- !u!4 &334487014 stripped
@@ -5128,8 +5132,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 514190634}
+  - component: {fileID: 514190635}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: enemy AI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5142,15 +5147,55 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514190633}
-  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 55, y: 0, z: 535}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1420625002}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &514190635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514190633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca6beeecb4e9e5c43b32515a0345ad9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  army: 4
+  ecoRating: 1
+  agroRating: 3
+  costMod: 1.1
+  hq: {fileID: 334487015}
+  supplySets:
+  - yard: {fileID: 1967336131}
+    depot: {fileID: 1694985973}
+    optimalEco: 0
+  supplyTrucks: []
+  lFactories:
+  - {fileID: 524480284}
+  - {fileID: 1369225536}
+  hFactories:
+  - {fileID: 1354704484}
+  activeSquads:
+  - squadMemebers: []
+  squads: {fileID: 0}
+  squadCap: 0
+  minSquad: 0
+  squadToBuild:
+    name: 
+    humvees: 0
+    apcs: 0
+    tanks: 0
+    howitzers: 0
+    snipers: 0
+  isBuilding: 0
+  gatheringPoint: {fileID: 514190634}
 --- !u!1001 &518431158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10777,7 +10822,6 @@ MonoBehaviour:
   - objects:
     - {fileID: 348547907}
     - {fileID: 1058950860}
-    - {fileID: 1523688197}
   - objects:
     - {fileID: 270035251}
     - {fileID: 544747465}
@@ -10792,6 +10836,7 @@ MonoBehaviour:
     - {fileID: 1554621784}
     - {fileID: 1205855700}
     - {fileID: 1811909629}
+    - {fileID: 5636725}
   - objects:
     - {fileID: 270035251}
     - {fileID: 544747465}
@@ -10804,6 +10849,7 @@ MonoBehaviour:
     - {fileID: 405409248}
     - {fileID: 366946367}
     - {fileID: 1554621784}
+    - {fileID: 514190633}
   tutorialEnemies:
   - {fileID: 533353034}
   - {fileID: 1410052558}
@@ -11351,7 +11397,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Build a Supply Depot\n- Click on the button to buid, then point on the
+  m_text: "Build a Supply Depot\n- Click on the button to build, then point on the
     area you want to build it and click to confirm\n- If the outline is green you
     can place it down, if it's red you cannot\n- Press R to rotate by 90\xB0\n- Right
     click to cancel build mode"
@@ -15122,50 +15168,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
   m_PrefabInstance: {fileID: 1415363255}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1420625001
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1420625002}
-  - component: {fileID: 1420625003}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1420625002
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1420625001}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 514190634}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1420625003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1420625001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34e23013d92d7d24dbc05b8da06290c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1438932326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19979,6 +19981,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8680848909653453062, guid: fcc4237a8a5a31142adc2a1e015dca8c, type: 3}
   m_PrefabInstance: {fileID: 1965506465}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1967336131 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6471660466946955085, guid: b480bb08d184f4640a97d4ea95156bf0, type: 3}
+  m_PrefabInstance: {fileID: 1803714399}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479137203dc231949b526f7b7ca9295d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1967821235
 PrefabInstance:
   m_ObjectHideFlags: 0

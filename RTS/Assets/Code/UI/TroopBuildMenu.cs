@@ -1,22 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TroopBuildMenu : MonoBehaviour
 {
-    //HQBuilding hq;
-
-    //private void Start()
-    //{
-    //    foreach (HQBuilding hq_ in PlayerTroopManager.instance.HQs)
-    //    {
-    //        if (hq_.army == PlayerCam.playerArmy)
-    //        {
-    //            hq = hq_;
-    //            break;
-    //        }
-    //    }
-    //}
+    public bool requiresTechCenter;
+    public Button button;
+    private void FixedUpdate()
+    {
+        if (requiresTechCenter)
+        {
+            bool hasTech = false;
+            foreach (UnitBase unit in PlayerTroopManager.instance.playerUnits)
+            {
+                if (unit.type == UnitType.TechCenter)
+                    hasTech = true;
+            }
+            if (hasTech)
+                button.interactable = true;
+            else
+                button.interactable = false;
+        }
+    }
 
     public void BuildNewTroop(int index)
     {

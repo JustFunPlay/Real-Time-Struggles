@@ -194,6 +194,10 @@ MonoBehaviour:
   isBuilding: 0
   supplies: 0
   totalPower: 0
+  canHeal: 0
+  healCooldown: 60
+  healPerTick: 10
+  costPerHeal: 10
 --- !u!1 &2312971651317749342
 GameObject:
   m_ObjectHideFlags: 0

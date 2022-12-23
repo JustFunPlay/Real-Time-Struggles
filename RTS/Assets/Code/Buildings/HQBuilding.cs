@@ -59,7 +59,7 @@ public class HQBuilding : Factory
         {
             if (hq.army == army)
             {
-                if (hq.totalPower + newPower <= 0)
+                if (hq.totalPower + newPower <= 0 || newPower < 0)
                     return true;
             }
         }

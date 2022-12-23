@@ -26,6 +26,7 @@ public class Building : UnitBase
             if (hq.army == army)
                 hq.totalPower -= powerCost;
         }
+        StopAllCoroutines();
         base.OnDestroy();
     }
     public IEnumerator EmergencyRepair(int heal, int cost)
@@ -34,7 +35,7 @@ public class Building : UnitBase
         {
             currentHP = Mathf.Min(currentHP + heal, maxHP);
             HQBuilding.ChangeSupplies(-cost, army);
-            yield return new WaitForFixedUpdate();
+            yield return new WaitForSeconds(0.05f);
         }
     }
 }
