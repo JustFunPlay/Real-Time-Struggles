@@ -39,9 +39,10 @@ public class GameEnd : MonoBehaviour
         }
         for (int i = 0; i < 10; i++)
         {
-            Time.timeScale = 1 - 0.1f*(i +1 );
             if (i == 9)
                 Time.timeScale = 0.000000001f;
+            else
+                Time.timeScale = 1 - 0.1f*(i + 1);
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
             yield return new WaitForSecondsRealtime(0.1f);
         }
