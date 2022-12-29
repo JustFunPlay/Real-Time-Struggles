@@ -66,6 +66,7 @@ public class PlayerCam : MonoBehaviour
     {
         instance = this;
         cam = GetComponentInChildren<Camera>();
+        Cursor.lockState = CursorLockMode.Confined;
         currentCamDistance = Vector3.Distance(transform.position, cam.transform.position);
         camDir = (cam.transform.position - transform.position).normalized;
         for (int i = 0; i < 10; i++)

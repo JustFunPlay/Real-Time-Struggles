@@ -40,6 +40,8 @@ public class SupplyDepot : Building
 
     IEnumerator LoadUpTruck()
     {
+        truckInAction.canBeSeclected = false;
+        truckInAction.OnDeselected();
         truckInAction.supplying = true;
         truckInAction.inQueue = false;
         trucksInQueue.Remove(truckInAction);
@@ -101,6 +103,7 @@ public class SupplyDepot : Building
         }
         truckInAction.CheckToAutomate();
         truckInAction.supplying = false;
+        truckInAction.canBeSeclected = true;
         truckInAction = null;
         yield return new WaitForSeconds(collectionLockout);
         StartCoroutine(CheckForTruck());

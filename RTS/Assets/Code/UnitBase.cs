@@ -7,7 +7,7 @@ public class UnitBase : MonoBehaviour
     public int maxHP;
     public int currentHP;
     public Army army;
-    bool isSelected;
+    public bool canBeSeclected;
     public MeshRenderer showSelected;
     public UnitType type;
     public MeshRenderer[] renderers;
@@ -79,6 +79,7 @@ public class UnitBase : MonoBehaviour
             PlayerTroopManager.instance.playerUnits.Add(this);
         currentHP = maxHP;
         PlayerTroopManager.instance.allUnits.Add(this);
+        canBeSeclected = true;
     }
 
     public virtual void OnTakeDamage(int damage)
@@ -99,15 +100,16 @@ public class UnitBase : MonoBehaviour
 
     public void OnSelected()
     {
-        if (!PlayerCam.instance.selectedUnits.Contains(this))
-            PlayerCam.instance.selectedUnits.Add(this);
-        isSelected = true;
-        showSelected.material.color = Color.green;
+        if (canBeSeclected)
+        {
+            if (!PlayerCam.instance.selectedUnits.Contains(this))
+                PlayerCam.instance.selectedUnits.Add(this);
+            showSelected.material.color = Color.green;
+        }
     }
     public void OnDeselected()
     {
         PlayerCam.instance.selectedUnits.Remove(this);
-        isSelected = false;
         showSelected.material.color = Color.white;
     }
 

@@ -40,7 +40,9 @@ public class Tutorial : MonoBehaviour
             case 3:
                 foreach (UnitBase unit in PlayerTroopManager.instance.playerUnits)
                 {
-                    if (unit.type == UnitType.DefenseBuilding)
+                    if (unit.type == UnitType.ConstructionSite && unit.GetComponent<Building>().powerCost > 0)
+                        tutorialStages[tutorialStage].objects[0].SetActive(false);
+                    else if (unit.type == UnitType.DefenseBuilding)
                     {
                         ProgressTutorial();
                         Vector3 targetPoint = new Vector3();
