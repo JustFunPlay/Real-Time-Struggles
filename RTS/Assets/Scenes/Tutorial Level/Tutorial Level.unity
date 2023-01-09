@@ -354,6 +354,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 154
@@ -621,6 +625,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 64
@@ -756,6 +764,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 187
@@ -818,6 +830,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 76
@@ -879,6 +895,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (42)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -985,6 +1005,10 @@ PrefabInstance:
     - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
       propertyPath: m_Name
       value: Tank Trap 1 (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
@@ -1219,6 +1243,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
 --- !u!4 &82404673 stripped
@@ -1280,6 +1308,10 @@ PrefabInstance:
     - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
       propertyPath: m_Name
       value: Tank Trap 1 (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
@@ -1343,6 +1375,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &98777941 stripped
@@ -1360,6 +1396,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (49)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -1467,6 +1507,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 2 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
 --- !u!4 &134780237 stripped
@@ -1484,6 +1528,10 @@ PrefabInstance:
     - target: {fileID: 2728464707484143870, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
       propertyPath: m_Name
       value: Sandbag End (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728464707484143870, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3357051573404961348, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
       propertyPath: m_RootOrder
@@ -1546,6 +1594,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -1873,6 +1925,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag End (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2728464707484143870, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3357051573404961348, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -1934,6 +1990,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -2083,6 +2143,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &197430356 stripped
@@ -2133,6 +2197,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -2195,6 +2263,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -2290,7 +2362,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 300, y: 20, z: 75}
+  m_Size: {x: 300, y: 1, z: 75}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &228473388 stripped
 GameObject:
@@ -2307,6 +2379,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (47)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -2369,6 +2445,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -2642,6 +2722,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &255816724 stripped
@@ -2659,6 +2743,10 @@ PrefabInstance:
     - target: {fileID: 2728464707484143870, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
       propertyPath: m_Name
       value: Sandbag End (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728464707484143870, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3357051573404961348, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
       propertyPath: m_RootOrder
@@ -2721,6 +2809,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -2789,6 +2881,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 80
@@ -2850,6 +2946,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -2946,6 +3046,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -3269,6 +3373,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 159
@@ -3393,6 +3501,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 81
@@ -3499,6 +3611,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 2 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
 --- !u!4 &328581336 stripped
@@ -3594,6 +3710,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 84
@@ -3655,6 +3775,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -3785,6 +3909,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 125
@@ -3891,6 +4019,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag 2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3425686909970110239, guid: d864e1b3f7c7f8b47803b9d6ce115c03, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d864e1b3f7c7f8b47803b9d6ce115c03, type: 3}
 --- !u!4 &365531808 stripped
@@ -3994,6 +4126,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -4101,6 +4237,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &388646423 stripped
@@ -4163,6 +4303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &404256325 stripped
@@ -4185,6 +4329,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -4582,6 +4730,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &444472883 stripped
@@ -4716,6 +4868,10 @@ PrefabInstance:
     - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
       propertyPath: m_Name
       value: Tank Trap 2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
@@ -4870,6 +5026,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 184
@@ -4975,6 +5135,10 @@ PrefabInstance:
     - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
       propertyPath: m_Name
       value: Tank Trap 1 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
@@ -5135,6 +5299,10 @@ PrefabInstance:
     - target: {fileID: 2728464707484143870, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
       propertyPath: m_Name
       value: Sandbag End (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728464707484143870, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3357051573404961348, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
       propertyPath: m_RootOrder
@@ -5305,6 +5473,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 114
@@ -5409,6 +5581,7 @@ MonoBehaviour:
   - yard: {fileID: 1967336131}
     depot: {fileID: 1694985973}
     optimalEco: 0
+    assignedTrucks: []
   supplyTrucks: []
   lFactories:
   - {fileID: 524480284}
@@ -5496,8 +5669,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 100, y: 30, z: 40}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 100, y: 11, z: 40}
+  m_Center: {x: 0, y: -5, z: 0}
 --- !u!1001 &518431158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5552,6 +5725,10 @@ PrefabInstance:
     - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
       propertyPath: m_Name
       value: Tank Trap 2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
@@ -5643,6 +5820,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -5749,6 +5930,10 @@ PrefabInstance:
     - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
       propertyPath: m_Name
       value: Tank Trap 2 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
@@ -5939,6 +6124,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 65
@@ -6045,6 +6234,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3425686909970110239, guid: d864e1b3f7c7f8b47803b9d6ce115c03, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d864e1b3f7c7f8b47803b9d6ce115c03, type: 3}
 --- !u!4 &559289414 stripped
@@ -6062,6 +6255,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -6242,6 +6439,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &577187802 stripped
@@ -6259,6 +6460,10 @@ PrefabInstance:
     - target: {fileID: 2728464707484143870, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
       propertyPath: m_Name
       value: Sandbag End (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728464707484143870, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3357051573404961348, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
       propertyPath: m_RootOrder
@@ -6321,6 +6526,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -6428,6 +6637,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag 2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3425686909970110239, guid: d864e1b3f7c7f8b47803b9d6ce115c03, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d864e1b3f7c7f8b47803b9d6ce115c03, type: 3}
 --- !u!4 &593492709 stripped
@@ -6445,6 +6658,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -6552,6 +6769,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &620728148 stripped
@@ -6614,6 +6835,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &623464430 stripped
@@ -6631,6 +6856,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -6693,6 +6922,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -6828,6 +7061,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -7037,6 +7274,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 180
@@ -7161,6 +7402,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 59
@@ -7266,6 +7511,10 @@ PrefabInstance:
     - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
       propertyPath: m_Name
       value: Tank Trap 2 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
@@ -7553,6 +7802,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (65)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 188
@@ -7614,6 +7867,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -7749,6 +8006,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -7959,6 +8220,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 74
@@ -8020,6 +8285,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -8083,6 +8352,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -8145,6 +8418,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 176
@@ -8206,6 +8483,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -8344,6 +8625,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
 --- !u!4 &787514894 stripped
@@ -8361,6 +8646,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -8423,6 +8712,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -8726,6 +9019,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &818449625 stripped
@@ -8866,6 +9163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Container 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5203816692977979079, guid: 3de78554b83a753499e6d380bd4e641e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3de78554b83a753499e6d380bd4e641e, type: 3}
 --- !u!4 &864203299 stripped
@@ -8883,6 +9184,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (63)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -9113,7 +9418,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 300, y: 20, z: 325}
+  m_Size: {x: 300, y: 1, z: 325}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &891811233
 PrefabInstance:
@@ -9125,6 +9430,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -9232,6 +9541,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &893168389 stripped
@@ -9294,6 +9607,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Container Large 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4305024635880514545, guid: 4a75717c9316aba42851c3f4b5ef2e3c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a75717c9316aba42851c3f4b5ef2e3c, type: 3}
 --- !u!4 &894512038 stripped
@@ -9311,6 +9628,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -9480,6 +9801,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 2 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
 --- !u!4 &918268826 stripped
@@ -9543,6 +9868,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 72
@@ -9605,6 +9934,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 158
@@ -9666,6 +9999,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -9869,6 +10206,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &963199595 stripped
@@ -9931,6 +10272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
 --- !u!4 &963306811 stripped
@@ -9948,6 +10293,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -10162,6 +10511,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 126
@@ -10223,6 +10576,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -10412,6 +10769,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 130
@@ -10473,6 +10834,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -10720,6 +11085,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &1065359492 stripped
@@ -10737,6 +11106,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -10843,6 +11216,10 @@ PrefabInstance:
     - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
       propertyPath: m_Name
       value: Tank Trap 1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
@@ -11069,6 +11446,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -11520,6 +11901,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 2 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
 --- !u!4 &1117169563 stripped
@@ -11537,6 +11922,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -11673,6 +12062,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 122
@@ -11778,6 +12171,10 @@ PrefabInstance:
     - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
       propertyPath: m_Name
       value: Tank Trap 1 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
@@ -11935,6 +12332,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -11996,6 +12397,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -12059,6 +12464,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 55
@@ -12120,6 +12529,10 @@ PrefabInstance:
     - target: {fileID: 2728464707484143870, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
       propertyPath: m_Name
       value: Sandbag End (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728464707484143870, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3357051573404961348, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
       propertyPath: m_RootOrder
@@ -12227,6 +12640,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &1158155373 stripped
@@ -12244,6 +12661,10 @@ PrefabInstance:
     - target: {fileID: 8110750569331123304, guid: 6aed3559e0bbbb4439355b91f49ff922, type: 3}
       propertyPath: m_Name
       value: Box 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8110750569331123304, guid: 6aed3559e0bbbb4439355b91f49ff922, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8918530269237427922, guid: 6aed3559e0bbbb4439355b91f49ff922, type: 3}
       propertyPath: m_RootOrder
@@ -12314,6 +12735,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -12567,6 +12992,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 2 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
 --- !u!4 &1179020682 stripped
@@ -12617,8 +13046,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 200, y: 30, z: 30}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 200, y: 11, z: 30}
+  m_Center: {x: 0, y: -5, z: 0}
 --- !u!1001 &1195780055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12674,6 +13103,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &1195780056 stripped
@@ -12691,6 +13124,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (60)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -13001,6 +13438,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 83
@@ -13106,6 +13547,10 @@ PrefabInstance:
     - target: {fileID: 5203816692977979079, guid: 3de78554b83a753499e6d380bd4e641e, type: 3}
       propertyPath: m_Name
       value: Container 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203816692977979079, guid: 3de78554b83a753499e6d380bd4e641e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3de78554b83a753499e6d380bd4e641e, type: 3}
@@ -13274,6 +13719,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8301051911282062268, guid: fcc4237a8a5a31142adc2a1e015dca8c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8680848909653453062, guid: fcc4237a8a5a31142adc2a1e015dca8c, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -13380,6 +13829,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 2 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
 --- !u!4 &1240591476 stripped
@@ -13473,6 +13926,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 2 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
 --- !u!4 &1251419085 stripped
@@ -13535,6 +13992,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &1264198455 stripped
@@ -13552,6 +14013,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -13659,6 +14124,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8962039124149489218, guid: 1e1a4dbc5eb0b4c4baebbdf3043be459, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e1a4dbc5eb0b4c4baebbdf3043be459, type: 3}
 --- !u!4 &1274002419 stripped
@@ -13676,6 +14145,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -13739,6 +14212,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 63
@@ -13800,6 +14277,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -13938,6 +14419,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &1299583915 stripped
@@ -14000,6 +14485,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &1302676616 stripped
@@ -14017,6 +14506,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -14153,6 +14646,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 156
@@ -14214,6 +14711,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (49)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -14494,6 +14995,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag End (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2728464707484143870, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3357051573404961348, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
       propertyPath: m_RootOrder
       value: 71
@@ -14628,6 +15133,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -14869,6 +15378,10 @@ PrefabInstance:
     - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
       propertyPath: m_Name
       value: Tank Trap 2 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
@@ -15404,6 +15917,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (52)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 163
@@ -15465,6 +15982,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -15658,6 +16179,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 155
@@ -15764,6 +16289,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &1438932327 stripped
@@ -15857,6 +16386,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &1448320937 stripped
@@ -15874,6 +16407,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -15980,6 +16517,10 @@ PrefabInstance:
     - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
       propertyPath: m_Name
       value: Tank Trap 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
@@ -16116,6 +16657,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag 2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3425686909970110239, guid: d864e1b3f7c7f8b47803b9d6ce115c03, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d864e1b3f7c7f8b47803b9d6ce115c03, type: 3}
 --- !u!4 &1462526797 stripped
@@ -16164,6 +16709,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -16271,6 +16820,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &1512396462 stripped
@@ -16288,6 +16841,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -16432,6 +16989,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &1531183947 stripped
@@ -16449,6 +17010,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -16511,6 +17076,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -16578,6 +17147,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -16812,6 +17385,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -16968,8 +17545,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 200, y: 30, z: 40}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 200, y: 11, z: 40}
+  m_Center: {x: 0, y: -5, z: 0}
 --- !u!1001 &1578999254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17076,6 +17653,10 @@ PrefabInstance:
     - target: {fileID: 2728464707484143870, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
       propertyPath: m_Name
       value: Sandbag End
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728464707484143870, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3357051573404961348, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
       propertyPath: m_RootOrder
@@ -17201,6 +17782,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag End (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 2728464707484143870, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3357051573404961348, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
       propertyPath: m_RootOrder
       value: 183
@@ -17262,6 +17847,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -17425,6 +18014,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 143
@@ -17576,6 +18169,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &1636965935 stripped
@@ -17593,6 +18190,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -17655,6 +18256,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (42)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -17799,6 +18404,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &1668637227 stripped
@@ -17861,6 +18470,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &1670206531 stripped
@@ -17878,6 +18491,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -17941,6 +18558,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (59)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 170
@@ -18003,6 +18624,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 181
@@ -18064,6 +18689,10 @@ PrefabInstance:
     - target: {fileID: 2728464707484143870, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
       propertyPath: m_Name
       value: Sandbag End (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728464707484143870, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3357051573404961348, guid: 2a6fcada549be0c409e58ce2b55aec73, type: 3}
       propertyPath: m_RootOrder
@@ -18273,6 +18902,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -18480,6 +19113,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 173
@@ -18586,6 +19223,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &1737240335 stripped
@@ -18603,6 +19244,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -18753,6 +19398,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (52)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 190
@@ -18888,6 +19537,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 56
@@ -18994,6 +19647,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &1770863648 stripped
@@ -19011,6 +19668,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -19074,6 +19735,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 136
@@ -19136,6 +19801,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 78
@@ -19197,6 +19866,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -19321,6 +19994,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (54)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -19578,6 +20255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 62
@@ -19639,6 +20320,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (64)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -19702,6 +20387,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (61)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 172
@@ -19763,6 +20452,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -19972,6 +20665,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 131
@@ -20078,6 +20775,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &1873366850 stripped
@@ -20157,6 +20858,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -20252,7 +20957,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 300, y: 20, z: 200}
+  m_Size: {x: 300, y: 1, z: 200}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1912539806 stripped
 GameObject:
@@ -20269,6 +20974,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -20376,6 +21085,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 1 (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 4070804320824057390, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82299360bef73bb42abcdd203f8a95d9, type: 3}
 --- !u!4 &1921845720 stripped
@@ -20393,6 +21106,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -20455,6 +21172,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -20633,6 +21354,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 127
@@ -20767,6 +21492,10 @@ PrefabInstance:
     - target: {fileID: 8301051911282062268, guid: fcc4237a8a5a31142adc2a1e015dca8c, type: 3}
       propertyPath: m_Name
       value: Barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301051911282062268, guid: fcc4237a8a5a31142adc2a1e015dca8c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8680848909653453062, guid: fcc4237a8a5a31142adc2a1e015dca8c, type: 3}
       propertyPath: m_RootOrder
@@ -20914,6 +21643,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (55)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 166
@@ -20975,6 +21708,10 @@ PrefabInstance:
     - target: {fileID: 8110750569331123304, guid: 6aed3559e0bbbb4439355b91f49ff922, type: 3}
       propertyPath: m_Name
       value: Box 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8110750569331123304, guid: 6aed3559e0bbbb4439355b91f49ff922, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8918530269237427922, guid: 6aed3559e0bbbb4439355b91f49ff922, type: 3}
       propertyPath: m_RootOrder
@@ -21082,6 +21819,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 2 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
 --- !u!4 &1975098107 stripped
@@ -21172,6 +21913,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -21318,6 +22063,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag Mid (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
       value: 73
@@ -21379,6 +22128,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder
@@ -21536,7 +22289,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 300, y: 20, z: 100}
+  m_Size: {x: 300, y: 1, z: 100}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2034954331
 GameObject:
@@ -21775,6 +22528,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hesco (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
       value: 150
@@ -21880,6 +22637,10 @@ PrefabInstance:
     - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
       propertyPath: m_Name
       value: Tank Trap 2 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
@@ -22016,6 +22777,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Trap 2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1854390350411610154, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f69ca464c255b84fb5bb35799db0f99, type: 3}
 --- !u!4 &2107737512 stripped
@@ -22038,6 +22803,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -22100,6 +22869,10 @@ PrefabInstance:
     - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_Name
       value: Hesco (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243762950491814384, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8731470418107917130, guid: 188ca35a720e9c244bb553a7a002c7b8, type: 3}
       propertyPath: m_RootOrder
@@ -22235,6 +23008,10 @@ PrefabInstance:
     - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_Name
       value: Sandbag Mid (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022115923318536218, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402159521043554976, guid: 9a4241c8b0a59b54895abcd759f45478, type: 3}
       propertyPath: m_RootOrder

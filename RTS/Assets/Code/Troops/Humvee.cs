@@ -20,6 +20,12 @@ public class Humvee : TroopMovement
     public UnitBase target;
     bool canFire = true;
 
+    public override void AddedUnit(Army army_)
+    {
+        base.AddedUnit(army_);
+        canFire = true;
+    }
+
     private void FixedUpdate()
     {
         if (!target)
