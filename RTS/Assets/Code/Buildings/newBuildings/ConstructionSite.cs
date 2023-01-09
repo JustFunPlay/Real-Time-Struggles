@@ -63,12 +63,21 @@ public class ConstructionSite : Building
             truck.CheckSupplies();
         }
         truck.CheckToAutomate();
-        Invoke("FinishConstruction", 5f);
+        Invoke("FinishConstruction", 1f);
     }
     public void FinishConstruction()
     {
         Building newBuilding = Instantiate(building, transform.position, transform.rotation);
         newBuilding.AddedUnit(army);
         Destroy(gameObject);
+    }
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        if (truck)
+        {
+            truck.constructionSite = null;
+            truck.CheckToAutomate();
+        }
     }
 }

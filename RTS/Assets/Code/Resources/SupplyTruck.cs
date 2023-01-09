@@ -17,7 +17,7 @@ public class SupplyTruck : TroopMovement
         if (constructionSite && assignedDepot)
         {
             if (heldResources >= (constructionSite.building.buildCost / constructionSite.building.requiredTrips))
-                MoveToPosition(constructionSite.GetClosestTargetingPoint(transform.position));
+                MoveToPosition(constructionSite.transform.position);
             else if (!HQBuilding.GetSupplies(constructionSite.building.buildCost / constructionSite.building.requiredTrips, army) && assignedYard)
                 MoveToPosition(assignedYard.entranceLocation.position);
             else

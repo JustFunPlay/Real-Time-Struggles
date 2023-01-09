@@ -422,6 +422,7 @@ GameObject:
   - component: {fileID: 8422646938098069063}
   - component: {fileID: 1725860428986115134}
   - component: {fileID: 6279269552084614630}
+  - component: {fileID: 9060051521791832039}
   m_Layer: 6
   m_Name: Sentry Turret
   m_TagString: Untagged
@@ -475,6 +476,7 @@ MonoBehaviour:
   maxHP: 800
   currentHP: 0
   army: 0
+  canBeSeclected: 0
   showSelected: {fileID: 7684911386491660141}
   type: 5
   renderers:
@@ -504,3 +506,19 @@ MonoBehaviour:
   turretRotSpeed: 7
   line: {fileID: 7342916204927228877, guid: d757efed51ca31d4a83858336894e167, type: 3}
   target: {fileID: 0}
+--- !u!208 &9060051521791832039
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9198761046518379773}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.67, y: 1.67, z: 1.67}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1.68, z: 0}
+  m_TimeToStationary: 0.5

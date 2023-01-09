@@ -119,6 +119,7 @@ MonoBehaviour:
   maxHP: 1300
   currentHP: 0
   army: 0
+  canBeSeclected: 0
   showSelected: {fileID: 3625948171546463349}
   type: 6
   renderers:
@@ -192,11 +193,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 4, y: 4.9690003, z: 7.5}
+  m_Extents: {x: 3.75, y: 4.9690003, z: 7.5}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: -4, y: 4.9690003, z: 0}
+  m_Center: {x: -4.25, y: 4.9690003, z: 0}
   m_TimeToStationary: 0.5
 --- !u!1 &2295459643895252988
 GameObject:
@@ -337,11 +338,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 4.5, y: 1, z: 3}
+  m_Extents: {x: 4.75, y: 1, z: 3}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0.6, y: 1, z: -4.5}
+  m_Center: {x: 0.35, y: 1, z: -4.5}
   m_TimeToStationary: 0.5
 --- !u!1 &5884314536910612365
 GameObject:
@@ -385,9 +386,9 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.5, y: 1, z: 4.5}
+  m_Extents: {x: 0.25, y: 1, z: 4.5}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: 4.5, y: 1, z: -9}
+  m_Center: {x: 4.75, y: 1, z: -9}
   m_TimeToStationary: 0.5

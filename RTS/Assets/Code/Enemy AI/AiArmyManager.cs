@@ -260,26 +260,34 @@ public class AiArmyManager : MonoBehaviour
         for (int i = supplySets.Count - 1; i >= 0; i--)
         {
             if (supplySets[i].depot == null)
-                supplySets.RemoveAt(i);
-        }
-        int t = 0;
-        for (int set = 0; set < supplySets.Count; set++)
-        {
-            for (int i = 0; i < supplySets[set].optimalEco; i++)
             {
-                if (t == supplyTrucks.Count)
-                    break;
-                if (supplyTrucks[t])
+                for (int t = 0; t < supplySets[i].assignedTrucks.Count; t++)
                 {
-                    supplyTrucks[t].assignedYard = supplySets[set].yard;
-                    supplyTrucks[t].assignedDepot = supplySets[set].depot;
-                    if (!supplyTrucks[t].supplying && !supplyTrucks[t].inQueue)
-                        supplyTrucks[t].CheckToAutomate();
-                    t++;
+                    supplySets[i].assignedTrucks[t].assignedDepot = null;
+                    supplySets[i].assignedTrucks[t].assignedYard = null;
                 }
-                else
-                    supplyTrucks.RemoveAt(t);
-
+                supplySets.RemoveAt(i);
+            }
+        }
+        for (int i = 0; i < supplyTrucks.Count; i++)
+        {
+            if (supplyTrucks[i] == null)
+            {
+                supplyTrucks.RemoveAt(i);
+                i--;
+            }
+            else if (supplyTrucks[i].assignedDepot == null)
+            {
+                for (int s = 0; s < supplySets.Count; s++)
+                {
+                    if (supplySets[s].assignedTrucks.Count < supplySets[s].optimalEco || s == supplySets.Count - 1)
+                    {
+                        supplyTrucks[i].assignedYard = supplySets[s].yard;
+                        supplyTrucks[i].assignedDepot = supplySets[s].depot;
+                        supplyTrucks[i].CheckToAutomate();
+                        break;
+                    }
+                }
             }
         }
     }
@@ -445,6 +453,7 @@ public class SupplySet
     public SupplyYard yard;
     public SupplyDepot depot;
     public int optimalEco;
+    public List<SupplyTruck> assignedTrucks = new List<SupplyTruck>();
 }
 
 [System.Serializable]

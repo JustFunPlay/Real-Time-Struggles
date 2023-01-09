@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4136576512175576571}
   - component: {fileID: 6175696400017970111}
   - component: {fileID: 2450621365887991734}
+  - component: {fileID: -4393716997627673548}
   m_Layer: 6
   m_Name: Scaffolding Tech Center
   m_TagString: Untagged
@@ -114,6 +115,7 @@ MonoBehaviour:
   maxHP: 0
   currentHP: 0
   army: 0
+  canBeSeclected: 0
   showSelected: {fileID: 6932614596198844347}
   type: 9
   renderers: []
@@ -143,6 +145,22 @@ MonoBehaviour:
   investedResources: 0
   collectionRadius: 4
   truck: {fileID: 0}
+--- !u!208 &-4393716997627673548
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2479493398572872750}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 8.5, y: 1.5, z: 9.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.5, y: 1, z: -0.5}
+  m_TimeToStationary: 0.5
 --- !u!1 &6395495470971748834
 GameObject:
   m_ObjectHideFlags: 0

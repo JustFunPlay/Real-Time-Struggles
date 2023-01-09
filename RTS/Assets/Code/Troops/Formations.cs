@@ -14,10 +14,6 @@ public class Formations : MonoBehaviour
     public void SetFormation(TroopMovement[] troops, Vector3 Targetpoint)
     {
         int set = troops.Length - 1;
-        if (troops.Length > formations.Length)
-        {
-            set = formations.Length - 1;
-        }
         Vector3 midPoint = new Vector3();
         for (int i = 0; i < troops.Length; i++)
         {
@@ -26,9 +22,39 @@ public class Formations : MonoBehaviour
         midPoint /= troops.Length;
         Vector3 dir = (Targetpoint - midPoint).normalized;
         transform.LookAt(transform.position + dir);
-        for (int i = 0; i < troops.Length; i++)
+        if (troops.Length > formations.Length)
         {
-            troops[i].MoveToPosition(Targetpoint + transform.TransformDirection(formations[set].positions[i]));
+            float addedRot = 60;
+            int step = 6;
+            int stepsTaken = 0;
+            int distance = 12;
+            for (int i = 0; i < troops.Length; i++)
+            {
+                if (i == 0)
+                {
+                    troops[i].MoveToPosition(Targetpoint);
+                }
+                else
+                {
+                    troops[i].MoveToPosition(Targetpoint + transform.forward * distance);
+                    transform.Rotate(0, addedRot, 0);
+                    stepsTaken++;
+                    if (stepsTaken == step)
+                    {
+                        stepsTaken = 0;
+                        step *= 2;
+                        addedRot /= 2;
+                        distance += 12;
+                    }
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < troops.Length; i++)
+            {
+                troops[i].MoveToPosition(Targetpoint + transform.TransformDirection(formations[set].positions[i]));
+            }
         }
     }
 }

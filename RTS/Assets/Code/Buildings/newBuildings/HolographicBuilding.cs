@@ -29,7 +29,7 @@ public class HolographicBuilding : MonoBehaviour
         Collider[] colliders = Physics.OverlapBox(transform.position + transform.TransformDirection(extendsOffset), halfExtends, transform.rotation, obstacleLayer);
         foreach (Collider collider in colliders)
         {
-            if (collider.GetComponent<Building>() || collider.GetComponent<ConstructionSite>() || collider.GetComponent<SupplyYard>())
+            if (!collider.GetComponent<TroopMovement>())
                 buildings++;
         }
         if (buildings > 0)

@@ -509,10 +509,10 @@ NavMeshAgent:
   m_GameObject: {fileID: 4661847046824301664}
   m_Enabled: 1
   m_AgentTypeID: -1372625422
-  m_Radius: 4.5
+  m_Radius: 4
   m_Speed: 10
   m_Acceleration: 8
-  avoidancePriority: 40
+  avoidancePriority: 50
   m_AngularSpeed: 540
   m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
@@ -537,6 +537,7 @@ MonoBehaviour:
   maxHP: 1000
   currentHP: 0
   army: 0
+  canBeSeclected: 0
   showSelected: {fileID: 8957209545569639995}
   type: 4
   renderers:

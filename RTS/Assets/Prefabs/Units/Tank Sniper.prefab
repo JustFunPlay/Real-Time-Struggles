@@ -616,8 +616,8 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5086228015552872540}
   m_Enabled: 1
-  m_AgentTypeID: -334000983
-  m_Radius: 5.5
+  m_AgentTypeID: 1479372276
+  m_Radius: 5
   m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
@@ -645,6 +645,7 @@ MonoBehaviour:
   maxHP: 500
   currentHP: 0
   army: 0
+  canBeSeclected: 0
   showSelected: {fileID: 6232087001815720304}
   type: 3
   renderers:

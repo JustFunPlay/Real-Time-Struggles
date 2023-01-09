@@ -57,8 +57,11 @@ public class MissileArray : Building
         canFire = false;
         for (int i = 0; i < burstCount; i++)
         {
-            LaunchMissile();
-            yield return new WaitForSeconds(burstDelay);
+            if (target)
+            {
+                LaunchMissile();
+                yield return new WaitForSeconds(burstDelay);
+            }
         }
         yield return new WaitForSeconds(timeBetweenBursts);
         canFire = true;
