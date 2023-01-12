@@ -46,7 +46,7 @@ public class SupplyYard : MonoBehaviour
     {
         truckInAction.canBeSeclected = false;
         truckInAction.OnDeselected();
-        truckInAction.supplying = true;
+        truckInAction.inBuilding = true;
         truckInAction.inQueue = false;
         trucksInQueue.Remove(truckInAction);
         truckInAction.MoveToPosition(transform.position);
@@ -94,7 +94,7 @@ public class SupplyYard : MonoBehaviour
             yield return new WaitForSeconds(0.075f);
         }
         truckInAction.CheckToAutomate();
-        truckInAction.supplying = false;
+        truckInAction.inBuilding = false;
         truckInAction.canBeSeclected = true;
         truckInAction = null;
         yield return new WaitForSeconds(collectionLockout);
@@ -113,7 +113,7 @@ public class SupplyYard : MonoBehaviour
 
         foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
         {
-            if (unit.GetComponent<SupplyTruck>() && !unit.GetComponent<SupplyTruck>().supplying)
+            if (unit.GetComponent<SupplyTruck>() && !unit.GetComponent<SupplyTruck>().inBuilding)
             {
                 if (Vector3.Distance(unit.transform.position, entranceLocation.position) < queueDistance * (trucksInQueue.Count + 1) && !unit.GetComponent<SupplyTruck>().inQueue && unit.GetComponent<SupplyTruck>().heldResources == 0)
                 {

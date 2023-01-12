@@ -29,6 +29,7 @@ public class AiArmyManager : MonoBehaviour
     public List<Factory> hFactories = new List<Factory>();
     int h = 0;
     public List<ActiveSquad> activeSquads = new List<ActiveSquad>();
+    public List<RepairBay> repairBays = new List<RepairBay>();
 
     [Header("Army production")]
     public ArmySquads squads;
@@ -45,7 +46,7 @@ public class AiArmyManager : MonoBehaviour
         costMod = Mathf.Clamp(costMod + Random.Range(-0.5f, 0.5f), 0.5f, 5);
         for (int i = 0; i < supplySets.Count; i++)
         {
-            supplySets[i].optimalEco += Mathf.CeilToInt(12/(60/(12 + 2 * (Vector3.Distance(supplySets[i].depot.transform.position, supplySets[i].yard.transform.position) / 16f))));
+            supplySets[i].optimalEco += Mathf.CeilToInt(12/(60/(10 + 2 * (Vector3.Distance(supplySets[i].depot.transform.position, supplySets[i].yard.transform.position) / 15f))));
         }
         for (int i = 0; i < hq.troops.Length; i++)
         {
@@ -201,7 +202,7 @@ public class AiArmyManager : MonoBehaviour
                 }
                 UnitBase target = closestUnits[t];
                 float tInCombat = 0;
-                while (target && squad.squadMemebers.Count > 0 && tInCombat < 1.5f && Vector3.Distance(SquadOrigin(squad.squadMemebers.ToArray()), target.GetClosestTargetingPoint(SquadOrigin(squad.squadMemebers.ToArray()))) > SquadRange(squad.squadMemebers.ToArray()))
+                while (target && squad.squadMemebers.Count > 0 && tInCombat < 1f && Vector3.Distance(SquadOrigin(squad.squadMemebers.ToArray()), target.GetClosestTargetingPoint(SquadOrigin(squad.squadMemebers.ToArray()))) > SquadRange(squad.squadMemebers.ToArray()))
                 {
                     squad = CheckSquadAliveness(squad);
                     Vector3 targetPoint = target.transform.position + ((SquadOrigin(squad.squadMemebers.ToArray()) - target.transform.position).normalized * (SquadRange(squad.squadMemebers.ToArray()) - 5f));
@@ -209,6 +210,10 @@ public class AiArmyManager : MonoBehaviour
                     if (SquadInCombat(squad.squadMemebers.ToArray()))
                         tInCombat += 0.1f;
                     yield return new WaitForSeconds(0.1f);
+                }
+                if (SquadInCombat(squad.squadMemebers.ToArray()) && tInCombat > 1f)
+                {
+                    Formations.instance.SetFormation(squad.squadMemebers.ToArray(), InCombatTargetPoint(squad.squadMemebers.ToArray()));
                 }
             }
             yield return new WaitForSeconds(0.1f);
@@ -282,6 +287,7 @@ public class AiArmyManager : MonoBehaviour
                 {
                     if (supplySets[s].assignedTrucks.Count < supplySets[s].optimalEco || s == supplySets.Count - 1)
                     {
+                        supplySets[s].assignedTrucks.Add(supplyTrucks[i]);
                         supplyTrucks[i].assignedYard = supplySets[s].yard;
                         supplyTrucks[i].assignedDepot = supplySets[s].depot;
                         supplyTrucks[i].CheckToAutomate();
@@ -391,8 +397,25 @@ public class AiArmyManager : MonoBehaviour
                 return true;
             else if (troops[i].GetComponent<Howitzer>() && troops[i].GetComponent<Howitzer>().target)
                 return true;
+            else if (troops[i].GetComponent<Humvee>() && troops[i].GetComponent<Humvee>().target)
+                return true;
         }
         return false;
+    }
+    Vector3 InCombatTargetPoint(TroopMovement[] troops)
+    {
+        UnitBase target = null;
+        foreach (TroopMovement troop in troops)
+        {
+            if (troop.GetComponent<Tank>() && troop.GetComponent<Tank>().target)
+                target = troop.GetComponent<Tank>().target;
+            else if (troop.GetComponent<Howitzer>() && troop.GetComponent<Howitzer>().target)
+                target = troop.GetComponent<Tank>().target;
+            else if (troop.GetComponent<Humvee>() && troop.GetComponent<Humvee>().target)
+                target = troop.GetComponent<Tank>().target;
+        }
+        Vector3 targetPoint = target.transform.position + ((SquadOrigin(troops) - target.transform.position).normalized * (SquadRange(troops) - 5f));
+        return targetPoint;
     }
     UnitBase[] ClosestTargets(Vector3 origin)
     {

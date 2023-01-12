@@ -22,7 +22,7 @@ public class ConstructionSite : Building
         {
             foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
             {
-                if (unit.army == army && unit.GetComponent<SupplyTruck>() && unit.GetComponent<SupplyTruck>().constructionSite == null && unit.GetComponent<SupplyTruck>().supplying == false)
+                if (unit.army == army && unit.GetComponent<SupplyTruck>() && unit.GetComponent<SupplyTruck>().constructionSite == null && unit.GetComponent<SupplyTruck>().inBuilding == false)
                 {
                     if (!truck || Vector3.Distance(transform.position, unit.transform.position) < Vector3.Distance(transform.position, truck.transform.position))
                         truck = unit.GetComponent<SupplyTruck>();

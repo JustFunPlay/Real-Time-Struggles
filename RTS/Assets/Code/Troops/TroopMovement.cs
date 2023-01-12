@@ -7,6 +7,8 @@ using UnityEngine.AI;
 public class TroopMovement : UnitBase
 {
     NavMeshAgent agent;
+    public bool inQueue;
+    public bool inBuilding;
     public override void AddedUnit(Army army_)
     {
         base.AddedUnit(army_);

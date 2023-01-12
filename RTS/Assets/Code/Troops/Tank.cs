@@ -46,14 +46,33 @@ public class Tank : TroopMovement
     }
     void FindTarget()
     {
+        UnitBase potentialTarget = null;
         foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
         {
-            if (unit.army != army && Vector3.Distance(turretRotate.position, unit.GetClosestTargetingPoint(transform.position)) <= range)
-            {
-                target = unit;
-                break;
-            }
+            if (unit.army != army && Vector3.Distance(turretRotate.position, unit.GetClosestTargetingPoint(transform.position)) <= range && (unit.type == UnitType.LightTroop || unit.type == UnitType.HeavyTroop) && (!potentialTarget || Vector3.Distance(unit.GetClosestTargetingPoint(transform.position), aimAssist.position) < Vector3.Distance(potentialTarget.GetClosestTargetingPoint(transform.position), aimAssist.position)))
+                potentialTarget = unit;
         }
+        if (potentialTarget)
+        {
+            target = potentialTarget;
+            return;
+        }
+        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+        {
+            if (unit.army != army && Vector3.Distance(turretRotate.position, unit.GetClosestTargetingPoint(transform.position)) <= range && unit.type == UnitType.DefenseBuilding && (!potentialTarget || Vector3.Distance(unit.GetClosestTargetingPoint(transform.position), aimAssist.position) < Vector3.Distance(potentialTarget.GetClosestTargetingPoint(transform.position), aimAssist.position)))
+                potentialTarget = unit;
+        }
+        if (potentialTarget)
+        {
+            target = potentialTarget;
+            return;
+        }
+        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+        {
+            if (unit.army != army && Vector3.Distance(turretRotate.position, unit.GetClosestTargetingPoint(transform.position)) <= range && (!potentialTarget || Vector3.Distance(unit.GetClosestTargetingPoint(transform.position), aimAssist.position) < Vector3.Distance(potentialTarget.GetClosestTargetingPoint(transform.position), aimAssist.position)))
+                potentialTarget = unit;
+        }
+        target = potentialTarget;
     }
 
     IEnumerator Fire()

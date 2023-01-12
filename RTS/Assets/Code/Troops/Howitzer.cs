@@ -49,14 +49,33 @@ public class Howitzer : TroopMovement
     }
     void FindTarget()
     {
+        UnitBase potentialTarget = null;
         foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
         {
-            if (unit.army != army && Vector3.Distance(turretRotate.position, unit.GetClosestTargetingPoint(transform.position)) <= range && Vector3.Distance(unit.GetClosestTargetingPoint(transform.position), aimAssist.position) > minimumRange)
-            {
-                target = unit;
-                break;
-            }
+            if (unit.army != army && Vector3.Distance(turretRotate.position, unit.GetClosestTargetingPoint(transform.position)) <= range && Vector3.Distance(unit.GetClosestTargetingPoint(transform.position), aimAssist.position) > minimumRange && unit.type == UnitType.DefenseBuilding && (!potentialTarget || Vector3.Distance(unit.GetClosestTargetingPoint(transform.position), aimAssist.position) < Vector3.Distance(potentialTarget.GetClosestTargetingPoint(transform.position), aimAssist.position)))
+                potentialTarget = unit;
         }
+        if (potentialTarget)
+        {
+            target = potentialTarget;
+            return;
+        }
+        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+        {
+            if (unit.army != army && Vector3.Distance(turretRotate.position, unit.GetClosestTargetingPoint(transform.position)) <= range && Vector3.Distance(unit.GetClosestTargetingPoint(transform.position), aimAssist.position) > minimumRange && (unit.type == UnitType.ConstructionSite || unit.type == UnitType.HeadQuarters || unit.type == UnitType.HeavyFactory || unit.type == UnitType.LightFactory || unit.type == UnitType.PowerPlant || unit.type == UnitType.RepairBay || unit.type == UnitType.ResourceDepot || unit.type == UnitType.TechCenter) && (!potentialTarget || Vector3.Distance(unit.GetClosestTargetingPoint(transform.position), aimAssist.position) < Vector3.Distance(potentialTarget.GetClosestTargetingPoint(transform.position), aimAssist.position)))
+                potentialTarget = unit;
+        }
+        if (potentialTarget)
+        {
+            target = potentialTarget;
+            return;
+        }
+        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+        {
+            if (unit.army != army && Vector3.Distance(turretRotate.position, unit.GetClosestTargetingPoint(transform.position)) <= range && Vector3.Distance(unit.GetClosestTargetingPoint(transform.position), aimAssist.position) > minimumRange && (!potentialTarget || Vector3.Distance(unit.GetClosestTargetingPoint(transform.position), aimAssist.position) < Vector3.Distance(potentialTarget.GetClosestTargetingPoint(transform.position), aimAssist.position)))
+                potentialTarget = unit;
+        }
+        target = potentialTarget;
     }
 
     IEnumerator Fire()

@@ -153,5 +153,6 @@ public enum UnitType
     HeavyFactory,
     PowerPlant,
     ConstructionSite,
-    TechCenter
+    TechCenter,
+    RepairBay
 }

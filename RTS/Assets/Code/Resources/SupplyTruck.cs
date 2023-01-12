@@ -9,8 +9,6 @@ public class SupplyTruck : TroopMovement
     public int heldResources;
     public GameObject supplyVisualizer;
     public ConstructionSite constructionSite;
-    public bool supplying;
-    public bool inQueue;
 
     public void CheckToAutomate()
     {
@@ -19,7 +17,12 @@ public class SupplyTruck : TroopMovement
             if (heldResources >= (constructionSite.building.buildCost / constructionSite.building.requiredTrips))
                 MoveToPosition(constructionSite.transform.position);
             else if (!HQBuilding.GetSupplies(constructionSite.building.buildCost / constructionSite.building.requiredTrips, army) && assignedYard)
-                MoveToPosition(assignedYard.entranceLocation.position);
+            {
+                if (heldResources > 0)
+                    MoveToPosition(assignedDepot.entranceLocation.position);
+                else
+                    MoveToPosition(assignedYard.entranceLocation.position);
+            }
             else
                 MoveToPosition(assignedDepot.entranceLocation.position);
             Invoke("OnDeselected", 0.1f);

@@ -155,6 +155,14 @@ public class PlayerCam : MonoBehaviour
                             }
                         }
                     }
+                    else if (hit.collider.GetComponent<RepairBay>() && selectedUnits.Count > 0)
+                    {
+                        foreach (UnitBase unit in selectedUnits)
+                        {
+                            if (unit.currentHP < unit.maxHP && unit.GetComponent<TroopMovement>())
+                                unit.GetComponent<TroopMovement>().MoveToPosition(hit.collider.GetComponent<RepairBay>().entranceLocation.position);
+                        }
+                    }
                     else
                     {
                         if (!addSelect || hit.collider.GetComponent<Building>())

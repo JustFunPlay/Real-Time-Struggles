@@ -42,7 +42,7 @@ public class SupplyDepot : Building
     {
         truckInAction.canBeSeclected = false;
         truckInAction.OnDeselected();
-        truckInAction.supplying = true;
+        truckInAction.inBuilding = true;
         truckInAction.inQueue = false;
         trucksInQueue.Remove(truckInAction);
         truckInAction.MoveToPosition(loadPoint.position);
@@ -69,7 +69,7 @@ public class SupplyDepot : Building
 
         yield return new WaitForSeconds(collectionDuration);
         
-        if (truckInAction.constructionSite)
+        if (truckInAction.constructionSite && HQBuilding.GetSupplies((truckInAction.constructionSite.building.buildCost / truckInAction.constructionSite.building.requiredTrips) - truckInAction.heldResources, army))
         {
             HQBuilding.ChangeSupplies(-((truckInAction.constructionSite.building.buildCost / truckInAction.constructionSite.building.requiredTrips) - truckInAction.heldResources), army);
             truckInAction.heldResources = (truckInAction.constructionSite.building.buildCost / truckInAction.constructionSite.building.requiredTrips);
@@ -102,7 +102,7 @@ public class SupplyDepot : Building
             yield return new WaitForSeconds(0.075f);
         }
         truckInAction.CheckToAutomate();
-        truckInAction.supplying = false;
+        truckInAction.inBuilding = false;
         truckInAction.canBeSeclected = true;
         truckInAction = null;
         yield return new WaitForSeconds(collectionLockout);
@@ -125,7 +125,7 @@ public class SupplyDepot : Building
             {
                 SupplyTruck truck = unit.GetComponent<SupplyTruck>();
 
-                if (Vector3.Distance(truck.transform.position, entranceLocation.position) < queueDistance * (trucksInQueue.Count + 1) && !truck.supplying && !truck.inQueue && ((truck.heldResources > 0 && !truck.constructionSite)|| (truck.constructionSite && truck.heldResources < (truck.constructionSite.building.buildCost / truck.constructionSite.building.requiredTrips))))
+                if (Vector3.Distance(truck.transform.position, entranceLocation.position) < queueDistance * (trucksInQueue.Count + 1) && !truck.inBuilding && !truck.inQueue && ((truck.heldResources > 0 && !truck.constructionSite)|| (truck.constructionSite && truck.heldResources < (truck.constructionSite.building.buildCost / truck.constructionSite.building.requiredTrips))))
                 {
                     trucksInQueue.Add(truck);
                     truck.inQueue = true;
