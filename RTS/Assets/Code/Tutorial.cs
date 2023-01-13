@@ -8,6 +8,7 @@ public class Tutorial : MonoBehaviour
     public TutorialStage[] tutorialStages;
     public TroopMovement[] tutorialEnemies;
     public UnitBase[] outpostUnits;
+    public AiSetup aiSetup;
 
     private void FixedUpdate()
     {
@@ -113,7 +114,7 @@ public class Tutorial : MonoBehaviour
                 }
                 break;
             case 9:
-
+                aiSetup.armyManager.StartAI(aiSetup.ecoScore, aiSetup.agroScore, aiSetup.costMod, aiSetup.squadCap);
                 break;
         }
         

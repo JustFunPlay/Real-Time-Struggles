@@ -4756,7 +4756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &449666153
 Transform:
   m_ObjectHideFlags: 0
@@ -5576,7 +5576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &514190634
 Transform:
   m_ObjectHideFlags: 0
@@ -5659,6 +5659,7 @@ MonoBehaviour:
     snipers: 0
   isBuilding: 0
   gatheringPoint: {fileID: 514190634}
+  squadManager: {fileID: 0}
 --- !u!1 &515454882
 GameObject:
   m_ObjectHideFlags: 0
@@ -11710,7 +11711,6 @@ MonoBehaviour:
     - {fileID: 405409248}
     - {fileID: 366946367}
     - {fileID: 1554621784}
-    - {fileID: 514190633}
   tutorialEnemies:
   - {fileID: 533353034}
   - {fileID: 1410052558}
@@ -11733,6 +11733,12 @@ MonoBehaviour:
   - {fileID: 851448671}
   - {fileID: 2062001875}
   - {fileID: 1414227038}
+  aiSetup:
+    armyManager: {fileID: 514190635}
+    ecoScore: 3
+    agroScore: 4
+    costMod: 1.5
+    squadCap: 5
 --- !u!1001 &1110531625
 PrefabInstance:
   m_ObjectHideFlags: 0

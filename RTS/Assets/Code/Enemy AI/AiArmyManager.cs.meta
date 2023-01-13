@@ -3,7 +3,11 @@ guid: ca6beeecb4e9e5c43b32515a0345ad9f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - hq: {instanceID: 0}
+  - squads: {fileID: 11400000, guid: 024cb741793b2b04cba2d3aab372eac2, type: 2}
+  - gatheringPoint: {instanceID: 0}
+  - squadManager: {fileID: 6434248478618101344, guid: 0eecef5d3a97b2f4ba54bebd8ba50a5c, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

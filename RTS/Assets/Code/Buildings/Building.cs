@@ -31,7 +31,7 @@ public class Building : UnitBase
     }
     public IEnumerator EmergencyRepair(int heal, int cost)
     {
-        while (currentHP < maxHP && HQBuilding.GetSupplies(10, army))
+        while (currentHP < maxHP && HQBuilding.GetSupplies(cost, army))
         {
             currentHP = Mathf.Min(currentHP + heal, maxHP);
             HQBuilding.ChangeSupplies(-cost, army);

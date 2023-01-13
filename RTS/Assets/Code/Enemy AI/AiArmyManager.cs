@@ -5,6 +5,7 @@ using UnityEngine;
 public class AiArmyManager : MonoBehaviour
 {
     public Army army;
+    bool isActive;
 
     [Header("Difficulty configuration")]
     [Tooltip("Defines how efficient the army's resource aquisition is"), Range(1, 10)] public float ecoRating;
@@ -39,11 +40,15 @@ public class AiArmyManager : MonoBehaviour
     public bool isBuilding;
     public Transform gatheringPoint;
 
-    private void Start()
+    [Header("Squad management")]
+    public SquadManager squadManager;
+
+    public void StartAI(float eco, float agro, float cost, int squad = 0)
     {
-        ecoRating = Mathf.Clamp(ecoRating + Random.Range(-1f, 1f), 1, 10);
-        agroRating = Mathf.Clamp(agroRating + Random.Range(-1f, 1f), 1, 10);
-        costMod = Mathf.Clamp(costMod + Random.Range(-0.5f, 0.5f), 0.5f, 5);
+        ecoRating = Mathf.Clamp(eco + Random.Range(-1f, 1f), 1, 10);
+        agroRating = Mathf.Clamp(agro + Random.Range(-1f, 1f), 1, 10);
+        costMod = Mathf.Clamp(cost + Random.Range(-0.5f, 0.5f), 0.5f, 5);
+        squadCap = squad;
         for (int i = 0; i < supplySets.Count; i++)
         {
             supplySets[i].optimalEco += Mathf.CeilToInt(12/(60/(10 + 2 * (Vector3.Distance(supplySets[i].depot.transform.position, supplySets[i].yard.transform.position) / 15f))));
@@ -67,10 +72,12 @@ public class AiArmyManager : MonoBehaviour
             }
         }
         StartCoroutine(ProgressDifficulty());
+        isActive = true;
     }
 
     IEnumerator ProgressDifficulty()
     {
+        if (squadCap <= 0 || squadCap > squads.squads.Length)
         squadCap = 3;
         minSquad = 0;
         yield return new WaitForSeconds(120f);
@@ -93,12 +100,15 @@ public class AiArmyManager : MonoBehaviour
         isBuilding = true;
         int i = Random.Range(minSquad, squadCap);
         squadToBuild = new Squad(squads.squads[i]);
+        Debug.Log($"{army} is building a new {squadToBuild.name}");
         StartCoroutine(BuildNewSquad());
     }
 
     IEnumerator BuildNewSquad()
     {
-        activeSquads.Add(new ActiveSquad());
+        ActiveSquad emptySquad = new ActiveSquad();
+        Debug.Log("a free squad slot is assigned by " + army);
+        activeSquads.Add(emptySquad);
         while (squadToBuild.humvees + squadToBuild.apcs + squadToBuild.tanks + squadToBuild.howitzers + squadToBuild.snipers > 0)
         {
             for (int i = 0; i < squadToBuild.humvees; i++)
@@ -167,83 +177,41 @@ public class AiArmyManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.1f);
         }
-        StartCoroutine(ManageSquad(activeSquads[activeSquads.Count-1]));
-        yield return new WaitForSeconds(3f);
+        Debug.Log($"{army} has finished building a squad");
+        SquadManager newSquad = Instantiate(squadManager);
+        newSquad.AssembleSquad(activeSquads[activeSquads.Count - 1].squadMemebers, army, this);
+        yield return new WaitForSeconds(Random.Range(3f, 10f));
         isBuilding = false;
-    }
-
-    IEnumerator ManageSquad(ActiveSquad squad)
-    {
-        yield return new WaitForSeconds(15f);
-        while (squad.squadMemebers.Count > 0)
-        {
-            squad = CheckSquadAliveness(squad);
-            if (!SquadInCombat(squad.squadMemebers.ToArray()))
-            {
-                Vector3 squadOrigin = SquadOrigin(squad.squadMemebers.ToArray());
-                UnitBase[] closestUnits = ClosestTargets(squadOrigin);
-                int[] weights = CalculateTargetWeight(squadOrigin, closestUnits);
-                int r = 0;
-                for (int i = 0; i < weights.Length; i++)
-                {
-                    r += weights[i];
-                }
-                int w = Random.Range(0, r);
-                int t = 0;
-                for (int i = 0; i < weights.Length; i++)
-                {
-                    if (w < weights[i])
-                    {
-                        t = i;
-                        break;
-                    }
-                    else
-                        w -= weights[i];
-                }
-                UnitBase target = closestUnits[t];
-                float tInCombat = 0;
-                while (target && squad.squadMemebers.Count > 0 && tInCombat < 1f && Vector3.Distance(SquadOrigin(squad.squadMemebers.ToArray()), target.GetClosestTargetingPoint(SquadOrigin(squad.squadMemebers.ToArray()))) > SquadRange(squad.squadMemebers.ToArray()))
-                {
-                    squad = CheckSquadAliveness(squad);
-                    Vector3 targetPoint = target.transform.position + ((SquadOrigin(squad.squadMemebers.ToArray()) - target.transform.position).normalized * (SquadRange(squad.squadMemebers.ToArray()) - 5f));
-                    Formations.instance.SetFormation(squad.squadMemebers.ToArray(), targetPoint);
-                    if (SquadInCombat(squad.squadMemebers.ToArray()))
-                        tInCombat += 0.1f;
-                    yield return new WaitForSeconds(0.1f);
-                }
-                if (SquadInCombat(squad.squadMemebers.ToArray()) && tInCombat > 1f)
-                {
-                    Formations.instance.SetFormation(squad.squadMemebers.ToArray(), InCombatTargetPoint(squad.squadMemebers.ToArray()));
-                }
-            }
-            yield return new WaitForSeconds(0.1f);
-        }
     }
 
     private void FixedUpdate()
     {
-        CheckCurrentEco();
-        CheckSquads();
-        if (CurrentEcoScore() < ecoRating / 10f)
+        if (isActive)
         {
-            if (HQBuilding.GetSupplies(hq.troops[0].cost, army))
-                hq.BuildNewTroop(0);
-        }
-        else if (!isBuilding)
-        {
-            isBuilding = true;
-            SetNewSquad();
-        }
-        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
-        {
-            if (unit.army == army && unit.GetComponent<TroopMovement>())
+            CheckCurrentEco();
+            CheckSquads();
+            if (CurrentEcoScore() < ecoRating / 10f)
             {
-                if (CheckIfAssigned(unit) == false)
+                if (HQBuilding.GetSupplies(hq.troops[0].cost, army))
+                    hq.BuildNewTroop(0);
+            }
+            else if (!isBuilding)
+            {
+                isBuilding = true;
+                SetNewSquad();
+            }
+            foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+            {
+                if (unit.army == army && unit.GetComponent<TroopMovement>())
                 {
-                    activeSquads[activeSquads.Count - 1].squadMemebers.Add(unit.GetComponent<TroopMovement>());
-                    Formations.instance.SetFormation(activeSquads[activeSquads.Count - 1].squadMemebers.ToArray(), gatheringPoint.position);
+                    if (CheckIfAssigned(unit) == false)
+                    {
+                        activeSquads[activeSquads.Count - 1].squadMemebers.Add(unit.GetComponent<TroopMovement>());
+                        Formations.instance.SetFormation(activeSquads[activeSquads.Count - 1].squadMemebers.ToArray(), gatheringPoint.position);
+                    }
                 }
             }
+            hq.HealAllBuildings();
         }
     }
     void CheckCurrentEco()
@@ -306,7 +274,7 @@ public class AiArmyManager : MonoBehaviour
                 if (activeSquads[i].squadMemebers[u] == null)
                     activeSquads[i].squadMemebers.RemoveAt(u);
             }
-            if (activeSquads[i].squadMemebers.Count == 0 && i != activeSquads.Count - 1)
+            if (activeSquads[i].squadMemebers.Count == 0 && i != 0)
                 activeSquads.RemoveAt(i);
         }
     }
@@ -345,7 +313,7 @@ public class AiArmyManager : MonoBehaviour
             optimalEco += supplySets[i].optimalEco;
         }
         float ecoScore = (float)eco / (float)optimalEco;
-        Debug.Log(eco + ", " + optimalEco + ", " + ecoScore.ToString());
+        //Debug.Log(eco + ", " + optimalEco + ", " + ecoScore.ToString());
         return ecoScore;
     }
     bool CheckIfBuilding()
@@ -377,96 +345,6 @@ public class AiArmyManager : MonoBehaviour
             }
         }
         return false;
-    }
-    
-    Vector3 SquadOrigin(TroopMovement[] troops)
-    {
-        Vector3 origin = new Vector3();
-        for (int i = 0; i < troops.Length; i++)
-        {
-            origin += troops[i].transform.position;
-        }
-        origin /= troops.Length;
-        return origin;
-    }
-    bool SquadInCombat(TroopMovement[] troops)
-    {
-        for (int i = 0; i < troops.Length; i++)
-        {
-            if (troops[i].GetComponent<Tank>() && troops[i].GetComponent<Tank>().target)
-                return true;
-            else if (troops[i].GetComponent<Howitzer>() && troops[i].GetComponent<Howitzer>().target)
-                return true;
-            else if (troops[i].GetComponent<Humvee>() && troops[i].GetComponent<Humvee>().target)
-                return true;
-        }
-        return false;
-    }
-    Vector3 InCombatTargetPoint(TroopMovement[] troops)
-    {
-        UnitBase target = null;
-        foreach (TroopMovement troop in troops)
-        {
-            if (troop.GetComponent<Tank>() && troop.GetComponent<Tank>().target)
-                target = troop.GetComponent<Tank>().target;
-            else if (troop.GetComponent<Howitzer>() && troop.GetComponent<Howitzer>().target)
-                target = troop.GetComponent<Tank>().target;
-            else if (troop.GetComponent<Humvee>() && troop.GetComponent<Humvee>().target)
-                target = troop.GetComponent<Tank>().target;
-        }
-        Vector3 targetPoint = target.transform.position + ((SquadOrigin(troops) - target.transform.position).normalized * (SquadRange(troops) - 5f));
-        return targetPoint;
-    }
-    UnitBase[] ClosestTargets(Vector3 origin)
-    {
-        List<UnitBase> closestUnits = new List<UnitBase>();
-        for (int i = 0; i < 5; i++)
-        {
-            UnitBase closestUnit = null;
-            foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
-            {
-                if (unit.army != army && !closestUnits.Contains(unit) && (closestUnit == null || Vector3.Distance(origin, unit.GetClosestTargetingPoint(origin)) < Vector3.Distance(origin, closestUnit.GetClosestTargetingPoint(origin))))
-                {
-                    closestUnit = unit;
-                }
-            }
-            if (closestUnit)
-                closestUnits.Add(closestUnit);
-        }
-        return closestUnits.ToArray();
-    }
-    float SquadRange(TroopMovement[] troops)
-    {
-        float avarageRange = 0;
-        for (int i = 0; i < troops.Length; i++)
-        {
-            if (troops[i].GetComponent<Tank>())
-                avarageRange += troops[i].GetComponent<Tank>().range;
-            else if (troops[i].GetComponent<Howitzer>())
-                avarageRange += troops[i].GetComponent<Howitzer>().range;
-        }
-        avarageRange /= troops.Length;
-        return avarageRange;
-    }
-    int[] CalculateTargetWeight(Vector3 origin, UnitBase[] targets)
-    {
-        int[] weights = new int[targets.Length];
-        for (int i = 0; i < targets.Length; i++)
-        {
-            if (Vector3.Distance(origin, targets[i].GetClosestTargetingPoint(origin)) <= 30f)
-                weights[i] = 50;
-            else if (Vector3.Distance(origin, targets[i].GetClosestTargetingPoint(origin)) <= 60f)
-                weights[i] = 20;
-            else if (Vector3.Distance(origin, targets[i].GetClosestTargetingPoint(origin)) <= 90f)
-                weights[i] = 10;
-            else if (Vector3.Distance(origin, targets[i].GetClosestTargetingPoint(origin)) <= 120f)
-                weights[i] = 5;
-            else if (Vector3.Distance(origin, targets[i].GetClosestTargetingPoint(origin)) <= 150f)
-                weights[i] = 2;
-            else
-                weights[i] = 1;
-        }
-        return weights;
     }
 }
 

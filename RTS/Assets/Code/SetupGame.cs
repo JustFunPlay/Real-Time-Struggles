@@ -10,6 +10,7 @@ public class SetupGame : MonoBehaviour
     public UnitBase[] armyThree;
     public UnitBase[] armyFour;
     public UnitBase[] armyFive;
+    public AiSetup[] aiSetups;
 
     void Start()
     {
@@ -37,5 +38,19 @@ public class SetupGame : MonoBehaviour
         {
             armyFive[i].AddedUnit(Army.Cyan);
         }
+        foreach (AiSetup ai in aiSetups)
+        {
+            ai.armyManager.StartAI(ai.ecoScore, ai.agroScore, ai.costMod, ai.squadCap);
+        }
     }
+}
+
+[System.Serializable]
+public class AiSetup
+{
+    public AiArmyManager armyManager;
+    public float ecoScore;
+    public float agroScore;
+    public float costMod;
+    public int squadCap;
 }
