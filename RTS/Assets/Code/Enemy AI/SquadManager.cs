@@ -11,7 +11,6 @@ public class SquadManager : MonoBehaviour
     float squadRange;
     float moveDelay;
 
-    bool isActive;
     bool isMoving;
 
     bool gettingRepaired;
@@ -30,40 +29,45 @@ public class SquadManager : MonoBehaviour
         ogSquadSize = squad.Count;
         CalculateSquadRange();
         moveDelay = 15f;
-        isActive = true;
+        StartCoroutine(ManageSquad());
     }
 
-    void FixedUpdate()
+    IEnumerator ManageSquad()
     {
-        if (isActive)
+        while (squad.Count > 0)
         {
             CheckSquadAliveness();
-            if (gettingRepaired)
+            if (gettingRepaired && currentRepairBay)
             {
-                int atMax = 0;
+                List<TroopMovement> ready = new List<TroopMovement>();
                 foreach (TroopMovement troop in squad)
                 {
-                    if (troop.currentHP == troop.maxHP)
-                        atMax++;
-                    else if (troop.canBeSeclected && !troop.inQueue)
+                    if (troop.currentHP == troop.maxHP && !ready.Contains(troop))
+                        ready.Add(troop);
+                    else if (troop.canBeSeclected && !troop.inQueue && !ready.Contains(troop))
                         troop.MoveToPosition(currentRepairBay.entranceLocation.position);
                 }
-                if (atMax == squad.Count)
+                Formations.instance.SetFormation(ready.ToArray(), armyManager.altWaitArea.position);
+                if (ready.Count == squad.Count)
+                {
                     gettingRepaired = false;
+                    moveDelay = 5f;
+                }
             }
             else if (!isMoving && !inCombat)
             {
                 if (moveDelay > 0)
-                    moveDelay -= Time.fixedDeltaTime;
+                    moveDelay -= 0.5f;
                 else
                     CalculateNewMoveTo();
             }
             else if (isMoving && moveTarget)
             {
                 Vector3 targetPoint = moveTarget.transform.position + ((SquadOrigin() - moveTarget.transform.position).normalized * (squadRange - 5f));
-                Formations.instance.SetFormation(squad.ToArray(), targetPoint);
+                if (Vector3.Distance(targetPoint, SquadOrigin()) > 5f)
+                    Formations.instance.SetFormation(squad.ToArray(), targetPoint);
                 if (SquadInCombat() && !inCombat)
-                    timeInCombat += Time.fixedDeltaTime;
+                    timeInCombat += 0.5f;
             }
             if (timeInCombat >= 1 && !inCombat)
             {
@@ -73,20 +77,23 @@ public class SquadManager : MonoBehaviour
             if (inCombat)
             {
                 moveTarget = InCombatTarget();
-                if (Vector3.Distance(SquadOrigin(), moveTarget.transform.position) > squadRange * 2)
+                if (moveTarget && Vector3.Distance(SquadOrigin(), moveTarget.transform.position) > squadRange * 2)
                 {
                     moveTarget = null;
                 }
                 if (!moveTarget)
                 {
                     inCombat = false;
-                    if (armyManager.repairBays.Count > 0)
+                    int i = Random.Range(0, 3);
+                    if (armyManager.repairBays.Count > 0 && i == 0)
                         FindRepairBay();
                     else
                         isMoving = false;
                 }
             }
+            yield return new WaitForSeconds(0.5f);
         }
+        Destroy(gameObject);
     }
 
     void CheckSquadAliveness()
@@ -94,7 +101,7 @@ public class SquadManager : MonoBehaviour
         bool lostUnit = false;
         for (int i = 0; i < squad.Count; i++)
         {
-            if (squad[i] = null)
+            if (squad[i] == null)
             {
                 squad.RemoveAt(i);
                 i--;
@@ -102,11 +109,7 @@ public class SquadManager : MonoBehaviour
                 CalculateSquadRange();
             }
         }
-        if (lostUnit == true && squad.Count == 0)
-        {
-            Destroy(gameObject);
-        }
-        else if (lostUnit == true && squad.Count * 2 <= ogSquadSize && armyManager.repairBays.Count > 0)
+        if (lostUnit == true && squad.Count * 2 <= ogSquadSize && armyManager.repairBays.Count > 0)
         {
             int retreat = Random.Range(squad.Count, ogSquadSize + 1);
             if (retreat * 2 <= ogSquadSize)
@@ -140,7 +143,7 @@ public class SquadManager : MonoBehaviour
                 w -= weights[i];
         }
         moveTarget = closestUnits[t];
-        moveDelay = Random.Range(5f, 20f);
+        moveDelay = Random.Range(1f, 6f);
         timeInCombat = 0;
         isMoving = true;
         inCombat = false;

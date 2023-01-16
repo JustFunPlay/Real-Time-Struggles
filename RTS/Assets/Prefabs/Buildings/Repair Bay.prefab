@@ -196,7 +196,7 @@ MonoBehaviour:
   buildCost: 1000
   powerCost: 1
   requiredTrips: 2
-  troopFindRadius: 5
+  troopFindRadius: 10
   repairDuration: 0.02
   repairLockout: 0
   repairAmount: 10
@@ -629,7 +629,7 @@ NavMeshObstacle:
   m_Shape: 1
   m_Extents: {x: 0.25, y: 0.5, z: 6}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 4.75, y: 0, z: 0}
   m_TimeToStationary: 0.5

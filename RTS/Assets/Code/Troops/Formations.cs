@@ -20,6 +20,8 @@ public class Formations : MonoBehaviour
             midPoint += troops[i].transform.position;
         }
         midPoint /= troops.Length;
+        if (Vector3.Distance(Targetpoint, midPoint) < 2f)
+            return;
         Vector3 dir = (Targetpoint - midPoint).normalized;
         transform.LookAt(transform.position + dir);
         if (troops.Length > formations.Length)

@@ -54,21 +54,12 @@ public class AutoTurret : Building
     IEnumerator Fire()
     {
         canFire = false;
-        if (Physics.Raycast(FirePoint.position, FirePoint.forward, out RaycastHit hit, range + 10, hitlayer))
-        {
-            UnitBase victim = hit.collider.GetComponent<UnitBase>();
-            if (victim.army != army)
-                victim.OnTakeDamage(damage);
-            LineRenderer newLine = Instantiate(line);
-            newLine.SetPosition(0, FirePoint.position);
-            newLine.SetPosition(1, hit.point);
-        }
-        else
-        {
-            LineRenderer newLine = Instantiate(line);
-            newLine.SetPosition(0, FirePoint.position);
-            newLine.SetPosition(1, FirePoint.position + FirePoint.forward * (10 +range));
-        }
+        target.OnTakeDamage(damage);
+
+        LineRenderer newLine = Instantiate(line);
+        newLine.SetPosition(0, FirePoint.position);
+        newLine.SetPosition(1, FirePoint.position + FirePoint.forward * Vector3.Distance(FirePoint.position, target.transform.position));
+
         yield return new WaitForSeconds(attackSpeed);
         canFire = true;
     }

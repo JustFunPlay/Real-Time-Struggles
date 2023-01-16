@@ -42,6 +42,7 @@ public class AiArmyManager : MonoBehaviour
 
     [Header("Squad management")]
     public SquadManager squadManager;
+    public Transform altWaitArea;
 
     public void StartAI(float eco, float agro, float cost, int squad = 0)
     {
@@ -108,7 +109,7 @@ public class AiArmyManager : MonoBehaviour
     {
         ActiveSquad emptySquad = new ActiveSquad();
         Debug.Log("a free squad slot is assigned by " + army);
-        activeSquads.Add(emptySquad);
+        int totalSquadSize = squadToBuild.humvees + squadToBuild.apcs + squadToBuild.tanks + squadToBuild.howitzers + squadToBuild.snipers;
         while (squadToBuild.humvees + squadToBuild.apcs + squadToBuild.tanks + squadToBuild.howitzers + squadToBuild.snipers > 0)
         {
             for (int i = 0; i < squadToBuild.humvees; i++)
@@ -171,15 +172,49 @@ public class AiArmyManager : MonoBehaviour
                     i--;
                 }
             }
-            yield return new WaitForSeconds(0.1f);
+            foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+            {
+                if (unit.army == army && unit.GetComponent<TroopMovement>())
+                {
+                    if (CheckIfAssigned(unit) == false && !emptySquad.squadMemebers.Contains(unit.GetComponent<TroopMovement>()))
+                    {
+                        emptySquad.squadMemebers.Add(unit.GetComponent<TroopMovement>());
+                        Formations.instance.SetFormation(emptySquad.squadMemebers.ToArray(), gatheringPoint.position);
+                    }
+                }
+            }
+            yield return new WaitForSeconds(0.25f);
         }
         while (CheckIfBuilding())
         {
-            yield return new WaitForSeconds(0.1f);
+            foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+            {
+                if (unit.army == army && unit.GetComponent<TroopMovement>())
+                {
+                    if (CheckIfAssigned(unit) == false && !emptySquad.squadMemebers.Contains(unit.GetComponent<TroopMovement>()))
+                    {
+                        emptySquad.squadMemebers.Add(unit.GetComponent<TroopMovement>());
+                        Formations.instance.SetFormation(emptySquad.squadMemebers.ToArray(), gatheringPoint.position);
+                    }
+                }
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
+        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+        {
+            if (unit.army == army && unit.GetComponent<TroopMovement>())
+            {
+                if (CheckIfAssigned(unit) == false && !emptySquad.squadMemebers.Contains(unit.GetComponent<TroopMovement>()))
+                {
+                    emptySquad.squadMemebers.Add(unit.GetComponent<TroopMovement>());
+                    Formations.instance.SetFormation(emptySquad.squadMemebers.ToArray(), gatheringPoint.position);
+                }
+            }
         }
         Debug.Log($"{army} has finished building a squad");
         SquadManager newSquad = Instantiate(squadManager);
-        newSquad.AssembleSquad(activeSquads[activeSquads.Count - 1].squadMemebers, army, this);
+        newSquad.AssembleSquad(emptySquad.squadMemebers, army, this);
+        activeSquads.Add(emptySquad);
         yield return new WaitForSeconds(Random.Range(3f, 10f));
         isBuilding = false;
     }
@@ -200,17 +235,17 @@ public class AiArmyManager : MonoBehaviour
                 isBuilding = true;
                 SetNewSquad();
             }
-            foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
-            {
-                if (unit.army == army && unit.GetComponent<TroopMovement>())
-                {
-                    if (CheckIfAssigned(unit) == false)
-                    {
-                        activeSquads[activeSquads.Count - 1].squadMemebers.Add(unit.GetComponent<TroopMovement>());
-                        Formations.instance.SetFormation(activeSquads[activeSquads.Count - 1].squadMemebers.ToArray(), gatheringPoint.position);
-                    }
-                }
-            }
+            //foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+            //{
+            //    if (unit.army == army && unit.GetComponent<TroopMovement>())
+            //    {
+            //        if (CheckIfAssigned(unit) == false)
+            //        {
+            //            activeSquads[activeSquads.Count - 1].squadMemebers.Add(unit.GetComponent<TroopMovement>());
+            //            Formations.instance.SetFormation(activeSquads[activeSquads.Count - 1].squadMemebers.ToArray(), gatheringPoint.position);
+            //        }
+            //    }
+            //}
             hq.HealAllBuildings();
         }
     }

@@ -118,7 +118,7 @@ public class RepairBay : Building
 
         foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
         {
-            if (unit.GetComponent<SupplyTruck>())
+            if (unit.army == army && unit.GetComponent<TroopMovement>())
             {
                 TroopMovement troop = unit.GetComponent<TroopMovement>();
 

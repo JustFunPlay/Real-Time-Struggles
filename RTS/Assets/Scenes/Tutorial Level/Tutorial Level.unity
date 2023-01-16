@@ -5588,7 +5588,8 @@ Transform:
   m_LocalPosition: {x: 55, y: 0, z: 535}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 701213014}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5659,7 +5660,8 @@ MonoBehaviour:
     snipers: 0
   isBuilding: 0
   gatheringPoint: {fileID: 514190634}
-  squadManager: {fileID: 0}
+  squadManager: {fileID: 6434248478618101344, guid: 0eecef5d3a97b2f4ba54bebd8ba50a5c, type: 3}
+  altWaitArea: {fileID: 701213014}
 --- !u!1 &515454882
 GameObject:
   m_ObjectHideFlags: 0
@@ -8181,6 +8183,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb0431bf196f1a48acbcb24ce5c6400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &701213013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 701213014}
+  m_Layer: 0
+  m_Name: alt Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &701213014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701213013}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 84, y: 0, z: 28.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 514190634}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &722109018
 PrefabInstance:
   m_ObjectHideFlags: 0
