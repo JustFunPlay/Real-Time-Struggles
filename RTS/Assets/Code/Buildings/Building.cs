@@ -49,4 +49,8 @@ public class Building : UnitBase
             yield return new WaitForSeconds(0.05f);
         }
     }
+    public virtual void Sell()
+    {
+        HQBuilding.ChangeSupplies(buildCost / 2, army);
+    }
 }

@@ -80,4 +80,8 @@ public class ConstructionSite : Building
             truck.CheckToAutomate();
         }
     }
+    public override void Sell()
+    {
+        HQBuilding.ChangeSupplies((int)(investedResources * 0.75f), army);
+    }
 }
