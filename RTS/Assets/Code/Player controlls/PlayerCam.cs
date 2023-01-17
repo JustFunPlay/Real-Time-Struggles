@@ -337,17 +337,21 @@ public class PlayerCam : MonoBehaviour
         {
             menu.SetActive(false);
         }
-        if (selectedUnits.Count > 0)
+        if (selectedUnits.Count == 1)
         {
             baseMenu.SetActive(false);
-            if (selectedUnits[0].type == UnitType.HeavyTroop || selectedUnits[0].type == UnitType.LightTroop)
-                baseMenu.SetActive(true);
-            else if (selectedUnits[0].type == UnitType.HeadQuarters)
+            //if (selectedUnits[0].GetComponent<TroopMovement>())
+            //    baseMenu.SetActive(true);
+            //else 
+            if (selectedUnits[0].type == UnitType.HeadQuarters)
                 contextMenus[0].SetActive(true);
             else if (selectedUnits[0].type == UnitType.LightFactory)
                 contextMenus[1].SetActive(true);
             else if (selectedUnits[0].type == UnitType.HeavyFactory)
                 contextMenus[2].SetActive(true);
+            else
+                baseMenu.SetActive(true);
+
         }
         else
         {
@@ -443,8 +447,8 @@ public class PlayerCam : MonoBehaviour
     Vector3[] RectSelect(Vector3 anchor, Vector3 cursor)
     {
         Vector2 scaleMod = new Vector2(Screen.width, Screen.height);
-        scaleMod.x /= 1920;
-        scaleMod.y /= 1080;
+        scaleMod.x /= 2560;
+        scaleMod.y /= 1440;
         Vector3[] selectBounds = new Vector3[2];
 
         Vector3 min = Vector3.Min(anchor, cursor);

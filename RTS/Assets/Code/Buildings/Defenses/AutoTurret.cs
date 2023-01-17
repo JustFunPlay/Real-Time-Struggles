@@ -15,7 +15,6 @@ public class AutoTurret : Building
     public float attackSpeed;
     public float turretRotSpeed;
 
-    public LineRenderer line;
     Vector3 lookAt;
     public UnitBase target;
     bool canFire = true;
@@ -59,9 +58,7 @@ public class AutoTurret : Building
         canFire = false;
         target.OnTakeDamage(damage);
 
-        LineRenderer newLine = Instantiate(line);
-        newLine.SetPosition(0, FirePoint.position);
-        newLine.SetPosition(1, FirePoint.position + FirePoint.forward * Vector3.Distance(FirePoint.position, target.transform.position));
+        ParticleManager.instance.SetLine(FirePoint.position, FirePoint.position + FirePoint.forward * Vector3.Distance(FirePoint.position, target.transform.position));
 
         yield return new WaitForSeconds(attackSpeed);
         canFire = true;

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PowerSupply : MonoBehaviour
 {
     public Slider slider;
-    public Text text;
+    public TMPro.TextMeshProUGUI text;
     public Image sliderImage;
     void FixedUpdate()
     {
@@ -21,7 +21,7 @@ public class PowerSupply : MonoBehaviour
             }
         }
 
-        text.text = $"{maxPower}/{currentPower}";
+        text.text = $"{currentPower}/{maxPower}";
         
         slider.maxValue = maxPower;
         
@@ -34,9 +34,9 @@ public class PowerSupply : MonoBehaviour
         {
             slider.value = currentPower;
             if (maxPower - currentPower >= 5)
-                sliderImage.color = Color.yellow;
-            else
                 sliderImage.color = Color.cyan;
+            else
+                sliderImage.color = Color.yellow;
         }
     }
 }

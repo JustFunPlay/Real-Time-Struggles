@@ -9,12 +9,13 @@ public class SelectedUnit : MonoBehaviour
     public Image sliderImage;
     public Image icon;
     public Sprite multiUnitSprite;
-    public Text text;
+    public TMPro.TextMeshProUGUI text;
 
     void Update()
     {
         if (PlayerCam.instance.selectedUnits.Count > 1)
         {
+            icon.gameObject.SetActive(true);
             int combinedMax = 0;
             int combinedCurrent = 0;
             foreach (UnitBase unit in PlayerCam.instance.selectedUnits)
@@ -31,10 +32,11 @@ public class SelectedUnit : MonoBehaviour
                 sliderImage.color = Color.red;
             else
                 sliderImage.color = Color.green;
-            text.text = "Army squad";
+            text.text = "Multiple Selected";
         }
         else if (PlayerCam.instance.selectedUnits.Count == 1)
         {
+            icon.gameObject.SetActive(true);
             slider.maxValue = PlayerCam.instance.selectedUnits[0].maxHP;
             slider.value = PlayerCam.instance.selectedUnits[0].currentHP;
             icon.sprite = PlayerCam.instance.selectedUnits[0].icon;
@@ -49,7 +51,8 @@ public class SelectedUnit : MonoBehaviour
         else
         {
             slider.value = 0;
-            icon.sprite = null;
+            icon.gameObject.SetActive(false) ;
+            text.text = null;
         }
     }
 }

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7342916204927228876}
   - component: {fileID: 7342916204927228877}
-  - component: {fileID: 1503709118846083377}
   m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
@@ -132,16 +131,3 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
---- !u!114 &1503709118846083377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7342916204927228878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5764e2d5a6ae64ea91a6c75e2bca2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeTime: 0.05
