@@ -6,7 +6,8 @@ public class HQBuilding : Factory
 {
     [Header("Resources")]
     public int supplies;
-    public int totalPower;
+    public int maxPower;
+    public int currentPower;
 
     [Header("Healing")]
     public bool canHeal;
@@ -59,7 +60,13 @@ public class HQBuilding : Factory
         {
             if (hq.army == army)
             {
-                if (hq.totalPower + newPower <= 0 || newPower < 0)
+                if (newPower >= 0)
+                {
+                    if (hq.currentPower + newPower <= hq.maxPower)
+                        return true;
+
+                }
+                else
                     return true;
             }
         }

@@ -22,22 +22,25 @@ public class AutoTurret : Building
 
     private void FixedUpdate()
     {
-        if (!target)
+        if (HQBuilding.HasPower(0, army))
         {
-            FindTarget();
-            aimAssist.LookAt(aimAssist.position + transform.forward, Vector3.up);
+            if (!target)
+            {
+                FindTarget();
+                aimAssist.LookAt(aimAssist.position + transform.forward, Vector3.up);
+            }
+            else if (Vector3.Distance(target.GetClosestTargetingPoint(transform.position), aimAssist.position) > range)
+                target = null;
+            else
+            {
+                aimAssist.LookAt(target.transform.position + target.transform.TransformDirection(target.targetingPoints[0]), Vector3.up);
+                if (canFire && Vector3.Dot(turretRotate.forward, ((target.transform.position + target.transform.TransformDirection(target.targetingPoints[0])) - turretRotate.position).normalized) > 0.99f)
+                    StartCoroutine(Fire());
+            }
+            lookAt = Vector3.Lerp(lookAt, aimAssist.forward, turretRotSpeed * Time.fixedDeltaTime);
+            turretRotate.LookAt(turretRotate.position + new Vector3(lookAt.x, 0, lookAt.z));
+            barrelAngle.LookAt(barrelAngle.position + turretRotate.forward + new Vector3(0, lookAt.y, 0), Vector3.up);
         }
-        else if (Vector3.Distance(target.GetClosestTargetingPoint(transform.position), aimAssist.position) > range)
-            target = null;
-        else
-        {
-            aimAssist.LookAt(target.transform.position + target.transform.TransformDirection(target.targetingPoints[0]), Vector3.up);
-            if (canFire && Vector3.Dot(turretRotate.forward, ((target.transform.position + target.transform.TransformDirection(target.targetingPoints[0])) - turretRotate.position).normalized) > 0.99f)
-                StartCoroutine(Fire());
-        }
-        lookAt = Vector3.Lerp(lookAt, aimAssist.forward, turretRotSpeed * Time.fixedDeltaTime);
-        turretRotate.LookAt(turretRotate.position + new Vector3(lookAt.x, 0, lookAt.z));
-        barrelAngle.LookAt(barrelAngle.position + turretRotate.forward + new Vector3(0, lookAt.y, 0), Vector3.up);
     }
     void FindTarget()
     {

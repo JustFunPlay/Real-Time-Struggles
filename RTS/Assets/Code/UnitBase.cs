@@ -16,6 +16,7 @@ public class UnitBase : MonoBehaviour
     /// <summary>
     /// corners, halfwaypoints and centre-of-mass for the purpose of targeting distance, [0] is allways centre-of-mass
     /// </summary>
+    public Sprite icon;
 
     public virtual void AddedUnit(Army army_)
     {

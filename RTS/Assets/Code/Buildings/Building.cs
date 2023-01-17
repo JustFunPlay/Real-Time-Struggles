@@ -15,7 +15,13 @@ public class Building : UnitBase
         foreach (HQBuilding hq in PlayerTroopManager.instance.HQs)
         {
             if (hq.army == army_)
-                hq.totalPower += powerCost;
+            {
+                if (powerCost > 0)
+                    hq.currentPower += powerCost;
+                else
+                    hq.maxPower -= powerCost;
+
+            }
         }
     }
 
@@ -24,7 +30,12 @@ public class Building : UnitBase
         foreach (HQBuilding hq in PlayerTroopManager.instance.HQs)
         {
             if (hq.army == army)
-                hq.totalPower -= powerCost;
+            {
+                if (powerCost > 0)
+                    hq.currentPower -= powerCost;
+                else
+                    hq.maxPower += powerCost;
+            }
         }
         StopAllCoroutines();
         base.OnDestroy();
