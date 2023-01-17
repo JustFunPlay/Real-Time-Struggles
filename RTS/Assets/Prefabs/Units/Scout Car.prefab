@@ -725,6 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fedee81c77e41094dae4348681a722d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitName: Humvee
   maxHP: 400
   currentHP: 0
   army: 0
@@ -744,6 +745,9 @@ MonoBehaviour:
   - {x: 1, y: 1.2, z: -2.3}
   - {x: 1, y: 1.2, z: 0}
   - {x: -1, y: 1.2, z: 0}
+  icon: {fileID: 21300000, guid: 92b64eed9c0c3e740995bdb6c301f71b, type: 3}
+  inQueue: 0
+  inBuilding: 0
   turretRotate: {fileID: 9218562885375902244}
   barrelAngle: {fileID: 145791311892154975}
   FirePoint: {fileID: 8973335083469405966}

@@ -159,9 +159,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8075fada9dc84734c90898e12b45c91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitName: Command Center
   maxHP: 2500
   currentHP: 0
   army: 0
+  canBeSeclected: 0
   showSelected: {fileID: 5655510468578575548}
   type: 0
   renderers:
@@ -181,6 +183,7 @@ MonoBehaviour:
   - {x: 10, y: 1, z: 10.2}
   - {x: 10, y: 1, z: 3.8}
   - {x: 10, y: 1, z: -4.8}
+  icon: {fileID: 21300000, guid: e752f6b9cc12ada4c8a871b552830588, type: 3}
   buildCost: 0
   powerCost: -1
   requiredTrips: 0
@@ -193,7 +196,8 @@ MonoBehaviour:
   queue: []
   isBuilding: 0
   supplies: 0
-  totalPower: 0
+  maxPower: 0
+  currentPower: 0
   canHeal: 0
   healCooldown: 60
   healPerTick: 10

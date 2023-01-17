@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5551056483110961884}
   - component: {fileID: 4087609161905776502}
   - component: {fileID: 4836640093616630642}
+  - component: {fileID: 3483727769615045478}
   m_Layer: 5
   m_Name: Supply Depot
   m_TagString: Untagged
@@ -226,7 +227,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5551056483110961884}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3483727769615045478}
+        m_TargetAssemblyTypeName: NewBuildingMenu, Assembly-CSharp
+        m_MethodName: placeNewBuilding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3483727769615045478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71549590947425972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5bd4c8bf0b49c4d9f54dd9517ac2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holoBuilding: {fileID: 6072205710916889077, guid: db089f4c3d09def40bae6f3e5c4af08b, type: 3}
+  button: {fileID: 4836640093616630642}
+  requiredBuildingType: 0
 --- !u!1 &97032577631982865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,6 +1181,7 @@ GameObject:
   - component: {fileID: 97032577791021299}
   - component: {fileID: 97032577791021298}
   - component: {fileID: 3503511301326604587}
+  - component: {fileID: 5497252550467771403}
   m_Layer: 5
   m_Name: PowerSection
   m_TagString: Untagged
@@ -1270,6 +1299,21 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5497252550467771403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97032577791021296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4ec94222e67fbe4a954d8a50f125fa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 3503511301326604587}
+  text: {fileID: 0}
+  sliderImage: {fileID: 97032579697938017}
 --- !u!1 &97032577807419271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,7 +1564,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &97032577906954842
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1562,7 +1606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3184,6 +3228,7 @@ GameObject:
   - component: {fileID: 97032578290935378}
   - component: {fileID: 97032578290935388}
   - component: {fileID: 97032578290935379}
+  - component: {fileID: 116238473135921813}
   m_Layer: 5
   m_Name: CreditsSection
   m_TagString: Untagged
@@ -3250,6 +3295,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &116238473135921813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97032578290935377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af082487603f936458f6dac3dba06e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 97032578232888507}
 --- !u!1 &97032578298009521
 GameObject:
   m_ObjectHideFlags: 0
@@ -4118,6 +4176,7 @@ GameObject:
   - component: {fileID: 97032578497438440}
   - component: {fileID: 97032578497438442}
   - component: {fileID: 97032578497438441}
+  - component: {fileID: 5687062791053511407}
   m_Layer: 5
   m_Name: SelectionBackground
   m_TagString: Untagged
@@ -4185,6 +4244,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5687062791053511407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97032578497438447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 132e403fdab559b468131a2bfcb6ff8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 97032579024680712}
+  sliderImage: {fileID: 97032579657388079}
+  icon: {fileID: 97032577906954843}
+  multiUnitSprite: {fileID: 21300000, guid: 698ce6921c33bc14aacafb13a08ea72e, type: 3}
+  text: {fileID: 0}
 --- !u!1 &97032578501309496
 GameObject:
   m_ObjectHideFlags: 0
@@ -4866,6 +4942,7 @@ GameObject:
   - component: {fileID: 97032578808223957}
   - component: {fileID: 97032578808223956}
   - component: {fileID: 97032578808223947}
+  - component: {fileID: 505617559480303019}
   m_Layer: 5
   m_Name: ActionButton2
   m_TagString: Untagged
@@ -4977,13 +5054,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 505617559480303019}
+        m_TargetAssemblyTypeName: HealButton, Assembly-CSharp
+        m_MethodName: HealingButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5074,6 +5151,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &505617559480303019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97032578808223945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ea8e30957d90b1458013093a16b604d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &97032578820427455
 GameObject:
   m_ObjectHideFlags: 0
@@ -6041,7 +6130,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 300
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 50.17
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7582,6 +7671,7 @@ GameObject:
   - component: {fileID: 97032579349569248}
   - component: {fileID: 97032579349569251}
   - component: {fileID: 97032579349569250}
+  - component: {fileID: 6262337638333641664}
   m_Layer: 5
   m_Name: ActionButton1
   m_TagString: Untagged
@@ -7693,13 +7783,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 6262337638333641664}
+        m_TargetAssemblyTypeName: SellBuilding, Assembly-CSharp
+        m_MethodName: Sell
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7790,6 +7880,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &6262337638333641664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97032579349569254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d314e2a3b986f034889f0a0a2e15c7a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &97032579352306112
 GameObject:
   m_ObjectHideFlags: 0
@@ -9537,6 +9639,7 @@ GameObject:
   - component: {fileID: 5770579604094528639}
   - component: {fileID: 7466081885573489864}
   - component: {fileID: 5137708983890920162}
+  - component: {fileID: 4092264106818743339}
   m_Layer: 5
   m_Name: Missile Turret
   m_TagString: Untagged
@@ -9750,7 +9853,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5770579604094528639}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4092264106818743339}
+        m_TargetAssemblyTypeName: NewBuildingMenu, Assembly-CSharp
+        m_MethodName: placeNewBuilding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4092264106818743339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109593175016019392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5bd4c8bf0b49c4d9f54dd9517ac2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holoBuilding: {fileID: 7567814791572077520, guid: 12d44869e49080f43adc6857325e5e4a, type: 3}
+  button: {fileID: 5137708983890920162}
+  requiredBuildingType: 10
 --- !u!1 &1463258772529432451
 GameObject:
   m_ObjectHideFlags: 0
@@ -10052,6 +10182,7 @@ GameObject:
   - component: {fileID: 8634245871278516738}
   - component: {fileID: 8212084385083519851}
   - component: {fileID: 1835594975924345034}
+  - component: {fileID: 6312822664019638824}
   m_Layer: 5
   m_Name: Howitzer
   m_TagString: Untagged
@@ -10311,7 +10442,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8226566496333720232}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6312822664019638824}
+        m_TargetAssemblyTypeName: TroopBuildMenu, Assembly-CSharp
+        m_MethodName: BuildNewTroop
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6312822664019638824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003151991906194921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab0e293211f4904393665885c0f0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiresTechCenter: 1
+  button: {fileID: 1835594975924345034}
 --- !u!1 &3200713588438041637
 GameObject:
   m_ObjectHideFlags: 0
@@ -10325,6 +10482,7 @@ GameObject:
   - component: {fileID: 1322131899232760725}
   - component: {fileID: 1180480918609504056}
   - component: {fileID: 2732228504378808685}
+  - component: {fileID: 3801726475647737163}
   m_Layer: 5
   m_Name: Heavy Factory
   m_TagString: Untagged
@@ -10538,7 +10696,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1322131899232760725}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3801726475647737163}
+        m_TargetAssemblyTypeName: NewBuildingMenu, Assembly-CSharp
+        m_MethodName: placeNewBuilding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3801726475647737163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3200713588438041637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5bd4c8bf0b49c4d9f54dd9517ac2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holoBuilding: {fileID: -7576369430038573033, guid: befb57e7f7a5c66438cb5252cac00040, type: 3}
+  button: {fileID: 2732228504378808685}
+  requiredBuildingType: 6
 --- !u!1 &3720702210214152791
 GameObject:
   m_ObjectHideFlags: 0
@@ -10552,6 +10737,7 @@ GameObject:
   - component: {fileID: 235587821725995177}
   - component: {fileID: 3775842787424657604}
   - component: {fileID: 6969410105073673524}
+  - component: {fileID: 5917389418516938195}
   m_Layer: 5
   m_Name: Tech Center
   m_TagString: Untagged
@@ -10765,7 +10951,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 235587821725995177}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5917389418516938195}
+        m_TargetAssemblyTypeName: NewBuildingMenu, Assembly-CSharp
+        m_MethodName: placeNewBuilding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5917389418516938195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3720702210214152791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5bd4c8bf0b49c4d9f54dd9517ac2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holoBuilding: {fileID: 7472564252469092203, guid: 4d6e8fb5e62a8fd4b865553f7e715e41, type: 3}
+  button: {fileID: 6969410105073673524}
+  requiredBuildingType: 7
 --- !u!1 &3930758074939058650
 GameObject:
   m_ObjectHideFlags: 0
@@ -10919,6 +11132,7 @@ GameObject:
   - component: {fileID: 5472636270070127127}
   - component: {fileID: 8751559320015350618}
   - component: {fileID: 3448540028236659368}
+  - component: {fileID: 3720593828963181085}
   m_Layer: 5
   m_Name: Sentry Turret
   m_TagString: Untagged
@@ -11132,7 +11346,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5472636270070127127}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3720593828963181085}
+        m_TargetAssemblyTypeName: NewBuildingMenu, Assembly-CSharp
+        m_MethodName: placeNewBuilding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3720593828963181085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4342221122812753945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5bd4c8bf0b49c4d9f54dd9517ac2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holoBuilding: {fileID: 3652997980646322621, guid: 12aeed025b02b2c4ba206b9b07bf0190, type: 3}
+  button: {fileID: 3448540028236659368}
+  requiredBuildingType: 0
 --- !u!1 &5323986211094391516
 GameObject:
   m_ObjectHideFlags: 0
@@ -11147,6 +11388,7 @@ GameObject:
   - component: {fileID: 4773003815334125348}
   - component: {fileID: 3225785455522894122}
   - component: {fileID: 340437249714116049}
+  - component: {fileID: 3421671179738735019}
   m_Layer: 5
   m_Name: Sniper Tank
   m_TagString: Untagged
@@ -11406,7 +11648,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3634022156743808369}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3421671179738735019}
+        m_TargetAssemblyTypeName: TroopBuildMenu, Assembly-CSharp
+        m_MethodName: BuildNewTroop
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3421671179738735019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5323986211094391516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab0e293211f4904393665885c0f0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiresTechCenter: 1
+  button: {fileID: 340437249714116049}
 --- !u!1 &5888480874064663546
 GameObject:
   m_ObjectHideFlags: 0
@@ -11420,6 +11688,7 @@ GameObject:
   - component: {fileID: 3173890047441958530}
   - component: {fileID: 9201813408461424858}
   - component: {fileID: 6822389546956362698}
+  - component: {fileID: 1957985378903736005}
   m_Layer: 5
   m_Name: Scout Car
   m_TagString: Untagged
@@ -11442,10 +11711,10 @@ RectTransform:
   m_Father: {fileID: 4305998418255471872}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80.5, y: -65.5}
+  m_SizeDelta: {x: 135, y: 107}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1826485894332721772
 CanvasRenderer:
@@ -11633,7 +11902,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3173890047441958530}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1957985378903736005}
+        m_TargetAssemblyTypeName: TroopBuildMenu, Assembly-CSharp
+        m_MethodName: BuildNewTroop
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1957985378903736005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5888480874064663546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab0e293211f4904393665885c0f0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiresTechCenter: 0
+  button: {fileID: 6822389546956362698}
 --- !u!1 &5892104345313181124
 GameObject:
   m_ObjectHideFlags: 0
@@ -11786,6 +12081,7 @@ GameObject:
   - component: {fileID: 1385269638689451139}
   - component: {fileID: 4560636820362230848}
   - component: {fileID: 6430616385480243546}
+  - component: {fileID: 6763189963074855657}
   m_Layer: 5
   m_Name: Light Factory
   m_TagString: Untagged
@@ -11999,7 +12295,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1385269638689451139}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6763189963074855657}
+        m_TargetAssemblyTypeName: NewBuildingMenu, Assembly-CSharp
+        m_MethodName: placeNewBuilding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6763189963074855657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6378591923223119454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5bd4c8bf0b49c4d9f54dd9517ac2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holoBuilding: {fileID: 381362817881994466, guid: cae83fab27cc21e46bbf1b2d1c12fb91, type: 3}
+  button: {fileID: 6430616385480243546}
+  requiredBuildingType: 0
 --- !u!1 &7526885874254763185
 GameObject:
   m_ObjectHideFlags: 0
@@ -12013,6 +12336,7 @@ GameObject:
   - component: {fileID: 1389652826227912433}
   - component: {fileID: 4260480273939881897}
   - component: {fileID: 4877544542610463319}
+  - component: {fileID: 6849146045696973745}
   m_Layer: 5
   m_Name: Power Plant
   m_TagString: Untagged
@@ -12226,7 +12550,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1389652826227912433}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6849146045696973745}
+        m_TargetAssemblyTypeName: NewBuildingMenu, Assembly-CSharp
+        m_MethodName: placeNewBuilding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6849146045696973745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7526885874254763185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5bd4c8bf0b49c4d9f54dd9517ac2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holoBuilding: {fileID: 6237364634966832850, guid: 00159f3f59bc0d9489c0a39d8996c7b9, type: 3}
+  button: {fileID: 4877544542610463319}
+  requiredBuildingType: 0
 --- !u!1 &7723553742238005127
 GameObject:
   m_ObjectHideFlags: 0
@@ -12241,6 +12592,7 @@ GameObject:
   - component: {fileID: 1225379521193686887}
   - component: {fileID: 1083031881871370357}
   - component: {fileID: 1622754630283714020}
+  - component: {fileID: 8664543527786543673}
   m_Layer: 5
   m_Name: Medium Tank
   m_TagString: Untagged
@@ -12500,7 +12852,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 723147833833206101}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8664543527786543673}
+        m_TargetAssemblyTypeName: TroopBuildMenu, Assembly-CSharp
+        m_MethodName: BuildNewTroop
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8664543527786543673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7723553742238005127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab0e293211f4904393665885c0f0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiresTechCenter: 0
+  button: {fileID: 1622754630283714020}
 --- !u!1 &7894114142427491139
 GameObject:
   m_ObjectHideFlags: 0
@@ -12514,6 +12892,7 @@ GameObject:
   - component: {fileID: 3045985383288839803}
   - component: {fileID: 8434851329937986268}
   - component: {fileID: 1697903499513215395}
+  - component: {fileID: 1510520190125974135}
   m_Layer: 5
   m_Name: Light Tank
   m_TagString: Untagged
@@ -12536,10 +12915,10 @@ RectTransform:
   m_Father: {fileID: 4305998418255471872}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 220.5, y: -65.5}
+  m_SizeDelta: {x: 135, y: 107}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5349393450154551863
 CanvasRenderer:
@@ -12727,7 +13106,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3045985383288839803}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1510520190125974135}
+        m_TargetAssemblyTypeName: TroopBuildMenu, Assembly-CSharp
+        m_MethodName: BuildNewTroop
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1510520190125974135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7894114142427491139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab0e293211f4904393665885c0f0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiresTechCenter: 0
+  button: {fileID: 1697903499513215395}
 --- !u!1 &8109994636519864001
 GameObject:
   m_ObjectHideFlags: 0
@@ -12741,6 +13146,7 @@ GameObject:
   - component: {fileID: 5948111322356637823}
   - component: {fileID: 8122786753021366358}
   - component: {fileID: 6191423278436665354}
+  - component: {fileID: 3976378356232497319}
   m_Layer: 5
   m_Name: Repair Bay
   m_TagString: Untagged
@@ -12954,7 +13360,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5948111322356637823}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3976378356232497319}
+        m_TargetAssemblyTypeName: NewBuildingMenu, Assembly-CSharp
+        m_MethodName: placeNewBuilding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3976378356232497319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8109994636519864001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5bd4c8bf0b49c4d9f54dd9517ac2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holoBuilding: {fileID: 6097366592590707346, guid: 46b0940fd6b65db488765f88f0116e55, type: 3}
+  button: {fileID: 6191423278436665354}
+  requiredBuildingType: 10
 --- !u!1 &8579505378189099172
 GameObject:
   m_ObjectHideFlags: 0
@@ -13031,6 +13464,7 @@ GameObject:
   - component: {fileID: 6911726429606999864}
   - component: {fileID: 2008250363153714886}
   - component: {fileID: 8085047818165231916}
+  - component: {fileID: 720889350926186611}
   m_Layer: 5
   m_Name: Supply Truck
   m_TagString: Untagged
@@ -13290,4 +13724,30 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1535064318995587595}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 720889350926186611}
+        m_TargetAssemblyTypeName: TroopBuildMenu, Assembly-CSharp
+        m_MethodName: BuildNewTroop
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &720889350926186611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136994575705396330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab0e293211f4904393665885c0f0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiresTechCenter: 0
+  button: {fileID: 8085047818165231916}

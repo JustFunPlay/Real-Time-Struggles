@@ -198,6 +198,7 @@ MonoBehaviour:
   maxHP: 0
   currentHP: 0
   army: 0
+  canBeSeclected: 0
   showSelected: {fileID: 6974794100325470995}
   type: 9
   renderers: []
@@ -220,6 +221,7 @@ MonoBehaviour:
   - {x: 5, y: 0, z: -10}
   - {x: 0, y: 0, z: -10}
   - {x: -6, y: 0, z: -10}
+  icon: {fileID: 21300000, guid: d197fc4df8435de46800588b05ac75ec, type: 3}
   buildCost: 0
   powerCost: 0
   requiredTrips: 0

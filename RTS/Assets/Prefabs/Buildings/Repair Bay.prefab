@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f15ac6f4ed69d4498192904e03ca38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitName: Repair Bay
   maxHP: 1000
   currentHP: 0
   army: 0
@@ -193,6 +194,7 @@ MonoBehaviour:
   - {x: 7.2, y: 1, z: -2}
   - {x: -7.2, y: 1, z: -2}
   - {x: -7.2, y: 1, z: 2}
+  icon: {fileID: 21300000, guid: 38b97df892aa80e4f8808efa7fd6629e, type: 3}
   buildCost: 1000
   powerCost: 1
   requiredTrips: 2

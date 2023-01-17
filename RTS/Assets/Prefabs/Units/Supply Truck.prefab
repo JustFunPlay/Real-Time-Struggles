@@ -318,6 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb0431bf196f1a48acbcb24ce5c6400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitName: Supply Truck
   maxHP: 100
   currentHP: 0
   army: 0
@@ -337,13 +338,14 @@ MonoBehaviour:
   - {x: 0.97, y: 1, z: -1.67}
   - {x: -1.02, y: 1, z: 1.15}
   - {x: 0.97, y: 1, z: 1.15}
+  icon: {fileID: 21300000, guid: 304c593c4d9210c4d896f1cfd5130e12, type: 3}
+  inQueue: 0
+  inBuilding: 0
   assignedYard: {fileID: 0}
   assignedDepot: {fileID: 0}
   heldResources: 0
   supplyVisualizer: {fileID: 3625038833707216246}
   constructionSite: {fileID: 0}
-  supplying: 0
-  inQueue: 0
 --- !u!1 &7747123445931420560
 GameObject:
   m_ObjectHideFlags: 0

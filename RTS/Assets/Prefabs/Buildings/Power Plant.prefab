@@ -113,9 +113,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d031d4f8e006204497f9a00ed0bc595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitName: Power Plant
   maxHP: 1200
   currentHP: 0
   army: 0
+  canBeSeclected: 0
   showSelected: {fileID: 7549190447453809561}
   type: 8
   renderers:
@@ -133,6 +135,7 @@ MonoBehaviour:
   - {x: 4.5, y: 2, z: -2}
   - {x: -4.5, y: 2, z: -2}
   - {x: -4.5, y: 2, z: 2}
+  icon: {fileID: 21300000, guid: 327dbd004c6457a47aa62fe1d711cd37, type: 3}
   buildCost: 900
   powerCost: -5
   requiredTrips: 3

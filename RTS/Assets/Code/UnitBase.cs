@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UnitBase : MonoBehaviour
 {
+    public string unitName;
     public int maxHP;
     public int currentHP;
     public Army army;

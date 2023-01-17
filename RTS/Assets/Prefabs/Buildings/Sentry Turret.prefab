@@ -473,6 +473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc3ae6002feb434ab6e417daa19023f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitName: Sentry Turret
   maxHP: 800
   currentHP: 0
   army: 0
@@ -490,6 +491,7 @@ MonoBehaviour:
   - {x: -1.3, y: 1, z: 1.3}
   - {x: 1.3, y: 1, z: -1.3}
   - {x: -1.3, y: 1, z: -1.3}
+  icon: {fileID: 21300000, guid: 98ed544d3562ca9418241afb820ff88b, type: 3}
   buildCost: 1000
   powerCost: 2
   requiredTrips: 2
