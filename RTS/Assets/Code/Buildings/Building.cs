@@ -52,5 +52,6 @@ public class Building : UnitBase
     public virtual void Sell()
     {
         HQBuilding.ChangeSupplies(buildCost / 2, army);
+        Destroy(gameObject);
     }
 }

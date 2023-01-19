@@ -114,7 +114,6 @@ public class Tutorial : MonoBehaviour
                 }
                 break;
             case 9:
-                aiSetup.armyManager.StartAI(aiSetup.ecoScore, aiSetup.agroScore, aiSetup.costMod, aiSetup.squadCap);
                 break;
         }
         
@@ -132,6 +131,8 @@ public class Tutorial : MonoBehaviour
         {
             tutorialStages[tutorialStage].objects[i].SetActive(true);
         }
+        if (tutorialStage == 9)
+            aiSetup.armyManager.StartAI(aiSetup.ecoScore, aiSetup.agroScore, aiSetup.costMod, aiSetup.squadCap);
     }
 }
 

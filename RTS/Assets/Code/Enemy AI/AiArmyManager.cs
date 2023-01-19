@@ -52,7 +52,7 @@ public class AiArmyManager : MonoBehaviour
         squadCap = squad;
         for (int i = 0; i < supplySets.Count; i++)
         {
-            supplySets[i].optimalEco += Mathf.CeilToInt(12/(60/(10 + 2 * (Vector3.Distance(supplySets[i].depot.transform.position, supplySets[i].yard.transform.position) / 15f))));
+            supplySets[i].optimalEco += Mathf.CeilToInt(12f/(60f/(10f + 2f * (Vector3.Distance(supplySets[i].depot.transform.position, supplySets[i].yard.transform.position) / 15f))));
         }
         for (int i = 0; i < hq.troops.Length; i++)
         {

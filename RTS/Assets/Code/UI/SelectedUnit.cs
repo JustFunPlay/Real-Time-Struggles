@@ -26,10 +26,10 @@ public class SelectedUnit : MonoBehaviour
             slider.maxValue = combinedMax;
             slider.value = combinedCurrent;
             icon.sprite = multiUnitSprite;
-            if (combinedCurrent * 2 <= combinedMax)
-                sliderImage.color = Color.yellow;
-            else if (combinedCurrent * 1.5 <= combinedMax)
+            if (combinedCurrent * 3 <= combinedMax)
                 sliderImage.color = Color.red;
+            else if (combinedCurrent * 1.5 <= combinedMax)
+                sliderImage.color = Color.yellow;
             else
                 sliderImage.color = Color.green;
             text.text = "Multiple Selected";

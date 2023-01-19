@@ -83,5 +83,6 @@ public class ConstructionSite : Building
     public override void Sell()
     {
         HQBuilding.ChangeSupplies((int)(investedResources * 0.75f), army);
+        base.Sell();
     }
 }

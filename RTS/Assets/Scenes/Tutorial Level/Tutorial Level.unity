@@ -2270,8 +2270,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 300, y: 1, z: 75}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 300, y: 1, z: 67.922806}
+  m_Center: {x: 0, y: 0, z: 3.538597}
 --- !u!1001 &230676514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7754,7 +7754,8 @@ MonoBehaviour:
   m_text: "\xA4 Select the Supply Depot in the build menu.\n\xA4 Point at the position
     you want to build it and click to confirm.\n\xA4 Keep the entrance and exit in
     mind when placing buildings.\n\xA4 A Supply Truck will automatically be assigned
-    to construct the building."
+    to construct the building.\n\xA4 Press R to rotate the building\n\xA4 If the
+    building is green you can place it"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 31e82d5c5ec08ff489bbbee82f14c47d, type: 2}
   m_sharedMaterial: {fileID: -8908660349435539854, guid: 31e82d5c5ec08ff489bbbee82f14c47d, type: 2}

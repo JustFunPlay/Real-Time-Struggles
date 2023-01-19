@@ -110,11 +110,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 9.044001, y: 2.719, z: 7.3080006}
+  m_Extents: {x: 8, y: 2.719, z: 5.5}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: -0.080000006, y: 2.719, z: -0.15200001}
+  m_Center: {x: 0, y: 2.719, z: 0}
   m_TimeToStationary: 0.5
 --- !u!114 &8869053362802553955
 MonoBehaviour:
@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3e508a4111f5545b08bb93d0bd7986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitName: 
   maxHP: 0
   currentHP: 0
   army: 0
