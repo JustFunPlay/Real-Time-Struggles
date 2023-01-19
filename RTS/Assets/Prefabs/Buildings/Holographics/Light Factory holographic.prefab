@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3556536750618479672}
   - component: {fileID: 1639218030899394802}
   - component: {fileID: 381362817881994466}
+  - component: {fileID: 4068917091996657925}
   m_Layer: 0
   m_Name: Light Factory holographic
   m_TagString: Untagged
@@ -103,12 +104,25 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
-  halfExtends: {x: 9, y: 3, z: 11.5}
-  extendsOffset: {x: 0.2, y: -1, z: 4}
+  halfExtends: {x: 8.5, y: 3, z: 13}
+  extendsOffset: {x: 0, y: -1, z: 6.5}
   meshes:
   - {fileID: 1639218030899394802}
   skinnedMeshes: []
   buildingToSpawn: {fileID: 5732955853389134653, guid: 7e3d788523da55743ba35e2416ef8138, type: 3}
+--- !u!65 &4068917091996657925
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990598872386754855}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 16.904125, y: 9.937984, z: 14.851858}
+  m_Center: {x: 0.2671547, y: 4.968992, z: 0.116328}
 --- !u!1001 &3766459613003430693
 PrefabInstance:
   m_ObjectHideFlags: 0
