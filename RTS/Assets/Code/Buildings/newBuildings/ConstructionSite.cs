@@ -20,22 +20,28 @@ public class ConstructionSite : Building
     {
         while (!truck)
         {
+            yield return new WaitForSeconds(0.1f);
             foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
             {
-                if (unit.army == army && unit.GetComponent<SupplyTruck>() && unit.GetComponent<SupplyTruck>().constructionSite == null && unit.GetComponent<SupplyTruck>().inBuilding == false)
+                if (unit.army == army && unit.GetComponent<SupplyTruck>() && unit.GetComponent<SupplyTruck>().constructionSite == null)
                 {
                     if (!truck || Vector3.Distance(transform.position, unit.transform.position) < Vector3.Distance(transform.position, truck.transform.position))
+                    {
+                        if (truck)
+                            truck.constructionSite = null;
                         truck = unit.GetComponent<SupplyTruck>();
+                        truck.constructionSite = this;
+                    }
                 }
             }
-            yield return new WaitForFixedUpdate();
         }
-        truck.constructionSite = this;
         truck.CheckToAutomate();
         StartCoroutine(ConstructionInProgress());
     }
     IEnumerator ConstructionInProgress()
     {
+        float progress = ((investedResources / (building.buildCost * 100f)) * 10000f);
+        unitName = $"{building.unitName} ({(int)progress}%)";
         while (investedResources < building.buildCost)
         {
             yield return new WaitForFixedUpdate();
@@ -52,6 +58,8 @@ public class ConstructionSite : Building
             }
             truck.heldResources -= (building.buildCost / building.requiredTrips);
             investedResources += (building.buildCost / building.requiredTrips);
+            progress = ((investedResources / (building.buildCost * 100f)) * 10000f);
+            unitName = $"{building.unitName} ({(int)progress}%)";
             truck.CheckSupplies();
             truck.CheckToAutomate();
 
@@ -63,6 +71,7 @@ public class ConstructionSite : Building
             truck.CheckSupplies();
         }
         truck.CheckToAutomate();
+        truck = null;
         Invoke("FinishConstruction", 1f);
     }
     public void FinishConstruction()

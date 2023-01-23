@@ -180,6 +180,7 @@ public class SquadManager : MonoBehaviour
         origin /= squad.Count;
         return origin;
     }
+
     bool SquadInCombat()
     {
         for (int i = 0; i < squad.Count; i++)

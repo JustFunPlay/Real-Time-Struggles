@@ -10,6 +10,8 @@ public class Factory : Building
     public Transform exitPoint;
 
     public List<Troop> queue = new List<Troop>();
+    public Troop troopInProgress;
+    public int timeLeftToBuild;
     public bool isBuilding;
     public override void AddedUnit(Army army_)
     {
@@ -32,11 +34,17 @@ public class Factory : Building
     IEnumerator BuildingTroop(Troop troop)
     {
         isBuilding = true;
-        yield return new WaitForSeconds(troop.buildTime);
+        troopInProgress = troop;
+        for (float f = troop.buildTime; f > 0; f -= 0.5f)
+        {
+            timeLeftToBuild = Mathf.CeilToInt(f);
+            yield return new WaitForSeconds(0.5f);
+        }
         TroopMovement newTroop = Instantiate(troop.troop, spawnpoint.position, spawnpoint.rotation);
         newTroop.AddedUnit(army);
         newTroop.MoveToPosition(exitPoint.position);
         isBuilding = false;
+        troopInProgress = null;
         if (queue.Count > 0)
         {
             StartCoroutine(BuildingTroop(queue[0]));

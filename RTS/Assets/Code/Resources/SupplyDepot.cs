@@ -53,7 +53,7 @@ public class SupplyDepot : Building
                 entranceGate.GetComponent<NavMeshObstacle>().enabled = false;
             yield return new WaitForSeconds(0.075f);
         }
-        while (Vector3.Distance(truckInAction.transform.position, loadPoint.position) > 5f)
+        while (truckInAction && Vector3.Distance(truckInAction.transform.position, loadPoint.position) > 5f)
         {
             //truckInAction.MoveToPosition(loadPoint.position);
 
@@ -66,9 +66,17 @@ public class SupplyDepot : Building
                 entranceGate.GetComponent<NavMeshObstacle>().enabled = true;
             yield return new WaitForSeconds(0.075f);
         }
-
+        if (!truckInAction)
+        {
+            StartCoroutine(CheckForTruck());
+            yield break;
+        }
         yield return new WaitForSeconds(collectionDuration);
-        
+        if (!truckInAction)
+        {
+            StartCoroutine(CheckForTruck());
+            yield break;
+        }
         if (truckInAction.constructionSite && HQBuilding.GetSupplies((truckInAction.constructionSite.building.buildCost / truckInAction.constructionSite.building.requiredTrips) - truckInAction.heldResources, army))
         {
             HQBuilding.ChangeSupplies(-((truckInAction.constructionSite.building.buildCost / truckInAction.constructionSite.building.requiredTrips) - truckInAction.heldResources), army);
@@ -89,7 +97,7 @@ public class SupplyDepot : Building
                 exitGate.GetComponent<NavMeshObstacle>().enabled = false;
             yield return new WaitForSeconds(0.075f);
         }
-        while (Vector3.Distance(truckInAction.transform.position, exitLocation.position) > 5f)
+        while (truckInAction && Vector3.Distance(truckInAction.transform.position, exitLocation.position) > 5f)
         {
             truckInAction.MoveToPosition(exitLocation.position);
             yield return new WaitForSeconds(0.1f);
@@ -101,10 +109,13 @@ public class SupplyDepot : Building
                 exitGate.GetComponent<NavMeshObstacle>().enabled = true;
             yield return new WaitForSeconds(0.075f);
         }
-        truckInAction.CheckToAutomate();
-        truckInAction.inBuilding = false;
-        truckInAction.canBeSeclected = true;
-        truckInAction = null;
+        if (truckInAction)
+        {
+            truckInAction.CheckToAutomate();
+            truckInAction.inBuilding = false;
+            truckInAction.canBeSeclected = true;
+            truckInAction = null;
+        }
         yield return new WaitForSeconds(collectionLockout);
         StartCoroutine(CheckForTruck());
     }

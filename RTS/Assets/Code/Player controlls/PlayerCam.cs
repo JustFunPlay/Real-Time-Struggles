@@ -41,6 +41,7 @@ public class PlayerCam : MonoBehaviour
 
     bool holdLeftClick;
     bool holdRightClick;
+    bool holdMiddleClick;
     Vector2 mouseValue;
     float holdDuration;
 
@@ -61,6 +62,7 @@ public class PlayerCam : MonoBehaviour
     public GameObject[] contextMenus;
     public GameObject baseMenu;
     public HolographicBuilding newBuilding;
+    public PauseMenuController pauseMenu;
 
     private void Start()
     {
@@ -88,13 +90,13 @@ public class PlayerCam : MonoBehaviour
     {
         Ray clickRay = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;
-        if (inBuildMode && callbackContext.started)
+        if (inBuildMode && callbackContext.started && !holdMiddleClick && !holdRightClick && !IsHoveringOverUI())
         {
             newBuilding.SpawnBuilding(out bool isPlaced);
             if (isPlaced)
                 inBuildMode = false;
         }
-        else if (!holdRightClick && callbackContext.started)
+        else if (!holdRightClick && !holdMiddleClick && callbackContext.started && !inBuildMode)
         {
             holdLeftClick = true;
             holdDuration = 0;
@@ -197,7 +199,7 @@ public class PlayerCam : MonoBehaviour
     }
     public void RightClick(InputAction.CallbackContext callbackContext)
     {
-        if (!holdLeftClick && callbackContext.started)
+        if (!holdLeftClick && !holdMiddleClick && callbackContext.started)
         {
             holdRightClick = true;
             mouseValue = new Vector2();
@@ -223,6 +225,16 @@ public class PlayerCam : MonoBehaviour
             SelectCheck();
         }
     }
+    public void MiddleClick(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.started && !holdLeftClick && !holdRightClick)
+        {
+            holdMiddleClick = true;
+            mouseValue = new Vector2();
+        }
+        else if (callbackContext.canceled)
+            holdMiddleClick = false;
+    }
 
     public void ResetCamRotation(InputAction.CallbackContext callbackContext)
     {
@@ -244,7 +256,7 @@ public class PlayerCam : MonoBehaviour
     }
     public void MoveMouse(InputAction.CallbackContext callbackContext)
     {
-        if (holdRightClick)
+        if (holdRightClick || holdMiddleClick)
             mouseValue += callbackContext.ReadValue<Vector2>();
     }
     public void RotateBuilding(InputAction.CallbackContext callbackContext)
@@ -359,18 +371,24 @@ public class PlayerCam : MonoBehaviour
         }
     }
 
+    public void EscapeKey(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.started)
+            pauseMenu.SwitchPauseMenu();
+    }
+
 
     private void Update()
     {
-        if (!holdLeftClick)
+        if (!holdLeftClick && !holdMiddleClick)
             MoveCam();
-        else if (holdDuration >= 0.2f)
+        else if (holdDuration >= 0.2f && !holdMiddleClick)
         {
             multiSelectTransform.gameObject.SetActive(true);
             MultiSelect();
         }
         ZoomCam();
-        transform.Rotate(0, -rotateValue * rotateSpeed * Time.deltaTime, 0);
+        transform.Rotate(0, (holdMiddleClick ? -mouseValue.x : -rotateValue * rotateSpeed) * Time.deltaTime, 0);
         if (holdLeftClick || holdRightClick)
             holdDuration += Time.deltaTime;
     }
@@ -419,7 +437,7 @@ public class PlayerCam : MonoBehaviour
     }
     void ZoomCam()
     {
-        currentCamDistance = Mathf.Clamp(currentCamDistance += zoomValue * zoomSpeed * Time.deltaTime, zoomBoundary.x, zoomBoundary.y);
+        currentCamDistance = Mathf.Clamp(currentCamDistance += (holdMiddleClick ? -mouseValue.y : zoomValue) * zoomSpeed * Time.deltaTime, zoomBoundary.x, zoomBoundary.y);
         cam.transform.localPosition = currentCamDistance * camDir;
     }
 

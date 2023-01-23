@@ -41,10 +41,10 @@ public class SelectedUnit : MonoBehaviour
             slider.value = PlayerCam.instance.selectedUnits[0].currentHP;
             icon.sprite = PlayerCam.instance.selectedUnits[0].icon;
             text.text = PlayerCam.instance.selectedUnits[0].unitName;
-            if (PlayerCam.instance.selectedUnits[0].currentHP * 2 <= PlayerCam.instance.selectedUnits[0].maxHP)
-                sliderImage.color = Color.yellow;
-            else if (PlayerCam.instance.selectedUnits[0].currentHP * 1.5 <= PlayerCam.instance.selectedUnits[0].maxHP)
+            if (PlayerCam.instance.selectedUnits[0].currentHP * 3 <= PlayerCam.instance.selectedUnits[0].maxHP)
                 sliderImage.color = Color.red;
+            else if (PlayerCam.instance.selectedUnits[0].currentHP * 1.5 <= PlayerCam.instance.selectedUnits[0].maxHP)
+                sliderImage.color = Color.yellow;
             else
                 sliderImage.color = Color.green;
         }

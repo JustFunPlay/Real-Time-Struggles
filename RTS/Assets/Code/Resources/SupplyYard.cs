@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-//[RequireComponent(typeof(NavMeshObstacle))]
 public class SupplyYard : MonoBehaviour
 {
     [Header("Resource aquisition")]
@@ -57,7 +56,7 @@ public class SupplyYard : MonoBehaviour
                 entranceGate.GetComponent<NavMeshObstacle>().enabled = false;
             yield return new WaitForSeconds(0.075f);
         }
-        while (Vector3.Distance(truckInAction.transform.position, transform.position) > 5f)
+        while (truckInAction && Vector3.Distance(truckInAction.transform.position, transform.position) > 5f)
         {
             yield return new WaitForSeconds(0.1f);
         }
@@ -68,9 +67,18 @@ public class SupplyYard : MonoBehaviour
                 entranceGate.GetComponent<NavMeshObstacle>().enabled = true;
             yield return new WaitForSeconds(0.075f);
         }
-
+        if (!truckInAction)
+        {
+            StartCoroutine(CheckForTruck());
+            yield break;
+        }
 
         yield return new WaitForSeconds(collectionDuration);
+        if (!truckInAction)
+        {
+            StartCoroutine(CheckForTruck());
+            yield break;
+        }
         truckInAction.heldResources = resourcesPerTrip;
         truckInAction.CheckSupplies();
 
@@ -82,7 +90,7 @@ public class SupplyYard : MonoBehaviour
                 exitGate.GetComponent<NavMeshObstacle>().enabled = false;
             yield return new WaitForSeconds(0.075f);
         }
-        while (Vector3.Distance(truckInAction.transform.position, exitLocation.position) > 5f)
+        while (truckInAction && Vector3.Distance(truckInAction.transform.position, exitLocation.position) > 5f)
         {
             yield return new WaitForSeconds(0.1f);
         }
@@ -93,10 +101,13 @@ public class SupplyYard : MonoBehaviour
                 exitGate.GetComponent<NavMeshObstacle>().enabled = true;
             yield return new WaitForSeconds(0.075f);
         }
-        truckInAction.CheckToAutomate();
-        truckInAction.inBuilding = false;
-        truckInAction.canBeSeclected = true;
-        truckInAction = null;
+        if (truckInAction)
+        {
+            truckInAction.CheckToAutomate();
+            truckInAction.inBuilding = false;
+            truckInAction.canBeSeclected = true;
+            truckInAction = null;
+        }
         yield return new WaitForSeconds(collectionLockout);
         StartCoroutine(CheckForTruck());
     }

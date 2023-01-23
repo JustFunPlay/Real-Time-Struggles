@@ -25,7 +25,9 @@ public class NewBuildingMenu : MonoBehaviour
 
     public void placeNewBuilding()
     {
-            PlayerCam.instance.newBuilding = Instantiate(holoBuilding);
-            PlayerCam.instance.inBuildMode = true;
+        if (PlayerCam.instance.newBuilding)
+            Destroy(PlayerCam.instance.newBuilding.gameObject);
+        PlayerCam.instance.newBuilding = Instantiate(holoBuilding);
+        PlayerCam.instance.inBuildMode = true;
     }
 }
