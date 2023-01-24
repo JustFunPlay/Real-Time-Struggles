@@ -7,8 +7,9 @@ public class Humvee : CombatTroop
     
     public LayerMask hitlayer;
 
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
+        base.FixedUpdate();
         if (!target)
         {
             aimAssist.LookAt(aimAssist.position + transform.forward, Vector3.up);
@@ -59,6 +60,7 @@ public class Humvee : CombatTroop
     IEnumerator Fire()
     {
         canFire = false;
+        muzzleFlash.Play();
         if (target.type == UnitType.LightTroop || target.type == UnitType.ResourceTruck)
             target.OnTakeDamage(damage * 2);
         else

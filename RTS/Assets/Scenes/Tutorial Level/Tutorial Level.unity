@@ -12410,8 +12410,8 @@ MonoBehaviour:
     armyManager: {fileID: 514190635}
     ecoScore: 3
     agroScore: 4
-    costMod: 1.5
-    squadCap: 5
+    costMod: 2.3
+    squadCap: 4
 --- !u!1001 &1110531625
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -491,6 +491,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8973335083469405966}
+  - {fileID: 2346557390158837367}
   m_Father: {fileID: 9218562885375902244}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -644,6 +645,7 @@ Transform:
   - {fileID: 9113067028823701027}
   - {fileID: 7333043756042921462}
   - {fileID: 1161760518652010579}
+  - {fileID: 1742544897525626587}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -694,7 +696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fedee81c77e41094dae4348681a722d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Humvee
+  unitName: Scout Car
   maxHP: 400
   currentHP: 0
   army: 0
@@ -718,18 +720,20 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 92b64eed9c0c3e740995bdb6c301f71b, type: 3}
   inQueue: 0
   inBuilding: 0
+  moveSmoke: {fileID: 1742544897525626584}
   turretRotate: {fileID: 9218562885375902244}
   barrelAngle: {fileID: 145791311892154975}
   FirePoint: {fileID: 8973335083469405966}
   aimAssist: {fileID: 9113067028823701027}
-  hitlayer:
-    serializedVersion: 2
-    m_Bits: 64
   damage: 4
   range: 30
   attackSpeed: 0.15
   turretRotSpeed: 7
   target: {fileID: 0}
+  muzzleFlash: {fileID: 2346557390158837361}
+  hitlayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &8970725743394388121
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,4 +851,138 @@ MeshRenderer:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 50a9e3445f4a98d429e212169d8e0f7f, type: 3}
   m_PrefabInstance: {fileID: 1699509024920094648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8259607221193242563
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8083182561876852039}
+    m_Modifications:
+    - target: {fileID: 7678292511899926808, guid: 6e83e90dd3a242a40bdc266fa5432437, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678292511899926808, guid: 6e83e90dd3a242a40bdc266fa5432437, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678292511899926808, guid: 6e83e90dd3a242a40bdc266fa5432437, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678292511899926808, guid: 6e83e90dd3a242a40bdc266fa5432437, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678292511899926808, guid: 6e83e90dd3a242a40bdc266fa5432437, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678292511899926808, guid: 6e83e90dd3a242a40bdc266fa5432437, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678292511899926808, guid: 6e83e90dd3a242a40bdc266fa5432437, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678292511899926808, guid: 6e83e90dd3a242a40bdc266fa5432437, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678292511899926808, guid: 6e83e90dd3a242a40bdc266fa5432437, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678292511899926808, guid: 6e83e90dd3a242a40bdc266fa5432437, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678292511899926808, guid: 6e83e90dd3a242a40bdc266fa5432437, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678292511899926813, guid: 6e83e90dd3a242a40bdc266fa5432437, type: 3}
+      propertyPath: m_Name
+      value: Vehicle Moving Dust
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e83e90dd3a242a40bdc266fa5432437, type: 3}
+--- !u!198 &1742544897525626584 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7678292511899926811, guid: 6e83e90dd3a242a40bdc266fa5432437, type: 3}
+  m_PrefabInstance: {fileID: 8259607221193242563}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1742544897525626587 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7678292511899926808, guid: 6e83e90dd3a242a40bdc266fa5432437, type: 3}
+  m_PrefabInstance: {fileID: 8259607221193242563}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8944895895898503828
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 145791311892154975}
+    m_Modifications:
+    - target: {fileID: 6679404424451656930, guid: a94ad45d6cb77e441bae3ed27dbf026e, type: 3}
+      propertyPath: m_Name
+      value: Scout Car Firing
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679404424451656931, guid: a94ad45d6cb77e441bae3ed27dbf026e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679404424451656931, guid: a94ad45d6cb77e441bae3ed27dbf026e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679404424451656931, guid: a94ad45d6cb77e441bae3ed27dbf026e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679404424451656931, guid: a94ad45d6cb77e441bae3ed27dbf026e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679404424451656931, guid: a94ad45d6cb77e441bae3ed27dbf026e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679404424451656931, guid: a94ad45d6cb77e441bae3ed27dbf026e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679404424451656931, guid: a94ad45d6cb77e441bae3ed27dbf026e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679404424451656931, guid: a94ad45d6cb77e441bae3ed27dbf026e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679404424451656931, guid: a94ad45d6cb77e441bae3ed27dbf026e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679404424451656931, guid: a94ad45d6cb77e441bae3ed27dbf026e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679404424451656931, guid: a94ad45d6cb77e441bae3ed27dbf026e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a94ad45d6cb77e441bae3ed27dbf026e, type: 3}
+--- !u!198 &2346557390158837361 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6679404424451656933, guid: a94ad45d6cb77e441bae3ed27dbf026e, type: 3}
+  m_PrefabInstance: {fileID: 8944895895898503828}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2346557390158837367 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6679404424451656931, guid: a94ad45d6cb77e441bae3ed27dbf026e, type: 3}
+  m_PrefabInstance: {fileID: 8944895895898503828}
   m_PrefabAsset: {fileID: 0}

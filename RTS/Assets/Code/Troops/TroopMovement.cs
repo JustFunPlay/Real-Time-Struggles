@@ -9,6 +9,7 @@ public class TroopMovement : UnitBase
     NavMeshAgent agent;
     public bool inQueue;
     public bool inBuilding;
+    public ParticleSystem moveSmoke;
     public override void AddedUnit(Army army_)
     {
         base.AddedUnit(army_);
@@ -16,10 +17,13 @@ public class TroopMovement : UnitBase
         PlayerTroopManager.instance.troops.Add(this);
     }
 
-    //void Update()
-    //{
-        
-    //}
+    protected virtual void FixedUpdate()
+    {
+        if (agent.velocity.magnitude < 1)
+            moveSmoke.Pause();
+        else
+            moveSmoke.Play();
+    }
     public void MoveToPosition(Vector3 position)
     {
         agent.SetDestination(position);

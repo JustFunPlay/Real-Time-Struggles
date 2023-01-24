@@ -9,8 +9,9 @@ public class Howitzer : CombatTroop
     public float splashRadius;
     public float minimumRange;
 
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
+        base.FixedUpdate();
         if (!target)
         {
             aimAssist.LookAt(aimAssist.position + transform.forward, Vector3.up);
@@ -62,7 +63,7 @@ public class Howitzer : CombatTroop
     IEnumerator Fire()
     {
         canFire = false;
-        Debug.Log("boom");
+        muzzleFlash.Play();
         ArtilleryShell firedShell = Instantiate(shell, FirePoint.position, FirePoint.rotation);
         firedShell.Launch(damage, splashRadius, target.transform.position + target.transform.TransformDirection(target.targetingPoints[0]), army);
         yield return new WaitForSeconds(attackSpeed);

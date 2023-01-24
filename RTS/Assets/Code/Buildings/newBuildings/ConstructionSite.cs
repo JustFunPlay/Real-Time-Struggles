@@ -21,7 +21,7 @@ public class ConstructionSite : Building
         while (!truck)
         {
             yield return new WaitForSeconds(0.1f);
-            foreach (SupplyTruck truck_ in PlayerTroopManager.instance.allUnits)
+            foreach (SupplyTruck truck_ in PlayerTroopManager.instance.supplyTrucks)
             {
                 if (truck_.army == army && truck_.constructionSite == null && truck_.inBuilding == false)
                 {

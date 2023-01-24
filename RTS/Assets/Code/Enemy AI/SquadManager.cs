@@ -185,11 +185,7 @@ public class SquadManager : MonoBehaviour
     {
         for (int i = 0; i < squad.Count; i++)
         {
-            if (squad[i].GetComponent<Tank>() && squad[i].GetComponent<Tank>().target)
-                return true;
-            else if (squad[i].GetComponent<Howitzer>() && squad[i].GetComponent<Howitzer>().target)
-                return true;
-            else if (squad[i].GetComponent<Humvee>() && squad[i].GetComponent<Humvee>().target)
+            if (squad[i].GetComponent<CombatTroop>() && squad[i].GetComponent<CombatTroop>().target)
                 return true;
         }
         return false;
@@ -199,12 +195,8 @@ public class SquadManager : MonoBehaviour
         UnitBase target = null;
         foreach (TroopMovement troop in squad)
         {
-            if (troop.GetComponent<Tank>() && troop.GetComponent<Tank>().target && (!target || Vector3.Distance(SquadOrigin(), troop.GetComponent<Tank>().target.transform.position) > Vector3.Distance(SquadOrigin(), target.transform.position)))
-                target = troop.GetComponent<Tank>().target;
-            else if (troop.GetComponent<Howitzer>() && troop.GetComponent<Howitzer>().target && (!target || Vector3.Distance(SquadOrigin(), troop.GetComponent<Howitzer>().target.transform.position) > Vector3.Distance(SquadOrigin(), target.transform.position)))
-                target = troop.GetComponent<Howitzer>().target;
-            else if (troop.GetComponent<Humvee>() && troop.GetComponent<Humvee>().target && (!target || Vector3.Distance(SquadOrigin(), troop.GetComponent<Humvee>().target.transform.position) > Vector3.Distance(SquadOrigin(), target.transform.position)))
-                target = troop.GetComponent<Humvee>().target;
+            if (troop.GetComponent<CombatTroop>() && troop.GetComponent<CombatTroop>().target && (!target || Vector3.Distance(SquadOrigin(), troop.GetComponent<CombatTroop>().target.transform.position) > Vector3.Distance(SquadOrigin(), target.transform.position)))
+                target = troop.GetComponent<CombatTroop>().target;
         }
         return target;
     }
@@ -231,12 +223,7 @@ public class SquadManager : MonoBehaviour
         float avarageRange = 0;
         for (int i = 0; i < squad.Count; i++)
         {
-            if (squad[i].GetComponent<Tank>())
-                avarageRange += squad[i].GetComponent<Tank>().range;
-            else if (squad[i].GetComponent<Howitzer>())
-                avarageRange += squad[i].GetComponent<Howitzer>().range;
-            else if (squad[i].GetComponent<Humvee>())
-                avarageRange += squad[i].GetComponent<Humvee>().range;
+            avarageRange += squad[i].GetComponent<CombatTroop>().range;
         }
         avarageRange /= squad.Count;
         squadRange = avarageRange;

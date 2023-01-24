@@ -18,6 +18,8 @@ public class CombatTroop : TroopMovement
     public UnitBase target;
     protected bool canFire = true;
 
+    public ParticleSystem muzzleFlash;
+
     public override void AddedUnit(Army army_)
     {
         base.AddedUnit(army_);

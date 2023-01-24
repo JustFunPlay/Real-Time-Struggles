@@ -19,6 +19,8 @@ public class AutoTurret : Building
     public UnitBase target;
     bool canFire = true;
 
+    public ParticleSystem muzzleFlash;
+
     public override void AddedUnit(Army army_)
     {
         base.AddedUnit(army_);
@@ -61,6 +63,7 @@ public class AutoTurret : Building
     IEnumerator Fire()
     {
         canFire = false;
+        muzzleFlash.Play();
         target.OnTakeDamage(damage);
 
         ParticleManager.instance.SetLine(FirePoint.position, FirePoint.position + FirePoint.forward * Vector3.Distance(FirePoint.position, target.transform.position));

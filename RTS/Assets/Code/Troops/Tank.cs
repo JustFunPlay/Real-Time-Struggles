@@ -6,8 +6,9 @@ public class Tank : CombatTroop
 {
     public TankShell shell;
 
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
+        base.FixedUpdate();
         if (!target)
         {
             aimAssist.LookAt(aimAssist.position + transform.forward, Vector3.up);
@@ -59,6 +60,7 @@ public class Tank : CombatTroop
     IEnumerator Fire()
     {
         canFire = false;
+        muzzleFlash.Play();
         TankShell firedShell = Instantiate(shell, FirePoint.position, FirePoint.rotation);
         firedShell.Launch(army, damage);
         yield return new WaitForSeconds(attackSpeed);
