@@ -4742,7 +4742,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1354987371}
   m_OnClick:
     m_PersistentCalls:
@@ -10383,7 +10383,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
@@ -19018,6 +19018,7 @@ GameObject:
   - component: {fileID: 1623648589}
   - component: {fileID: 1623648588}
   - component: {fileID: 1623648587}
+  - component: {fileID: 1623648590}
   m_Layer: 5
   m_Name: TutorialButton
   m_TagString: Untagged
@@ -19176,14 +19177,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2015118058}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 1623648590}
+        m_TargetAssemblyTypeName: SwitchScene, Assembly-CSharp
+        m_MethodName: GoToScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: Tutorial Level
           m_BoolArgument: 1
@@ -19196,6 +19197,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623648585}
   m_CullTransparentMesh: 1
+--- !u!114 &1623648590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623648585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f18f1718e85be40a1b7264ca0abcc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1629083130
 GameObject:
   m_ObjectHideFlags: 0
@@ -24117,17 +24130,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e026068118bbbe24c8d45ba8db7f6ec2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2015118058 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3777122424322213836, guid: ea81fd888c8937e43998b29e0d7f50ba, type: 3}
-  m_PrefabInstance: {fileID: 3777122424726684966}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8396223175017922798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89430e14d8003294ea6994fbd544e2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2015118059 stripped

@@ -19,13 +19,14 @@ public class SupplyDepot : Building
 
     [Header("Queue")]
     public float queueDistance;
-    List<SupplyTruck> trucksInQueue = new List<SupplyTruck>();
+    [SerializeField]List<SupplyTruck> trucksInQueue = new List<SupplyTruck>();
 
     SupplyTruck truckInAction;
     public override void AddedUnit(Army army_)
     {
         base.AddedUnit(army_);
         StartCoroutine(CheckForTruck());
+        InvokeRepeating("FindTruckToQueue", Random.Range(0f, 1f), 1);
     }
     IEnumerator CheckForTruck()
     {
@@ -36,6 +37,7 @@ public class SupplyDepot : Building
             yield return new WaitForSeconds(0.1f);
         }
         StartCoroutine(LoadUpTruck());
+        InvokeRepeating("FindTruckToQueue", 1, 1);
     }
 
     IEnumerator LoadUpTruck()
@@ -129,18 +131,16 @@ public class SupplyDepot : Building
             else
                 trucksInQueue.RemoveAt(i);
         }
+    }
 
-        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+    void FindTruckToQueue()
+    {
+        foreach (SupplyTruck truck in PlayerTroopManager.instance.supplyTrucks)
         {
-            if (unit.GetComponent<SupplyTruck>())
+            if (truck.army == army && Vector3.Distance(truck.transform.position, entranceLocation.position) < queueDistance * (trucksInQueue.Count + 1) && !truck.inBuilding && !truck.inQueue && ((truck.heldResources > 0 && !truck.constructionSite)|| (truck.constructionSite && truck.heldResources < (truck.constructionSite.building.buildCost / truck.constructionSite.building.requiredTrips))))
             {
-                SupplyTruck truck = unit.GetComponent<SupplyTruck>();
-
-                if (Vector3.Distance(truck.transform.position, entranceLocation.position) < queueDistance * (trucksInQueue.Count + 1) && !truck.inBuilding && !truck.inQueue && ((truck.heldResources > 0 && !truck.constructionSite)|| (truck.constructionSite && truck.heldResources < (truck.constructionSite.building.buildCost / truck.constructionSite.building.requiredTrips))))
-                {
-                    trucksInQueue.Add(truck);
-                    truck.inQueue = true;
-                }
+                trucksInQueue.Add(truck);
+                truck.inQueue = true;
             }
         }
     }

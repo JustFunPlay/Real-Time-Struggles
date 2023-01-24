@@ -13,7 +13,7 @@ public class TroopMovement : UnitBase
     {
         base.AddedUnit(army_);
         agent = GetComponent<NavMeshAgent>();
-        
+        PlayerTroopManager.instance.troops.Add(this);
     }
 
     //void Update()
@@ -28,5 +28,10 @@ public class TroopMovement : UnitBase
     {
         Vector3 viewportPoint = camera.WorldToViewportPoint(transform.position);
         return viewportPoint;
+    }
+    protected override void OnDestroy()
+    {
+        PlayerTroopManager.instance.troops.Remove(this);
+        base.OnDestroy();
     }
 }

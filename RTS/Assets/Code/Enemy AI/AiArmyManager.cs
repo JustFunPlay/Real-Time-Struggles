@@ -73,7 +73,7 @@ public class AiArmyManager : MonoBehaviour
             }
         }
         StartCoroutine(ProgressDifficulty());
-        isActive = true;
+        StartCoroutine(ManageArmy());
     }
 
     IEnumerator ProgressDifficulty()
@@ -172,43 +172,34 @@ public class AiArmyManager : MonoBehaviour
                     i--;
                 }
             }
-            foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+            foreach (TroopMovement troop in PlayerTroopManager.instance.troops)
             {
-                if (unit.army == army && unit.GetComponent<TroopMovement>())
+                if (troop.army == army && CheckIfAssigned(troop) == false && !emptySquad.squadMemebers.Contains(troop))
                 {
-                    if (CheckIfAssigned(unit) == false && !emptySquad.squadMemebers.Contains(unit.GetComponent<TroopMovement>()))
-                    {
-                        emptySquad.squadMemebers.Add(unit.GetComponent<TroopMovement>());
-                        Formations.instance.SetFormation(emptySquad.squadMemebers.ToArray(), gatheringPoint.position);
-                    }
+                    emptySquad.squadMemebers.Add(troop);
+                    Formations.instance.SetFormation(emptySquad.squadMemebers.ToArray(), gatheringPoint.position);
                 }
             }
             yield return new WaitForSeconds(0.25f);
         }
         while (CheckIfBuilding())
         {
-            foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+            foreach (TroopMovement troop in PlayerTroopManager.instance.troops)
             {
-                if (unit.army == army && unit.GetComponent<TroopMovement>())
+                if (troop.army == army && CheckIfAssigned(troop) == false && !emptySquad.squadMemebers.Contains(troop))
                 {
-                    if (CheckIfAssigned(unit) == false && !emptySquad.squadMemebers.Contains(unit.GetComponent<TroopMovement>()))
-                    {
-                        emptySquad.squadMemebers.Add(unit.GetComponent<TroopMovement>());
-                        Formations.instance.SetFormation(emptySquad.squadMemebers.ToArray(), gatheringPoint.position);
-                    }
+                    emptySquad.squadMemebers.Add(troop);
+                    Formations.instance.SetFormation(emptySquad.squadMemebers.ToArray(), gatheringPoint.position);
                 }
             }
             yield return new WaitForSeconds(0.25f);
         }
-        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+        foreach (TroopMovement troop in PlayerTroopManager.instance.troops)
         {
-            if (unit.army == army && unit.GetComponent<TroopMovement>())
+            if (troop.army == army && CheckIfAssigned(troop) == false && !emptySquad.squadMemebers.Contains(troop))
             {
-                if (CheckIfAssigned(unit) == false && !emptySquad.squadMemebers.Contains(unit.GetComponent<TroopMovement>()))
-                {
-                    emptySquad.squadMemebers.Add(unit.GetComponent<TroopMovement>());
-                    Formations.instance.SetFormation(emptySquad.squadMemebers.ToArray(), gatheringPoint.position);
-                }
+                emptySquad.squadMemebers.Add(troop);
+                Formations.instance.SetFormation(emptySquad.squadMemebers.ToArray(), gatheringPoint.position);
             }
         }
         Debug.Log($"{army} has finished building a squad");
@@ -219,9 +210,9 @@ public class AiArmyManager : MonoBehaviour
         isBuilding = false;
     }
 
-    private void FixedUpdate()
+    IEnumerator ManageArmy()
     {
-        if (isActive)
+        while (true)
         {
             CheckCurrentEco();
             CheckSquads();
@@ -247,21 +238,19 @@ public class AiArmyManager : MonoBehaviour
             //    }
             //}
             hq.HealAllBuildings();
+            yield return new WaitForSeconds(0.5f);
         }
     }
     void CheckCurrentEco()
     {
-        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+        foreach (SupplyTruck truck in PlayerTroopManager.instance.supplyTrucks)
         {
-            if (unit.army == army)
+            if (truck.army == army)
             {
-                if (unit.GetComponent<SupplyTruck>())
+                if (!supplyTrucks.Contains(truck))
                 {
-                    if (!supplyTrucks.Contains(unit.GetComponent<SupplyTruck>()))
-                    {
-                        supplyTrucks.Add(unit.GetComponent<SupplyTruck>());
+                    supplyTrucks.Add(truck);
                         
-                    }
                 }
             }
         }

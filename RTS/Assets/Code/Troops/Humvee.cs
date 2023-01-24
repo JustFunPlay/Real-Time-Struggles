@@ -2,34 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Humvee : TroopMovement
+public class Humvee : CombatTroop
 {
-    public Transform turretRotate;
-    public Transform barrelAngle;
-    public Transform FirePoint;
-    public Transform aimAssist;
+    
     public LayerMask hitlayer;
-
-    public int damage;
-    public float range;
-    public float attackSpeed;
-    public float turretRotSpeed;
-
-    Vector3 lookAt;
-    public UnitBase target;
-    bool canFire = true;
-
-    public override void AddedUnit(Army army_)
-    {
-        base.AddedUnit(army_);
-        canFire = true;
-    }
 
     private void FixedUpdate()
     {
         if (!target)
         {
-            FindTarget();
             aimAssist.LookAt(aimAssist.position + transform.forward, Vector3.up);
         }
         else if (Vector3.Distance(target.GetClosestTargetingPoint(transform.position), aimAssist.position) > range)
@@ -44,13 +25,13 @@ public class Humvee : TroopMovement
         turretRotate.LookAt(turretRotate.position + new Vector3(lookAt.x, 0, lookAt.z));
         barrelAngle.LookAt(barrelAngle.position + turretRotate.forward + new Vector3(0, lookAt.y, 0), Vector3.up);
     }
-    void FindTarget()
+    protected override void FindTarget()
     {
         UnitBase potentialTarget = null;
-        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+        foreach (TroopMovement troop in PlayerTroopManager.instance.troops)
         {
-            if (unit.army != army && Vector3.Distance(turretRotate.position, unit.GetClosestTargetingPoint(transform.position)) <= range && unit.type == UnitType.LightTroop && (!potentialTarget || Vector3.Distance(unit.GetClosestTargetingPoint(transform.position), aimAssist.position) < Vector3.Distance(potentialTarget.GetClosestTargetingPoint(transform.position), aimAssist.position)))
-                potentialTarget = unit;
+            if (troop.army != army && Vector3.Distance(turretRotate.position, troop.GetClosestTargetingPoint(transform.position)) <= range && troop.type == UnitType.LightTroop && (!potentialTarget || Vector3.Distance(troop.GetClosestTargetingPoint(transform.position), aimAssist.position) < Vector3.Distance(potentialTarget.GetClosestTargetingPoint(transform.position), aimAssist.position)))
+                potentialTarget = troop;
         }
         if (potentialTarget)
         {

@@ -2,33 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tank : TroopMovement
+public class Tank : CombatTroop
 {
-    public Transform turretRotate;
-    public Transform barrelAngle;
-    public Transform FirePoint;
-    public Transform aimAssist;
     public TankShell shell;
 
-    public int damage;
-    public float range;
-    public float attackSpeed;
-    public float turretRotSpeed;
-
-    Vector3 lookAt;
-    public UnitBase target;
-    bool canFire = true;
-
-    public override void AddedUnit(Army army_)
-    {
-        base.AddedUnit(army_);
-        canFire = true;
-    }
     private void FixedUpdate()
     {
         if (!target)
         {
-            FindTarget();
             aimAssist.LookAt(aimAssist.position + transform.forward, Vector3.up);
         }
         else if (Vector3.Distance(target.GetClosestTargetingPoint(transform.position), aimAssist.position) > range)
@@ -44,23 +25,23 @@ public class Tank : TroopMovement
         barrelAngle.LookAt(barrelAngle.position + turretRotate.forward + new Vector3(0, lookAt.y, 0), Vector3.up);
         //Debug.Log(barrelAngle.rotation);
     }
-    void FindTarget()
+    protected override void FindTarget()
     {
         UnitBase potentialTarget = null;
-        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+        foreach (TroopMovement troop in PlayerTroopManager.instance.troops)
         {
-            if (unit.army != army && Vector3.Distance(turretRotate.position, unit.GetClosestTargetingPoint(transform.position)) <= range && (unit.type == UnitType.LightTroop || unit.type == UnitType.HeavyTroop) && (!potentialTarget || Vector3.Distance(unit.GetClosestTargetingPoint(transform.position), aimAssist.position) < Vector3.Distance(potentialTarget.GetClosestTargetingPoint(transform.position), aimAssist.position)))
-                potentialTarget = unit;
+            if (troop.army != army && Vector3.Distance(turretRotate.position, troop.GetClosestTargetingPoint(transform.position)) <= range && (troop.type == UnitType.LightTroop || troop.type == UnitType.HeavyTroop) && (!potentialTarget || Vector3.Distance(troop.GetClosestTargetingPoint(transform.position), aimAssist.position) < Vector3.Distance(potentialTarget.GetClosestTargetingPoint(transform.position), aimAssist.position)))
+                potentialTarget = troop;
         }
         if (potentialTarget)
         {
             target = potentialTarget;
             return;
         }
-        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+        foreach (Building building in PlayerTroopManager.instance.buildings)
         {
-            if (unit.army != army && Vector3.Distance(turretRotate.position, unit.GetClosestTargetingPoint(transform.position)) <= range && unit.type == UnitType.DefenseBuilding && (!potentialTarget || Vector3.Distance(unit.GetClosestTargetingPoint(transform.position), aimAssist.position) < Vector3.Distance(potentialTarget.GetClosestTargetingPoint(transform.position), aimAssist.position)))
-                potentialTarget = unit;
+            if (building.army != army && Vector3.Distance(turretRotate.position, building.GetClosestTargetingPoint(transform.position)) <= range && building.type == UnitType.DefenseBuilding && (!potentialTarget || Vector3.Distance(building.GetClosestTargetingPoint(transform.position), aimAssist.position) < Vector3.Distance(potentialTarget.GetClosestTargetingPoint(transform.position), aimAssist.position)))
+                potentialTarget = building;
         }
         if (potentialTarget)
         {

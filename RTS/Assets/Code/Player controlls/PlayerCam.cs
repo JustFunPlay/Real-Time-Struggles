@@ -388,7 +388,7 @@ public class PlayerCam : MonoBehaviour
             MultiSelect();
         }
         ZoomCam();
-        transform.Rotate(0, (holdMiddleClick ? -mouseValue.x : -rotateValue * rotateSpeed) * Time.deltaTime, 0);
+        transform.Rotate(0, (holdMiddleClick ? -mouseValue.x * 0.4f : -rotateValue * rotateSpeed) * Time.deltaTime, 0);
         if (holdLeftClick || holdRightClick)
             holdDuration += Time.deltaTime;
     }
@@ -437,7 +437,7 @@ public class PlayerCam : MonoBehaviour
     }
     void ZoomCam()
     {
-        currentCamDistance = Mathf.Clamp(currentCamDistance += (holdMiddleClick ? -mouseValue.y : zoomValue) * zoomSpeed * Time.deltaTime, zoomBoundary.x, zoomBoundary.y);
+        currentCamDistance = Mathf.Clamp(currentCamDistance += (holdMiddleClick ? -mouseValue.y * 0.2f : zoomValue) * zoomSpeed * Time.deltaTime, zoomBoundary.x, zoomBoundary.y);
         cam.transform.localPosition = currentCamDistance * camDir;
     }
 

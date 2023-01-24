@@ -28,6 +28,7 @@ public class SupplyYard : MonoBehaviour
     {
         PlayerTroopManager.instance.supplyYards.Add(this);
         StartCoroutine(CheckForTruck());
+        InvokeRepeating("FindTruckToQueue", 1, 1);
     }
 
     IEnumerator CheckForTruck()
@@ -121,17 +122,18 @@ public class SupplyYard : MonoBehaviour
             else
                 trucksInQueue.RemoveAt(i);
         }
+    }
 
-        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+    void FindTruckToQueue()
+    { 
+        foreach (SupplyTruck truck in PlayerTroopManager.instance.supplyTrucks)
         {
-            if (unit.GetComponent<SupplyTruck>() && !unit.GetComponent<SupplyTruck>().inBuilding)
+            if (!truck.inBuilding && Vector3.Distance(truck.transform.position, entranceLocation.position) < queueDistance * (trucksInQueue.Count + 1) && !truck.inQueue && truck.heldResources == 0)
             {
-                if (Vector3.Distance(unit.transform.position, entranceLocation.position) < queueDistance * (trucksInQueue.Count + 1) && !unit.GetComponent<SupplyTruck>().inQueue && unit.GetComponent<SupplyTruck>().heldResources == 0)
-                {
-                    trucksInQueue.Add(unit.GetComponent<SupplyTruck>());
-                    unit.GetComponent<SupplyTruck>().inQueue = true;
-                }
+                trucksInQueue.Add(truck);
+                truck.inQueue = true;
             }
+            
         }
     }
 

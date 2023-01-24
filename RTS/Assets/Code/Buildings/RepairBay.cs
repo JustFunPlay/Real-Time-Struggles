@@ -29,6 +29,7 @@ public class RepairBay : Building
     {
         base.AddedUnit(army_);
         StartCoroutine(CheckForBrokenTroop());
+        InvokeRepeating("FindTroopToQueue", Random.Range(0f, 1f), 1);
     }
     IEnumerator CheckForBrokenTroop()
     {
@@ -115,18 +116,15 @@ public class RepairBay : Building
             else
                 troopsInQueue.RemoveAt(i);
         }
-
-        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+    }
+    void FindTroopToQueue()
+    {
+        foreach (TroopMovement troop in PlayerTroopManager.instance.troops)
         {
-            if (unit.army == army && unit.GetComponent<TroopMovement>())
+            if (troop.army == army && Vector3.Distance(troop.transform.position, entranceLocation.position) < queueDistance * (troopsInQueue.Count + 1) && !troop.inBuilding && !troop.inQueue && troop.currentHP < troop.maxHP)
             {
-                TroopMovement troop = unit.GetComponent<TroopMovement>();
-
-                if (Vector3.Distance(troop.transform.position, entranceLocation.position) < queueDistance * (troopsInQueue.Count + 1) && !troop.inBuilding && !troop.inQueue && troop.currentHP < troop.maxHP)
-                {
-                    troopsInQueue.Add(troop);
-                    troop.inQueue = true;
-                }
+                troopsInQueue.Add(troop);
+                troop.inQueue = true;
             }
         }
     }

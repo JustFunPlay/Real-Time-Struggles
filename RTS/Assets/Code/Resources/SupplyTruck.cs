@@ -10,6 +10,11 @@ public class SupplyTruck : TroopMovement
     public GameObject supplyVisualizer;
     public ConstructionSite constructionSite;
 
+    public override void AddedUnit(Army army_)
+    {
+        base.AddedUnit(army_);
+        PlayerTroopManager.instance.supplyTrucks.Add(this);
+    }
     public void CheckToAutomate()
     {
         if (constructionSite && assignedDepot)
@@ -49,5 +54,11 @@ public class SupplyTruck : TroopMovement
             supplyVisualizer.SetActive(true);
         else
             supplyVisualizer.SetActive(false);
+    }
+
+    protected override void OnDestroy()
+    {
+        PlayerTroopManager.instance.supplyTrucks.Remove(this);
+        base.OnDestroy();
     }
 }

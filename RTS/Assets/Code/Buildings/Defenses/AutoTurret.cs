@@ -19,13 +19,18 @@ public class AutoTurret : Building
     public UnitBase target;
     bool canFire = true;
 
+    public override void AddedUnit(Army army_)
+    {
+        base.AddedUnit(army_);
+        InvokeRepeating("FindTarget", Random.Range(0f, 1f), 1);
+    }
+
     private void FixedUpdate()
     {
         if (HQBuilding.HasPower(0, army))
         {
             if (!target)
             {
-                FindTarget();
                 aimAssist.LookAt(aimAssist.position + transform.forward, Vector3.up);
             }
             else if (Vector3.Distance(target.GetClosestTargetingPoint(transform.position), aimAssist.position) > range)
@@ -43,11 +48,11 @@ public class AutoTurret : Building
     }
     void FindTarget()
     {
-        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+        foreach (TroopMovement troop in PlayerTroopManager.instance.troops)
         {
-            if (unit.army != army && Vector3.Distance(turretRotate.position, unit.GetClosestTargetingPoint(transform.position)) <= range)
+            if (troop.army != army && Vector3.Distance(turretRotate.position, troop.GetClosestTargetingPoint(transform.position)) <= range)
             {
-                target = unit;
+                target = troop;
                 break;
             }
         }

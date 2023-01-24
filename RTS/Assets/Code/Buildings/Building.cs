@@ -23,6 +23,7 @@ public class Building : UnitBase
 
             }
         }
+        PlayerTroopManager.instance.buildings.Add(this);
     }
 
     protected override void OnDestroy()
@@ -38,6 +39,7 @@ public class Building : UnitBase
             }
         }
         StopAllCoroutines();
+        PlayerTroopManager.instance.buildings.Remove(this);
         base.OnDestroy();
     }
     public IEnumerator EmergencyRepair(int heal, int cost)

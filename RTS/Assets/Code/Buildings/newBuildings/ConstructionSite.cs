@@ -21,15 +21,15 @@ public class ConstructionSite : Building
         while (!truck)
         {
             yield return new WaitForSeconds(0.1f);
-            foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+            foreach (SupplyTruck truck_ in PlayerTroopManager.instance.allUnits)
             {
-                if (unit.army == army && unit.GetComponent<SupplyTruck>() && unit.GetComponent<SupplyTruck>().constructionSite == null)
+                if (truck_.army == army && truck_.constructionSite == null && truck_.inBuilding == false)
                 {
-                    if (!truck || Vector3.Distance(transform.position, unit.transform.position) < Vector3.Distance(transform.position, truck.transform.position))
+                    if (!truck || Vector3.Distance(transform.position, truck_.transform.position) < Vector3.Distance(transform.position, truck.transform.position))
                     {
                         if (truck)
                             truck.constructionSite = null;
-                        truck = unit.GetComponent<SupplyTruck>();
+                        truck = truck_;
                         truck.constructionSite = this;
                     }
                 }

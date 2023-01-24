@@ -2,36 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Howitzer : TroopMovement
+public class Howitzer : CombatTroop
 {
-    public Transform turretRotate;
-    public Transform barrelAngle;
-    public Transform FirePoint;
-    public Transform aimAssist;
     public ArtilleryShell shell;
 
-    public int damage;
     public float splashRadius;
-    public float range;
     public float minimumRange;
-    public float attackSpeed;
-    public float turretRotSpeed;
-
-    Vector3 lookAt = Vector3.forward;
-    public UnitBase target;
-    bool canFire = true;
-
-    public override void AddedUnit(Army army_)
-    {
-        base.AddedUnit(army_);
-        canFire = true;
-    }
 
     private void FixedUpdate()
     {
         if (!target)
         {
-            FindTarget();
             aimAssist.LookAt(aimAssist.position + transform.forward, Vector3.up);
         }
         else if (Vector3.Distance(target.GetClosestTargetingPoint(transform.position), aimAssist.position) > range || Vector3.Distance(target.GetClosestTargetingPoint(transform.position), aimAssist.position) < minimumRange)
@@ -47,23 +28,23 @@ public class Howitzer : TroopMovement
         turretRotate.LookAt(turretRotate.position + new Vector3(lookAt.x, 0, lookAt.z));
         barrelAngle.LookAt(barrelAngle.position + turretRotate.forward + new Vector3(0, lookAt.y, 0), Vector3.up);
     }
-    void FindTarget()
+    protected override void FindTarget()
     {
         UnitBase potentialTarget = null;
-        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+        foreach (Building building in PlayerTroopManager.instance.buildings)
         {
-            if (unit.army != army && Vector3.Distance(turretRotate.position, unit.GetClosestTargetingPoint(transform.position)) <= range && Vector3.Distance(unit.GetClosestTargetingPoint(transform.position), aimAssist.position) > minimumRange && unit.type == UnitType.DefenseBuilding && (!potentialTarget || Vector3.Distance(unit.GetClosestTargetingPoint(transform.position), aimAssist.position) < Vector3.Distance(potentialTarget.GetClosestTargetingPoint(transform.position), aimAssist.position)))
-                potentialTarget = unit;
+            if (building.army != army && Vector3.Distance(turretRotate.position, building.GetClosestTargetingPoint(transform.position)) <= range && Vector3.Distance(building.GetClosestTargetingPoint(transform.position), aimAssist.position) > minimumRange && building.type == UnitType.DefenseBuilding && (!potentialTarget || Vector3.Distance(building.GetClosestTargetingPoint(transform.position), aimAssist.position) < Vector3.Distance(potentialTarget.GetClosestTargetingPoint(transform.position), aimAssist.position)))
+                potentialTarget = building;
         }
         if (potentialTarget)
         {
             target = potentialTarget;
             return;
         }
-        foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+        foreach (Building building in PlayerTroopManager.instance.buildings)
         {
-            if (unit.army != army && Vector3.Distance(turretRotate.position, unit.GetClosestTargetingPoint(transform.position)) <= range && Vector3.Distance(unit.GetClosestTargetingPoint(transform.position), aimAssist.position) > minimumRange && (unit.type == UnitType.ConstructionSite || unit.type == UnitType.HeadQuarters || unit.type == UnitType.HeavyFactory || unit.type == UnitType.LightFactory || unit.type == UnitType.PowerPlant || unit.type == UnitType.RepairBay || unit.type == UnitType.ResourceDepot || unit.type == UnitType.TechCenter) && (!potentialTarget || Vector3.Distance(unit.GetClosestTargetingPoint(transform.position), aimAssist.position) < Vector3.Distance(potentialTarget.GetClosestTargetingPoint(transform.position), aimAssist.position)))
-                potentialTarget = unit;
+            if (building.army != army && Vector3.Distance(turretRotate.position, building.GetClosestTargetingPoint(transform.position)) <= range && Vector3.Distance(building.GetClosestTargetingPoint(transform.position), aimAssist.position) > minimumRange && (!potentialTarget || Vector3.Distance(building.GetClosestTargetingPoint(transform.position), aimAssist.position) < Vector3.Distance(potentialTarget.GetClosestTargetingPoint(transform.position), aimAssist.position)))
+                potentialTarget = building;
         }
         if (potentialTarget)
         {
