@@ -64,7 +64,7 @@ public class Howitzer : CombatTroop
     {
         canFire = false;
         muzzleFlash.Play();
-        ArtilleryShell firedShell = Instantiate(shell, FirePoint.position, FirePoint.rotation);
+        ArtilleryShell firedShell = Instantiate(shell, firePoint.position, firePoint.rotation);
         firedShell.Launch(damage, splashRadius, target.transform.position + target.transform.TransformDirection(target.targetingPoints[0]), army);
         yield return new WaitForSeconds(attackSpeed);
         canFire = true;

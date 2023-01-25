@@ -500,7 +500,7 @@ MonoBehaviour:
   requiredTrips: 2
   turretRotate: {fileID: 8872251173206135076}
   barrelAngle: {fileID: 489642324288821599}
-  FirePoint: {fileID: 3973836266830484287}
+  firePoint: {fileID: 3973836266830484287}
   aimAssist: {fileID: 4028536870085272370}
   hitlayer:
     serializedVersion: 2

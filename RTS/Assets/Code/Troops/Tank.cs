@@ -61,7 +61,7 @@ public class Tank : CombatTroop
     {
         canFire = false;
         muzzleFlash.Play();
-        TankShell firedShell = Instantiate(shell, FirePoint.position, FirePoint.rotation);
+        TankShell firedShell = Instantiate(shell, firePoint.position, firePoint.rotation);
         firedShell.Launch(army, damage);
         yield return new WaitForSeconds(attackSpeed);
         canFire = true;

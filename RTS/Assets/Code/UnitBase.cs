@@ -90,6 +90,16 @@ public class UnitBase : MonoBehaviour
         if (currentHP <= 0)
             OnDeath();
     }
+    public void DelayedDamage(int damage, float delay)
+    {
+        StartCoroutine(DelayDamageTaken(damage, delay));
+    }
+    IEnumerator DelayDamageTaken(int damage, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        OnTakeDamage(damage);
+    }
+
     protected virtual void OnDeath()
     {
         Destroy(gameObject);

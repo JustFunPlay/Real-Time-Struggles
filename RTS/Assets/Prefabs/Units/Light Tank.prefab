@@ -500,7 +500,7 @@ MonoBehaviour:
   moveSmoke: {fileID: 1349996042449746904}
   turretRotate: {fileID: 2072418995296292991}
   barrelAngle: {fileID: 8577381052905905446}
-  FirePoint: {fileID: 6695519875946169051}
+  firePoint: {fileID: 6695519875946169051}
   aimAssist: {fileID: 1132512910532311121}
   damage: 12
   range: 30

@@ -6,7 +6,7 @@ public class CombatTroop : TroopMovement
 {
     public Transform turretRotate;
     public Transform barrelAngle;
-    public Transform FirePoint;
+    public Transform firePoint;
     public Transform aimAssist;
 
     public int damage;

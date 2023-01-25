@@ -60,15 +60,19 @@ public class Humvee : CombatTroop
     IEnumerator Fire()
     {
         canFire = false;
-        muzzleFlash.Play();
-        if (target.type == UnitType.LightTroop || target.type == UnitType.ResourceTruck)
-            target.OnTakeDamage(damage * 2);
-        else
-            target.OnTakeDamage(damage);
-
-        ParticleManager.instance.SetLine(FirePoint.position, FirePoint.position + FirePoint.forward * Vector3.Distance(FirePoint.position, target.transform.position));
-
-        yield return new WaitForSeconds(attackSpeed);
+        
+        Physics.Raycast(firePoint.position, firePoint.forward, out RaycastHit hit, range, hitlayer);
+        if (hit.collider && hit.collider.GetComponent<UnitBase>() && hit.collider.GetComponent<UnitBase>().army != army)
+        {
+            muzzleFlash.Play();
+            UnitBase hitTarget = hit.collider.GetComponent<UnitBase>();
+            ParticleManager.instance.FireBullet(firePoint.position, hit.point);
+            if (hitTarget.type == UnitType.LightTroop || hitTarget.type == UnitType.ResourceTruck)
+                hitTarget.DelayedDamage(damage * 2, 0.1f);
+            else
+                hitTarget.DelayedDamage(damage, 0.1f);
+            yield return new WaitForSeconds(attackSpeed);
+        }
         canFire = true;
     }
 }

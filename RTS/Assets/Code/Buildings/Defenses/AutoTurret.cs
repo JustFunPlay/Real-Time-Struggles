@@ -6,7 +6,7 @@ public class AutoTurret : Building
 {
     public Transform turretRotate;
     public Transform barrelAngle;
-    public Transform FirePoint;
+    public Transform firePoint;
     public Transform aimAssist;
     public LayerMask hitlayer;
 
@@ -63,12 +63,14 @@ public class AutoTurret : Building
     IEnumerator Fire()
     {
         canFire = false;
-        muzzleFlash.Play();
-        target.OnTakeDamage(damage);
-
-        ParticleManager.instance.SetLine(FirePoint.position, FirePoint.position + FirePoint.forward * Vector3.Distance(FirePoint.position, target.transform.position));
-
-        yield return new WaitForSeconds(attackSpeed);
+        Physics.Raycast(firePoint.position, firePoint.forward, out RaycastHit hit, range, hitlayer);
+        if (hit.collider && hit.collider.GetComponent<UnitBase>() && hit.collider.GetComponent<UnitBase>().army != army)
+        {
+            muzzleFlash.Play();
+            ParticleManager.instance.FireBullet(firePoint.position, hit.point);
+            hit.collider.GetComponent<UnitBase>().DelayedDamage(damage, 0.1f);
+            yield return new WaitForSeconds(attackSpeed);
+        }
         canFire = true;
     }
 }
