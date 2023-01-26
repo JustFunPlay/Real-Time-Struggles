@@ -5,7 +5,6 @@ using UnityEngine;
 public class AiArmyManager : MonoBehaviour
 {
     public Army army;
-    bool isActive;
 
     [Header("Difficulty configuration")]
     [Tooltip("Defines how efficient the army's resource aquisition is"), Range(1, 10)] public float ecoRating;
@@ -46,6 +45,7 @@ public class AiArmyManager : MonoBehaviour
 
     public void StartAI(float eco, float agro, float cost, int squad = 0)
     {
+        army = hq.army;
         ecoRating = Mathf.Clamp(eco + Random.Range(-1f, 1f), 1, 10);
         agroRating = Mathf.Clamp(agro + Random.Range(-1f, 1f), 1, 10);
         costMod = Mathf.Clamp(cost + Random.Range(-0.5f, 0.5f), 0.5f, 5);
