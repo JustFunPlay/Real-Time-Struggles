@@ -41,7 +41,7 @@ Texture2D:
   m_ColorSpace: 1
   m_PlatformBlob: 
   image data: 256
-  _typelessdata: 0089a4ff008ba6ff008da8ff008faaff0091acff0093aeff0095b0ff0097b2ff0099b3ff009bb5ff009db7ff009fb9ff00a1bbff00a3bdff00a4bfff00a6c1ff00a8c3ff00aac5ff00acc7ff00aec9ff00b0cbff00b2cdff00b4cfff00b6d1ff00b8d3ff00bad5ff00bcd7ff00bed9ff00c0dbff00c2ddff00c4dfff00c6e1ff00c8e3ff00cae5ff00cce7ff00cee9ff00d0ebff00d2edff00d3efff00d5f1ff00d7f3ff00d9f5ff00dbf7ff00ddf9ff00dffbff00e1fdff01e3ffff0ee5ffff1ae6ffff27e8feff34eafeff41ebfeff4eedfeff5beffdff68f0fdff75f2fdff82f4fdff8ef5fcff9bf7fcffa8f8fcffb5fafcffc2fcfcffcffdfbffdcfffbff
+  _typelessdata: 0089a4ff008ba6ff008da7ff008fa9ff0091abff0093acff0095aeff0097afff0099b3ff009bb5ff009db7ff009fb9ff00a1bbff00a3bdff00a4bfff00a6c1ff00a8c3ff00aac5ff00acc7ff00aec9ff00b0cbff00b2cdff00b4cfff00b6d1ff00b8d3ff00bad5ff00bccfff00bed0ff00c0d2ff00c2d4ff00c4d5ff00c6d7ff00c8d8ff00cadaff00ccdcff00ceddff00d0dfff00d2e1ff00d3e2ff00d5e4ff00d7e6ff00d9e7ff00dbe9ff00ddebff00dfecff00e1eeff01e3efff0ee5f0ff1ae6f1ff27e8f1ff34eaf2ff41ebf3ff4eedf4ff5beff4ff68f0f5ff75f2f6ff82f4f6ff8ef5f7ff9bf7f8ffa8f8f8ffb5faf9ffc2fcfaffcffdfaffdcfffbff
   m_StreamData:
     serializedVersion: 2
     offset: 0
@@ -57,7 +57,6 @@ Material:
   m_Name: WaterTest
   m_Shader: {fileID: 4800000, guid: b430983578466934c944e7171b4c372c, type: 3}
   m_ValidKeywords:
-  - ADDITIVECONFIG_ON
   - COLORRAMPGRAD_ON
   - COLORRAMP_ON
   - GLOW_ON
@@ -73,7 +72,8 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Transparent
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -108,7 +108,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 025b675dcfa2ae647943f526fd47443c, type: 3}
-        m_Scale: {x: 2, y: 2}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
         m_Texture: {fileID: 2800000, guid: 2f6642b43dc405d498acba7e288c068c, type: 3}
@@ -123,8 +123,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Shape2Tex:
-        m_Texture: {fileID: 2800000, guid: 432ef94ab2357044d93c4663d13c6dec, type: 3}
-        m_Scale: {x: 2, y: 2}
+        m_Texture: {fileID: 2800000, guid: 52fa8f2ecebbb0c4cbab44c282becd65, type: 3}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _Shape3DistortTex:
         m_Texture: {fileID: 2800000, guid: fcb027caad6963b4a80539bbce0d10e9, type: 3}
@@ -132,7 +132,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Shape3Tex:
         m_Texture: {fileID: 2800000, guid: 605375ee42cdb484a81826eda94af6d7, type: 3}
-        m_Scale: {x: 2, y: 2}
+        m_Scale: {x: 20, y: 20}
         m_Offset: {x: 0, y: 0}
     - _ShapeDistortTex:
         m_Texture: {fileID: 2800000, guid: fcb027caad6963b4a80539bbce0d10e9, type: 3}
@@ -175,7 +175,7 @@ Material:
     - _DistortionPower: 10
     - _DistortionScrollXSpeed: 0
     - _DistortionScrollYSpeed: 0
-    - _DstMode: 1
+    - _DstMode: 10
     - _EditorDrawers: 28
     - _FadeAmount: -0.1
     - _FadeBurnGlow: 5
@@ -201,7 +201,7 @@ Material:
     - _RandomSh1Mult: 1
     - _RandomSh2Mult: 1
     - _RandomSh3Mult: 1
-    - _RenderingMode: 1
+    - _RenderingMode: 0
     - _RimAddAmount: 0.05
     - _RimBias: 0
     - _RimErodesAlpha: 1.01
@@ -232,8 +232,8 @@ Material:
     - _Shape2DistortYSpeed: 0.1
     - _Shape2RotationOffset: 0
     - _Shape2RotationSpeed: 0
-    - _Shape2XSpeed: 0.06
-    - _Shape2YSpeed: 0.15
+    - _Shape2XSpeed: -0.02
+    - _Shape2YSpeed: 0.03
     - _Shape3AlphaWeight: 3.88
     - _Shape3Brightness: 0.06
     - _Shape3ColorWeight: 3.88
@@ -243,8 +243,8 @@ Material:
     - _Shape3DistortYSpeed: 0.1
     - _Shape3RotationOffset: 0
     - _Shape3RotationSpeed: 0
-    - _Shape3XSpeed: 0.03
-    - _Shape3YSpeed: 0.14
+    - _Shape3XSpeed: -0.11
+    - _Shape3YSpeed: 0.04
     - _ShapeAlphaWeight: 2.26
     - _ShapeBrightness: 1
     - _ShapeColorWeight: 2.26
@@ -254,10 +254,10 @@ Material:
     - _ShapeDistortYSpeed: 0.1
     - _ShapeRotationOffset: 0
     - _ShapeRotationSpeed: 0
-    - _ShapeXSpeed: 0.15
-    - _ShapeYSpeed: 0.21
+    - _ShapeXSpeed: -0.03
+    - _ShapeYSpeed: 0.08
     - _SoftFactor: 0.55
-    - _SrcMode: 1
+    - _SrcMode: 5
     - _TextureScrollXSpeed: 1
     - _TextureScrollYSpeed: 0
     - _TimingSeed: 0
