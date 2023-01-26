@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2557651538750767099}
   - component: {fileID: 4087590274788921997}
   - component: {fileID: -4540365115974200794}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tank Trap 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

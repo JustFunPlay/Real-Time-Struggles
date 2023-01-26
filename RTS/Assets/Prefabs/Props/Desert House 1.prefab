@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2454092815742005186}
   - component: {fileID: 7860297895132728227}
   - component: {fileID: 8817234186449346552}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Desert House 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

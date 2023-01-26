@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7595117129212925989}
   - component: {fileID: 2167925271465091449}
   - component: {fileID: -4940679917272128845}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hesco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
