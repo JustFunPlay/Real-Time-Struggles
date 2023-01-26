@@ -886,9 +886,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exampleBullet: {fileID: 6259659058268508922, guid: 87a21958e52f1dc4795109a14ba31fdf, type: 3}
   exampleHit: {fileID: 3176377192312711410, guid: 9255bd3a8fc30a44ca4d2bf0db750e10, type: 3}
-  exampleShell: {fileID: 0}
-  exampleVariantShell: {fileID: 0}
-  exampleHeavyHit: {fileID: 0}
+  exampleShell: {fileID: 3205067672977718175, guid: cf3287909ca913b45993c5100b47189e, type: 3}
+  exampleVariantShell: {fileID: 5665651644835124929, guid: 0137566568fbdbc4ab8c31468d52f71d, type: 3}
+  exampleHeavyHit: {fileID: 7422418604476208722, guid: 3a0dd99fd60978f42b73b9030ef6bf6b, type: 3}
+  exampleArtillery: {fileID: 2492753540185204850, guid: a998db17654bf3c4eb289c52eee279df, type: 3}
+  exampleArtilleryHit: {fileID: 1043308025730030398, guid: ed6cd993affa69f478dc94a28264ae1c, type: 3}
+  exampleMissile: {fileID: 6622610664595185698, guid: 3139c33cc7121834a8fd40c56dc1de63, type: 3}
+  exampleMissileExplosion: {fileID: 2345578187358302951, guid: 7e550bf97819a154fa5a37202f41c9c9, type: 3}
+  exampleTroopExplosion: {fileID: 5239132255370747479, guid: 54c2265fa445b8245977e03c04d8b521, type: 3}
+  exampleBuildingExplosion: {fileID: 1821075868144057849, guid: cb9bf89417bf4fb4cbb687d9fab6139a, type: 3}
 --- !u!1 &5955057221091877348
 GameObject:
   m_ObjectHideFlags: 0

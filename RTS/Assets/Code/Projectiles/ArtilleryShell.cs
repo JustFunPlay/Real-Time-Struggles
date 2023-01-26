@@ -14,6 +14,7 @@ public class ArtilleryShell : MonoBehaviour
     //public GameObject splashEffect;
     float radius;
     int damage;
+    float airTime;
 
     public void Launch(int damage_, float radius_, Vector3 targetPos, Army army_)
     {
@@ -58,16 +59,17 @@ public class ArtilleryShell : MonoBehaviour
 
     IEnumerator InAirMoving(Vector3 dir, float initialVelocity, float angle, float time)
     {
-        float t = 0;
-        while (t < time)
+        airTime = 0;
+        while (airTime < time)
         {
-            float x = initialVelocity * t * Mathf.Cos(angle);
-            float y = initialVelocity * t * Mathf.Sin(angle) - (1f / 2f) * -Physics.gravity.y * Mathf.Pow(t, 2);
+            float x = initialVelocity * airTime * Mathf.Cos(angle);
+            float y = initialVelocity * airTime * Mathf.Sin(angle) - (1f / 2f) * -Physics.gravity.y * Mathf.Pow(airTime, 2);
             rb.MovePosition(startPos + dir * x + Vector3.up * y);
 
-            t += Time.fixedDeltaTime * 5;
+            airTime += Time.fixedDeltaTime * 5;
             yield return new WaitForFixedUpdate();
         }
+        gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -82,6 +84,8 @@ public class ArtilleryShell : MonoBehaviour
                     unit.OnTakeDamage(damage);
             }
         }
-        Destroy(gameObject);
+        airTime = 1000;
+        ParticleManager.instance.ArtilleryHit(transform.position);
+        gameObject.SetActive(false);
     }
 }

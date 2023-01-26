@@ -11,8 +11,7 @@ public class MissileArray : Building
 
     public int damage;
     public float splashRadius;
-    public Missile missile;
-    public Transform launchPoint;
+    public Transform[] launchPoints;
     UnitBase target;
     public float turnSpeed;
     bool canFire = true;
@@ -66,16 +65,17 @@ public class MissileArray : Building
         {
             if (target)
             {
-                LaunchMissile();
+                launchPoints[i].GetComponentInChildren<ParticleSystem>().Play();
+                LaunchMissile(i);
                 yield return new WaitForSeconds(burstDelay);
             }
         }
         yield return new WaitForSeconds(timeBetweenBursts);
         canFire = true;
     }
-    void LaunchMissile()
+    void LaunchMissile(int i)
     {
-        Missile missileToLaunch = Instantiate(missile, launchPoint.position, launchPoint.rotation);
-        missileToLaunch.Launch(army, target, damage, splashRadius);
+        ParticleManager.instance.Missile(launchPoints[i], out Missile missile);
+        missile.Launch(army, target, damage, splashRadius);
     }
 }

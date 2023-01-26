@@ -9,6 +9,7 @@ public class TankShell : MonoBehaviour
     protected int damage;
     protected Rigidbody rb;
     public float flySpeed;
+    protected float airTime;
 
     public void Launch(Army army_, int damage_)
     {
@@ -19,13 +20,14 @@ public class TankShell : MonoBehaviour
     }
     IEnumerator Fly()
     {
-        float t = 10;
-        while (t >= 0)
+        airTime= 10;
+        while (airTime >= 0)
         {
             rb.MovePosition(transform.position + transform.forward * flySpeed * Time.fixedDeltaTime);
             yield return new WaitForFixedUpdate();
-            t -= Time.fixedDeltaTime;
+            airTime -= Time.fixedDeltaTime;
         }
+        gameObject.SetActive(false);
         
     }
     protected virtual void OnCollisionEnter(Collision collision)
@@ -35,6 +37,8 @@ public class TankShell : MonoBehaviour
             if (collision.collider.GetComponent<UnitBase>().army != army)
                 collision.collider.GetComponent<UnitBase>().OnTakeDamage(damage);
         }
-        Destroy(gameObject);
+        airTime = 0;
+        ParticleManager.instance.HeavyHit(transform);
+        gameObject.SetActive(false);
     }
 }

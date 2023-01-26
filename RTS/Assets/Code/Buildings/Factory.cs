@@ -13,6 +13,9 @@ public class Factory : Building
     public Troop troopInProgress;
     public int timeLeftToBuild;
     public bool isBuilding;
+
+    public ParticleSystem[] buildingSmokes;
+
     public override void AddedUnit(Army army_)
     {
         base.AddedUnit(army_);
@@ -35,6 +38,10 @@ public class Factory : Building
     {
         isBuilding = true;
         troopInProgress = troop;
+        for (int i = 0; i < buildingSmokes.Length; i++)
+        {
+            buildingSmokes[i].Play();
+        }
         for (float f = troop.buildTime; f > 0; f -= 0.5f)
         {
             timeLeftToBuild = Mathf.CeilToInt(f);
@@ -49,6 +56,13 @@ public class Factory : Building
         {
             StartCoroutine(BuildingTroop(queue[0]));
             queue.RemoveAt(0);
+        }
+        else
+        {
+            for (int i = 0; i < buildingSmokes.Length; i++)
+            {
+                buildingSmokes[i].Stop();
+            }
         }
     }
 

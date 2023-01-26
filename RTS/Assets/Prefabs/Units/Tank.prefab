@@ -565,7 +565,7 @@ MonoBehaviour:
   moveSmoke: {fileID: 6956746419087531182}
   turretRotate: {fileID: 8467183996828802221}
   barrelAngle: {fileID: 2782548937722562035}
-  FirePoint: {fileID: 3091761681964000897}
+  firePoint: {fileID: 3091761681964000897}
   aimAssist: {fileID: 1728478988306326569}
   damage: 250
   range: 30
@@ -573,7 +573,7 @@ MonoBehaviour:
   turretRotSpeed: 4
   target: {fileID: 0}
   muzzleFlash: {fileID: 3294827386687360387}
-  shell: {fileID: 3205067672977718175, guid: cf3287909ca913b45993c5100b47189e, type: 3}
+  isVariant: 0
 --- !u!1 &5020850325962366736
 GameObject:
   m_ObjectHideFlags: 0

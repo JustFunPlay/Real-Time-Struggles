@@ -20,7 +20,7 @@ public class TroopMovement : UnitBase
     protected virtual void FixedUpdate()
     {
         if (agent.velocity.magnitude < 1)
-            moveSmoke.Pause();
+            moveSmoke.Stop();
         else
             moveSmoke.Play();
     }
@@ -37,5 +37,10 @@ public class TroopMovement : UnitBase
     {
         PlayerTroopManager.instance.troops.Remove(this);
         base.OnDestroy();
+    }
+    protected override void OnDeath()
+    {
+        ParticleManager.instance.ExplodingTroop(transform);
+        base.OnDeath();
     }
 }

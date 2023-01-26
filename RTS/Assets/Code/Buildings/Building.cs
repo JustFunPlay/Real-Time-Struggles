@@ -56,4 +56,9 @@ public class Building : UnitBase
         HQBuilding.ChangeSupplies(buildCost / 2, army);
         Destroy(gameObject);
     }
+    protected override void OnDeath()
+    {
+        ParticleManager.instance.ExplodingBuilding(transform);
+        base.OnDeath();
+    }
 }

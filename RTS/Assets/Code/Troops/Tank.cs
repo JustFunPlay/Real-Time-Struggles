@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Tank : CombatTroop
 {
-    public TankShell shell;
-
+    public bool isVariant;
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
@@ -61,8 +60,8 @@ public class Tank : CombatTroop
     {
         canFire = false;
         muzzleFlash.Play();
-        TankShell firedShell = Instantiate(shell, firePoint.position, firePoint.rotation);
-        firedShell.Launch(army, damage);
+        ParticleManager.instance.HeavyBullet(firePoint, isVariant, out TankShell shell);
+        shell.Launch(army, damage);
         yield return new WaitForSeconds(attackSpeed);
         canFire = true;
     }

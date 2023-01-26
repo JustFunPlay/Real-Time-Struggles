@@ -17,6 +17,8 @@ public class SniperProjectile : TankShell
                     unit.OnTakeDamage(damage);
             }
         }
-        Destroy(gameObject);
+        airTime = 0;
+        ParticleManager.instance.HeavyHit(transform);
+        gameObject.SetActive(false);
     }
 }

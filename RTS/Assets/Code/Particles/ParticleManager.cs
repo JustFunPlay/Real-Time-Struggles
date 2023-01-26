@@ -23,6 +23,32 @@ public class ParticleManager : MonoBehaviour
     int currentHeavyIndex;
     int currentHeavyHitIndex;
 
+    [Header("Artillery")]
+    public ArtilleryShell exampleArtillery;
+    List<ArtilleryShell> artilleryShells = new List<ArtilleryShell>();
+    public ParticleSystem exampleArtilleryHit;
+    List<ParticleSystem> artilleryHits = new List<ParticleSystem>();
+    int currentArtilleryIndex;
+    int currentArtilleryHitIndex;
+
+    [Header("Missile")]
+    public Missile exampleMissile;
+    List<Missile> missiles = new List<Missile>();
+    int currentMissileIndex;
+    public ParticleSystem exampleMissileExplosion;
+    List<ParticleSystem> missileExplosions = new List<ParticleSystem>();
+    int currentMissileExplosionIndex;
+
+    [Header("Troop destruction")]
+    public ParticleSystem exampleTroopExplosion;
+    List<ParticleSystem> troopExplosions = new List<ParticleSystem>();
+    int currentTroopExplosion;
+
+    [Header("Building Destruction")]
+    public ParticleSystem exampleBuildingExplosion;
+    List<ParticleSystem> buildingExplosions = new List<ParticleSystem>();
+    int currentBuildingExplosion;
+
     private void Awake()
     {
         instance = this;
@@ -36,6 +62,14 @@ public class ParticleManager : MonoBehaviour
             variantShells.Add(Instantiate(exampleVariantShell, transform.position, Quaternion.identity, transform));
             variantShells[i].gameObject.SetActive(false);
             heavyHits.Add(Instantiate(exampleHeavyHit, transform.position, Quaternion.identity, transform));
+            artilleryShells.Add(Instantiate(exampleArtillery, transform.position, Quaternion.identity, transform));
+            artilleryShells[i].gameObject.SetActive(false);
+            artilleryHits.Add(Instantiate(exampleArtilleryHit, transform.position, Quaternion.identity, transform));
+            missiles.Add(Instantiate(exampleMissile, transform.position, Quaternion.identity, transform));
+            missiles[i].gameObject.SetActive(false);
+            missileExplosions.Add(Instantiate(exampleMissileExplosion, transform.position, Quaternion.identity, transform));
+            troopExplosions.Add(Instantiate(exampleTroopExplosion, transform.position, Quaternion.identity, transform));
+            buildingExplosions.Add(Instantiate(exampleBuildingExplosion, transform.position, Quaternion.identity, transform));
         }
     }
 
@@ -61,15 +95,95 @@ public class ParticleManager : MonoBehaviour
         }
         bullets[index].SetActive(false);
         hits[index].transform.position = endpoint;
-        hits[index].transform.LookAt(startpoint, Vector3.up);
+        hits[index].transform.LookAt(endpoint + (endpoint - startpoint), Vector3.up);
         hits[index].Play();
     }
 
-    public void HeavyBullet(Transform origin, bool isVariant)
+    public void HeavyBullet(Transform origin, bool isVariant, out TankShell shell)
     {
         if (currentHeavyIndex >= shells.Count)
+            currentHeavyIndex = 0;
+        if (isVariant)
         {
-
+            variantShells[currentHeavyIndex].gameObject.SetActive(true);
+            variantShells[currentHeavyIndex].transform.position = origin.position;
+            variantShells[currentHeavyIndex].transform.rotation = origin.rotation;
+            shell = variantShells[currentBulletIndex];
         }
+        else
+        {
+            shells[currentHeavyIndex].gameObject.SetActive(true);
+            shells[currentHeavyIndex].transform.position = origin.position;
+            shells[currentHeavyIndex].transform.rotation = origin.rotation;
+            shell = shells[currentBulletIndex];
+        }
+        currentHeavyIndex++;
+    }
+    public void HeavyHit(Transform origin)
+    {
+        if (currentHeavyHitIndex >= heavyHits.Count)
+            currentHeavyHitIndex = 0;
+        heavyHits[currentHeavyHitIndex].transform.position = origin.position;
+        heavyHits[currentHeavyHitIndex].transform.rotation = origin.rotation;
+        heavyHits[currentHeavyHitIndex].Play();
+        currentHeavyHitIndex++;
+    }
+
+    public void ArtilleryShell(Transform origin, out ArtilleryShell shell)
+    {
+        if (currentArtilleryIndex >= artilleryShells.Count)
+            currentArtilleryIndex = 0;
+        artilleryShells[currentArtilleryIndex].gameObject.SetActive(true);
+        artilleryShells[currentArtilleryIndex].transform.position = origin.position;
+        artilleryShells[currentArtilleryIndex].transform.rotation = origin.rotation;
+        shell = artilleryShells[currentArtilleryIndex];
+        currentArtilleryIndex++;
+    }
+    public void ArtilleryHit(Vector3 position)
+    {
+        if (currentArtilleryHitIndex >= artilleryHits.Count)
+            currentArtilleryHitIndex = 0;
+        artilleryHits[currentArtilleryHitIndex].transform.position = position;
+        artilleryHits[currentArtilleryHitIndex].Play();
+        currentArtilleryHitIndex++;
+    }
+
+    public void Missile(Transform origin, out Missile missile)
+    {
+        if (currentMissileIndex >= missiles.Count)
+            currentMissileIndex = 0;
+        missiles[currentMissileIndex].gameObject.SetActive(true);
+        missiles[currentMissileIndex].transform.position = origin.position;
+        missiles[currentMissileIndex].transform.rotation = origin.rotation;
+        missile = missiles[currentMissileIndex];
+        currentMissileIndex++;
+    }
+    public void MissileExplosion(Transform origin)
+    {
+        if (currentMissileExplosionIndex >= missileExplosions.Count)
+            currentMissileExplosionIndex = 0;
+        missileExplosions[currentMissileExplosionIndex].transform.position = origin.position;
+        missileExplosions[currentMissileExplosionIndex].transform.rotation = origin.rotation;
+        missileExplosions[currentMissileExplosionIndex].Play();
+        currentMissileExplosionIndex++;
+    }
+
+    public void ExplodingTroop(Transform origin)
+    {
+        if (currentTroopExplosion >= troopExplosions.Count)
+            currentTroopExplosion = 0;
+        troopExplosions[currentTroopExplosion].transform.position = origin.position;
+        troopExplosions[currentTroopExplosion].transform.rotation = origin.rotation;
+        troopExplosions[currentTroopExplosion].Play();
+        currentTroopExplosion++;
+    }
+    public void ExplodingBuilding(Transform origin)
+    {
+        if (currentBuildingExplosion >= buildingExplosions.Count)
+            currentBuildingExplosion = 0;
+        buildingExplosions[currentBuildingExplosion].transform.position = origin.position;
+        buildingExplosions[currentBuildingExplosion].transform.rotation = origin.rotation;
+        buildingExplosions[currentBuildingExplosion].Play();
+        currentBuildingExplosion++;
     }
 }
