@@ -10,7 +10,7 @@ public class SetupGame : MonoBehaviour
     public UnitBase[] armyThree;
     public UnitBase[] armyFour;
     public UnitBase[] armyFive;
-    public AiSetup[] aiSetups;
+    public AiArmyManager[] ais;
 
     void Start()
     {
@@ -76,19 +76,60 @@ public class SetupGame : MonoBehaviour
         {
             hq.supplies = DifficultyLoader.instance.startingCash;
         }
-        foreach (AiSetup ai in aiSetups)
+        foreach (AiArmyManager ai in ais)
         {
-            ai.armyManager.StartAI(ai.ecoScore, ai.agroScore, ai.costMod, ai.squadCap);
+            int i = Random.Range(0, 3);
+            switch (DifficultyLoader.instance.difficulty)
+            {
+                case Difficulty.Easy:
+                    switch (i)
+                    {
+                        case 0:
+                            ai.StartAI(3, 1, 4);
+                            break;
+                        case 1:
+                            ai.StartAI(1, 3, 2.7f);
+                            break;
+                        default:
+                            ai.StartAI(2, 2, 3.3f);
+                            break;
+
+                    }
+                    break;
+                case Difficulty.Normal:
+                    switch (i)
+                    {
+                        case 0:
+                            ai.StartAI(4, 6, 2.5f, 4);
+                            break;
+                        case 1:
+                            ai.StartAI(5, 5, 2.5f, 4);
+                            break;
+                        default:
+                            ai.StartAI(6, 4, 2.5f, 4);
+                            break;
+
+                    }
+                    break;
+                case Difficulty.Hard:
+                    switch (i)
+                    {
+                        case 0:
+                            ai.StartAI(7, 9, 1.5f, 5);
+                            break;
+                        case 1:
+                            ai.StartAI(8, 8, 1.5f, 5);
+                            break;
+                        default:
+                            ai.StartAI(9, 7, 1.5f, 5);
+                            break;
+
+                    }
+                    break;
+                default:
+                    ai.StartAI(10, 10, 0.5f, 6);
+                    break;
+            }
         }
     }
-}
-
-[System.Serializable]
-public class AiSetup
-{
-    public AiArmyManager armyManager;
-    public float ecoScore;
-    public float agroScore;
-    public float costMod;
-    public int squadCap;
 }

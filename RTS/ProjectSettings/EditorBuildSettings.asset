@@ -11,5 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial Level/Tutorial Level.unity
     guid: 2b603a7dc2d9408419f304ffca28bc37
+  - enabled: 1
+    path: Assets/Scenes/Skirmish Maps/5 - Island Free For All/5 - Island Free For
+      All.unity
+    guid: 162284a3ad259e24d906ab0e1c4fd634
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 419449029fc47184e9db9afc0524dd31, type: 2}

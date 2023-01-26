@@ -38,8 +38,11 @@ public class SelectDifficultyAndLevel : MonoBehaviour
             case 1:
                 DifficultyLoader.instance.difficulty = Difficulty.Normal;
                 break;
-            default:
+            case 2:
                 DifficultyLoader.instance.difficulty = Difficulty.Hard;
+                break;
+            default:
+                DifficultyLoader.instance.difficulty = Difficulty.Impossible;
                 break;
         }
     }
