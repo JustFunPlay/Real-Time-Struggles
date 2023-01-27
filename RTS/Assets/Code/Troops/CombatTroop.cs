@@ -20,6 +20,8 @@ public class CombatTroop : TroopMovement
 
     public ParticleSystem muzzleFlash;
 
+    public AudioSource shootSound;
+
     public override void AddedUnit(Army army_)
     {
         base.AddedUnit(army_);

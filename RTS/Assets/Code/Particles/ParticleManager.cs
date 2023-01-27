@@ -97,6 +97,7 @@ public class ParticleManager : MonoBehaviour
         hits[index].transform.position = endpoint;
         hits[index].transform.LookAt(endpoint + (endpoint - startpoint), Vector3.up);
         hits[index].Play();
+        hits[index].GetComponent<RandomSfx>().PlaySFX();
     }
 
     public void HeavyBullet(Transform origin, bool isVariant, out TankShell shell)
@@ -126,6 +127,8 @@ public class ParticleManager : MonoBehaviour
         heavyHits[currentHeavyHitIndex].transform.position = origin.position;
         heavyHits[currentHeavyHitIndex].transform.rotation = origin.rotation;
         heavyHits[currentHeavyHitIndex].Play();
+        heavyHits[currentHeavyHitIndex].GetComponent<AudioSource>().pitch = Random.Range(0.5f, 3f);
+        heavyHits[currentHeavyHitIndex].GetComponent<AudioSource>().Play();
         currentHeavyHitIndex++;
     }
 
@@ -145,6 +148,7 @@ public class ParticleManager : MonoBehaviour
             currentArtilleryHitIndex = 0;
         artilleryHits[currentArtilleryHitIndex].transform.position = position;
         artilleryHits[currentArtilleryHitIndex].Play();
+        artilleryHits[currentArtilleryHitIndex].GetComponent<RandomSfx>().PlaySFX();
         currentArtilleryHitIndex++;
     }
 
@@ -165,6 +169,7 @@ public class ParticleManager : MonoBehaviour
         missileExplosions[currentMissileExplosionIndex].transform.position = origin.position;
         missileExplosions[currentMissileExplosionIndex].transform.rotation = origin.rotation;
         missileExplosions[currentMissileExplosionIndex].Play();
+        missileExplosions[currentMissileExplosionIndex].GetComponent<RandomSfx>().PlaySFX();
         currentMissileExplosionIndex++;
     }
 
@@ -175,6 +180,7 @@ public class ParticleManager : MonoBehaviour
         troopExplosions[currentTroopExplosion].transform.position = origin.position;
         troopExplosions[currentTroopExplosion].transform.rotation = origin.rotation;
         troopExplosions[currentTroopExplosion].Play();
+        troopExplosions[currentTroopExplosion].GetComponent<RandomSfx>().PlaySFX();
         currentTroopExplosion++;
     }
     public void ExplodingBuilding(Transform origin)
@@ -184,6 +190,7 @@ public class ParticleManager : MonoBehaviour
         buildingExplosions[currentBuildingExplosion].transform.position = origin.position;
         buildingExplosions[currentBuildingExplosion].transform.rotation = origin.rotation;
         buildingExplosions[currentBuildingExplosion].Play();
+        buildingExplosions[currentBuildingExplosion].GetComponent<RandomSfx>().PlaySFX();
         currentBuildingExplosion++;
     }
 }

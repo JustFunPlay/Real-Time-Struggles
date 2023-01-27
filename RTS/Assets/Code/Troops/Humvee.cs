@@ -65,6 +65,8 @@ public class Humvee : CombatTroop
         if (hit.collider && hit.collider.GetComponent<UnitBase>() && hit.collider.GetComponent<UnitBase>().army != army)
         {
             muzzleFlash.Play();
+            shootSound.pitch = Random.Range(0.5f, 3f);
+            shootSound.Play();
             UnitBase hitTarget = hit.collider.GetComponent<UnitBase>();
             ParticleManager.instance.FireBullet(firePoint.position, hit.point);
             if (hitTarget.type == UnitType.LightTroop || hitTarget.type == UnitType.ResourceTruck)

@@ -10,6 +10,9 @@ public class TroopMovement : UnitBase
     public bool inQueue;
     public bool inBuilding;
     public ParticleSystem moveSmoke;
+    public AudioSource movingSound;
+    public AudioSource idleSound;
+
     public override void AddedUnit(Army army_)
     {
         base.AddedUnit(army_);
@@ -19,10 +22,18 @@ public class TroopMovement : UnitBase
 
     protected virtual void FixedUpdate()
     {
-        if (agent.velocity.magnitude < 1)
+        if (agent.velocity.magnitude < 1 && moveSmoke.isPlaying)
+        {
             moveSmoke.Stop();
-        else
+            idleSound.Play();
+            movingSound.Stop();
+        }
+        else if (!moveSmoke.isPlaying && agent.velocity.magnitude > 1)
+        {
             moveSmoke.Play();
+            movingSound.Play();
+            idleSound.Stop();
+        }
     }
     public void MoveToPosition(Vector3 position)
     {

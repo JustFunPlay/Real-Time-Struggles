@@ -19,6 +19,8 @@ public class MissileArray : Building
     public Transform horizontalTurn;
     public Transform verticalTurn;
 
+    public AudioSource shootSound;
+
     public override void AddedUnit(Army army_)
     {
         base.AddedUnit(army_);
@@ -66,6 +68,8 @@ public class MissileArray : Building
             if (target)
             {
                 launchPoints[i].GetComponentInChildren<ParticleSystem>().Play();
+                shootSound.pitch = Random.Range(0.5f, 3f);
+                shootSound.Play();
                 LaunchMissile(i);
                 yield return new WaitForSeconds(burstDelay);
             }

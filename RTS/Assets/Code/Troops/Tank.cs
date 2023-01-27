@@ -60,6 +60,8 @@ public class Tank : CombatTroop
     {
         canFire = false;
         muzzleFlash.Play();
+        shootSound.pitch = Random.Range(0.5f, 3f);
+        shootSound.Play();
         ParticleManager.instance.HeavyBullet(firePoint, isVariant, out TankShell shell);
         shell.Launch(army, damage);
         yield return new WaitForSeconds(attackSpeed);

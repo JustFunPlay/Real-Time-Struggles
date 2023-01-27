@@ -21,6 +21,8 @@ public class AutoTurret : Building
 
     public ParticleSystem muzzleFlash;
 
+    public AudioSource shootSound;
+
     public override void AddedUnit(Army army_)
     {
         base.AddedUnit(army_);
@@ -66,6 +68,8 @@ public class AutoTurret : Building
         Physics.Raycast(firePoint.position, firePoint.forward, out RaycastHit hit, range, hitlayer);
         if (hit.collider && hit.collider.GetComponent<UnitBase>() && hit.collider.GetComponent<UnitBase>().army != army)
         {
+            shootSound.pitch = Random.Range(0.5f, 3f);
+            shootSound.Play();
             muzzleFlash.Play();
             ParticleManager.instance.FireBullet(firePoint.position, hit.point);
             hit.collider.GetComponent<UnitBase>().DelayedDamage(damage, 0.1f);

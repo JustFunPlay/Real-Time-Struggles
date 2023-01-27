@@ -64,6 +64,8 @@ public class Howitzer : CombatTroop
     {
         canFire = false;
         muzzleFlash.Play();
+        shootSound.pitch = Random.Range(0.5f, 3f);
+        shootSound.Play();
         ParticleManager.instance.ArtilleryShell(firePoint, out ArtilleryShell firedShell);
         firedShell.Launch(damage, splashRadius, target.transform.position + target.transform.TransformDirection(target.targetingPoints[0]), army);
         yield return new WaitForSeconds(attackSpeed);

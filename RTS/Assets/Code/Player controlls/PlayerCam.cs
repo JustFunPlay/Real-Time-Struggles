@@ -57,6 +57,7 @@ public class PlayerCam : MonoBehaviour
     Vector3 selectStartPos;
     bool addSelect;
     public bool inBuildMode;
+    public AudioSource[] selectionSounds;
 
     [Header("Menus")]
     public GameObject[] contextMenus;
@@ -67,6 +68,7 @@ public class PlayerCam : MonoBehaviour
     private void Start()
     {
         instance = this;
+        playerArmy = DifficultyLoader.instance.playerArmy;
         cam = GetComponentInChildren<Camera>();
         Cursor.lockState = CursorLockMode.Confined;
         currentCamDistance = Vector3.Distance(transform.position, cam.transform.position);
@@ -363,6 +365,36 @@ public class PlayerCam : MonoBehaviour
                 contextMenus[2].SetActive(true);
             else
                 baseMenu.SetActive(true);
+            switch (selectedUnits[0].type)
+            {
+                case UnitType.HeadQuarters:
+                    selectionSounds[0].Play();
+                    break;
+                case UnitType.HeavyFactory:
+                    selectionSounds[1].Play();
+                    break;
+                case UnitType.LightFactory:
+                    selectionSounds[2].Play();
+                    break;
+                case UnitType.PowerPlant:
+                    selectionSounds[3].Play();
+                    break;
+                case UnitType.RepairBay:
+                    selectionSounds[4].Play();
+                    break;
+                case UnitType.ConstructionSite:
+                    selectionSounds[5].Play();
+                    break;
+                case UnitType.ResourceDepot:
+                    selectionSounds[6].Play();
+                    break;
+                case UnitType.TechCenter:
+                    selectionSounds[7].Play();
+                    break;
+                case UnitType.DefenseBuilding:
+                    selectionSounds[8].Play();
+                    break;
+            }
 
         }
         else
