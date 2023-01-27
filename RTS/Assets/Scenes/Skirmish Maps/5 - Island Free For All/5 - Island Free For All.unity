@@ -5627,6 +5627,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5711016558163826052, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5711016558174047092, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5971,6 +5975,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
+      propertyPath: ais.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
+      propertyPath: ais.Array.data[0]
+      value: 
+      objectReference: {fileID: 1971397245}
+    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
+      propertyPath: ais.Array.data[1]
+      value: 
+      objectReference: {fileID: 551731946}
+    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
+      propertyPath: ais.Array.data[2]
+      value: 
+      objectReference: {fileID: 1896678592}
+    - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
+      propertyPath: ais.Array.data[3]
+      value: 
+      objectReference: {fileID: 1005738261}
     - target: {fileID: 6110579599767416998, guid: beedf7c88a67976488d2e5832e9d427d, type: 3}
       propertyPath: armyOne.Array.size
       value: 18
