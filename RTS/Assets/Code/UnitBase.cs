@@ -10,7 +10,7 @@ public class UnitBase : MonoBehaviour
     public int currentHP;
     public Army army;
     public bool canBeSeclected;
-    public MeshRenderer showSelected;
+    public GameObject showSelected;
     public UnitType type;
     public MeshRenderer[] renderers;
     public SkinnedMeshRenderer[] skinnedRenderers;
@@ -127,7 +127,7 @@ public class UnitBase : MonoBehaviour
         {
             if (!PlayerCam.instance.selectedUnits.Contains(this))
                 PlayerCam.instance.selectedUnits.Add(this);
-            showSelected.material.color = Color.green;
+            showSelected.SetActive(true);
             isSelected = true;
 
             if (showTime <= 0)
@@ -139,7 +139,7 @@ public class UnitBase : MonoBehaviour
     {
         isSelected = false;
         PlayerCam.instance.selectedUnits.Remove(this);
-        showSelected.material.color = Color.white;
+        showSelected.SetActive(false);
     }
 
     protected virtual void OnDestroy()
