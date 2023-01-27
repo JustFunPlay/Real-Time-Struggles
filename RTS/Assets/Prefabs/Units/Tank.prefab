@@ -565,8 +565,8 @@ MonoBehaviour:
   inQueue: 0
   inBuilding: 0
   moveSmoke: {fileID: 6956746419087531182}
-  movingSound: {fileID: 0}
-  idleSound: {fileID: 0}
+  movingSound: {fileID: 7044911399057332245}
+  idleSound: {fileID: 3756447945437533462}
   turretRotate: {fileID: 8467183996828802221}
   barrelAngle: {fileID: 2782548937722562035}
   firePoint: {fileID: 3091761681964000897}

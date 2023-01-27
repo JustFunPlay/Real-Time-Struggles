@@ -109,14 +109,14 @@ public class ParticleManager : MonoBehaviour
             variantShells[currentHeavyIndex].gameObject.SetActive(true);
             variantShells[currentHeavyIndex].transform.position = origin.position;
             variantShells[currentHeavyIndex].transform.rotation = origin.rotation;
-            shell = variantShells[currentBulletIndex];
+            shell = variantShells[currentHeavyIndex];
         }
         else
         {
             shells[currentHeavyIndex].gameObject.SetActive(true);
             shells[currentHeavyIndex].transform.position = origin.position;
             shells[currentHeavyIndex].transform.rotation = origin.rotation;
-            shell = shells[currentBulletIndex];
+            shell = shells[currentHeavyIndex];
         }
         currentHeavyIndex++;
     }

@@ -20,7 +20,7 @@ public class TankShell : MonoBehaviour
     }
     IEnumerator Fly()
     {
-        airTime= 10;
+        airTime = 10;
         while (airTime >= 0)
         {
             rb.MovePosition(transform.position + transform.forward * flySpeed * Time.fixedDeltaTime);
