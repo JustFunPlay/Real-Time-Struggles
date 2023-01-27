@@ -26,11 +26,11 @@ public class HQBuilding : Factory
         if (canHeal)
         {
             canHeal = false;
-            foreach (UnitBase unit in PlayerTroopManager.instance.allUnits)
+            foreach (Building building in PlayerTroopManager.instance.buildings)
             {
-                if (unit.army == army && unit.GetComponent<Building>())
+                if (building.army == army)
                 {
-                    StartCoroutine(unit.GetComponent<Building>().EmergencyRepair(healPerTick, costPerHeal));
+                    StartCoroutine(building.EmergencyRepair(healPerTick, costPerHeal));
                 }
             }
             StartCoroutine(WaitForHeal());
