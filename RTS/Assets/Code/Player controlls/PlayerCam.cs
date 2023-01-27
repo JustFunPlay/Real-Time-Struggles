@@ -90,13 +90,19 @@ public class PlayerCam : MonoBehaviour
     }
     public void LeftClick(InputAction.CallbackContext callbackContext)
     {
+        UnitBase currentSelected = null;
+        if (selectedUnits.Count == 1)
+            currentSelected = selectedUnits[0];
         Ray clickRay = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;
         if (inBuildMode && callbackContext.started && !holdMiddleClick && !holdRightClick && !IsHoveringOverUI())
         {
             newBuilding.SpawnBuilding(out bool isPlaced);
             if (isPlaced)
+            {
+                selectionSounds[5].Play();
                 inBuildMode = false;
+            }
         }
         else if (!holdRightClick && !holdMiddleClick && callbackContext.started && !inBuildMode)
         {
@@ -123,7 +129,6 @@ public class PlayerCam : MonoBehaviour
                 if (Unit.GetComponent<TroopMovement>() && bounds.Contains(Unit.GetComponent<TroopMovement>().ToViewportSpace(cam)))
                     Unit.OnSelected();
             }
-            SelectCheck();
         }
         else if (holdLeftClick && callbackContext.canceled)
         {
@@ -196,8 +201,9 @@ public class PlayerCam : MonoBehaviour
                 Formations.instance.SetFormation(troops.ToArray(), hit.point);
             }
             holdLeftClick = false;
-            SelectCheck();
         }
+        if (selectedUnits.Count == 0 || selectedUnits[0] != currentSelected)
+            SelectCheck();
     }
     public void RightClick(InputAction.CallbackContext callbackContext)
     {

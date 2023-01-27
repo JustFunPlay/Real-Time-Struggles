@@ -172,9 +172,21 @@ public class UnitBase : MonoBehaviour
         hpbar.SetActive(true);
         hpSlider.value = currentHP;
         hpbar.transform.LookAt(PlayerCam.instance.cam.transform.position, Vector3.up);
+        if (currentHP * 3 <= maxHP)
+            hpSlider.fillRect.GetComponent<Image>().color = Color.red;
+        else if (currentHP * 1.5 <= maxHP)
+            hpSlider.fillRect.GetComponent<Image>().color = Color.yellow;
+        else
+            hpSlider.fillRect.GetComponent<Image>().color = Color.green;
         yield return new WaitForFixedUpdate();
         while (isSelected || showTime > 0)
         {
+            if (currentHP * 3 <= maxHP)
+                hpSlider.fillRect.GetComponent<Image>().color = Color.red;
+            else if (currentHP * 1.5 <= maxHP)
+                hpSlider.fillRect.GetComponent<Image>().color = Color.yellow;
+            else
+                hpSlider.fillRect.GetComponent<Image>().color = Color.green;
             hpSlider.value = currentHP;
             hpbar.transform.LookAt(PlayerCam.instance.cam.transform.position, Vector3.up);
             yield return new WaitForFixedUpdate();
