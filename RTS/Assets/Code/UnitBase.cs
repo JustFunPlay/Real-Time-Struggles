@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnitBase : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class UnitBase : MonoBehaviour
     /// corners, halfwaypoints and centre-of-mass for the purpose of targeting distance, [0] is allways centre-of-mass
     /// </summary>
     public Sprite icon;
+    bool isSelected;
+
+    public GameObject hpbar;
+    public Slider hpSlider;
+    float showTime = 0;
 
     public virtual void AddedUnit(Army army_)
     {
@@ -82,6 +88,8 @@ public class UnitBase : MonoBehaviour
         currentHP = maxHP;
         PlayerTroopManager.instance.allUnits.Add(this);
         canBeSeclected = true;
+        hpbar.SetActive(false);
+        hpSlider.maxValue = maxHP;
     }
 
     public virtual void OnTakeDamage(int damage)
@@ -89,6 +97,9 @@ public class UnitBase : MonoBehaviour
         currentHP -= damage;
         if (currentHP <= 0)
             OnDeath();
+        else if (showTime <= 0)
+            StartCoroutine(ShowHpBar());
+        showTime = 1.5f;
     }
     public void DelayedDamage(int damage, float delay)
     {
@@ -117,10 +128,16 @@ public class UnitBase : MonoBehaviour
             if (!PlayerCam.instance.selectedUnits.Contains(this))
                 PlayerCam.instance.selectedUnits.Add(this);
             showSelected.material.color = Color.green;
+            isSelected = true;
+
+            if (showTime <= 0)
+                StartCoroutine(ShowHpBar());
+            showTime = 0.5f;
         }
     }
     public void OnDeselected()
     {
+        isSelected = false;
         PlayerCam.instance.selectedUnits.Remove(this);
         showSelected.material.color = Color.white;
     }
@@ -149,6 +166,22 @@ public class UnitBase : MonoBehaviour
         }
 
         return closestPos;
+    }
+    IEnumerator ShowHpBar()
+    {
+        hpbar.SetActive(true);
+        hpSlider.value = currentHP;
+        hpbar.transform.LookAt(PlayerCam.instance.cam.transform.position, Vector3.up);
+        yield return new WaitForFixedUpdate();
+        while (isSelected || showTime > 0)
+        {
+            hpSlider.value = currentHP;
+            hpbar.transform.LookAt(PlayerCam.instance.cam.transform.position, Vector3.up);
+            yield return new WaitForFixedUpdate();
+            if (!isSelected)
+                showTime -= Time.fixedDeltaTime;
+        }
+        hpbar.SetActive(false);
     }
 }
 
